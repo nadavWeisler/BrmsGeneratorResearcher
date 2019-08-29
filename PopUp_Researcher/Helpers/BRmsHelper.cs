@@ -79,6 +79,21 @@ namespace bRMS_Generator
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
+        public List<string> GetStimulusByOneTag(string tag)
+        {
+            var resultList = new List<string>();
+            if (this.StimulusDictionary != null && this.StimulusDictionary.ContainsKey(tag))
+            {
+                resultList.AddRange(this.StimulusDictionary[tag]);
+            }
+            return resultList;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public List<string> GetTagList()
         {

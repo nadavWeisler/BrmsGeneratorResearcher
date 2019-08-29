@@ -29,7 +29,7 @@ namespace bRMS_Generator
         /// <param name="index"></param>
         public static List<T> DownOneItem<T>(List<T> lst, int index)
         {
-            if (index > 1 && index < lst.Count)
+            if (index >= 1 && index < lst.Count)
             {
                 var tmp = lst[index];
                 lst[index] = lst[index - 1];
@@ -44,7 +44,7 @@ namespace bRMS_Generator
         /// <param name="index"></param>
         public static List<T> UpOneItem<T>(List<T> lst, int index)
         {
-            if (index > 0 && index < lst.Count - 1)
+            if (index >= 0 && index < lst.Count - 1)
             {
                 var tmp = lst[index];
                 lst[index] = lst[index + 1];

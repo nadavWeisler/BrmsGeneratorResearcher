@@ -9,38 +9,37 @@ namespace bRMS_Generator
     public partial class MainForm : Form
     {
         /// <summary>
-        /// 
+        /// Experiment's Trials
         /// </summary>
         public static Dictionary<string, Experiment> Experiments;
 
         /// <summary>
-        /// 
+        /// Experiment's Trials Name List
         /// </summary>
         private static List<string> experiments_order;
 
         /// <summary>
-        /// 
+        /// Fullscreen Trial Count
         /// </summary>
         private static int fullscreenCount;
 
-
         /// <summary>
-        /// 
+        /// Introduction Trial Count
         /// </summary>
         private static int introCount;
 
         /// <summary>
-        /// 
+        /// Survry Trials Count
         /// </summary>
         private static int surveyCount;
 
         /// <summary>
-        /// 
+        /// bRMS Trials Count
         /// </summary>
         private static int bRMS_count;
 
         /// <summary>
-        /// 
+        /// MainForm Constractor
         /// </summary>
         public MainForm()
         {
@@ -51,9 +50,8 @@ namespace bRMS_Generator
             introCount = 0;
         }
 
-
         /// <summary>
-        /// 
+        /// Open Create Introduction Dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -65,7 +63,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Open Create bRMS Dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -73,10 +71,11 @@ namespace bRMS_Generator
         {
             var bRms = new BrmsForm();
             bRms.ShowDialog();
+            BindListView();
         }
 
         /// <summary>
-        /// 
+        /// Open Create Survey Dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -88,7 +87,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Open Create Fullscreen Dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,7 +144,21 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Add bRMS trials to Experiment list view
+        /// </summary>
+        /// <param name="brms_list"></param>
+        public static void AddBrms(List<bRMS> brms_list)
+        {
+            foreach(var item in brms_list)
+            {
+                Experiments.Add("bRMS" + bRMS_count, item);
+                experiments_order.Add("bRMS" + bRMS_count);
+                bRMS_count++;
+            }
+        }
+
+        /// <summary>
+        /// Load new Experiment (for edit)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -155,7 +168,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Remove Trial from experiment list view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -172,7 +185,7 @@ namespace bRMS_Generator
 
 
         /// <summary>
-        /// 
+        /// Save all experiment button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

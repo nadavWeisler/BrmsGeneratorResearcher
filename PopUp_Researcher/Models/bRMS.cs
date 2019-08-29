@@ -5,33 +5,57 @@ namespace bRMS_Generator.src
 {
     public class bRMS: Experiment
     {
+        public string name;
+
         [BsonElement("stimulusFolder")]
-        protected string StimulusFolder;
+        public string StimulusFolder;
         [BsonElement("visualUnit")]
-        protected int VisualUnit;
+        public decimal VisualUnit;
         [BsonElement("stimulus")]
-        protected string Stimulus;
+        public string Stimulus;
         [BsonElement("block")]
-        protected string Block;
+        public string Block;
         [BsonElement("file")]
-        protected string File;
+        public string File;
         [BsonElement("trial_length")]
-        protected int TrialLength;
+        public decimal TrialLength;
         [BsonElement("fade_in_time")]
-        protected int FadeInTime;
+        public decimal FadeInTime;
         [BsonElement("fade_out_time")]
-        protected int FadeOutTime;
+        public decimal FadeOutTime;
         [BsonElement("timing_post_trial")]
-        protected int TimingPostTrial;
+        public decimal TimingPostTrial;
         [BsonElement("fade_out_length")]
-        protected int FadeOutLength;
+        public decimal FadeOutLength;
         [BsonElement("train_alpha")]
-        protected int TrainAlpha;
+        public decimal TrainAlpha;
         [BsonElement("visUnit")]
-        protected int VisUnit;
+        public decimal VisUnit;
         [BsonElement("within_ITI")]
-        protected int WithinIti;
+        public decimal WithinIti;
         [BsonElement("orientation")]
-        protected char Orientation;
+        public string Orientation;
+        [BsonElement("repetitions")]
+        public decimal Repetitions;
+        [BsonElement("max_type ")]
+        public decimal MaxType;
+        [BsonElement("timing_response")]
+        public decimal TimingResponse;
+        [BsonElement("mondrian_count")]
+        public decimal MondrianCount;
+        [BsonElement("break_time")]
+        public decimal BreakTime;
+        [BsonElement("experiment_length")]
+        public decimal ExperimentLength;
+        [BsonElement("rectengle_number")]
+        public decimal RectengleNumber;
+        [BsonElement("stimulus_max_opacity")]
+        public decimal StimulusMaxOpacity;
+        [BsonElement("mondrian_max_opacity")]
+        public decimal MondrianMaxOpacity;
+        [BsonElement("trial_limit")]
+        public decimal TrialLimit;
+        [BsonElement("brms_type")]
+        public string BrmsType;
     }
 }
