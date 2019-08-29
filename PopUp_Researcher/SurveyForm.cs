@@ -26,10 +26,10 @@ namespace bRMS_Generator
         /// </summary>
         private void BindListView()
         {
-            listView1.Items.Clear();
+            QuestionsListView.Items.Clear();
             foreach (var item in this.questions)
             {
-                listView1.Items.Add(item.GetPrompt());
+                QuestionsListView.Items.Add(item.GetPrompt());
             }
         }
 
@@ -116,7 +116,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listView1.SelectedItems)
+            foreach (ListViewItem item in QuestionsListView.SelectedItems)
             {
                 this.questions = Utils.RemoveItemByIndex(this.questions, item.Index);
             }
@@ -130,9 +130,9 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < this.questions.Count - 1)
+            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index < this.questions.Count - 1)
             {
-                this.questions = Utils.UpOneItem(this.questions, listView1.SelectedItems[0].Index);
+                this.questions = Utils.UpOneItem(this.questions, QuestionsListView.SelectedItems[0].Index);
                 BindListView();
             }
         }
@@ -144,9 +144,9 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
+            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index > 0)
             {
-                this.questions = Utils.DownOneItem(this.questions, listView1.SelectedItems[0].Index);
+                this.questions = Utils.DownOneItem(this.questions, QuestionsListView.SelectedItems[0].Index);
                 BindListView();
             }
         }
@@ -158,10 +158,31 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void DuplicateButton_Click(object sender, EventArgs e)
         {
-            if(this.listView1.SelectedItems.Count > 0)
+            if(this.QuestionsListView.SelectedItems.Count > 0)
             {
 
             }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextSurveyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            QuestionsListView.Clear();
+        }
+
+        private void MultiSurveyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            QuestionsListView.Clear();
+        }
+
+        private void ScaleSurveyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            QuestionsListView.Clear();
         }
     }
 }

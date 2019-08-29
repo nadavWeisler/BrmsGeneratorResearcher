@@ -30,19 +30,19 @@
         {
             this.TextSurveyRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ScaleSurveyRadio = new System.Windows.Forms.RadioButton();
-            this.MultiSurveyRadio = new System.Windows.Forms.RadioButton();
-            this.AddQuestionButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.RemoveButton = new System.Windows.Forms.Button();
-            this.DuplicateButton = new System.Windows.Forms.Button();
-            this.MinusButton = new System.Windows.Forms.Button();
-            this.PlusButton = new System.Windows.Forms.Button();
             this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.GroupNumeric = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.ScaleSurveyRadio = new System.Windows.Forms.RadioButton();
+            this.MultiSurveyRadio = new System.Windows.Forms.RadioButton();
+            this.AddQuestionButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.QuestionsListView = new System.Windows.Forms.ListView();
+            this.RemoveButton = new System.Windows.Forms.Button();
+            this.DuplicateButton = new System.Windows.Forms.Button();
+            this.MinusButton = new System.Windows.Forms.Button();
+            this.PlusButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).BeginInit();
@@ -58,6 +58,7 @@
             this.TextSurveyRadio.TabStop = true;
             this.TextSurveyRadio.Text = "Text Survey";
             this.TextSurveyRadio.UseVisualStyleBackColor = true;
+            this.TextSurveyRadio.CheckedChanged += new System.EventHandler(this.TextSurveyRadio_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -75,6 +76,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Survey type";
             // 
+            // SubGroupNumeric
+            // 
+            this.SubGroupNumeric.Location = new System.Drawing.Point(164, 86);
+            this.SubGroupNumeric.Name = "SubGroupNumeric";
+            this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubGroupNumeric.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(100, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Sub Group";
+            // 
+            // GroupNumeric
+            // 
+            this.GroupNumeric.Location = new System.Drawing.Point(44, 86);
+            this.GroupNumeric.Name = "GroupNumeric";
+            this.GroupNumeric.Size = new System.Drawing.Size(51, 20);
+            this.GroupNumeric.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(2, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Group";
+            // 
             // ScaleSurveyRadio
             // 
             this.ScaleSurveyRadio.AutoSize = true;
@@ -85,6 +118,7 @@
             this.ScaleSurveyRadio.TabStop = true;
             this.ScaleSurveyRadio.Text = "Scale Survey";
             this.ScaleSurveyRadio.UseVisualStyleBackColor = true;
+            this.ScaleSurveyRadio.CheckedChanged += new System.EventHandler(this.ScaleSurveyRadio_CheckedChanged);
             // 
             // MultiSurveyRadio
             // 
@@ -96,6 +130,7 @@
             this.MultiSurveyRadio.TabStop = true;
             this.MultiSurveyRadio.Text = "Multi Choice Survey";
             this.MultiSurveyRadio.UseVisualStyleBackColor = true;
+            this.MultiSurveyRadio.CheckedChanged += new System.EventHandler(this.MultiSurveyRadio_CheckedChanged);
             // 
             // AddQuestionButton
             // 
@@ -117,14 +152,15 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // listView1
+            // QuestionsListView
             // 
-            this.listView1.Location = new System.Drawing.Point(6, 130);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(320, 231);
-            this.listView1.TabIndex = 26;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.QuestionsListView.HideSelection = false;
+            this.QuestionsListView.Location = new System.Drawing.Point(6, 130);
+            this.QuestionsListView.Name = "QuestionsListView";
+            this.QuestionsListView.Size = new System.Drawing.Size(320, 231);
+            this.QuestionsListView.TabIndex = 26;
+            this.QuestionsListView.UseCompatibleStateImageBehavior = false;
+            this.QuestionsListView.View = System.Windows.Forms.View.List;
             // 
             // RemoveButton
             // 
@@ -167,38 +203,6 @@
             this.PlusButton.UseVisualStyleBackColor = true;
             this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
-            // SubGroupNumeric
-            // 
-            this.SubGroupNumeric.Location = new System.Drawing.Point(164, 86);
-            this.SubGroupNumeric.Name = "SubGroupNumeric";
-            this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.SubGroupNumeric.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Sub Group";
-            // 
-            // GroupNumeric
-            // 
-            this.GroupNumeric.Location = new System.Drawing.Point(44, 86);
-            this.GroupNumeric.Name = "GroupNumeric";
-            this.GroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.GroupNumeric.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Group";
-            // 
             // SurveyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,7 +212,7 @@
             this.Controls.Add(this.MinusButton);
             this.Controls.Add(this.DuplicateButton);
             this.Controls.Add(this.RemoveButton);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.QuestionsListView);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddQuestionButton);
             this.Controls.Add(this.groupBox1);
@@ -229,7 +233,7 @@
         private System.Windows.Forms.RadioButton MultiSurveyRadio;
         private System.Windows.Forms.Button AddQuestionButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView QuestionsListView;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button DuplicateButton;
         private System.Windows.Forms.Button MinusButton;

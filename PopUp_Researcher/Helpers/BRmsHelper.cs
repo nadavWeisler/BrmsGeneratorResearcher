@@ -11,7 +11,7 @@ namespace bRMS_Generator
         /// <summary>
         /// 
         /// </summary>
-        protected bRMS Obj;
+        protected BRMS Obj;
 
         /// <summary>
         /// 
@@ -27,7 +27,7 @@ namespace bRMS_Generator
         /// </summary>
         public BRmsHelper()
         {
-            this.Obj = new bRMS();
+            this.Obj = new BRMS();
         }
 
         #endregion

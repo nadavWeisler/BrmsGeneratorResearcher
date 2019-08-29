@@ -147,7 +147,7 @@ namespace bRMS_Generator
         /// Add bRMS trials to Experiment list view
         /// </summary>
         /// <param name="brms_list"></param>
-        public static void AddBrms(List<bRMS> brms_list)
+        public static void AddBrms(List<BRMS> brms_list)
         {
             foreach(var item in brms_list)
             {

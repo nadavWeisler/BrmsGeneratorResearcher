@@ -31,15 +31,10 @@ namespace bRMS_Generator
         private void InitializeComponent()
         {
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.StimulusTextBox = new System.Windows.Forms.TextBox();
             this.StimulusGroup = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.HelpCsvButton = new System.Windows.Forms.Button();
             this.HelpCsvLabel = new System.Windows.Forms.Label();
             this.HelpCsvTextBox = new System.Windows.Forms.TextBox();
-            this.StimulusFolderButton = new System.Windows.Forms.Button();
-            this.StimulusFolderLabel = new System.Windows.Forms.Label();
             this.TypeGroupBox = new System.Windows.Forms.GroupBox();
             this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -127,25 +122,11 @@ namespace bRMS_Generator
             this.AllBRMSGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // StimulusTextBox
-            // 
-            this.StimulusTextBox.Location = new System.Drawing.Point(284, 21);
-            this.StimulusTextBox.Name = "StimulusTextBox";
-            this.StimulusTextBox.ReadOnly = true;
-            this.StimulusTextBox.Size = new System.Drawing.Size(138, 20);
-            this.StimulusTextBox.TabIndex = 0;
-            this.StimulusTextBox.DoubleClick += new System.EventHandler(this.StimulusTextBox_DoubleClick);
-            // 
             // StimulusGroup
             // 
-            this.StimulusGroup.Controls.Add(this.label4);
-            this.StimulusGroup.Controls.Add(this.NameTextBox);
             this.StimulusGroup.Controls.Add(this.HelpCsvButton);
             this.StimulusGroup.Controls.Add(this.HelpCsvLabel);
             this.StimulusGroup.Controls.Add(this.HelpCsvTextBox);
-            this.StimulusGroup.Controls.Add(this.StimulusFolderButton);
-            this.StimulusGroup.Controls.Add(this.StimulusFolderLabel);
-            this.StimulusGroup.Controls.Add(this.StimulusTextBox);
             this.StimulusGroup.Location = new System.Drawing.Point(12, 12);
             this.StimulusGroup.Name = "StimulusGroup";
             this.StimulusGroup.Size = new System.Drawing.Size(745, 56);
@@ -153,25 +134,9 @@ namespace bRMS_Generator
             this.StimulusGroup.TabStop = false;
             this.StimulusGroup.Text = "Basic";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Name";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Location = new System.Drawing.Point(58, 21);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(129, 20);
-            this.NameTextBox.TabIndex = 7;
-            // 
             // HelpCsvButton
             // 
-            this.HelpCsvButton.Location = new System.Drawing.Point(681, 21);
+            this.HelpCsvButton.Location = new System.Drawing.Point(709, 18);
             this.HelpCsvButton.Name = "HelpCsvButton";
             this.HelpCsvButton.Size = new System.Drawing.Size(24, 20);
             this.HelpCsvButton.TabIndex = 6;
@@ -182,7 +147,7 @@ namespace bRMS_Generator
             // HelpCsvLabel
             // 
             this.HelpCsvLabel.AutoSize = true;
-            this.HelpCsvLabel.Location = new System.Drawing.Point(458, 25);
+            this.HelpCsvLabel.Location = new System.Drawing.Point(13, 23);
             this.HelpCsvLabel.Name = "HelpCsvLabel";
             this.HelpCsvLabel.Size = new System.Drawing.Size(72, 13);
             this.HelpCsvLabel.TabIndex = 5;
@@ -190,32 +155,13 @@ namespace bRMS_Generator
             // 
             // HelpCsvTextBox
             // 
-            this.HelpCsvTextBox.Location = new System.Drawing.Point(536, 21);
+            this.HelpCsvTextBox.Location = new System.Drawing.Point(91, 19);
             this.HelpCsvTextBox.Name = "HelpCsvTextBox";
             this.HelpCsvTextBox.ReadOnly = true;
-            this.HelpCsvTextBox.Size = new System.Drawing.Size(139, 20);
+            this.HelpCsvTextBox.Size = new System.Drawing.Size(612, 20);
             this.HelpCsvTextBox.TabIndex = 4;
             this.HelpCsvTextBox.TextChanged += new System.EventHandler(this.HelpCsvTextBox_TextChanged);
             this.HelpCsvTextBox.DoubleClick += new System.EventHandler(this.HelpCsvTextBox_DoubleClick);
-            // 
-            // StimulusFolderButton
-            // 
-            this.StimulusFolderButton.Location = new System.Drawing.Point(428, 21);
-            this.StimulusFolderButton.Name = "StimulusFolderButton";
-            this.StimulusFolderButton.Size = new System.Drawing.Size(24, 20);
-            this.StimulusFolderButton.TabIndex = 3;
-            this.StimulusFolderButton.Text = "...";
-            this.StimulusFolderButton.UseVisualStyleBackColor = true;
-            this.StimulusFolderButton.Click += new System.EventHandler(this.StimulusFolderButton_Click);
-            // 
-            // StimulusFolderLabel
-            // 
-            this.StimulusFolderLabel.AutoSize = true;
-            this.StimulusFolderLabel.Location = new System.Drawing.Point(200, 24);
-            this.StimulusFolderLabel.Name = "StimulusFolderLabel";
-            this.StimulusFolderLabel.Size = new System.Drawing.Size(78, 13);
-            this.StimulusFolderLabel.TabIndex = 2;
-            this.StimulusFolderLabel.Text = "Stimulus Folder";
             // 
             // TypeGroupBox
             // 
@@ -896,10 +842,7 @@ namespace bRMS_Generator
         #endregion
 
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.TextBox StimulusTextBox;
         private System.Windows.Forms.GroupBox StimulusGroup;
-        private System.Windows.Forms.Button StimulusFolderButton;
-        private System.Windows.Forms.Label StimulusFolderLabel;
         private System.Windows.Forms.GroupBox TypeGroupBox;
         private System.Windows.Forms.RadioButton RandomRadio;
         private System.Windows.Forms.RadioButton OrderdRadio;
@@ -949,8 +892,6 @@ namespace bRMS_Generator
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown StimulusMaxOpacityNumeric;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.NumericUpDown TrialLimitNumeric;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown MondrianMaxOpacityNumeric;

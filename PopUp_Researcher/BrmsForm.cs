@@ -23,7 +23,7 @@ namespace bRMS_Generator
         /// <summary>
         /// 
         /// </summary>
-        protected Dictionary<string, bRMS> brms_trials;
+        protected Dictionary<string, BRMS> brms_trials;
 
         /// <summary>
         /// 
@@ -45,7 +45,7 @@ namespace bRMS_Generator
                 this.Helper = new BRmsHelper();
             }
             this.brms_names = new List<string>();
-            this.brms_trials = new Dictionary<string, bRMS>();
+            this.brms_trials = new Dictionary<string, BRMS>();
 
             PageEnabled();
         }
@@ -56,20 +56,6 @@ namespace bRMS_Generator
 
         #region Events
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StimulusFolderButton_Click(object sender, EventArgs e)
-        {
-            // Show the FolderBrowserDialog.  
-            DialogResult result = folderBrowserDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                StimulusTextBox.Text = folderBrowserDialog1.SelectedPath;
-            }
-        }
 
         /// <summary>
         /// 
@@ -116,16 +102,6 @@ namespace bRMS_Generator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void StimulusTextBox_DoubleClick(object sender, EventArgs e)
-        {
-            StimulusTextBox.Text = string.Empty;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void OrderedRadio_CheckedChanged(object sender, EventArgs e)
         {
             RadioEnabled();
@@ -147,7 +123,7 @@ namespace bRMS_Generator
                 return;
             }
 
-            bRMS new_brms = new bRMS
+            BRMS new_brms = new BRMS
             {
                 name = "bRMS" + brms_count,
                 group = this.GroupNumeric.Value,
@@ -160,51 +136,51 @@ namespace bRMS_Generator
             }
             if(this.MixedRadio.Checked)
             {
-                new_brms.BrmsType = "mix";
+                new_brms.brms_type = "mix";
             }
             else
             {
                 if(this.RandomRadio.Checked)
                 {
-                    new_brms.BrmsType = "random";
+                    new_brms.brms_type = "random";
                 }
                 else
                 {
-                    new_brms.BrmsType = "order";
+                    new_brms.brms_type = "order";
                 }
             }
-            new_brms.Repetitions = this.CountNumeric.Value;
-            new_brms.MaxType = this.MaxTypeNumeric.Value;
-            new_brms.FadeInTime = this.FadeInTimeNumeric.Value;
-            new_brms.FadeOutTime = this.FacdeOutTimeNumeric.Value;
-            new_brms.FadeOutLength = this.FadeOutLengthNumeric.Value;
-            new_brms.VisualUnit = this.VisUnitNumeric.Value;
-            new_brms.MondrianCount = this.MondrianCountNumeric.Value;
-            new_brms.BreakTime = this.BreakTimeNumeric.Value;
+            new_brms.repetitions = this.CountNumeric.Value;
+            new_brms.max_type = this.MaxTypeNumeric.Value;
+            new_brms.fade_in_time = this.FadeInTimeNumeric.Value;
+            new_brms.fade_out_time = this.FacdeOutTimeNumeric.Value;
+            new_brms.fade_out_length = this.FadeOutLengthNumeric.Value;
+            new_brms.visUnit = this.VisUnitNumeric.Value;
+            new_brms.mondrian_count = this.MondrianCountNumeric.Value;
+            new_brms.break_time = this.BreakTimeNumeric.Value;
             if ((this.OriantetionComboBox.SelectedValue == null))
             {
-                new_brms.Orientation = "h";
+                new_brms.orientation = "h";
             }
             else
             {
                 switch (this.OriantetionComboBox.SelectedValue.ToString().ToLower())
                 {
                     case "horizontal":
-                        new_brms.Orientation = "h";
+                        new_brms.orientation = "h";
                         break;
                     case "vertical":
-                        new_brms.Orientation = "h";
+                        new_brms.orientation = "h";
                         break;
                 }
             }
-            new_brms.TimingPostTrial = this.TimingPostTrialNumeric.Value;
-            new_brms.WithinIti = this.ItiNumeric.Value;
-            new_brms.ExperimentLength = this.ExperimentLengthNumeric.Value;
-            new_brms.RectengleNumber = this.RectangleNumeric.Value;
-            new_brms.TimingResponse = this.TimingResponseNumeric.Value;
-            new_brms.StimulusMaxOpacity = this.StimulusMaxOpacityNumeric.Value;
-            new_brms.MondrianMaxOpacity = this.MondrianMaxOpacityNumeric.Value;
-            new_brms.TrialLimit = this.TrialLimitNumeric.Value;
+            new_brms.timing_post_trial = this.TimingPostTrialNumeric.Value;
+            new_brms.within_ITI = this.ItiNumeric.Value;
+            new_brms.experiment_length = this.ExperimentLengthNumeric.Value;
+            new_brms.rectengle_number = this.RectangleNumeric.Value;
+            new_brms.timing_response = this.TimingResponseNumeric.Value;
+            new_brms.stimulus_max_opacity = this.StimulusMaxOpacityNumeric.Value;
+            new_brms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
+            new_brms.trial_limit = this.TrialLimitNumeric.Value;
             this.brms_names.Add("bRMS" + brms_count);
             this.brms_trials["bRMS" + brms_count] = new_brms;
             brms_count++;
@@ -263,11 +239,6 @@ namespace bRMS_Generator
         /// </summary>
         private string ValidateBeforeAdd()
         {
-            if (string.IsNullOrEmpty(StimulusTextBox.Text))
-            {
-                //return ErrorMsg.bRMS_Form_StimulusFileMissing;
-            }
-
             if (string.IsNullOrEmpty(HelpCsvTextBox.Text))
             {
                 //return ErrorMsg.bRMS_Form_HelpCsvMissing;
@@ -294,7 +265,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Up Button Click On bRMS List View
+        /// Down Button Click On bRMS List View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -332,7 +303,7 @@ namespace bRMS_Generator
         {
             if (brms_names.Count > 0)
             {
-                List<bRMS> brms_list = new List<bRMS>();
+                List<BRMS> brms_list = new List<BRMS>();
                 foreach(var item in brms_trials.Values)
                 {
                     brms_list.Add(item);
