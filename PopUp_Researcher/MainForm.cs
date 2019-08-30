@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using bRMS_Generator.src;
 using Newtonsoft.Json;
@@ -125,7 +126,7 @@ namespace bRMS_Generator
         /// Add intro experiment in to experiments list
         /// </summary>
         /// <param name="obj"></param>
-        public static void AddIntro(Introduction obj)
+        public static void AddIntro(Instructions obj)
         {
             Experiments.Add("Introduction" + introCount, obj);
             experiments_order.Add("Introduction" + introCount);
@@ -196,12 +197,19 @@ namespace bRMS_Generator
             {
                 valuesList.Add(item);
             }
-            string json = JsonConvert.SerializeObject(valuesList.ToArray());
+
+            Dictionary<string, List<Experiment>> to_json_dic = new Dictionary<string, List<Experiment>>
+            {
+                { "timeline", valuesList }
+            };
+
+            string json = JsonConvert.SerializeObject(to_json_dic, Formatting.Indented);
+
+            
             // Displays a SaveFileDialog so the user can save the Image  
-            // assigned to Button2.  
             SaveFileDialog saveFileDialog1 = new SaveFileDialog
             {
-                Filter = "Experiment JSON|*.Experiment",
+                Filter = "Experiment JSON|*.json",
                 Title = "Save an Expriment File"
             };
             saveFileDialog1.ShowDialog();

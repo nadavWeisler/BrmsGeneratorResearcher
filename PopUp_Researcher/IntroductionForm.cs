@@ -16,7 +16,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Introduction result object
         /// </summary>
-        protected Introduction intro;
+        protected Instructions intro;
 
         /// <summary>
         /// Contractor
@@ -24,7 +24,7 @@ namespace bRMS_Generator
         public IntroductionForm()
         {
             InitializeComponent();
-            this.intro = new Introduction();
+            this.intro = new Instructions();
         }
 
         /// <summary>

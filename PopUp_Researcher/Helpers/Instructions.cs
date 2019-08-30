@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace bRMS_Generator
 {
-    [Serializable]
-    public class Introduction : Experiment
+    public class Instructions : Experiment
     {
         /// <summary>
         /// Pages Property
@@ -14,9 +13,9 @@ namespace bRMS_Generator
         /// <summary>
         /// Constractors
         /// </summary>
-        public Introduction()
+        public Instructions()
         {
-            this.type = "Introduction";
+            this.type = "instructions";
             this.pages = new List<string>();
         }
 

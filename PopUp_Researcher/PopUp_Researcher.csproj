@@ -99,13 +99,12 @@
     <Compile Include="Helpers\ErrorMsg.Designer.cs" />
     <Compile Include="Helpers\Experiment.cs" />
     <Compile Include="Helpers\FullScreen.cs" />
-    <Compile Include="Helpers\IntroductionHelper.cs" />
+    <Compile Include="Helpers\Instructions.cs" />
     <Compile Include="Helpers\Question.cs" />
     <Compile Include="Helpers\Survey.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Models\bRMS.cs" />
-    <Compile Include="Models\Introduction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
