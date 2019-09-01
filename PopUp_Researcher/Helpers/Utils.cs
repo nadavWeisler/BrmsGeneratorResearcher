@@ -6,6 +6,11 @@ namespace bRMS_Generator
 {
     public static class Utils
     {
+        /// <summary>
+        /// Load CSV File
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static List<List<string>> LoadCsvFile(string filePath)
         {
             var searchList = new List<List<string>>();
@@ -23,8 +28,10 @@ namespace bRMS_Generator
             return searchList;
         }
 
+        #region ListView Methods
+
         /// <summary>
-        /// 
+        /// Get Down One Item in List
         /// </summary>
         /// <param name="index"></param>
         public static List<T> DownOneItem<T>(List<T> lst, int index)
@@ -39,7 +46,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Get Up One Item in List
         /// </summary>
         /// <param name="index"></param>
         public static List<T> UpOneItem<T>(List<T> lst, int index)
@@ -53,7 +60,6 @@ namespace bRMS_Generator
             return lst;
         }
 
-
         /// <summary>
         /// Remove item in given index from pages
         /// </summary>
@@ -66,5 +72,7 @@ namespace bRMS_Generator
             }
             return lst;
         }
+
+        #endregion
     }
 }

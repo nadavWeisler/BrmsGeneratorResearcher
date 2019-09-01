@@ -9,12 +9,12 @@ namespace bRMS_Generator
         #region Properties
 
         /// <summary>
-        /// 
+        /// bRMS Object
         /// </summary>
         protected BRMS Obj;
 
         /// <summary>
-        /// 
+        /// Stimulus Dictionary
         /// </summary>
         protected Dictionary<string, List<string>> StimulusDictionary;
 
@@ -23,7 +23,7 @@ namespace bRMS_Generator
         #region Constractors
 
         /// <summary>
-        /// 
+        /// Basic Constractor
         /// </summary>
         public BRmsHelper()
         {
@@ -35,7 +35,7 @@ namespace bRMS_Generator
         #region Public Methods
 
         /// <summary>
-        /// 
+        /// Update stimulues from instructions CSV
         /// </summary>
         /// <param name="fileName"></param>
         public void UpdateStimulusFromCsv(string fileName)
@@ -58,7 +58,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Get Stimulus List by tag list
         /// </summary>
         /// <param name="tagsList"></param>
         /// <returns></returns>
@@ -77,7 +77,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Get Stimulus list by one Tag
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
@@ -92,7 +92,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Get Tag List From STimulus Dictionary
         /// </summary>
         /// <returns></returns>
         public List<string> GetTagList()

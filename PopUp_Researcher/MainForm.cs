@@ -12,7 +12,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Experiment's Trials
         /// </summary>
-        public static Dictionary<string, Experiment> Experiments;
+        public static Dictionary<string, Trial> Experiments;
 
         /// <summary>
         /// Experiment's Trials Name List
@@ -45,7 +45,7 @@ namespace bRMS_Generator
         public MainForm()
         {
             InitializeComponent();
-            Experiments = new Dictionary<string, Experiment>();
+            Experiments = new Dictionary<string, Trial>();
             experiments_order = new List<string>();
             fullscreenCount = 0;
             introCount = 0;
@@ -183,7 +183,25 @@ namespace bRMS_Generator
             experiments_order.Remove(item);
             BindListView();
         }
+        
+        /// <summary>
+        /// Validation Before Save
+        /// </summary>
+        /// <returns></returns>
+        private string ValidateBeforeSave()
+        {
+            if(string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                return "Experiment Name Is Missing";
+            }
 
+            if(listView1.Items.Count == 0)
+            {
+                return "No Trials Selected";
+            }
+
+            return string.Empty;
+        }
 
         /// <summary>
         /// Save all experiment button click
@@ -192,16 +210,27 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            List<Experiment> valuesList = new List<Experiment>();
+            string validationString = ValidateBeforeSave();
+            if(!string.IsNullOrWhiteSpace(validationString))
+            {
+                MessageBox.Show(validationString);
+                return;
+            }
+
+            List<Trial> valuesList = new List<Trial>();
             foreach(var item in Experiments.Values)
             {
                 valuesList.Add(item);
             }
 
-            Dictionary<string, List<Experiment>> to_json_dic = new Dictionary<string, List<Experiment>>
+            Dictionary<string, object> to_json_dic = new Dictionary<string, object>
             {
-                { "timeline", valuesList }
+                {
+                    "timeline", valuesList                 
+                }
             };
+
+            to_json_dic.Add("name", NameTextBox.Text);
 
             string json = JsonConvert.SerializeObject(to_json_dic, Formatting.Indented);
 
@@ -209,8 +238,9 @@ namespace bRMS_Generator
             // Displays a SaveFileDialog so the user can save the Image  
             SaveFileDialog saveFileDialog1 = new SaveFileDialog
             {
+                FileName = NameTextBox.Text,
                 Filter = "Experiment JSON|*.json",
-                Title = "Save an Expriment File"
+                Title = "Save an Expriment File"               
             };
             saveFileDialog1.ShowDialog();
 

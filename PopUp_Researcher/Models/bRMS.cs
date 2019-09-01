@@ -1,15 +1,17 @@
-﻿namespace bRMS_Generator.src
+﻿using System.Collections.Generic;
+
+namespace bRMS_Generator.src
 {
-    public class BRMS: Experiment
+    public class BRMS: Trial
     {
         public string name;
+        public Dictionary<string, List<string>> stimulus_dictionary;
         public string stimulusFolder;
         public string stimulus;
         public string block;
         public string brms_type;
         public string orientation;
         public string file;
-
         public decimal trial_length;
         public decimal fade_in_time;
         public decimal fade_out_time;
@@ -29,5 +31,9 @@
         public decimal mondrian_max_opacity;
         public decimal trial_limit;
         
+        public BRMS()
+        {
+            this.type = "bRMS";
+        }
     }
 }

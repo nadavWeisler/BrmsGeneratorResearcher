@@ -3,12 +3,18 @@ using System.Collections.Generic;
 
 namespace bRMS_Generator
 {
-    public class Instructions : Experiment
+    public class Instructions : Trial
     {
+        #region Properties
+
         /// <summary>
         /// Pages Property
         /// </summary>
         public List<string> pages;
+
+        #endregion
+
+        #region Contractors
 
         /// <summary>
         /// Constractors
@@ -19,6 +25,10 @@ namespace bRMS_Generator
             this.pages = new List<string>();
         }
 
+        #endregion
+
+        #region Public Methods
+
         /// <summary>
         /// Get Pages
         /// </summary>
@@ -27,7 +37,6 @@ namespace bRMS_Generator
         {
             return this.pages;
         }
-
 
         /// <summary>
         /// Set Pages
@@ -39,13 +48,15 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Add new page to instructions pages
         /// </summary>
         /// <param name="page"></param>
         public void AddPage(string page)
         {
             this.pages.Add(page);
         }
+
+        #endregion
     }
 
 }

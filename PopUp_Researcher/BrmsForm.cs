@@ -11,22 +11,22 @@ namespace bRMS_Generator
         #region Properties
 
         /// <summary>
-        /// 
+        /// bRMS Helper Object
         /// </summary>
         protected BRmsHelper Helper = null;
 
         /// <summary>
-        /// 
+        /// bRMS Trials Names List
         /// </summary>
         protected List<string> brms_names;
 
         /// <summary>
-        /// 
+        /// bRMS Dictionary of bRMS name and Object Key Value Pair
         /// </summary>
         protected Dictionary<string, BRMS> brms_trials;
 
         /// <summary>
-        /// 
+        /// bRMS Trials Count
         /// </summary>
         protected int brms_count;
 
@@ -35,7 +35,7 @@ namespace bRMS_Generator
         #region Constractors
 
         /// <summary>
-        /// 
+        /// Basic Constractors
         /// </summary>
         public BrmsForm()
         {
@@ -56,7 +56,6 @@ namespace bRMS_Generator
 
         #region Events
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -64,7 +63,6 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void HelpCsvButton_Click(object sender, EventArgs e)
         {
-
             // Show the FolderBrowserDialog.  
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
@@ -129,10 +127,10 @@ namespace bRMS_Generator
                 group = this.GroupNumeric.Value,
                 sub_group = this.SubGroupNumeric.Value
             };
-            Dictionary<string, List<string>> tags_stimuluses = new Dictionary<string, List<string>>();
+            new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
-                tags_stimuluses[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+                new_brms.stimulus_dictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
             }
             if(this.MixedRadio.Checked)
             {

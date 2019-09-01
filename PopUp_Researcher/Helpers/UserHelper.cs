@@ -6,9 +6,9 @@ namespace bRMS_Generator
     {
         protected string name;
         protected string pass;
-        protected List<Experiment> experiments;
+        protected List<Trial> experiments;
 
-        public UserHelper(string _name, List<Experiment> _experiments)
+        public UserHelper(string _name, List<Trial> _experiments)
         {
             this.name = _name;
             this.experiments = _experiments;

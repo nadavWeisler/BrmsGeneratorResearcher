@@ -14,13 +14,13 @@ namespace bRMS_Generator.src
     {
         private MongoClient _client;
         private IMongoDatabase _database;
-        private IMongoCollection<Experiment> experiment_collection;
+        private IMongoCollection<Trial> experiment_collection;
         private IMongoCollection<User> User_collection;
         public DbHelper(string dbString= "mongodb://user1_regular:user1Pass@ds351827.mlab.com:51827/popup_dev")
         {
             this._client = new MongoClient(dbString);
             this._database = _client.GetDatabase("PopUp_dev");
-            this.experiment_collection = _database.GetCollection<Experiment>("experiments");
+            this.experiment_collection = _database.GetCollection<Trial>("experiments");
             this.User_collection = _database.GetCollection<User>("User");
         }
 
@@ -36,7 +36,7 @@ namespace bRMS_Generator.src
             return hash;
         }
 
-        public void InsertExperiment(Experiment exp)
+        public void InsertExperiment(Trial exp)
         {
             this.experiment_collection.InsertOne(exp);
         }

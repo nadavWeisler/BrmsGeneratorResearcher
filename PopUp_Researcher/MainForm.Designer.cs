@@ -37,10 +37,10 @@
             this.TrialsButtonGroup = new System.Windows.Forms.GroupBox();
             this.FullscreenButton = new System.Windows.Forms.Button();
             this.SaveButtonGroup = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.LoadButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.SuspendLayout();
@@ -139,15 +139,26 @@
             this.SaveButtonGroup.TabStop = false;
             this.SaveButtonGroup.Text = "Save";
             // 
-            // textBox1
+            // EditButton
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 20);
-            this.textBox1.TabIndex = 10;
+            this.EditButton.Enabled = false;
+            this.EditButton.Location = new System.Drawing.Point(6, 48);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 7;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(53, 6);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(300, 20);
+            this.NameTextBox.TabIndex = 10;
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(15, 32);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(338, 248);
@@ -157,6 +168,7 @@
             // 
             // LoadButton
             // 
+            this.LoadButton.Enabled = false;
             this.LoadButton.Location = new System.Drawing.Point(369, 4);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
@@ -165,15 +177,6 @@
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
-            // EditButton
-            // 
-            this.EditButton.Location = new System.Drawing.Point(6, 48);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(75, 23);
-            this.EditButton.TabIndex = 7;
-            this.EditButton.Text = "Edit";
-            this.EditButton.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(467, 287);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SaveButtonGroup);
             this.Controls.Add(this.TrialsButtonGroup);
             this.Controls.Add(this.HeaderLabel);
@@ -204,7 +207,7 @@
         private System.Windows.Forms.GroupBox TrialsButtonGroup;
         private System.Windows.Forms.GroupBox SaveButtonGroup;
         private System.Windows.Forms.Button FullscreenButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button LoadButton
             ;
