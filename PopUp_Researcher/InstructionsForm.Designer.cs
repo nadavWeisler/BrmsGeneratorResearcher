@@ -1,6 +1,6 @@
 ﻿namespace bRMS_Generator
 {
-    partial class IntroductionForm
+    partial class InstructionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -125,6 +125,7 @@
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 114);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(318, 251);
@@ -183,7 +184,7 @@
             this.Controls.Add(this.cleanButton);
             this.Controls.Add(this.PageRichTextBox);
             this.Name = "IntroductionForm";
-            this.Text = "Introductions";
+            this.Text = "Instructions";
             ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();
             this.ResumeLayout(false);

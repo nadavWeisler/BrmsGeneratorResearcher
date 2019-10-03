@@ -75,11 +75,11 @@
     <Compile Include="BrmsForm.Designer.cs">
       <DependentUpon>BrmsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IntroductionForm.cs">
+    <Compile Include="InstructionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IntroductionForm.Designer.cs">
-      <DependentUpon>IntroductionForm.cs</DependentUpon>
+    <Compile Include="InstructionsForm.Designer.cs">
+      <DependentUpon>InstructionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -105,6 +105,7 @@
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Models\bRMS.cs" />
+    <Compile Include="Models\Experiment.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,8 +128,8 @@
       <DependentUpon>FullscreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Helpers\ErrorMsg.resx" />
-    <EmbeddedResource Include="IntroductionForm.resx">
-      <DependentUpon>IntroductionForm.cs</DependentUpon>
+    <EmbeddedResource Include="InstructionsForm.resx">
+      <DependentUpon>InstructionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using PopUp_Researcher.Models;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -26,6 +28,63 @@ namespace bRMS_Generator
                 }
             }
             return searchList;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="textQ"></param>
+        /// <param name="scaleQ"></param>
+        /// <returns></returns>
+        private static List<Question> GetListFromTextScale(List<TextQuestion> textQ=null,
+            List<MultiScaleQuestion> scaleQ=null)
+        {
+            List<Question> ret = new List<Question>();
+            if(textQ == null)
+            {
+                foreach(var item in scaleQ)
+                {
+                    ret.Add((Question)item);
+                }
+            }
+            else
+            {
+                foreach (var item in textQ)
+                {
+                    ret.Add((Question)item);
+                }
+            }
+            return ret;
+        }
+
+        public static List<Question> GetQuestionsListFromJson(string questionType, string jsonString)
+        {
+            List<MultiScaleQuestion> scaleList = null;
+            List<TextQuestion> textList = null;
+            switch (questionType)
+            {
+                case "survey-text":
+                    textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
+                    break;
+                case "survey-likert":
+                case "survey-multi-choice":
+                    scaleList = JsonConvert.DeserializeObject<List<MultiScaleQuestion>>(jsonString);
+                    break;
+            }
+            return GetListFromTextScale(textList, scaleList);
+        }
+
+        public static List<string> GetPagesFromJson(string jsonString)
+        {
+            return JsonConvert.DeserializeObject<List<string>>(jsonString);
+        }
+
+        public static Experiment LoadExperimentCsv(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            Experiment experimentJson = JsonConvert.DeserializeObject<Experiment>(json);
+            experimentJson.UpdateTrialsByTimeline();
+            return experimentJson;
         }
 
         #region ListView Methods

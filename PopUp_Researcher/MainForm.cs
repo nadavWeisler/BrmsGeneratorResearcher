@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using bRMS_Generator.src;
 using Newtonsoft.Json;
+using PopUp_Researcher.Models;
 
 namespace bRMS_Generator
 {
@@ -58,7 +59,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void IntroButton_Click(object sender, EventArgs e)
         {
-            var intro = new IntroductionForm();
+            var intro = new InstructionsForm();
             intro.ShowDialog();
             BindListView();
         }
@@ -150,7 +151,7 @@ namespace bRMS_Generator
         /// <param name="brms_list"></param>
         public static void AddBrms(List<BRMS> brms_list)
         {
-            foreach(var item in brms_list)
+            foreach (var item in brms_list)
             {
                 Experiments.Add("bRMS" + bRMS_count, item);
                 experiments_order.Add("bRMS" + bRMS_count);
@@ -159,13 +160,53 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Load new Experiment (for edit)
+        /// Load existing Experiment (for edit)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void LoadButton_Click(object sender, EventArgs e)
         {
+            // Show the FolderBrowserDialog.  
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Experiment newExpereiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
+                NameTextBox.Text = newExpereiment.name;
+                NameTextBox.Enabled = false;
+                this.listView1.Clear();
+                this.LoadExperiment(newExpereiment.Trials);
+                BindListView();
+            }
+        }
 
+        /// <summary>
+        /// Load experiment
+        /// </summary>
+        /// <param name="trialLst"></param>
+        private void LoadExperiment(List<Trial> trialLst)
+        {
+            foreach(var item in trialLst)
+            {
+                switch(item.type)
+                {
+                    case "bRMS":
+                        List<BRMS> helpLst = new List<BRMS>();
+                        helpLst.Add((BRMS)item);
+                        AddBrms(helpLst);
+                        break;
+                    case "survey-text":
+                    case "survey-likert":
+                    case "survey-multi-choice":
+                        AddSurvey((Survey)item);
+                        break;
+                    case "fullscreen":
+                        AddFullscreen((FullScreen)item);
+                        break;
+                    case "instructions":
+                        AddIntro((Instructions)item);
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -175,7 +216,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count < 1) { return; }
+            if (listView1.SelectedItems.Count < 1) { return; }
 
             var item_index = listView1.SelectedItems[0].Index;
             var item = experiments_order[item_index];
@@ -183,19 +224,19 @@ namespace bRMS_Generator
             experiments_order.Remove(item);
             BindListView();
         }
-        
+
         /// <summary>
         /// Validation Before Save
         /// </summary>
         /// <returns></returns>
         private string ValidateBeforeSave()
         {
-            if(string.IsNullOrWhiteSpace(NameTextBox.Text))
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
                 return "Experiment Name Is Missing";
             }
 
-            if(listView1.Items.Count == 0)
+            if (listView1.Items.Count == 0)
             {
                 return "No Trials Selected";
             }
@@ -211,14 +252,14 @@ namespace bRMS_Generator
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string validationString = ValidateBeforeSave();
-            if(!string.IsNullOrWhiteSpace(validationString))
+            if (!string.IsNullOrWhiteSpace(validationString))
             {
                 MessageBox.Show(validationString);
                 return;
             }
 
             List<Trial> valuesList = new List<Trial>();
-            foreach(var item in Experiments.Values)
+            foreach (var item in Experiments.Values)
             {
                 valuesList.Add(item);
             }
@@ -226,7 +267,7 @@ namespace bRMS_Generator
             Dictionary<string, object> to_json_dic = new Dictionary<string, object>
             {
                 {
-                    "timeline", valuesList                 
+                    "timeline", valuesList
                 }
             };
 
@@ -234,13 +275,13 @@ namespace bRMS_Generator
 
             string json = JsonConvert.SerializeObject(to_json_dic, Formatting.Indented);
 
-            
+
             // Displays a SaveFileDialog so the user can save the Image  
             SaveFileDialog saveFileDialog1 = new SaveFileDialog
             {
                 FileName = NameTextBox.Text,
                 Filter = "Experiment JSON|*.json",
-                Title = "Save an Expriment File"               
+                Title = "Save an Expriment File"
             };
             saveFileDialog1.ShowDialog();
 
@@ -248,7 +289,77 @@ namespace bRMS_Generator
             {
                 //write string to file
                 System.IO.File.WriteAllText(saveFileDialog1.FileName, json);
-            }   
+            }
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems == null || listView1.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            int selectedIndex = listView1.SelectedItems[0].Index;
+            EditExpeiment(selectedIndex);
+        }
+
+        private void EditExpeiment(int trialIndex)
+        {
+            Trial trial = Experiments[experiments_order[trialIndex]];
+            if (trial.type == "bRMS")
+            {
+                if (true)
+                {
+                    MessageBox.Show("There is no options to edit bRMS trial, sorry");
+                }
+                else
+                {
+                    BrmsForm bRms = new BrmsForm((BRMS)trial);
+                    bRms.ShowDialog();
+                }
+            }
+            else
+            {
+                if (trial.type == "survey-text" || trial.type == "survey-multi-choice" ||
+                    trial.type == "survey-likert")
+                {
+                    var surveyF = new SurveyForm((Survey)trial);
+                    surveyF.ShowDialog();
+                    if(surveyF.returnEdit != null)
+                    {
+                        Experiments[experiments_order[trialIndex]] = surveyF.returnEdit;
+                    }
+                }
+                else
+                {
+                    if (trial.type == "fullscreen")
+                    {
+                        var fullscreenF = new FullscreenForm((FullScreen)trial);
+                        fullscreenF.ShowDialog();
+                        if (fullscreenF.returnEdit != null)
+                        {
+                            Experiments[experiments_order[trialIndex]] = fullscreenF.returnEdit;
+                        }
+                    }
+                    else
+                    {
+                        if (trial.type == "instructions")
+                        {
+                            var instructionsF = new InstructionsForm((Instructions)trial);
+                            instructionsF.ShowDialog();
+                            if (instructionsF.returnEdit != null)
+                            {
+                                Experiments[experiments_order[trialIndex]] = instructionsF.returnEdit;
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
+            BindListView();
         }
     }
 }

@@ -13,12 +13,56 @@ namespace bRMS_Generator
         protected List<Question> questions;
 
         /// <summary>
+        /// Existing Trial
+        /// </summary>
+        protected Survey existingTrial;
+
+        /// <summary>
+        /// Return edited survey
+        /// </summary>
+        public Survey returnEdit;
+
+        /// <summary>
         /// Constractors
         /// </summary>
-        public SurveyForm()
+        public SurveyForm(Survey existing = null)
         {
             InitializeComponent();
             this.questions = new List<Question>();
+            
+            if(existing != null)
+            {
+                this.existingTrial = existing;
+                UpdateExistingTrial();
+                BindListView();
+            }
+        }
+
+        /// <summary>
+        /// Update Qustions listview by existing survey
+        /// </summary>
+        private void UpdateExistingTrial()
+        {
+            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
+            this.GroupNumeric.Value = this.existingTrial.group;
+
+            switch (this.existingTrial.type)
+            {
+                case "survey-text":
+                    TextSurveyRadio.Checked = true;
+                    break;
+                case "survey-likert":
+                    ScaleSurveyRadio.Checked = true;
+                    break;
+                case "survey-multi-choice":
+                    MultiSurveyRadio.Checked = true;
+                    break;
+            }
+
+            foreach(var question in this.existingTrial.questions)
+            {
+                this.questions.Add(question);
+            }
         }
 
         /// <summary>
@@ -102,7 +146,14 @@ namespace bRMS_Generator
                 {
                     newSurvey.SetGroup(GroupNumeric.Value);
                     newSurvey.SetSubGroup(SubGroupNumeric.Value);
-                    MainForm.AddSurvey(newSurvey);
+                    if(this.existingTrial == null)
+                    {
+                        MainForm.AddSurvey(newSurvey);
+                    }
+                    else
+                    {
+                        returnEdit = newSurvey;
+                    }
                     Close();
                 }
             }

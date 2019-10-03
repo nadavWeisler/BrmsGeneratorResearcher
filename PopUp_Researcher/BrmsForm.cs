@@ -26,6 +26,11 @@ namespace bRMS_Generator
         protected Dictionary<string, BRMS> brms_trials;
 
         /// <summary>
+        /// Existing bRMS(edit)
+        /// </summary>
+        protected BRMS existingTrial;
+
+        /// <summary>
         /// bRMS Trials Count
         /// </summary>
         protected int brms_count;
@@ -37,7 +42,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Basic Constractors
         /// </summary>
-        public BrmsForm()
+        public BrmsForm(BRMS _existingTrial=null)
         {
             InitializeComponent();
             if (this.Helper == null)
@@ -46,6 +51,12 @@ namespace bRMS_Generator
             }
             this.brms_names = new List<string>();
             this.brms_trials = new Dictionary<string, BRMS>();
+
+            if(_existingTrial != null)
+            {
+                this.existingTrial = _existingTrial;
+                UpdateExistingTrial();
+            }
 
             PageEnabled();
         }
@@ -57,7 +68,7 @@ namespace bRMS_Generator
         #region Events
 
         /// <summary>
-        /// 
+        /// Update CSV click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,7 +178,7 @@ namespace bRMS_Generator
                         new_brms.orientation = "h";
                         break;
                     case "vertical":
-                        new_brms.orientation = "h";
+                        new_brms.orientation = "v";
                         break;
                 }
             }
@@ -187,6 +198,49 @@ namespace bRMS_Generator
 
         #endregion
 
+        private void UpdateExistingTrial()
+        {
+            //new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
+            //foreach (ListViewItem tag in TagsListView.SelectedItems)
+            //{
+            //    new_brms.stimulus_dictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+            //}
+            //if (this.MixedRadio.Checked)
+            //{
+            //    new_brms.brms_type = "mix";
+            //}
+            //else
+            //{
+            //    if (this.RandomRadio.Checked)
+            //    {
+            //        new_brms.brms_type = "random";
+            //    }
+            //    else
+            //    {
+            //        new_brms.brms_type = "order";
+            //    }
+            //}
+            this.GroupNumeric.Value = this.existingTrial.group;
+            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
+            this.CountNumeric.Value = this.existingTrial.repetitions;
+            this.MaxTypeNumeric.Value = this.existingTrial.max_type;
+            this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
+            this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
+            this.FadeOutLengthNumeric.Value = this.existingTrial.fade_out_length;
+            this.VisUnitNumeric.Value = this.existingTrial.visUnit;
+            this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
+            this.BreakTimeNumeric.Value = this.existingTrial.break_time;
+            this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
+            this.TimingPostTrialNumeric.Value = this.existingTrial.timing_post_trial;
+            this.ItiNumeric.Value = this.existingTrial.within_ITI;
+            this.ExperimentLengthNumeric.Value = this.existingTrial.experiment_length;
+            this.RectangleNumeric.Value = this.existingTrial.rectengle_number;
+            this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
+            this.StimulusMaxOpacityNumeric.Value = this.existingTrial.stimulus_max_opacity;
+            this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;
+            this.TrialLimitNumeric.Value = this.existingTrial.trial_limit;
+        }
+
         /// <summary>
         /// Bind brms list view
         /// </summary>
@@ -200,7 +254,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Update Tags from CSV
         /// </summary>
         /// <param name="csvFileName"></param>
         private void UpdateHelperFromCsv(string csvFileName)
@@ -214,7 +268,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Enabled Page
         /// </summary>
         private void PageEnabled()
         {
@@ -225,7 +279,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Enabled Radio buttons
         /// </summary>
         private void RadioEnabled()
         {
@@ -309,6 +363,11 @@ namespace bRMS_Generator
                 MainForm.AddBrms(brms_list);
                 Close();
             }
+        }
+
+        private void OriantetionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

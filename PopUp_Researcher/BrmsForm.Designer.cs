@@ -376,12 +376,13 @@ namespace bRMS_Generator
             // 
             this.OriantetionComboBox.FormattingEnabled = true;
             this.OriantetionComboBox.Items.AddRange(new object[] {
-            "Vertical",
-            "Horizontal"});
+            "v",
+            "h"});
             this.OriantetionComboBox.Location = new System.Drawing.Point(108, 288);
             this.OriantetionComboBox.Name = "OriantetionComboBox";
             this.OriantetionComboBox.Size = new System.Drawing.Size(71, 21);
             this.OriantetionComboBox.TabIndex = 29;
+            this.OriantetionComboBox.SelectedIndexChanged += new System.EventHandler(this.OriantetionComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -697,6 +698,10 @@ namespace bRMS_Generator
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "CSV files (*.csv)|*.csv";
             // 
             // TagsListView
             // 

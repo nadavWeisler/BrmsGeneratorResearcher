@@ -11,20 +11,50 @@ using bRMS_Generator.src;
 
 namespace bRMS_Generator
 {
-    public partial class IntroductionForm : Form
+    public partial class InstructionsForm : Form
     {
         /// <summary>
         /// Introduction result object
         /// </summary>
-        protected Instructions intro;
+        protected Instructions instru;
+
+        /// <summary>
+        /// Return value for edit
+        /// </summary>
+        public Instructions returnEdit;
+
+        /// <summary>
+        /// Existing trial to edit
+        /// </summary>
+        private Instructions existingTrial;
 
         /// <summary>
         /// Contractor
         /// </summary>
-        public IntroductionForm()
+        public InstructionsForm(Instructions existing=null)
         {
             InitializeComponent();
-            this.intro = new Instructions();
+            this.instru = new Instructions();
+
+            if (existing != null)
+            {
+                this.existingTrial = existing;
+                UpdateExistingTrial();
+                BindListView();
+            }
+        }
+
+        /// <summary>
+        /// Update existing trial by existingTrial
+        /// </summary>
+        private void UpdateExistingTrial()
+        {
+            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
+            this.GroupNumeric.Value = this.existingTrial.group;
+            foreach(string page in this.existingTrial.pages)
+            {
+                this.instru.pages.Add(page);
+            }
         }
 
         /// <summary>
@@ -44,11 +74,19 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {       
-            if (this.intro.GetPages().Count > 0)
+            if (this.instru.GetPages().Count > 0)
             {
-                this.intro.SetGroup(this.GroupNumeric.Value);
-                this.intro.SetSubGroup(this.SubGroupNumeric.Value);
-                MainForm.AddIntro(intro);
+                this.instru.SetGroup(this.GroupNumeric.Value);
+                this.instru.SetSubGroup(this.SubGroupNumeric.Value);
+              
+                if(this.existingTrial != null)
+                {
+                    this.returnEdit = instru;
+                }
+                else
+                {
+                    MainForm.AddIntro(instru);
+                }
                 Close();
             }
         }
@@ -63,7 +101,7 @@ namespace bRMS_Generator
             string newintro = PageRichTextBox.Text;
             if (!string.IsNullOrEmpty(newintro))
             {
-                this.intro.AddPage(newintro);
+                this.instru.AddPage(newintro);
                 BindListView();
                 PageRichTextBox.ResetText();
             }
@@ -75,7 +113,7 @@ namespace bRMS_Generator
         private void BindListView()
         {
             this.listView1.Items.Clear();
-            foreach (var item in this.intro.GetPages())
+            foreach (var item in this.instru.GetPages())
             {
                 this.listView1.Items.Add(item);
             }
@@ -90,7 +128,7 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in listView1.SelectedItems)
             {
-                this.intro.SetPages(Utils.RemoveItemByIndex(this.intro.GetPages(), item.Index));
+                this.instru.SetPages(Utils.RemoveItemByIndex(this.instru.GetPages(), item.Index));
             }
             BindListView();
         }
@@ -104,7 +142,7 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in listView1.SelectedItems)
             {
-                this.intro.AddPage(item.Text);
+                this.instru.AddPage(item.Text);
             }
             BindListView();
         }
@@ -116,9 +154,9 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < this.intro.GetPages().Count - 1)
+            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < this.instru.GetPages().Count - 1)
             {
-                this.intro.SetPages(Utils.UpOneItem(this.intro.GetPages(), listView1.SelectedItems[0].Index));
+                this.instru.SetPages(Utils.UpOneItem(this.instru.GetPages(), listView1.SelectedItems[0].Index));
                 BindListView();
             }
         }
@@ -132,7 +170,7 @@ namespace bRMS_Generator
         {
             if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
             {
-                this.intro.SetPages(Utils.DownOneItem(this.intro.GetPages(), listView1.SelectedItems[0].Index));
+                this.instru.SetPages(Utils.DownOneItem(this.instru.GetPages(), listView1.SelectedItems[0].Index));
                 BindListView();
             }
         }

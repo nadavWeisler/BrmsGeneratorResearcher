@@ -41,6 +41,7 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.LoadButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.SuspendLayout();
@@ -141,13 +142,13 @@
             // 
             // EditButton
             // 
-            this.EditButton.Enabled = false;
             this.EditButton.Location = new System.Drawing.Point(6, 48);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 23);
             this.EditButton.TabIndex = 7;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // NameTextBox
             // 
@@ -168,7 +169,6 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Enabled = false;
             this.LoadButton.Location = new System.Drawing.Point(369, 4);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
@@ -176,6 +176,11 @@
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JSON files (*.json)|*.json";
             // 
             // MainForm
             // 
@@ -212,6 +217,7 @@
         private System.Windows.Forms.Button LoadButton
             ;
         private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
