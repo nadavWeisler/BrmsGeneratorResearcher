@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
             this.PromptGroup = new System.Windows.Forms.GroupBox();
             this.PromptRichTextBox = new System.Windows.Forms.RichTextBox();
             this.TextGroupBox = new System.Windows.Forms.GroupBox();
@@ -49,14 +50,14 @@
             this.ScaleNumeric = new System.Windows.Forms.NumericUpDown();
             this.StartLabelText = new System.Windows.Forms.TextBox();
             this.OptionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.AddOptionButton = new System.Windows.Forms.Button();
-            this.OptionsTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.DuplicateButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.AddOptionButton = new System.Windows.Forms.Button();
+            this.OptionsTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.PromptGroup.SuspendLayout();
             this.TextGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColsNumeric)).BeginInit();
@@ -295,41 +296,6 @@
             this.OptionsGroupBox.TabStop = false;
             this.OptionsGroupBox.Text = "Options";
             // 
-            // AddOptionButton
-            // 
-            this.AddOptionButton.Location = new System.Drawing.Point(185, 47);
-            this.AddOptionButton.Name = "AddOptionButton";
-            this.AddOptionButton.Size = new System.Drawing.Size(75, 23);
-            this.AddOptionButton.TabIndex = 36;
-            this.AddOptionButton.Text = "Add";
-            this.AddOptionButton.UseVisualStyleBackColor = true;
-            this.AddOptionButton.Click += new System.EventHandler(this.AddOptionButton_Click);
-            // 
-            // OptionsTextBox
-            // 
-            this.OptionsTextBox.Location = new System.Drawing.Point(51, 17);
-            this.OptionsTextBox.Name = "OptionsTextBox";
-            this.OptionsTextBox.Size = new System.Drawing.Size(209, 20);
-            this.OptionsTextBox.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Option";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(7, 82);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(258, 263);
-            this.listView1.TabIndex = 37;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
-            // 
             // MinusButton
             // 
             this.MinusButton.Location = new System.Drawing.Point(86, 351);
@@ -370,6 +336,42 @@
             this.DuplicateButton.UseVisualStyleBackColor = true;
             this.DuplicateButton.Click += new System.EventHandler(this.DuplicateButton_Click);
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(7, 82);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(258, 263);
+            this.listView1.TabIndex = 37;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
+            // AddOptionButton
+            // 
+            this.AddOptionButton.Location = new System.Drawing.Point(185, 47);
+            this.AddOptionButton.Name = "AddOptionButton";
+            this.AddOptionButton.Size = new System.Drawing.Size(75, 23);
+            this.AddOptionButton.TabIndex = 36;
+            this.AddOptionButton.Text = "Add";
+            this.AddOptionButton.UseVisualStyleBackColor = true;
+            this.AddOptionButton.Click += new System.EventHandler(this.AddOptionButton_Click);
+            // 
+            // OptionsTextBox
+            // 
+            this.OptionsTextBox.Location = new System.Drawing.Point(51, 17);
+            this.OptionsTextBox.Name = "OptionsTextBox";
+            this.OptionsTextBox.Size = new System.Drawing.Size(209, 20);
+            this.OptionsTextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Option";
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +383,7 @@
             this.Controls.Add(this.TextGroupBox);
             this.Controls.Add(this.PromptGroup);
             this.Controls.Add(this.RequiredCheckBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionForm";
             this.Text = "Questions";
             this.PromptGroup.ResumeLayout(false);

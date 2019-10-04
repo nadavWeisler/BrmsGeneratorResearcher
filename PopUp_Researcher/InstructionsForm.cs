@@ -101,7 +101,14 @@ namespace bRMS_Generator
             string newintro = PageRichTextBox.Text;
             if (!string.IsNullOrEmpty(newintro))
             {
-                this.instru.AddPage(newintro);
+                if (listView1.SelectedItems.Count == 0)
+                {
+                    this.instru.AddPage(newintro);
+                }
+                else
+                {
+                    this.instru.pages[this.listView1.SelectedItems[0].Index] = newintro;
+                }
                 BindListView();
                 PageRichTextBox.ResetText();
             }
@@ -172,6 +179,23 @@ namespace bRMS_Generator
             {
                 this.instru.SetPages(Utils.DownOneItem(this.instru.GetPages(), listView1.SelectedItems[0].Index));
                 BindListView();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count == 0)
+            {
+                PageRichTextBox.Text = string.Empty;
+            }
+            else
+            {
+                PageRichTextBox.Text = listView1.SelectedItems[0].Text;
             }
         }
     }

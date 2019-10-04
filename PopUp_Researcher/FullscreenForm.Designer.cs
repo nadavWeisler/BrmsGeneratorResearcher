@@ -30,6 +30,7 @@ namespace bRMS_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullscreenForm));
             this.MsgRich = new System.Windows.Forms.RichTextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
@@ -112,6 +113,7 @@ namespace bRMS_Generator
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.MsgRich);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FullscreenForm";
             this.Text = "Fullscreen";
             ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();

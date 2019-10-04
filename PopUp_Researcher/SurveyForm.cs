@@ -7,6 +7,8 @@ namespace bRMS_Generator
 {
     public partial class SurveyForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Questions ListView
         /// </summary>
@@ -21,6 +23,10 @@ namespace bRMS_Generator
         /// Return edited survey
         /// </summary>
         public Survey returnEdit;
+
+        #endregion
+
+        #region Constractors
 
         /// <summary>
         /// Constractors
@@ -37,6 +43,10 @@ namespace bRMS_Generator
                 BindListView();
             }
         }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Update Qustions listview by existing survey
@@ -78,7 +88,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Add Question
+        /// Add Question button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -115,9 +125,8 @@ namespace bRMS_Generator
             }
         }
 
-
         /// <summary>
-        /// Save Survey
+        /// Save Survey button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -159,9 +168,8 @@ namespace bRMS_Generator
             }
         }
 
-
         /// <summary>
-        /// 
+        /// Remove question button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -175,7 +183,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Minus button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -189,7 +197,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Plus button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -203,7 +211,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Dublicate qustion button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -211,13 +219,13 @@ namespace bRMS_Generator
         {
             if(this.QuestionsListView.SelectedItems.Count > 0)
             {
-
+                this.questions.Add(this.questions[this.QuestionsListView.SelectedItems[0].Index]);
             }
+            BindListView();
         }
 
-
         /// <summary>
-        /// 
+        /// Checked changes from TextSurvey radio button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -226,14 +234,26 @@ namespace bRMS_Generator
             QuestionsListView.Clear();
         }
 
+        /// <summary>
+        /// Checked changes from MultiSurvey radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MultiSurveyRadio_CheckedChanged(object sender, EventArgs e)
         {
             QuestionsListView.Clear();
         }
 
+        /// <summary>
+        /// Checked changes from ScaleSurvey radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ScaleSurveyRadio_CheckedChanged(object sender, EventArgs e)
         {
             QuestionsListView.Clear();
         }
+
+        #endregion
     }
 }

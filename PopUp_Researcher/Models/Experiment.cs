@@ -11,11 +11,17 @@ namespace PopUp_Researcher.Models
 {
     public class Experiment
     {
-        public string name { get; set; }
+        #region Properties
 
-        public List<Dictionary<string, object>> timeline { get; set; }
+        public string Name { get; set; }
+
+        public List<Dictionary<string, object>> Timeline { get; set; }
 
         public List<Trial> Trials;
+
+        #endregion
+
+        #region Public Methods
 
         public void UpdateTrialsByTimeline()
         {
@@ -23,7 +29,7 @@ namespace PopUp_Researcher.Models
             string questionsJson = null;
             List<Question> qList = null;
             Survey newSurvey;
-            foreach (var item in this.timeline)
+            foreach (var item in this.Timeline)
             {
                 newSurvey = null;
                 switch(item["type"])
@@ -86,5 +92,7 @@ namespace PopUp_Researcher.Models
                 }
             }
         }
+
+        #endregion
     }
 }

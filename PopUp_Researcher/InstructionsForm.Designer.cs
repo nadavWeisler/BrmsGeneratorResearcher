@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructionsForm));
             this.PageRichTextBox = new System.Windows.Forms.RichTextBox();
             this.cleanButton = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
@@ -132,6 +133,7 @@
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
             // GroupNumeric
             // 
@@ -165,7 +167,7 @@
             this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
             this.SubGroupNumeric.TabIndex = 22;
             // 
-            // IntroductionForm
+            // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +185,8 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cleanButton);
             this.Controls.Add(this.PageRichTextBox);
-            this.Name = "IntroductionForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "InstructionsForm";
             this.Text = "Instructions";
             ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();

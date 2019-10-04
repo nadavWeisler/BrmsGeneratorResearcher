@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using bRMS_Generator.src;
 using Newtonsoft.Json;
@@ -10,10 +9,12 @@ namespace bRMS_Generator
 {
     public partial class MainForm : Form
     {
+        #region Properties 
+
         /// <summary>
         /// Experiment's Trials
         /// </summary>
-        public static Dictionary<string, Trial> Experiments;
+        private static Dictionary<string, Trial> Experiments;
 
         /// <summary>
         /// Experiment's Trials Name List
@@ -40,6 +41,10 @@ namespace bRMS_Generator
         /// </summary>
         private static int bRMS_count;
 
+        #endregion
+
+        #region Constractors
+
         /// <summary>
         /// MainForm Constractor
         /// </summary>
@@ -51,6 +56,10 @@ namespace bRMS_Generator
             fullscreenCount = 0;
             introCount = 0;
         }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Open Create Introduction Dialog
@@ -113,53 +122,6 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Add fullscreen experiment in to experiments list
-        /// </summary>
-        /// <param name="obj"></param>
-        public static void AddFullscreen(FullScreen obj)
-        {
-            Experiments.Add("Fullscreen" + fullscreenCount, obj);
-            experiments_order.Add("Fullscreen" + fullscreenCount);
-            fullscreenCount++;
-        }
-
-        /// <summary>
-        /// Add intro experiment in to experiments list
-        /// </summary>
-        /// <param name="obj"></param>
-        public static void AddIntro(Instructions obj)
-        {
-            Experiments.Add("Introduction" + introCount, obj);
-            experiments_order.Add("Introduction" + introCount);
-            introCount++;
-        }
-
-        /// <summary>
-        /// Add survey experiment in to experiments list
-        /// </summary>
-        /// <param name="obj"></param>
-        public static void AddSurvey(Survey obj)
-        {
-            Experiments.Add("Survey" + surveyCount, obj);
-            experiments_order.Add("Survey" + surveyCount);
-            surveyCount++;
-        }
-
-        /// <summary>
-        /// Add bRMS trials to Experiment list view
-        /// </summary>
-        /// <param name="brms_list"></param>
-        public static void AddBrms(List<BRMS> brms_list)
-        {
-            foreach (var item in brms_list)
-            {
-                Experiments.Add("bRMS" + bRMS_count, item);
-                experiments_order.Add("bRMS" + bRMS_count);
-                bRMS_count++;
-            }
-        }
-
-        /// <summary>
         /// Load existing Experiment (for edit)
         /// </summary>
         /// <param name="sender"></param>
@@ -171,7 +133,7 @@ namespace bRMS_Generator
             if (result == DialogResult.OK)
             {
                 Experiment newExpereiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
-                NameTextBox.Text = newExpereiment.name;
+                NameTextBox.Text = newExpereiment.Name;
                 NameTextBox.Enabled = false;
                 this.listView1.Clear();
                 this.LoadExperiment(newExpereiment.Trials);
@@ -185,9 +147,9 @@ namespace bRMS_Generator
         /// <param name="trialLst"></param>
         private void LoadExperiment(List<Trial> trialLst)
         {
-            foreach(var item in trialLst)
+            foreach (var item in trialLst)
             {
-                switch(item.type)
+                switch (item.type)
                 {
                     case "bRMS":
                         List<BRMS> helpLst = new List<BRMS>();
@@ -292,6 +254,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Edit Trial Button Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems == null || listView1.SelectedItems.Count == 0)
@@ -303,6 +270,10 @@ namespace bRMS_Generator
             EditExpeiment(selectedIndex);
         }
 
+        /// <summary>
+        /// Edit Trial
+        /// </summary>
+        /// <param name="trialIndex"></param>
         private void EditExpeiment(int trialIndex)
         {
             Trial trial = Experiments[experiments_order[trialIndex]];
@@ -325,7 +296,7 @@ namespace bRMS_Generator
                 {
                     var surveyF = new SurveyForm((Survey)trial);
                     surveyF.ShowDialog();
-                    if(surveyF.returnEdit != null)
+                    if (surveyF.returnEdit != null)
                     {
                         Experiments[experiments_order[trialIndex]] = surveyF.returnEdit;
                     }
@@ -361,5 +332,58 @@ namespace bRMS_Generator
             }
             BindListView();
         }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Add fullscreen experiment in to experiments list
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void AddFullscreen(FullScreen obj)
+        {
+            Experiments.Add("Fullscreen" + fullscreenCount, obj);
+            experiments_order.Add("Fullscreen" + fullscreenCount);
+            fullscreenCount++;
+        }
+
+        /// <summary>
+        /// Add intro experiment in to experiments list
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void AddIntro(Instructions obj)
+        {
+            Experiments.Add("Introduction" + introCount, obj);
+            experiments_order.Add("Introduction" + introCount);
+            introCount++;
+        }
+
+        /// <summary>
+        /// Add survey experiment in to experiments list
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void AddSurvey(Survey obj)
+        {
+            Experiments.Add("Survey" + surveyCount, obj);
+            experiments_order.Add("Survey" + surveyCount);
+            surveyCount++;
+        }
+
+        /// <summary>
+        /// Add bRMS trials to Experiment list view
+        /// </summary>
+        /// <param name="brms_list"></param>
+        public static void AddBrms(List<BRMS> brms_list)
+        {
+            foreach (var item in brms_list)
+            {
+                Experiments.Add("bRMS" + bRMS_count, item);
+                experiments_order.Add("bRMS" + bRMS_count);
+                bRMS_count++;
+            }
+        }
+
+        #endregion
     }
 }

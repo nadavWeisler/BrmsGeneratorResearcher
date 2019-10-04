@@ -1,5 +1,4 @@
-﻿using bRMS_Generator.Helpers;
-using bRMS_Generator.src;
+﻿using bRMS_Generator.src;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -64,8 +63,6 @@ namespace bRMS_Generator
         #endregion
 
         #region Private Methods
-
-        #region Events
 
         /// <summary>
         /// Update CSV click
@@ -196,8 +193,9 @@ namespace bRMS_Generator
             BindListView();
         }
 
-        #endregion
-
+        /// <summary>
+        /// Update Existing Trial by this.existingTrial
+        /// </summary>
         private void UpdateExistingTrial()
         {
             //new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
@@ -299,8 +297,6 @@ namespace bRMS_Generator
             return string.Empty;
         }
 
-        #endregion
-
         /// <summary>
         /// 
         /// </summary>
@@ -369,5 +365,7 @@ namespace bRMS_Generator
         {
 
         }
+
+        #endregion
     }
 }

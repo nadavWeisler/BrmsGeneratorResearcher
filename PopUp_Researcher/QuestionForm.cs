@@ -14,8 +14,19 @@ namespace bRMS_Generator
 {
     public partial class QuestionForm : Form
     {
+        #region Private Properties 
+
         private string type;
+
+        #endregion
+
+        #region Public proeprties
+
         public Question question;
+
+        #endregion
+
+        #region Constractors
 
         public QuestionForm(string _type)
         {
@@ -45,6 +56,14 @@ namespace bRMS_Generator
             }
         }
 
+        #endregion
+
+        #region Private Methods 
+
+        /// <summary>
+        /// Get Sacle from input
+        /// </summary>
+        /// <returns>List<string></returns>
         private List<string> GetScale()
         {
             var numberList = Enumerable.Range(1, decimal.ToInt32(ScaleNumeric.Value)).ToList();
@@ -78,6 +97,11 @@ namespace bRMS_Generator
             return result;
         }
 
+        /// <summary>
+        /// Add new option button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddOptionButton_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrWhiteSpace(OptionsTextBox.Text))
@@ -86,6 +110,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Remove option button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             if(listView1.SelectedItems.Count > 0)
@@ -94,6 +123,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Plus button click (options)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
@@ -105,6 +139,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Minus button click (options)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
@@ -116,6 +155,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Duplicate option button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DuplicateButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
@@ -124,6 +168,11 @@ namespace bRMS_Generator
             }
         }
 
+        /// <summary>
+        /// Save question button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(PromptRichTextBox.Text))
@@ -185,5 +234,7 @@ namespace bRMS_Generator
                 }
             }
         }
+
+        #endregion
     }
 }

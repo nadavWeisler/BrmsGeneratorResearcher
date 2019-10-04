@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.bRMS_button = new System.Windows.Forms.Button();
             this.introButton = new System.Windows.Forms.Button();
@@ -71,7 +72,7 @@
             this.introButton.Name = "introButton";
             this.introButton.Size = new System.Drawing.Size(75, 23);
             this.introButton.TabIndex = 3;
-            this.introButton.Text = "Introduction";
+            this.introButton.Text = "Instructions";
             this.introButton.UseVisualStyleBackColor = true;
             this.introButton.Click += new System.EventHandler(this.IntroButton_Click);
             // 
@@ -193,6 +194,7 @@
             this.Controls.Add(this.SaveButtonGroup);
             this.Controls.Add(this.TrialsButtonGroup);
             this.Controls.Add(this.HeaderLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Main";
             this.TrialsButtonGroup.ResumeLayout(false);

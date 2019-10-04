@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SurveyForm));
             this.TextSurveyRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
@@ -174,7 +175,6 @@
             // 
             // DuplicateButton
             // 
-            this.DuplicateButton.Enabled = false;
             this.DuplicateButton.Location = new System.Drawing.Point(8, 367);
             this.DuplicateButton.Name = "DuplicateButton";
             this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
@@ -216,6 +216,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddQuestionButton);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SurveyForm";
             this.Text = "Survey";
             this.groupBox1.ResumeLayout(false);

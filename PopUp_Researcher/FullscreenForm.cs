@@ -12,15 +12,25 @@ namespace bRMS_Generator
 {
     public partial class FullscreenForm : Form
     {
+        #region Public Properties
+
         /// <summary>
         /// Return fullscreen for edit
         /// </summary>
         public FullScreen returnEdit;
 
+        #endregion
+
+        #region Private Properties
+
         /// <summary>
         /// Existing trial for edit
         /// </summary>
         private FullScreen existingTrial;
+
+        #endregion
+
+        #region Constractors
 
         public FullscreenForm(FullScreen existing=null)
         {
@@ -33,6 +43,13 @@ namespace bRMS_Generator
             }
         }
 
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Update Existing Trial by this.existingTrial
+        /// </summary>
         private void UpdateExistingTrial()
         {
             this.SubGroupNumeric.Value = this.existingTrial.sub_group;
@@ -40,10 +57,8 @@ namespace bRMS_Generator
             MsgRich.Text = this.existingTrial.message;
         }
 
-        #region Events
-
         /// <summary>
-        /// 
+        /// Save Fullscreen button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -51,11 +66,13 @@ namespace bRMS_Generator
         {
             if (string.IsNullOrEmpty(MsgRich.Text)) return;
 
-            var newFullScreen = new FullScreen(MsgRich.Text);
-            newFullScreen.group = (GroupNumeric.Value);
-            newFullScreen.sub_group = (SubGroupNumeric.Value);
+            var newFullScreen = new FullScreen(MsgRich.Text)
+            {
+                group = (GroupNumeric.Value),
+                sub_group = (SubGroupNumeric.Value)
+            };
 
-            if(this.existingTrial != null)
+            if (this.existingTrial != null)
             {
                 this.returnEdit = newFullScreen;
             }

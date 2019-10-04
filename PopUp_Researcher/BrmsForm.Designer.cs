@@ -30,6 +30,7 @@ namespace bRMS_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrmsForm));
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.StimulusGroup = new System.Windows.Forms.GroupBox();
             this.HelpCsvButton = new System.Windows.Forms.Button();
@@ -810,6 +811,7 @@ namespace bRMS_Generator
             this.Controls.Add(this.onebRMSGroupBox);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.StimulusGroup);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BrmsForm";
             this.Text = "bRMS";
             this.StimulusGroup.ResumeLayout(false);

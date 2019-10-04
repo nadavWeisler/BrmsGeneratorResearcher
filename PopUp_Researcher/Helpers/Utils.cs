@@ -31,7 +31,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Get Questions list from TextQuestions/MultiScaleQuestion list
         /// </summary>
         /// <param name="textQ"></param>
         /// <param name="scaleQ"></param>
@@ -57,6 +57,12 @@ namespace bRMS_Generator
             return ret;
         }
 
+        /// <summary>
+        /// Load survey questions from json string
+        /// </summary>
+        /// <param name="questionType"></param>
+        /// <param name="jsonString"></param>
+        /// <returns></returns>
         public static List<Question> GetQuestionsListFromJson(string questionType, string jsonString)
         {
             List<MultiScaleQuestion> scaleList = null;
@@ -74,11 +80,21 @@ namespace bRMS_Generator
             return GetListFromTextScale(textList, scaleList);
         }
 
+        /// <summary>
+        /// Load instructions pages from json string
+        /// </summary>
+        /// <param name="jsonString"></param>
+        /// <returns></returns>
         public static List<string> GetPagesFromJson(string jsonString)
         {
             return JsonConvert.DeserializeObject<List<string>>(jsonString);
         }
 
+        /// <summary>
+        /// Load Experiment CSV
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static Experiment LoadExperimentCsv(string filePath)
         {
             var json = File.ReadAllText(filePath);
