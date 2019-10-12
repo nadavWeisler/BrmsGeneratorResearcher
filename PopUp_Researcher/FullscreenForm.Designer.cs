@@ -34,12 +34,12 @@ namespace bRMS_Generator
             this.MsgRich = new System.Windows.Forms.RichTextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.GroupNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).BeginInit();
+            this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.SubBlockLabel = new System.Windows.Forms.Label();
+            this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.BlockLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // MsgRich
@@ -69,55 +69,55 @@ namespace bRMS_Generator
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             // 
-            // SubGroupNumeric
+            // SubBlockNumeric
             // 
-            this.SubGroupNumeric.Location = new System.Drawing.Point(255, 205);
-            this.SubGroupNumeric.Name = "SubGroupNumeric";
-            this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.SubGroupNumeric.TabIndex = 26;
+            this.SubBlockNumeric.Location = new System.Drawing.Point(255, 205);
+            this.SubBlockNumeric.Name = "SubBlockNumeric";
+            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.TabIndex = 26;
             // 
-            // label2
+            // SubBlockLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 207);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Sub Group";
+            this.SubBlockLabel.AutoSize = true;
+            this.SubBlockLabel.Location = new System.Drawing.Point(191, 207);
+            this.SubBlockLabel.Name = "SubBlockLabel";
+            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.TabIndex = 25;
+            this.SubBlockLabel.Text = "Sub Block";
             // 
-            // GroupNumeric
+            // BlockNumeric
             // 
-            this.GroupNumeric.Location = new System.Drawing.Point(135, 205);
-            this.GroupNumeric.Name = "GroupNumeric";
-            this.GroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.GroupNumeric.TabIndex = 24;
+            this.BlockNumeric.Location = new System.Drawing.Point(135, 205);
+            this.BlockNumeric.Name = "BlockNumeric";
+            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.TabIndex = 24;
             // 
-            // label1
+            // BlockLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Group";
+            this.BlockLabel.AutoSize = true;
+            this.BlockLabel.Location = new System.Drawing.Point(93, 207);
+            this.BlockLabel.Name = "BlockLabel";
+            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.TabIndex = 23;
+            this.BlockLabel.Text = "Block";
             // 
             // FullscreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 235);
-            this.Controls.Add(this.SubGroupNumeric);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.GroupNumeric);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SubBlockNumeric);
+            this.Controls.Add(this.SubBlockLabel);
+            this.Controls.Add(this.BlockNumeric);
+            this.Controls.Add(this.BlockLabel);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.MsgRich);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FullscreenForm";
             this.Text = "Fullscreen";
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +128,9 @@ namespace bRMS_Generator
         private System.Windows.Forms.RichTextBox MsgRich;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button ClearButton;
-        private NumericUpDown SubGroupNumeric;
-        private Label label2;
-        private NumericUpDown GroupNumeric;
-        private Label label1;
+        private NumericUpDown SubBlockNumeric;
+        private Label SubBlockLabel;
+        private NumericUpDown BlockNumeric;
+        private Label BlockLabel;
     }
 }

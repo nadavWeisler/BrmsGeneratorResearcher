@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SurveyForm));
             this.TextSurveyRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.GroupNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.SubBlockLabel = new System.Windows.Forms.Label();
+            this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.BlockLabel = new System.Windows.Forms.Label();
             this.ScaleSurveyRadio = new System.Windows.Forms.RadioButton();
             this.MultiSurveyRadio = new System.Windows.Forms.RadioButton();
             this.AddQuestionButton = new System.Windows.Forms.Button();
@@ -45,8 +45,8 @@
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // TextSurveyRadio
@@ -63,10 +63,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.SubGroupNumeric);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.GroupNumeric);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.SubBlockNumeric);
+            this.groupBox1.Controls.Add(this.SubBlockLabel);
+            this.groupBox1.Controls.Add(this.BlockNumeric);
+            this.groupBox1.Controls.Add(this.BlockLabel);
             this.groupBox1.Controls.Add(this.ScaleSurveyRadio);
             this.groupBox1.Controls.Add(this.MultiSurveyRadio);
             this.groupBox1.Controls.Add(this.TextSurveyRadio);
@@ -77,37 +77,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Survey type";
             // 
-            // SubGroupNumeric
+            // SubBlockNumeric
             // 
-            this.SubGroupNumeric.Location = new System.Drawing.Point(164, 86);
-            this.SubGroupNumeric.Name = "SubGroupNumeric";
-            this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.SubGroupNumeric.TabIndex = 26;
+            this.SubBlockNumeric.Location = new System.Drawing.Point(164, 86);
+            this.SubBlockNumeric.Name = "SubBlockNumeric";
+            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.TabIndex = 26;
             // 
-            // label2
+            // SubBlockLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Sub Group";
+            this.SubBlockLabel.AutoSize = true;
+            this.SubBlockLabel.Location = new System.Drawing.Point(100, 88);
+            this.SubBlockLabel.Name = "SubBlockLabel";
+            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.TabIndex = 25;
+            this.SubBlockLabel.Text = "Sub Block";
             // 
-            // GroupNumeric
+            // BlockNumeric
             // 
-            this.GroupNumeric.Location = new System.Drawing.Point(44, 86);
-            this.GroupNumeric.Name = "GroupNumeric";
-            this.GroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.GroupNumeric.TabIndex = 24;
+            this.BlockNumeric.Location = new System.Drawing.Point(44, 86);
+            this.BlockNumeric.Name = "BlockNumeric";
+            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.TabIndex = 24;
             // 
-            // label1
+            // BlockLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Group";
+            this.BlockLabel.AutoSize = true;
+            this.BlockLabel.Location = new System.Drawing.Point(2, 88);
+            this.BlockLabel.Name = "BlockLabel";
+            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.TabIndex = 23;
+            this.BlockLabel.Text = "Block";
             // 
             // ScaleSurveyRadio
             // 
@@ -221,8 +221,8 @@
             this.Text = "Survey";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,9 +239,9 @@
         private System.Windows.Forms.Button DuplicateButton;
         private System.Windows.Forms.Button MinusButton;
         private System.Windows.Forms.Button PlusButton;
-        private System.Windows.Forms.NumericUpDown SubGroupNumeric;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown GroupNumeric;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown SubBlockNumeric;
+        private System.Windows.Forms.Label SubBlockLabel;
+        private System.Windows.Forms.NumericUpDown BlockNumeric;
+        private System.Windows.Forms.Label BlockLabel;
     }
 }

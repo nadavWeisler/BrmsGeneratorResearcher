@@ -195,7 +195,7 @@
             this.ScaleGroupBox.Controls.Add(this.StartLabelText);
             this.ScaleGroupBox.Location = new System.Drawing.Point(12, 239);
             this.ScaleGroupBox.Name = "ScaleGroupBox";
-            this.ScaleGroupBox.Size = new System.Drawing.Size(192, 147);
+            this.ScaleGroupBox.Size = new System.Drawing.Size(192, 153);
             this.ScaleGroupBox.TabIndex = 31;
             this.ScaleGroupBox.TabStop = false;
             this.ScaleGroupBox.Text = "Scale";

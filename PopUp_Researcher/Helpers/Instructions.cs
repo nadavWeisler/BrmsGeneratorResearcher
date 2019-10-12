@@ -12,6 +12,11 @@ namespace bRMS_Generator
         /// </summary>
         public List<string> pages;
 
+        /// <summary>
+        /// Show clickable navigation 
+        /// </summary>
+        public bool show_clickable_nav = true;
+
         #endregion
 
         #region Contractors

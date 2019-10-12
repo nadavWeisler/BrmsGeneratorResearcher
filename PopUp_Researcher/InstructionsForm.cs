@@ -49,8 +49,8 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
-            this.GroupNumeric.Value = this.existingTrial.group;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
+            this.BlockNumeric.Value = this.existingTrial.group;
             foreach(string page in this.existingTrial.pages)
             {
                 this.instru.pages.Add(page);
@@ -76,8 +76,8 @@ namespace bRMS_Generator
         {       
             if (this.instru.GetPages().Count > 0)
             {
-                this.instru.SetGroup(this.GroupNumeric.Value);
-                this.instru.SetSubGroup(this.SubGroupNumeric.Value);
+                this.instru.SetGroup(this.BlockNumeric.Value);
+                this.instru.SetSubGroup(this.SubBlockNumeric.Value);
               
                 if(this.existingTrial != null)
                 {
@@ -99,6 +99,7 @@ namespace bRMS_Generator
         private void AddButton_Click(object sender, EventArgs e)
         {
             string newintro = PageRichTextBox.Text;
+            newintro = newintro.Replace("\n", "<br>");
             if (!string.IsNullOrEmpty(newintro))
             {
                 if (listView1.SelectedItems.Count == 0)
@@ -122,7 +123,8 @@ namespace bRMS_Generator
             this.listView1.Items.Clear();
             foreach (var item in this.instru.GetPages())
             {
-                this.listView1.Items.Add(item);
+                int endIndex = Math.Min(10, item.Length - 1);
+                this.listView1.Items.Add(item.Substring(endIndex) + "...");
             }
         }
 

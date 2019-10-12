@@ -152,9 +152,11 @@ namespace bRMS_Generator
                 switch (item.type)
                 {
                     case "bRMS":
-                        List<BRMS> helpLst = new List<BRMS>();
-                        helpLst.Add((BRMS)item);
-                        AddBrms(helpLst);
+                        Dictionary<string, BRMS> helpDic = new Dictionary<string, BRMS>
+                        {
+                            { "bRMS", (BRMS)item }
+                        };
+                        AddBrms(helpDic);
                         break;
                     case "survey-text":
                     case "survey-likert":
@@ -374,16 +376,38 @@ namespace bRMS_Generator
         /// Add bRMS trials to Experiment list view
         /// </summary>
         /// <param name="brms_list"></param>
-        public static void AddBrms(List<BRMS> brms_list)
+        public static void AddBrms(Dictionary<string, BRMS> brms_list)
         {
             foreach (var item in brms_list)
             {
-                Experiments.Add("bRMS" + bRMS_count, item);
-                experiments_order.Add("bRMS" + bRMS_count);
+                Experiments.Add(item.Key + "_" + bRMS_count, item.Value);
+                experiments_order.Add(item.Key + "_" + bRMS_count);
                 bRMS_count++;
             }
         }
 
         #endregion
+
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
+            {
+                var tmp = listView1.SelectedItems[0].Text;
+                var tmpIndex = listView1.SelectedItems[0].Index;
+                listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
+                listView1.Items[tmpIndex - 1].Text = tmp;
+            }
+        }
+
+        private void MinusButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
+            {
+                var tmp = listView1.SelectedItems[0].Text;
+                var tmpIndex = listView1.SelectedItems[0].Index;
+                listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
+                listView1.Items[tmpIndex + 1].Text = tmp;
+            }
+        }
     }
 }

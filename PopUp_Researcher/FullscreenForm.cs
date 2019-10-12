@@ -52,8 +52,8 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
-            this.GroupNumeric.Value = this.existingTrial.group;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
+            this.BlockNumeric.Value = this.existingTrial.group;
             MsgRich.Text = this.existingTrial.message;
         }
 
@@ -68,8 +68,8 @@ namespace bRMS_Generator
 
             var newFullScreen = new FullScreen(MsgRich.Text)
             {
-                group = (GroupNumeric.Value),
-                sub_group = (SubGroupNumeric.Value)
+                group = (BlockNumeric.Value),
+                sub_group = (SubBlockNumeric.Value)
             };
 
             if (this.existingTrial != null)

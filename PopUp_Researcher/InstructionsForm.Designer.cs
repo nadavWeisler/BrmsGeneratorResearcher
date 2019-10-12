@@ -38,12 +38,12 @@
             this.PlusButton = new System.Windows.Forms.Button();
             this.MinusButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.GroupNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SubGroupNumeric = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).BeginInit();
+            this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.BlockLabel = new System.Windows.Forms.Label();
+            this.SubBlockLabel = new System.Windows.Forms.Label();
+            this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // PageRichTextBox
@@ -135,47 +135,47 @@
             this.listView1.View = System.Windows.Forms.View.List;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
-            // GroupNumeric
+            // BlockNumeric
             // 
-            this.GroupNumeric.Location = new System.Drawing.Point(54, 400);
-            this.GroupNumeric.Name = "GroupNumeric";
-            this.GroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.GroupNumeric.TabIndex = 20;
+            this.BlockNumeric.Location = new System.Drawing.Point(54, 400);
+            this.BlockNumeric.Name = "BlockNumeric";
+            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.TabIndex = 20;
             // 
-            // label1
+            // BlockLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 402);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Group";
+            this.BlockLabel.AutoSize = true;
+            this.BlockLabel.Location = new System.Drawing.Point(12, 402);
+            this.BlockLabel.Name = "BlockLabel";
+            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.TabIndex = 19;
+            this.BlockLabel.Text = "Block";
             // 
-            // label2
+            // SubBlockLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(110, 402);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Sub Group";
+            this.SubBlockLabel.AutoSize = true;
+            this.SubBlockLabel.Location = new System.Drawing.Point(110, 402);
+            this.SubBlockLabel.Name = "SubBlockLabel";
+            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.TabIndex = 21;
+            this.SubBlockLabel.Text = "Sub Block";
             // 
-            // SubGroupNumeric
+            // SubBlockNumeric
             // 
-            this.SubGroupNumeric.Location = new System.Drawing.Point(174, 400);
-            this.SubGroupNumeric.Name = "SubGroupNumeric";
-            this.SubGroupNumeric.Size = new System.Drawing.Size(51, 20);
-            this.SubGroupNumeric.TabIndex = 22;
+            this.SubBlockNumeric.Location = new System.Drawing.Point(174, 400);
+            this.SubBlockNumeric.Name = "SubBlockNumeric";
+            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.TabIndex = 22;
             // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 425);
-            this.Controls.Add(this.SubGroupNumeric);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.GroupNumeric);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SubBlockNumeric);
+            this.Controls.Add(this.SubBlockLabel);
+            this.Controls.Add(this.BlockNumeric);
+            this.Controls.Add(this.BlockLabel);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.MinusButton);
             this.Controls.Add(this.PlusButton);
@@ -188,8 +188,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstructionsForm";
             this.Text = "Instructions";
-            ((System.ComponentModel.ISupportInitialize)(this.GroupNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubGroupNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,9 +205,9 @@
         private System.Windows.Forms.Button PlusButton;
         private System.Windows.Forms.Button MinusButton;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.NumericUpDown GroupNumeric;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown SubGroupNumeric;
+        private System.Windows.Forms.NumericUpDown BlockNumeric;
+        private System.Windows.Forms.Label BlockLabel;
+        private System.Windows.Forms.Label SubBlockLabel;
+        private System.Windows.Forms.NumericUpDown SubBlockNumeric;
     }
 }

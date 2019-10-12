@@ -53,8 +53,8 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
-            this.GroupNumeric.Value = this.existingTrial.group;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
+            this.BlockNumeric.Value = this.existingTrial.group;
 
             switch (this.existingTrial.type)
             {
@@ -153,8 +153,8 @@ namespace bRMS_Generator
 
                 if(newSurvey != null)
                 {
-                    newSurvey.SetGroup(GroupNumeric.Value);
-                    newSurvey.SetSubGroup(SubGroupNumeric.Value);
+                    newSurvey.SetGroup(BlockNumeric.Value);
+                    newSurvey.SetSubGroup(SubBlockNumeric.Value);
                     if(this.existingTrial == null)
                     {
                         MainForm.AddSurvey(newSurvey);

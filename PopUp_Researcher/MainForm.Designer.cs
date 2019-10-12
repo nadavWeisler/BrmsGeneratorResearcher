@@ -43,8 +43,12 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.LoadButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MinusButton = new System.Windows.Forms.Button();
+            this.PlusButton = new System.Windows.Forms.Button();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -88,7 +92,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(6, 77);
+            this.saveButton.Location = new System.Drawing.Point(10, 71);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -98,7 +102,7 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(6, 19);
+            this.removeButton.Location = new System.Drawing.Point(10, 13);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 6;
@@ -134,16 +138,16 @@
             this.SaveButtonGroup.Controls.Add(this.EditButton);
             this.SaveButtonGroup.Controls.Add(this.saveButton);
             this.SaveButtonGroup.Controls.Add(this.removeButton);
-            this.SaveButtonGroup.Location = new System.Drawing.Point(359, 173);
+            this.SaveButtonGroup.Location = new System.Drawing.Point(359, 251);
             this.SaveButtonGroup.Name = "SaveButtonGroup";
-            this.SaveButtonGroup.Size = new System.Drawing.Size(96, 107);
+            this.SaveButtonGroup.Size = new System.Drawing.Size(96, 109);
             this.SaveButtonGroup.TabIndex = 9;
             this.SaveButtonGroup.TabStop = false;
             this.SaveButtonGroup.Text = "Save";
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(6, 48);
+            this.EditButton.Location = new System.Drawing.Point(10, 42);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 23);
             this.EditButton.TabIndex = 7;
@@ -163,7 +167,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(15, 32);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(338, 248);
+            this.listView1.Size = new System.Drawing.Size(338, 328);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -183,11 +187,43 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "JSON files (*.json)|*.json";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.MinusButton);
+            this.groupBox1.Controls.Add(this.PlusButton);
+            this.groupBox1.Location = new System.Drawing.Point(359, 167);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(96, 81);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Navigation";
+            // 
+            // MinusButton
+            // 
+            this.MinusButton.Location = new System.Drawing.Point(10, 48);
+            this.MinusButton.Name = "MinusButton";
+            this.MinusButton.Size = new System.Drawing.Size(75, 23);
+            this.MinusButton.TabIndex = 7;
+            this.MinusButton.Text = "-";
+            this.MinusButton.UseVisualStyleBackColor = true;
+            this.MinusButton.Click += new System.EventHandler(this.MinusButton_Click);
+            // 
+            // PlusButton
+            // 
+            this.PlusButton.Location = new System.Drawing.Point(10, 19);
+            this.PlusButton.Name = "PlusButton";
+            this.PlusButton.Size = new System.Drawing.Size(75, 23);
+            this.PlusButton.TabIndex = 6;
+            this.PlusButton.Text = "+";
+            this.PlusButton.UseVisualStyleBackColor = true;
+            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 287);
+            this.ClientSize = new System.Drawing.Size(467, 366);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.NameTextBox);
@@ -199,6 +235,7 @@
             this.Text = "Main";
             this.TrialsButtonGroup.ResumeLayout(false);
             this.SaveButtonGroup.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,6 +257,9 @@
             ;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button MinusButton;
+        private System.Windows.Forms.Button PlusButton;
     }
 }
 

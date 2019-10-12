@@ -132,13 +132,15 @@ namespace bRMS_Generator
             BRMS new_brms = new BRMS
             {
                 name = "bRMS" + brms_count,
-                group = this.GroupNumeric.Value,
-                sub_group = this.SubGroupNumeric.Value
+                group = this.BlockNumeric.Value,
+                sub_group = this.SubBlockNumeric.Value
             };
             new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
+            string tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
                 new_brms.stimulus_dictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+                tagString += "_" + tag.Text;
             }
             if(this.MixedRadio.Checked)
             {
@@ -163,6 +165,10 @@ namespace bRMS_Generator
             new_brms.visUnit = this.VisUnitNumeric.Value;
             new_brms.mondrian_count = this.MondrianCountNumeric.Value;
             new_brms.break_time = this.BreakTimeNumeric.Value;
+            new_brms.allowed_to_repeat = this.AllowedToRepeatNumeric.Value;
+            new_brms.break_message = this.BreakMessageRichTextBox.Text;
+            new_brms.performance_message = this.PerformanceMessageRchTextBox.Text;
+            new_brms.stop_trial_message = this.StopMessageRichTextBox.Text;
             if ((this.OriantetionComboBox.SelectedValue == null))
             {
                 new_brms.orientation = "h";
@@ -187,8 +193,9 @@ namespace bRMS_Generator
             new_brms.stimulus_max_opacity = this.StimulusMaxOpacityNumeric.Value;
             new_brms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
             new_brms.trial_limit = this.TrialLimitNumeric.Value;
-            this.brms_names.Add("bRMS" + brms_count);
-            this.brms_trials["bRMS" + brms_count] = new_brms;
+            string new_bRMS_name = "bRMS" + brms_count + "_" + new_brms.brms_type + "_" + tagString;
+            this.brms_names.Add(new_bRMS_name);
+            this.brms_trials[new_bRMS_name] = new_brms;
             brms_count++;
             BindListView();
         }
@@ -218,8 +225,8 @@ namespace bRMS_Generator
             //        new_brms.brms_type = "order";
             //    }
             //}
-            this.GroupNumeric.Value = this.existingTrial.group;
-            this.SubGroupNumeric.Value = this.existingTrial.sub_group;
+            this.BlockNumeric.Value = this.existingTrial.group;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
             this.CountNumeric.Value = this.existingTrial.repetitions;
             this.MaxTypeNumeric.Value = this.existingTrial.max_type;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
@@ -351,12 +358,7 @@ namespace bRMS_Generator
         {
             if (brms_names.Count > 0)
             {
-                List<BRMS> brms_list = new List<BRMS>();
-                foreach(var item in brms_trials.Values)
-                {
-                    brms_list.Add(item);
-                }
-                MainForm.AddBrms(brms_list);
+                MainForm.AddBrms(brms_trials);
                 Close();
             }
         }
