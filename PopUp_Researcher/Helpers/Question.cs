@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public abstract class Question
     {
@@ -9,12 +9,12 @@ namespace bRMS_Generator
         /// <summary>
         /// Question Prompt
         /// </summary>
-        public string prompt = "";
+        public string Prompt = "";
 
         /// <summary>
         /// If question is required
         /// </summary>
-        public bool required = true;
+        public bool Required = true;
 
         #endregion
 
@@ -26,7 +26,7 @@ namespace bRMS_Generator
         /// <returns></returns>
         public string GetPrompt()
         {
-            return this.prompt;
+            return this.Prompt;
         }
 
         #endregion
@@ -39,24 +39,24 @@ namespace bRMS_Generator
         /// <summary>
         /// Rows
         /// </summary>
-        public decimal rows;
+        public decimal Rows;
 
         /// <summary>
         /// Cols
         /// </summary>
-        public decimal columns;
+        public decimal Columns;
 
         /// <summary>
         /// Default value
         /// </summary>
-        public string value;
+        public string Value;
 
         #endregion
 
         #region Constractors
 
         /// <summary>
-        /// Constractor
+        /// Constructor
         /// </summary>
         /// <param name="_prompt"></param>
         /// <param name="_rows"></param>
@@ -65,11 +65,11 @@ namespace bRMS_Generator
         /// <param name="_required"></param>
         public TextQuestion(string _prompt, decimal _rows, decimal _cols, string _value, bool _required)
         {
-            this.prompt = _prompt;
-            this.rows = _rows;
-            this.columns = _cols;
-            this.value = _value;
-            this.required = _required;
+            this.Prompt = _prompt;
+            this.Rows = _rows;
+            this.Columns = _cols;
+            this.Value = _value;
+            this.Required = _required;
         }
 
         #endregion
@@ -82,23 +82,23 @@ namespace bRMS_Generator
         /// <summary>
         /// Options
         /// </summary>
-        public List<string> options;
+        public List<string> Options;
 
         #endregion
 
         #region Contractors
 
         /// <summary>
-        /// Constractor
+        /// Constructor
         /// </summary>
         /// <param name="_prompt"></param>
         /// <param name="_required"></param>
         /// <param name="_options"></param>
         public MultiScaleQuestion(string _prompt, bool _required, List<string> _options)
         {
-            this.prompt = _prompt;
-            this.required = _required;
-            this.options = _options;
+            this.Prompt = _prompt;
+            this.Required = _required;
+            this.Options = _options;
         }
 
         #endregion

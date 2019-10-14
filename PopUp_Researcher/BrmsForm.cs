@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using PopUp_Researcher.Helpers;
+using PopUp_Researcher.Models;
 
 namespace bRMS_Generator
 {
@@ -22,12 +24,12 @@ namespace bRMS_Generator
         /// <summary>
         /// bRMS Dictionary of bRMS name and Object Key Value Pair
         /// </summary>
-        protected Dictionary<string, BRMS> brms_trials;
+        protected Dictionary<string, Brms> brms_trials;
 
         /// <summary>
         /// Existing bRMS(edit)
         /// </summary>
-        protected BRMS existingTrial;
+        protected Brms existingTrial;
 
         /// <summary>
         /// bRMS Trials Count
@@ -41,7 +43,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Basic Constractors
         /// </summary>
-        public BrmsForm(BRMS _existingTrial=null)
+        public BrmsForm(Brms _existingTrial=null)
         {
             InitializeComponent();
             if (this.Helper == null)
@@ -49,7 +51,7 @@ namespace bRMS_Generator
                 this.Helper = new BRmsHelper();
             }
             this.brms_names = new List<string>();
-            this.brms_trials = new Dictionary<string, BRMS>();
+            this.brms_trials = new Dictionary<string, Brms>();
 
             if(_existingTrial != null)
             {
@@ -129,17 +131,17 @@ namespace bRMS_Generator
                 return;
             }
 
-            BRMS new_brms = new BRMS
+            Brms new_brms = new Brms
             {
                 name = "bRMS" + brms_count,
                 group = this.BlockNumeric.Value,
                 sub_group = this.SubBlockNumeric.Value
             };
-            new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
+            new_brms.StimulusDictionary = new Dictionary<string, List<string>>();
             string tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
-                new_brms.stimulus_dictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+                new_brms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
                 tagString += "_" + tag.Text;
             }
             if(this.MixedRadio.Checked)
@@ -189,7 +191,7 @@ namespace bRMS_Generator
             new_brms.timing_post_trial = this.TimingPostTrialNumeric.Value;
             new_brms.within_ITI = this.ItiNumeric.Value;
             new_brms.experiment_length = this.ExperimentLengthNumeric.Value;
-            new_brms.rectengle_number = this.RectangleNumeric.Value;
+            new_brms.rectangle_number = this.RectangleNumeric.Value;
             new_brms.timing_response = this.TimingResponseNumeric.Value;
             new_brms.stimulus_max_opacity = this.StimulusMaxOpacityNumeric.Value;
             new_brms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
@@ -240,7 +242,7 @@ namespace bRMS_Generator
             this.TimingPostTrialNumeric.Value = this.existingTrial.timing_post_trial;
             this.ItiNumeric.Value = this.existingTrial.within_ITI;
             this.ExperimentLengthNumeric.Value = this.existingTrial.experiment_length;
-            this.RectangleNumeric.Value = this.existingTrial.rectengle_number;
+            this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
             this.StimulusMaxOpacityNumeric.Value = this.existingTrial.stimulus_max_opacity;
             this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;

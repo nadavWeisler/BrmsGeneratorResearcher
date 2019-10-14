@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator.src
+namespace PopUp_Researcher.Models
 {
-    public class BRMS: Trial
+    public class Brms: Trial
     {
-        public Dictionary<string, List<string>> stimulus_dictionary;
+        public Dictionary<string, List<string>> StimulusDictionary;
 
         public string name;
         public string stimulusFolder;
@@ -30,7 +31,7 @@ namespace bRMS_Generator.src
         public decimal mondrian_count;
         public decimal break_time;
         public decimal experiment_length;
-        public decimal rectengle_number;
+        public decimal rectangle_number;
         public decimal stimulus_opacity;
         public decimal stimulus_max_opacity;
         public decimal mondrian_max_opacity;
@@ -38,7 +39,7 @@ namespace bRMS_Generator.src
         public decimal allowed_to_repeat;
         
         
-        public BRMS()
+        public Brms()
         {
             this.type = "bRMS";
         }

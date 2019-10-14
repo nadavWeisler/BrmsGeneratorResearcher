@@ -1,4 +1,6 @@
-﻿namespace bRMS_Generator
+﻿using bRMS_Generator;
+
+namespace PopUp_Researcher.Helpers
 {
     public class FullScreen: Trial
     {
@@ -7,25 +9,26 @@
         /// <summary>
         /// Fullscreen Mode
         /// </summary>
-        public bool fullscreen_mode = true;
+        public bool FullscreenMode;
 
         /// <summary>
         /// Fullscreen Display Message
         /// </summary>
-        public string message;
+        public string Message;
 
         #endregion
 
         #region Constractors
 
         /// <summary>
-        /// Basic Constractors
+        /// Basic Constructors
         /// </summary>
         /// <param name="_message"></param>
         public FullScreen(string _message)
         {
             this.type = "fullscreen";
-            this.message = _message;
+            this.Message = _message;
+            this.FullscreenMode = true;
         }
 
         #endregion

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using bRMS_Generator;
 using bRMS_Generator.src;
+using PopUp_Researcher.Models;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public class BRmsHelper
     {
@@ -11,7 +13,7 @@ namespace bRMS_Generator
         /// <summary>
         /// bRMS Object
         /// </summary>
-        protected BRMS Obj;
+        protected Brms Obj;
 
         /// <summary>
         /// Stimulus Dictionary
@@ -23,11 +25,11 @@ namespace bRMS_Generator
         #region Constractors
 
         /// <summary>
-        /// Basic Constractor
+        /// Basic Constructor
         /// </summary>
         public BRmsHelper()
         {
-            this.Obj = new BRMS();
+            this.Obj = new Brms();
         }
 
         #endregion
@@ -35,7 +37,7 @@ namespace bRMS_Generator
         #region Public Methods
 
         /// <summary>
-        /// Update stimulues from instructions CSV
+        /// Update stimulus from instructions CSV
         /// </summary>
         /// <param name="fileName"></param>
         public void UpdateStimulusFromCsv(string fileName)
@@ -92,7 +94,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Get Tag List From STimulus Dictionary
+        /// Get Tag List From Stimulus Dictionary
         /// </summary>
         /// <returns></returns>
         public List<string> GetTagList()

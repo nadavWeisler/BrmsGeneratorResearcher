@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using bRMS_Generator;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public class Instructions : Trial
     {
@@ -10,24 +10,25 @@ namespace bRMS_Generator
         /// <summary>
         /// Pages Property
         /// </summary>
-        public List<string> pages;
+        public List<string> Pages;
 
         /// <summary>
-        /// Show clickable navigation 
+        /// Show click-able navigation 
         /// </summary>
-        public bool show_clickable_nav = true;
+        public bool ShowClickAbleNav;
 
         #endregion
 
         #region Contractors
 
         /// <summary>
-        /// Constractors
+        /// Constructors
         /// </summary>
         public Instructions()
         {
             this.type = "instructions";
-            this.pages = new List<string>();
+            this.Pages = new List<string>();
+            this.ShowClickAbleNav = true;
         }
 
         #endregion
@@ -40,7 +41,7 @@ namespace bRMS_Generator
         /// <returns></returns>
         public List<string> GetPages()
         {
-            return this.pages;
+            return this.Pages;
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace bRMS_Generator
         /// <param name="lst"></param>
         public void SetPages(List<string> lst)
         {
-            this.pages = lst;
+            this.Pages = lst;
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace bRMS_Generator
         /// <param name="page"></param>
         public void AddPage(string page)
         {
-            this.pages.Add(page);
+            this.Pages.Add(page);
         }
 
         #endregion

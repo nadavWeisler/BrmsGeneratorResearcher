@@ -7,6 +7,7 @@ using bRMS_Generator.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Security.Cryptography;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator.src
 {

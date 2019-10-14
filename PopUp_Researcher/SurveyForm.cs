@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using bRMS_Generator.src;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
 {
@@ -12,22 +13,22 @@ namespace bRMS_Generator
         /// <summary>
         /// Questions ListView
         /// </summary>
-        protected List<Question> questions;
+        protected List<Question> Questions;
 
         /// <summary>
         /// If Page Loaded
         /// </summary>
-        protected bool loaded = false;
+        protected bool Loaded = false;
 
         /// <summary>
         /// Existing Trial
         /// </summary>
-        protected Survey existingTrial;
+        protected Survey ExistingTrial;
 
         /// <summary>
         /// Return edited survey
         /// </summary>
-        public Survey returnEdit;
+        public Survey ReturnEdit;
 
         #endregion
 
@@ -38,18 +39,18 @@ namespace bRMS_Generator
         /// </summary>
         public SurveyForm(Survey existing = null)
         {
-            this.loaded = false;
+            this.Loaded = false;
 
             InitializeComponent();
-            this.questions = new List<Question>();
+            this.Questions = new List<Question>();
             
             if(existing != null)
             {
-                this.existingTrial = existing;
+                this.ExistingTrial = existing;
                 UpdateExistingTrial();
                 BindListView();
             }
-            this.loaded = true;
+            this.Loaded = true;
         }
 
         #endregion
@@ -61,10 +62,10 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
-            this.BlockNumeric.Value = this.existingTrial.group;
+            this.SubBlockNumeric.Value = this.ExistingTrial.sub_group;
+            this.BlockNumeric.Value = this.ExistingTrial.group;
 
-            switch (this.existingTrial.type)
+            switch (this.ExistingTrial.type)
             {
                 case "survey-text":
                     TextSurveyRadio.Checked = true;
@@ -77,9 +78,9 @@ namespace bRMS_Generator
                     break;
             }
 
-            foreach(var question in this.existingTrial.questions)
+            foreach(var question in this.ExistingTrial.questions)
             {
-                this.questions.Add(question);
+                this.Questions.Add(question);
             }
         }
 
@@ -89,7 +90,7 @@ namespace bRMS_Generator
         private void BindListView()
         {
             QuestionsListView.Items.Clear();
-            foreach (var item in this.questions)
+            foreach (var item in this.Questions)
             {
                 QuestionsListView.Items.Add(item.GetPrompt());
             }
@@ -122,15 +123,11 @@ namespace bRMS_Generator
                 }
             }
 
-            if (qForm != null)
-            {
-                qForm?.ShowDialog();
-                if (qForm.question != null)
-                {
-                    this.questions.Add(qForm.question);
-                    BindListView();
-                }
-            }
+            if (qForm == null) return;
+            qForm?.ShowDialog();
+            if (qForm.question == null) return;
+            this.Questions.Add(qForm.question);
+            BindListView();
         }
 
         /// <summary>
@@ -140,22 +137,22 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(this.questions.Count > 0)
+            if(this.Questions.Count > 0)
             {
                 Survey newSurvey = null;
                 if(this.TextSurveyRadio.Checked)
                 {
-                    newSurvey = new TextSurvey(this.questions);
+                    newSurvey = new TextSurvey(this.Questions);
                 }
                 else
                 {
                     if(this.ScaleSurveyRadio.Checked)
                     {
-                        newSurvey = new ScaleSurvey(this.questions);
+                        newSurvey = new ScaleSurvey(this.Questions);
                     }
                     else
                     {
-                        newSurvey = new MultiSurvey(this.questions);
+                        newSurvey = new MultiSurvey(this.Questions);
                     }
                 }
 
@@ -163,13 +160,13 @@ namespace bRMS_Generator
                 {
                     newSurvey.SetGroup(BlockNumeric.Value);
                     newSurvey.SetSubGroup(SubBlockNumeric.Value);
-                    if(this.existingTrial == null)
+                    if(this.ExistingTrial == null)
                     {
                         MainForm.AddSurvey(newSurvey);
                     }
                     else
                     {
-                        returnEdit = newSurvey;
+                        ReturnEdit = newSurvey;
                     }
                     Close();
                 }
@@ -185,7 +182,7 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in QuestionsListView.SelectedItems)
             {
-                this.questions = Utils.RemoveItemByIndex(this.questions, item.Index);
+                this.Questions = Utils.RemoveItemByIndex(this.Questions, item.Index);
             }
             BindListView();
         }
@@ -197,9 +194,9 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index < this.questions.Count - 1)
+            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index < this.Questions.Count - 1)
             {
-                this.questions = Utils.UpOneItem(this.questions, QuestionsListView.SelectedItems[0].Index);
+                this.Questions = Utils.UpOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
                 BindListView();
             }
         }
@@ -213,7 +210,7 @@ namespace bRMS_Generator
         {
             if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index > 0)
             {
-                this.questions = Utils.DownOneItem(this.questions, QuestionsListView.SelectedItems[0].Index);
+                this.Questions = Utils.DownOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
                 BindListView();
             }
         }
@@ -227,7 +224,7 @@ namespace bRMS_Generator
         {
             if(this.QuestionsListView.SelectedItems.Count > 0)
             {
-                this.questions.Add(this.questions[this.QuestionsListView.SelectedItems[0].Index]);
+                this.Questions.Add(this.Questions[this.QuestionsListView.SelectedItems[0].Index]);
             }
             BindListView();
         }
@@ -267,14 +264,13 @@ namespace bRMS_Generator
         /// </summary>
         private void ChangeRadioButton()
         {
-            if (loaded && QuestionsListView.Items.Count > 0)
+            if (!Loaded || QuestionsListView.Items.Count <= 0) return;
+
+            var dialogResult = MessageBox.Show("Are You Sure?", "Change Survey Type",
+                MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                DialogResult dialogResult = MessageBox.Show("Are You Sure?", "Change Survey Type",
-                    MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    QuestionsListView.Clear();
-                }
+                QuestionsListView.Clear();
             }
         }
 

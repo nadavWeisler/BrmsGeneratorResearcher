@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using bRMS_Generator.src;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
 {

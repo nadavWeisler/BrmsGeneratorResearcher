@@ -3,6 +3,7 @@ using PopUp_Researcher.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
 {
@@ -36,10 +37,10 @@ namespace bRMS_Generator
         /// <param name="textQ"></param>
         /// <param name="scaleQ"></param>
         /// <returns></returns>
-        private static List<Question> GetListFromTextScale(List<TextQuestion> textQ=null,
-            List<MultiScaleQuestion> scaleQ=null)
+        private static List<Question> GetListFromTextScale(IReadOnlyCollection<TextQuestion> textQ=null,
+            IEnumerable<MultiScaleQuestion> scaleQ=null)
         {
-            List<Question> ret = new List<Question>();
+            var ret = new List<Question>();
             if(textQ == null)
             {
                 foreach(var item in scaleQ)
@@ -67,16 +68,13 @@ namespace bRMS_Generator
         {
             List<MultiScaleQuestion> scaleList = null;
             List<TextQuestion> textList = null;
-            switch (questionType)
+            if (questionType == "survey-text")
+                textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
+            else if (questionType == "survey-likert" || questionType == "survey-multi-choice")
             {
-                case "survey-text":
-                    textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
-                    break;
-                case "survey-likert":
-                case "survey-multi-choice":
-                    scaleList = JsonConvert.DeserializeObject<List<MultiScaleQuestion>>(jsonString);
-                    break;
+                scaleList = JsonConvert.DeserializeObject<List<MultiScaleQuestion>>(jsonString);
             }
+
             return GetListFromTextScale(textList, scaleList);
         }
 
@@ -98,7 +96,7 @@ namespace bRMS_Generator
         public static Experiment LoadExperimentCsv(string filePath)
         {
             var json = File.ReadAllText(filePath);
-            Experiment experimentJson = JsonConvert.DeserializeObject<Experiment>(json);
+            var experimentJson = JsonConvert.DeserializeObject<Experiment>(json);
             experimentJson.UpdateTrialsByTimeline();
             return experimentJson;
         }
@@ -121,12 +119,10 @@ namespace bRMS_Generator
         /// <param name="index"></param>
         public static List<T> DownOneItem<T>(List<T> lst, int index)
         {
-            if (index >= 1 && index < lst.Count)
-            {
-                var tmp = lst[index];
-                lst[index] = lst[index - 1];
-                lst[index - 1] = tmp;      
-            }
+            if (index < 1 || index >= lst.Count) return lst;
+            var tmp = lst[index];
+            lst[index] = lst[index - 1];
+            lst[index - 1] = tmp;
             return lst;
         }
 
@@ -136,12 +132,10 @@ namespace bRMS_Generator
         /// <param name="index"></param>
         public static List<T> UpOneItem<T>(List<T> lst, int index)
         {
-            if (index >= 0 && index < lst.Count - 1)
-            {
-                var tmp = lst[index];
-                lst[index] = lst[index + 1];
-                lst[index + 1] = tmp; 
-            }
+            if (index < 0 || index >= lst.Count - 1) return lst;
+            var tmp = lst[index];
+            lst[index] = lst[index + 1];
+            lst[index + 1] = tmp;
             return lst;
         }
 

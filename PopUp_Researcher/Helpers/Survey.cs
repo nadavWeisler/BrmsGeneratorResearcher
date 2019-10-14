@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using bRMS_Generator;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public abstract class Survey : Trial
     {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
 {
@@ -54,7 +55,7 @@ namespace bRMS_Generator
         {
             this.SubBlockNumeric.Value = this.existingTrial.sub_group;
             this.BlockNumeric.Value = this.existingTrial.group;
-            MsgRich.Text = this.existingTrial.message;
+            MsgRich.Text = this.existingTrial.Message;
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using bRMS_Generator.src;
 using Newtonsoft.Json;
+using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
 
 namespace bRMS_Generator
@@ -14,32 +15,32 @@ namespace bRMS_Generator
         /// <summary>
         /// Experiment's Trials
         /// </summary>
-        private static Dictionary<string, Trial> Experiments;
+        protected static Dictionary<string, Trial> Experiments;
 
         /// <summary>
         /// Experiment's Trials Name List
         /// </summary>
-        private static List<string> experiments_order;
+        protected static List<string> ExperimentsOrder;
 
         /// <summary>
         /// Fullscreen Trial Count
         /// </summary>
-        private static int fullscreenCount;
+        protected static int FullscreenCount;
 
         /// <summary>
         /// Introduction Trial Count
         /// </summary>
-        private static int introCount;
+        protected static int IntroCount;
 
         /// <summary>
         /// Survry Trials Count
         /// </summary>
-        private static int surveyCount;
+        protected static int SurveyCount;
 
         /// <summary>
         /// bRMS Trials Count
         /// </summary>
-        private static int bRMS_count;
+        protected static int BRmsCount;
 
         #endregion
 
@@ -52,9 +53,9 @@ namespace bRMS_Generator
         {
             InitializeComponent();
             Experiments = new Dictionary<string, Trial>();
-            experiments_order = new List<string>();
-            fullscreenCount = 0;
-            introCount = 0;
+            ExperimentsOrder = new List<string>();
+            FullscreenCount = 0;
+            IntroCount = 0;
         }
 
         #endregion
@@ -115,7 +116,7 @@ namespace bRMS_Generator
         private void BindListView()
         {
             listView1.Clear();
-            foreach (var item in experiments_order)
+            foreach (var item in ExperimentsOrder)
             {
                 listView1.Items.Add(item);
             }
@@ -129,16 +130,14 @@ namespace bRMS_Generator
         private void LoadButton_Click(object sender, EventArgs e)
         {
             // Show the FolderBrowserDialog.  
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                Experiment newExpereiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
-                NameTextBox.Text = newExpereiment.Name;
-                NameTextBox.Enabled = false;
-                this.listView1.Clear();
-                this.LoadExperiment(newExpereiment.Trials);
-                BindListView();
-            }
+            var result = openFileDialog1.ShowDialog();
+            if (result != DialogResult.OK) return;
+            var newExperiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
+            NameTextBox.Text = newExperiment.Name;
+            NameTextBox.Enabled = false;
+            this.listView1.Clear();
+            this.LoadExperiment(newExperiment.Trials);
+            BindListView();
         }
 
         /// <summary>
@@ -152,22 +151,24 @@ namespace bRMS_Generator
                 switch (item.type)
                 {
                     case "bRMS":
-                        Dictionary<string, BRMS> helpDic = new Dictionary<string, BRMS>
+                    {
+                        var helpDic = new Dictionary<string, Brms>
                         {
-                            { "bRMS", (BRMS)item }
+                            {"bRMS", (Brms) item}
                         };
                         AddBrms(helpDic);
                         break;
+                    }
                     case "survey-text":
                     case "survey-likert":
                     case "survey-multi-choice":
-                        AddSurvey((Survey)item);
+                        AddSurvey((Survey) item);
                         break;
                     case "fullscreen":
-                        AddFullscreen((FullScreen)item);
+                        AddFullscreen((FullScreen) item);
                         break;
                     case "instructions":
-                        AddIntro((Instructions)item);
+                        AddIntro((Instructions) item);
                         break;
                 }
             }
@@ -182,10 +183,10 @@ namespace bRMS_Generator
         {
             if (listView1.SelectedItems.Count < 1) { return; }
 
-            var item_index = listView1.SelectedItems[0].Index;
-            var item = experiments_order[item_index];
+            var itemIndex = listView1.SelectedItems[0].Index;
+            var item = ExperimentsOrder[itemIndex];
             Experiments.Remove(item);
-            experiments_order.Remove(item);
+            ExperimentsOrder.Remove(item);
             BindListView();
         }
 
@@ -215,33 +216,33 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string validationString = ValidateBeforeSave();
+            var validationString = ValidateBeforeSave();
             if (!string.IsNullOrWhiteSpace(validationString))
             {
                 MessageBox.Show(validationString);
                 return;
             }
 
-            List<Trial> valuesList = new List<Trial>();
+            var valuesList = new List<Trial>();
             foreach (var item in Experiments.Values)
             {
                 valuesList.Add(item);
             }
 
-            Dictionary<string, object> to_json_dic = new Dictionary<string, object>
+            var toJsonDic = new Dictionary<string, object>
             {
                 {
                     "timeline", valuesList
                 }
             };
 
-            to_json_dic.Add("name", NameTextBox.Text);
+            toJsonDic.Add("name", NameTextBox.Text);
 
-            string json = JsonConvert.SerializeObject(to_json_dic, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(toJsonDic, Formatting.Indented);
 
 
             // Displays a SaveFileDialog so the user can save the Image  
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            var saveFileDialog1 = new SaveFileDialog
             {
                 FileName = NameTextBox.Text,
                 Filter = "Experiment JSON|*.json",
@@ -263,74 +264,69 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems == null || listView1.SelectedItems.Count == 0)
+            if (listView1.SelectedItems.Count == 0)
             {
                 return;
             }
 
-            int selectedIndex = listView1.SelectedItems[0].Index;
-            EditExpeiment(selectedIndex);
+            var selectedIndex = listView1.SelectedItems[0].Index;
+            EditExperiment(selectedIndex);
         }
 
         /// <summary>
         /// Edit Trial
         /// </summary>
         /// <param name="trialIndex"></param>
-        private void EditExpeiment(int trialIndex)
+        private void EditExperiment(int trialIndex)
         {
-            Trial trial = Experiments[experiments_order[trialIndex]];
-            if (trial.type == "bRMS")
+            var trial = Experiments[ExperimentsOrder[trialIndex]];
+            switch (trial.type)
             {
-                if (true)
-                {
+                case "bRMS":
                     MessageBox.Show("There is no options to edit bRMS trial, sorry");
-                }
-                else
-                {
-                    BrmsForm bRms = new BrmsForm((BRMS)trial);
-                    bRms.ShowDialog();
-                }
-            }
-            else
-            {
-                if (trial.type == "survey-text" || trial.type == "survey-multi-choice" ||
-                    trial.type == "survey-likert")
+                    if (false)
+                    {
+                        var bRms = new BrmsForm((Brms)trial);
+                        bRms.ShowDialog();
+                    }
+                    break;
+                case "survey-text":
+                case "survey-multi-choice":
+                case "survey-likert":
                 {
                     var surveyF = new SurveyForm((Survey)trial);
                     surveyF.ShowDialog();
-                    if (surveyF.returnEdit != null)
+                    if (surveyF.ReturnEdit != null)
                     {
-                        Experiments[experiments_order[trialIndex]] = surveyF.returnEdit;
+                        Experiments[ExperimentsOrder[trialIndex]] = surveyF.ReturnEdit;
                     }
+
+                    break;
                 }
-                else
+                case "fullscreen":
                 {
-                    if (trial.type == "fullscreen")
+                    var fullscreenF = new FullscreenForm((FullScreen)trial);
+                    fullscreenF.ShowDialog();
+                    if (fullscreenF.returnEdit != null)
                     {
-                        var fullscreenF = new FullscreenForm((FullScreen)trial);
-                        fullscreenF.ShowDialog();
-                        if (fullscreenF.returnEdit != null)
-                        {
-                            Experiments[experiments_order[trialIndex]] = fullscreenF.returnEdit;
-                        }
+                        Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.returnEdit;
                     }
-                    else
-                    {
-                        if (trial.type == "instructions")
-                        {
-                            var instructionsF = new InstructionsForm((Instructions)trial);
-                            instructionsF.ShowDialog();
-                            if (instructionsF.returnEdit != null)
-                            {
-                                Experiments[experiments_order[trialIndex]] = instructionsF.returnEdit;
-                            }
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+
+                    break;
                 }
+                case "instructions":
+                {
+                    var instructionsF = new InstructionsForm((Instructions)trial);
+                    instructionsF.ShowDialog();
+                    if (instructionsF.returnEdit != null)
+                    {
+                        Experiments[ExperimentsOrder[trialIndex]] = instructionsF.returnEdit;
+                    }
+
+                    break;
+                }
+                default:
+                    return;
             }
             BindListView();
         }
@@ -345,9 +341,9 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddFullscreen(FullScreen obj)
         {
-            Experiments.Add("Fullscreen" + fullscreenCount, obj);
-            experiments_order.Add("Fullscreen" + fullscreenCount);
-            fullscreenCount++;
+            Experiments.Add("Fullscreen" + FullscreenCount, obj);
+            ExperimentsOrder.Add("Fullscreen" + FullscreenCount);
+            FullscreenCount++;
         }
 
         /// <summary>
@@ -356,9 +352,9 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddIntro(Instructions obj)
         {
-            Experiments.Add("Introduction" + introCount, obj);
-            experiments_order.Add("Introduction" + introCount);
-            introCount++;
+            Experiments.Add("Introduction" + IntroCount, obj);
+            ExperimentsOrder.Add("Introduction" + IntroCount);
+            IntroCount++;
         }
 
         /// <summary>
@@ -367,22 +363,22 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddSurvey(Survey obj)
         {
-            Experiments.Add("Survey" + surveyCount, obj);
-            experiments_order.Add("Survey" + surveyCount);
-            surveyCount++;
+            Experiments.Add("Survey" + SurveyCount, obj);
+            ExperimentsOrder.Add("Survey" + SurveyCount);
+            SurveyCount++;
         }
 
         /// <summary>
         /// Add bRMS trials to Experiment list view
         /// </summary>
-        /// <param name="brms_list"></param>
-        public static void AddBrms(Dictionary<string, BRMS> brms_list)
+        /// <param name="_brmsList"></param>
+        public static void AddBrms(Dictionary<string, Brms> _brmsList)
         {
-            foreach (var item in brms_list)
+            foreach (var item in _brmsList)
             {
-                Experiments.Add(item.Key + "_" + bRMS_count, item.Value);
-                experiments_order.Add(item.Key + "_" + bRMS_count);
-                bRMS_count++;
+                Experiments.Add(item.Key + "_" + BRmsCount, item.Value);
+                ExperimentsOrder.Add(item.Key + "_" + BRmsCount);
+                BRmsCount++;
             }
         }
 
@@ -390,24 +386,21 @@ namespace bRMS_Generator
 
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
-            {
-                var tmp = listView1.SelectedItems[0].Text;
-                var tmpIndex = listView1.SelectedItems[0].Index;
-                listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
-                listView1.Items[tmpIndex - 1].Text = tmp;
-            }
+            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
+            var tmp = listView1.SelectedItems[0].Text;
+            var tmpIndex = listView1.SelectedItems[0].Index;
+            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
+            listView1.Items[tmpIndex - 1].Text = tmp;
         }
 
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
-            {
-                var tmp = listView1.SelectedItems[0].Text;
-                var tmpIndex = listView1.SelectedItems[0].Index;
-                listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
-                listView1.Items[tmpIndex + 1].Text = tmp;
-            }
+            if (listView1.SelectedItems.Count <= 0 ||
+                listView1.SelectedItems[0].Index >= listView1.Items.Count - 1) return;
+            var tmp = listView1.SelectedItems[0].Text;
+            var tmpIndex = listView1.SelectedItems[0].Index;
+            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
+            listView1.Items[tmpIndex + 1].Text = tmp;
         }
     }
 }

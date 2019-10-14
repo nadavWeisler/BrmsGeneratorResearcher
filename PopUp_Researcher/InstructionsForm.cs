@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using bRMS_Generator.src;
+using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
 {
@@ -51,9 +52,9 @@ namespace bRMS_Generator
         {
             this.SubBlockNumeric.Value = this.existingTrial.sub_group;
             this.BlockNumeric.Value = this.existingTrial.group;
-            foreach(string page in this.existingTrial.pages)
+            foreach(string page in this.existingTrial.Pages)
             {
-                this.instru.pages.Add(page);
+                this.instru.Pages.Add(page);
             }
         }
 
@@ -107,7 +108,7 @@ namespace bRMS_Generator
                 }
                 else
                 {
-                    this.instru.pages[this.listView1.SelectedItems[0].Index] = newintro;
+                    this.instru.Pages[this.listView1.SelectedItems[0].Index] = newintro;
                 }
                 BindListView();
                 PageRichTextBox.ResetText();

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PopUp_Researcher.Helpers;
 
 namespace PopUp_Researcher.Models
 {
@@ -35,7 +36,7 @@ namespace PopUp_Researcher.Models
                 switch(item["type"])
                 {
                     case "bRMS":
-                        BRMS newBRMS = new BRMS()
+                        Brms newBRMS = new Brms()
                         {
                             group = decimal.Parse(item["group"].ToString()),
                             sub_group = decimal.Parse(item["sub_group"].ToString())
@@ -79,7 +80,7 @@ namespace PopUp_Researcher.Models
                     case "instructions":
                         Instructions newIntro = new Instructions
                         {
-                            pages = Utils.GetPagesFromJson(item["pages"].ToString()),
+                            Pages = Utils.GetPagesFromJson(item["pages"].ToString()),
                             group = decimal.Parse(item["group"].ToString()),
                             sub_group = decimal.Parse(item["sub_group"].ToString())
                         };
