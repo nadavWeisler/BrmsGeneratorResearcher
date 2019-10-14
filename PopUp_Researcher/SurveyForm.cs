@@ -15,6 +15,11 @@ namespace bRMS_Generator
         protected List<Question> questions;
 
         /// <summary>
+        /// If Page Loaded
+        /// </summary>
+        protected bool loaded = false;
+
+        /// <summary>
         /// Existing Trial
         /// </summary>
         protected Survey existingTrial;
@@ -33,6 +38,8 @@ namespace bRMS_Generator
         /// </summary>
         public SurveyForm(Survey existing = null)
         {
+            this.loaded = false;
+
             InitializeComponent();
             this.questions = new List<Question>();
             
@@ -42,6 +49,7 @@ namespace bRMS_Generator
                 UpdateExistingTrial();
                 BindListView();
             }
+            this.loaded = true;
         }
 
         #endregion
@@ -231,7 +239,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void TextSurveyRadio_CheckedChanged(object sender, EventArgs e)
         {
-            QuestionsListView.Clear();
+            ChangeRadioButton();
         }
 
         /// <summary>
@@ -241,7 +249,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MultiSurveyRadio_CheckedChanged(object sender, EventArgs e)
         {
-            QuestionsListView.Clear();
+            ChangeRadioButton();
         }
 
         /// <summary>
@@ -251,7 +259,23 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void ScaleSurveyRadio_CheckedChanged(object sender, EventArgs e)
         {
-            QuestionsListView.Clear();
+            ChangeRadioButton();
+        }
+
+        /// <summary>
+        /// Change Survey Type Radio Button
+        /// </summary>
+        private void ChangeRadioButton()
+        {
+            if (loaded && QuestionsListView.Items.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are You Sure?", "Change Survey Type",
+                    MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    QuestionsListView.Clear();
+                }
+            }
         }
 
         #endregion

@@ -38,19 +38,19 @@
             this.PlusButton = new System.Windows.Forms.Button();
             this.MinusButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.SubBlockLabel = new System.Windows.Forms.Label();
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
-            this.SubBlockLabel = new System.Windows.Forms.Label();
-            this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // PageRichTextBox
             // 
             this.PageRichTextBox.Location = new System.Drawing.Point(12, 12);
             this.PageRichTextBox.Name = "PageRichTextBox";
-            this.PageRichTextBox.Size = new System.Drawing.Size(317, 67);
+            this.PageRichTextBox.Size = new System.Drawing.Size(309, 67);
             this.PageRichTextBox.TabIndex = 2;
             this.PageRichTextBox.Text = "";
             // 
@@ -58,7 +58,7 @@
             // 
             this.cleanButton.Location = new System.Drawing.Point(12, 85);
             this.cleanButton.Name = "cleanButton";
-            this.cleanButton.Size = new System.Drawing.Size(75, 23);
+            this.cleanButton.Size = new System.Drawing.Size(44, 23);
             this.cleanButton.TabIndex = 4;
             this.cleanButton.Text = "clean";
             this.cleanButton.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(254, 85);
+            this.confirmButton.Location = new System.Drawing.Point(272, 85);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.Size = new System.Drawing.Size(49, 23);
             this.confirmButton.TabIndex = 6;
             this.confirmButton.Text = "confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(255, 400);
+            this.saveButton.Location = new System.Drawing.Point(246, 371);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(255, 371);
+            this.RemoveButton.Location = new System.Drawing.Point(165, 371);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(75, 23);
             this.RemoveButton.TabIndex = 9;
@@ -106,9 +106,9 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(174, 371);
+            this.PlusButton.Location = new System.Drawing.Point(93, 371);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(75, 23);
+            this.PlusButton.Size = new System.Drawing.Size(30, 23);
             this.PlusButton.TabIndex = 10;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
@@ -116,9 +116,9 @@
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(93, 371);
+            this.MinusButton.Location = new System.Drawing.Point(129, 371);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(75, 23);
+            this.MinusButton.Size = new System.Drawing.Size(30, 23);
             this.MinusButton.TabIndex = 11;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
@@ -126,52 +126,55 @@
             // 
             // listView1
             // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 114);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(318, 251);
+            this.listView1.ShowItemToolTips = true;
+            this.listView1.Size = new System.Drawing.Size(309, 251);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
-            // BlockNumeric
+            // SubBlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(54, 400);
-            this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
-            this.BlockNumeric.TabIndex = 20;
-            // 
-            // BlockLabel
-            // 
-            this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(12, 402);
-            this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
-            this.BlockLabel.TabIndex = 19;
-            this.BlockLabel.Text = "Block";
+            this.SubBlockNumeric.Location = new System.Drawing.Point(212, 88);
+            this.SubBlockNumeric.Name = "SubBlockNumeric";
+            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.TabIndex = 26;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(110, 402);
+            this.SubBlockLabel.Location = new System.Drawing.Point(150, 90);
             this.SubBlockLabel.Name = "SubBlockLabel";
             this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
-            this.SubBlockLabel.TabIndex = 21;
+            this.SubBlockLabel.TabIndex = 25;
             this.SubBlockLabel.Text = "Sub Block";
             // 
-            // SubBlockNumeric
+            // BlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(174, 400);
-            this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
-            this.SubBlockNumeric.TabIndex = 22;
+            this.BlockNumeric.Location = new System.Drawing.Point(93, 88);
+            this.BlockNumeric.Name = "BlockNumeric";
+            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.TabIndex = 24;
+            // 
+            // BlockLabel
+            // 
+            this.BlockLabel.AutoSize = true;
+            this.BlockLabel.Location = new System.Drawing.Point(62, 90);
+            this.BlockLabel.Name = "BlockLabel";
+            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.TabIndex = 23;
+            this.BlockLabel.Text = "Block";
             // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 425);
+            this.ClientSize = new System.Drawing.Size(329, 398);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
@@ -188,8 +191,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstructionsForm";
             this.Text = "Instructions";
-            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,9 +208,9 @@
         private System.Windows.Forms.Button PlusButton;
         private System.Windows.Forms.Button MinusButton;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.NumericUpDown SubBlockNumeric;
+        private System.Windows.Forms.Label SubBlockLabel;
         private System.Windows.Forms.NumericUpDown BlockNumeric;
         private System.Windows.Forms.Label BlockLabel;
-        private System.Windows.Forms.Label SubBlockLabel;
-        private System.Windows.Forms.NumericUpDown SubBlockNumeric;
     }
 }

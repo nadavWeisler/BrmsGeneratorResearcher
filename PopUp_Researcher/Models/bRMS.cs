@@ -22,7 +22,6 @@ namespace bRMS_Generator.src
         public decimal fade_out_time;
         public decimal timing_post_trial;
         public decimal fade_out_length;
-        public decimal train_alpha;
         public decimal visUnit;
         public decimal within_ITI;
         public decimal repetitions;
@@ -32,6 +31,7 @@ namespace bRMS_Generator.src
         public decimal break_time;
         public decimal experiment_length;
         public decimal rectengle_number;
+        public decimal stimulus_opacity;
         public decimal stimulus_max_opacity;
         public decimal mondrian_max_opacity;
         public decimal trial_limit;

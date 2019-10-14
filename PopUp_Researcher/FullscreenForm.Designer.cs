@@ -38,21 +38,23 @@ namespace bRMS_Generator
             this.SubBlockLabel = new System.Windows.Forms.Label();
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MsgRich
             // 
-            this.MsgRich.Location = new System.Drawing.Point(12, 12);
+            this.MsgRich.Location = new System.Drawing.Point(6, 19);
             this.MsgRich.Name = "MsgRich";
-            this.MsgRich.Size = new System.Drawing.Size(375, 183);
+            this.MsgRich.Size = new System.Drawing.Size(360, 166);
             this.MsgRich.TabIndex = 0;
             this.MsgRich.Text = "";
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(312, 201);
+            this.SaveButton.Location = new System.Drawing.Point(309, 202);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 1;
@@ -101,23 +103,34 @@ namespace bRMS_Generator
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.MsgRich);
+            this.groupBox1.Location = new System.Drawing.Point(12, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(372, 191);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Messeage";
+            // 
             // FullscreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 235);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
             this.Controls.Add(this.BlockLabel);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.MsgRich);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FullscreenForm";
             this.Text = "Fullscreen";
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +145,6 @@ namespace bRMS_Generator
         private Label SubBlockLabel;
         private NumericUpDown BlockNumeric;
         private Label BlockLabel;
+        private GroupBox groupBox1;
     }
 }

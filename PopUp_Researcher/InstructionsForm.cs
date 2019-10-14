@@ -98,8 +98,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            string newintro = PageRichTextBox.Text;
-            newintro = newintro.Replace("\n", "<br>");
+            string newintro = Utils.AddHtmlBreakLines(PageRichTextBox.Text);
             if (!string.IsNullOrEmpty(newintro))
             {
                 if (listView1.SelectedItems.Count == 0)

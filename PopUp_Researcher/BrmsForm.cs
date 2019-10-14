@@ -169,6 +169,7 @@ namespace bRMS_Generator
             new_brms.break_message = this.BreakMessageRichTextBox.Text;
             new_brms.performance_message = this.PerformanceMessageRchTextBox.Text;
             new_brms.stop_trial_message = this.StopMessageRichTextBox.Text;
+            new_brms.stimulus_opacity = this.StimulusOpacityNumeric.Value;
             if ((this.OriantetionComboBox.SelectedValue == null))
             {
                 new_brms.orientation = "h";
@@ -279,7 +280,7 @@ namespace bRMS_Generator
         {
             var enabled = !string.IsNullOrEmpty(HelpCsvTextBox.Text);
             AllBRMSGroupBox.Enabled = enabled;
-            onebRMSGroupBox.Enabled = enabled;
+            ParamsGroupBox.Enabled = enabled;
             RadioEnabled();
         }
 

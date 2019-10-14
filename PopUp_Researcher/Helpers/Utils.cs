@@ -102,6 +102,16 @@ namespace bRMS_Generator
             experimentJson.UpdateTrialsByTimeline();
             return experimentJson;
         }
+        
+        /// <summary>
+        /// Change \n to <br> tag
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string AddHtmlBreakLines(string text)
+        {
+            return text.Replace("\n", "<br>");
+        }
 
         #region ListView Methods
 

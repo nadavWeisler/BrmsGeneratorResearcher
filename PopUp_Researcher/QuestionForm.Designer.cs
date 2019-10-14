@@ -70,9 +70,9 @@
             // PromptGroup
             // 
             this.PromptGroup.Controls.Add(this.PromptRichTextBox);
-            this.PromptGroup.Location = new System.Drawing.Point(12, 15);
+            this.PromptGroup.Location = new System.Drawing.Point(12, 12);
             this.PromptGroup.Name = "PromptGroup";
-            this.PromptGroup.Size = new System.Drawing.Size(393, 218);
+            this.PromptGroup.Size = new System.Drawing.Size(393, 221);
             this.PromptGroup.TabIndex = 27;
             this.PromptGroup.TabStop = false;
             this.PromptGroup.Text = "Prompt";
@@ -84,7 +84,7 @@
             this.PromptRichTextBox.Location = new System.Drawing.Point(3, 16);
             this.PromptRichTextBox.Name = "PromptRichTextBox";
             this.PromptRichTextBox.ShowSelectionMargin = true;
-            this.PromptRichTextBox.Size = new System.Drawing.Size(387, 199);
+            this.PromptRichTextBox.Size = new System.Drawing.Size(387, 202);
             this.PromptRichTextBox.TabIndex = 0;
             this.PromptRichTextBox.Text = "";
             // 
@@ -98,7 +98,7 @@
             this.TextGroupBox.Controls.Add(this.RowsNumeric);
             this.TextGroupBox.Location = new System.Drawing.Point(210, 239);
             this.TextGroupBox.Name = "TextGroupBox";
-            this.TextGroupBox.Size = new System.Drawing.Size(195, 153);
+            this.TextGroupBox.Size = new System.Drawing.Size(195, 128);
             this.TextGroupBox.TabIndex = 28;
             this.TextGroupBox.TabStop = false;
             this.TextGroupBox.Text = "Text";
@@ -166,7 +166,7 @@
             this.RequiredCheckBox.AutoSize = true;
             this.RequiredCheckBox.Checked = true;
             this.RequiredCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RequiredCheckBox.Location = new System.Drawing.Point(521, 402);
+            this.RequiredCheckBox.Location = new System.Drawing.Point(607, 377);
             this.RequiredCheckBox.Name = "RequiredCheckBox";
             this.RequiredCheckBox.Size = new System.Drawing.Size(69, 17);
             this.RequiredCheckBox.TabIndex = 29;
@@ -175,7 +175,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(596, 398);
+            this.SaveButton.Location = new System.Drawing.Point(682, 373);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 30;
@@ -195,7 +195,7 @@
             this.ScaleGroupBox.Controls.Add(this.StartLabelText);
             this.ScaleGroupBox.Location = new System.Drawing.Point(12, 239);
             this.ScaleGroupBox.Name = "ScaleGroupBox";
-            this.ScaleGroupBox.Size = new System.Drawing.Size(192, 153);
+            this.ScaleGroupBox.Size = new System.Drawing.Size(192, 128);
             this.ScaleGroupBox.TabIndex = 31;
             this.ScaleGroupBox.TabStop = false;
             this.ScaleGroupBox.Text = "Scale";
@@ -291,14 +291,14 @@
             this.OptionsGroupBox.Controls.Add(this.label1);
             this.OptionsGroupBox.Location = new System.Drawing.Point(411, 12);
             this.OptionsGroupBox.Name = "OptionsGroupBox";
-            this.OptionsGroupBox.Size = new System.Drawing.Size(271, 380);
+            this.OptionsGroupBox.Size = new System.Drawing.Size(346, 355);
             this.OptionsGroupBox.TabIndex = 33;
             this.OptionsGroupBox.TabStop = false;
             this.OptionsGroupBox.Text = "Options";
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(86, 351);
+            this.MinusButton.Location = new System.Drawing.Point(184, 321);
             this.MinusButton.Name = "MinusButton";
             this.MinusButton.Size = new System.Drawing.Size(45, 23);
             this.MinusButton.TabIndex = 41;
@@ -308,7 +308,7 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(137, 351);
+            this.PlusButton.Location = new System.Drawing.Point(110, 321);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(45, 23);
             this.PlusButton.TabIndex = 40;
@@ -318,7 +318,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(185, 351);
+            this.RemoveButton.Location = new System.Drawing.Point(265, 321);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(75, 23);
             this.RemoveButton.TabIndex = 39;
@@ -328,7 +328,7 @@
             // 
             // DuplicateButton
             // 
-            this.DuplicateButton.Location = new System.Drawing.Point(5, 351);
+            this.DuplicateButton.Location = new System.Drawing.Point(5, 320);
             this.DuplicateButton.Name = "DuplicateButton";
             this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
             this.DuplicateButton.TabIndex = 38;
@@ -339,16 +339,16 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(7, 82);
+            this.listView1.Location = new System.Drawing.Point(7, 43);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(258, 263);
+            this.listView1.Size = new System.Drawing.Size(333, 271);
             this.listView1.TabIndex = 37;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             // 
             // AddOptionButton
             // 
-            this.AddOptionButton.Location = new System.Drawing.Point(185, 47);
+            this.AddOptionButton.Location = new System.Drawing.Point(266, 14);
             this.AddOptionButton.Name = "AddOptionButton";
             this.AddOptionButton.Size = new System.Drawing.Size(75, 23);
             this.AddOptionButton.TabIndex = 36;
@@ -376,7 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 436);
+            this.ClientSize = new System.Drawing.Size(764, 405);
             this.Controls.Add(this.OptionsGroupBox);
             this.Controls.Add(this.ScaleGroupBox);
             this.Controls.Add(this.SaveButton);
