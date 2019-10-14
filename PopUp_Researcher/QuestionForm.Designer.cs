@@ -383,6 +383,7 @@
             this.Controls.Add(this.TextGroupBox);
             this.Controls.Add(this.PromptGroup);
             this.Controls.Add(this.RequiredCheckBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionForm";
             this.Text = "Questions";

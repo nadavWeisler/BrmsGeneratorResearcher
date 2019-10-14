@@ -125,6 +125,7 @@ namespace bRMS_Generator
             this.Controls.Add(this.BlockLabel);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SaveButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FullscreenForm";
             this.Text = "Fullscreen";

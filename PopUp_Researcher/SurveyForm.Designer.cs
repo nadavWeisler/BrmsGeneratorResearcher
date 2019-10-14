@@ -216,6 +216,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddQuestionButton);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SurveyForm";
             this.Text = "Survey";

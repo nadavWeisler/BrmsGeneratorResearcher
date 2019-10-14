@@ -230,6 +230,7 @@
             this.Controls.Add(this.SaveButtonGroup);
             this.Controls.Add(this.TrialsButtonGroup);
             this.Controls.Add(this.HeaderLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Main";

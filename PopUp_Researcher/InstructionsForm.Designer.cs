@@ -188,6 +188,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cleanButton);
             this.Controls.Add(this.PageRichTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstructionsForm";
             this.Text = "Instructions";
