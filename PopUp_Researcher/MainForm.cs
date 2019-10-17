@@ -318,9 +318,9 @@ namespace bRMS_Generator
                 {
                     var instructionsF = new InstructionsForm((Instructions)trial);
                     instructionsF.ShowDialog();
-                    if (instructionsF.returnEdit != null)
+                    if (instructionsF.ReturnEdit != null)
                     {
-                        Experiments[ExperimentsOrder[trialIndex]] = instructionsF.returnEdit;
+                        Experiments[ExperimentsOrder[trialIndex]] = instructionsF.ReturnEdit;
                     }
 
                     break;

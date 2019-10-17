@@ -3,6 +3,7 @@ using PopUp_Researcher.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
@@ -113,9 +114,32 @@ namespace bRMS_Generator
 
         #region ListView Methods
 
+        public static List<string> GetItemsListFromListView(ListView listView, bool _onlySelected=false)
+        {
+            var ret = new List<string>();
+            if (_onlySelected)
+            {
+                foreach (ListViewItem item in listView.SelectedItems)
+                {
+                    ret.Add(item.Text);
+                }
+            }
+            else
+            {
+                foreach (ListViewItem item in listView.Items)
+                {
+                    ret.Add(item.Text);
+                }
+            }
+
+            return ret;
+        }
+
+
         /// <summary>
         /// Get Down One Item in List
         /// </summary>
+        /// <param name="lst"></param>
         /// <param name="index"></param>
         public static List<T> DownOneItem<T>(List<T> lst, int index)
         {
@@ -129,6 +153,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Get Up One Item in List
         /// </summary>
+        /// <param name="lst"></param>
         /// <param name="index"></param>
         public static List<T> UpOneItem<T>(List<T> lst, int index)
         {
@@ -142,6 +167,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Remove item in given index from pages
         /// </summary>
+        /// <param name="lst"></param>
         /// <param name="index"></param>
         public static List<T> RemoveItemByIndex<T>(List<T> lst, int index)
         {

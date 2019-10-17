@@ -48,10 +48,16 @@ namespace PopUp_Researcher.Helpers
             {
                 for (var i = 1; i < csvLine.Count; i++)
                 {
+                    if (csvLine[i] == string.Empty)
+                    {
+                        continue;
+                    }
+
                     if (!resultDictionary.ContainsKey(csvLine[i]))
                     {
                         resultDictionary[csvLine[i]] = new List<string>();
                     }
+                    
                     resultDictionary[csvLine[i]].Add(csvLine[0]);
                 }
             }

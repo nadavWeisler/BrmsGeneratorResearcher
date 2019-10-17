@@ -59,12 +59,22 @@ namespace bRMS_Generator
                 UpdateExistingTrial();
             }
 
+            SetOrientationComboBox();
+
             PageEnabled();
         }
 
         #endregion
 
         #region Private Methods
+
+        private void SetOrientationComboBox()
+        {
+            OriantetionComboBox.Items.Clear();
+            var valuesList = new List<string> {"horizontal", "vertical"};
+            OriantetionComboBox.DataSource = valuesList;
+            OriantetionComboBox.SelectedIndex = 0;
+        }
 
         /// <summary>
         /// Update CSV click
@@ -74,7 +84,7 @@ namespace bRMS_Generator
         private void HelpCsvButton_Click(object sender, EventArgs e)
         {
             // Show the FolderBrowserDialog.  
-            DialogResult result = openFileDialog1.ShowDialog();
+            var result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 HelpCsvTextBox.Text = openFileDialog1.FileName;
@@ -131,14 +141,14 @@ namespace bRMS_Generator
                 return;
             }
 
-            Brms new_brms = new Brms
+            var new_brms = new Brms
             {
                 name = "bRMS" + brms_count,
                 group = this.BlockNumeric.Value,
-                sub_group = this.SubBlockNumeric.Value
+                sub_group = this.SubBlockNumeric.Value,
+                StimulusDictionary = new Dictionary<string, List<string>>()
             };
-            new_brms.StimulusDictionary = new Dictionary<string, List<string>>();
-            string tagString = string.Empty;
+            var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
                 new_brms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
@@ -163,7 +173,6 @@ namespace bRMS_Generator
             new_brms.max_type = this.MaxTypeNumeric.Value;
             new_brms.fade_in_time = this.FadeInTimeNumeric.Value;
             new_brms.fade_out_time = this.FacdeOutTimeNumeric.Value;
-            new_brms.fade_out_length = this.FadeOutLengthNumeric.Value;
             new_brms.visUnit = this.VisUnitNumeric.Value;
             new_brms.mondrian_count = this.MondrianCountNumeric.Value;
             new_brms.break_time = this.BreakTimeNumeric.Value;
@@ -189,14 +198,11 @@ namespace bRMS_Generator
                 }
             }
             new_brms.timing_post_trial = this.TimingPostTrialNumeric.Value;
-            new_brms.within_ITI = this.ItiNumeric.Value;
-            new_brms.experiment_length = this.ExperimentLengthNumeric.Value;
+            new_brms.stimulus_delay = this.StimulusDelayNumeric.Value;
             new_brms.rectangle_number = this.RectangleNumeric.Value;
             new_brms.timing_response = this.TimingResponseNumeric.Value;
-            new_brms.stimulus_max_opacity = this.StimulusMaxOpacityNumeric.Value;
             new_brms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
-            new_brms.trial_limit = this.TrialLimitNumeric.Value;
-            string new_bRMS_name = "bRMS" + brms_count + "_" + new_brms.brms_type + "_" + tagString;
+            var new_bRMS_name = "bRMS" + brms_count + "_" + new_brms.brms_type + "_" + tagString;
             this.brms_names.Add(new_bRMS_name);
             this.brms_trials[new_bRMS_name] = new_brms;
             brms_count++;
@@ -234,19 +240,15 @@ namespace bRMS_Generator
             this.MaxTypeNumeric.Value = this.existingTrial.max_type;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
-            this.FadeOutLengthNumeric.Value = this.existingTrial.fade_out_length;
             this.VisUnitNumeric.Value = this.existingTrial.visUnit;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
             this.BreakTimeNumeric.Value = this.existingTrial.break_time;
             this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
             this.TimingPostTrialNumeric.Value = this.existingTrial.timing_post_trial;
-            this.ItiNumeric.Value = this.existingTrial.within_ITI;
-            this.ExperimentLengthNumeric.Value = this.existingTrial.experiment_length;
+            this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
-            this.StimulusMaxOpacityNumeric.Value = this.existingTrial.stimulus_max_opacity;
             this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;
-            this.TrialLimitNumeric.Value = this.existingTrial.trial_limit;
         }
 
         /// <summary>
@@ -329,12 +331,11 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void DownButton_Click(object sender, EventArgs e)
         {
-            if (AllTrialsListView.SelectedItems.Count > 0 && 
-                AllTrialsListView.SelectedItems[0].Index < this.brms_names.Count)
-            {
-                this.brms_names = Utils.UpOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
-                BindListView();
-            }
+            if (AllTrialsListView.SelectedItems.Count <= 0 ||
+                AllTrialsListView.SelectedItems[0].Index >= this.brms_names.Count) return;
+
+            this.brms_names = Utils.UpOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
+            BindListView();
         }
 
         /// <summary>
@@ -344,12 +345,10 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void UpButton_Click(object sender, EventArgs e)
         {
-            if (AllTrialsListView.SelectedItems.Count > 0 && 
-                AllTrialsListView.SelectedItems[0].Index > 0)
-            {
-                this.brms_names = Utils.DownOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
-                BindListView();
-            }
+            if (AllTrialsListView.SelectedItems.Count <= 0 || AllTrialsListView.SelectedItems[0].Index <= 0) return;
+            
+            this.brms_names = Utils.DownOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
+            BindListView();
         }
 
         /// <summary>
@@ -359,18 +358,118 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (brms_names.Count > 0)
+            if (brms_names.Count <= 0) return;
+            MainForm.AddBrms(brms_trials);
+            Close();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OrderdRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.OrderdRadio.Checked)
             {
-                MainForm.AddBrms(brms_trials);
-                Close();
+                this.OrderGroup.Enabled = true;
+                UpdateOrderedListView();
+            }
+            else
+            {
+                this.OrderlistView.Clear();
+                this.OrderGroup.Enabled = false;
             }
         }
 
-        private void OriantetionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Update fixed-fixed list view by stimulus by tags
+        /// </summary>
+        private void UpdateOrderedListView()
         {
+            this.OrderlistView.Clear();
+            foreach (var item in this.Helper.GetStimulusByTags(
+                Utils.GetItemsListFromListView(TagsListView, true)))
+            {
+                this.OrderlistView.Items.Add(item);
+            }
+        }
 
+        /// <summary>
+        /// Get Up selected item on fixed-fixed list view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+            if (OrderlistView.SelectedItems.Count <= 0) return;
+            var orderView = Utils.GetItemsListFromListView(OrderlistView);
+            orderView = Utils.DownOneItem(orderView, OrderlistView.SelectedItems[0].Index);
+            OrderlistView.Items.Clear();
+            foreach (var item in orderView)
+            {
+                OrderlistView.Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Get down selected item on fixed-fixed list view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MinusButton_Click(object sender, EventArgs e)
+        {
+            if (OrderlistView.SelectedItems.Count <= 0) return;
+            var orderView = Utils.GetItemsListFromListView(OrderlistView);
+            orderView = Utils.UpOneItem(orderView, OrderlistView.SelectedItems[0].Index);
+            OrderlistView.Items.Clear();
+            foreach (var item in orderView)
+            {
+                OrderlistView.Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Remove item on fixed-fixed list view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveOrderButton_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in OrderlistView.SelectedItems)
+            {
+                OrderlistView.Items.RemoveAt(item.Index);
+            }
+        }
+
+        /// <summary>
+        /// Change TagListView selected index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TagsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (OrderdRadio.Checked)
+            {
+                UpdateOrderedListView();
+            }
+        }
+
+        /// <summary>
+        /// Duplicate item on fixed-fixed list view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DuplicateOrderButton_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in OrderlistView.SelectedItems)
+            {
+                OrderlistView.Items.Add(item.Text);
+            }
         }
 
         #endregion
+
+
     }
 }

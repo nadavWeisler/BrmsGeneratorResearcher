@@ -47,9 +47,13 @@ namespace bRMS_Generator
             this.DuplicateButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.ParamsGroupBox = new System.Windows.Forms.GroupBox();
+            this.StimulusOpacityNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.TagsGroupBox = new System.Windows.Forms.GroupBox();
             this.TagsListView = new System.Windows.Forms.ListView();
             this.OrderGroup = new System.Windows.Forms.GroupBox();
+            this.DuplicateOrderButton = new System.Windows.Forms.Button();
+            this.RemoveOrderButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
             this.MinusButton = new System.Windows.Forms.Button();
             this.OrderlistView = new System.Windows.Forms.ListView();
@@ -71,14 +75,9 @@ namespace bRMS_Generator
             this.label1 = new System.Windows.Forms.Label();
             this.RectWithNumeric = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.FadeOutLengthNumeric = new System.Windows.Forms.NumericUpDown();
-            this.TrialLimitNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
             this.MondrianMaxOpacityNumeric = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.StimulusMaxOpacityNumeric = new System.Windows.Forms.NumericUpDown();
             this.OriantetionComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TypeGroupBox = new System.Windows.Forms.GroupBox();
@@ -91,33 +90,29 @@ namespace bRMS_Generator
             this.MixedRadio = new System.Windows.Forms.RadioButton();
             this.rectNumLabel = new System.Windows.Forms.Label();
             this.RectangleNumeric = new System.Windows.Forms.NumericUpDown();
-            this.ExperimentLengthNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimingResponseLabel = new System.Windows.Forms.Label();
             this.TimingResponseNumeric = new System.Windows.Forms.NumericUpDown();
             this.MondrianCountLabel = new System.Windows.Forms.Label();
             this.MondrianCountNumeric = new System.Windows.Forms.NumericUpDown();
-            this.ITILabel = new System.Windows.Forms.Label();
-            this.ItiNumeric = new System.Windows.Forms.NumericUpDown();
+            this.StimulusDelayLabel = new System.Windows.Forms.Label();
+            this.StimulusDelayNumeric = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.TimingPostTrialNumeric = new System.Windows.Forms.NumericUpDown();
-            this.MondrianMaxOpacity = new System.Windows.Forms.Label();
             this.BreakTimeNumeric = new System.Windows.Forms.NumericUpDown();
             this.VisUnitNumeric = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.FacdeOutTimeNumeric = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.FadeInTimeNumeric = new System.Windows.Forms.NumericUpDown();
-            this.TrialLengthLabel = new System.Windows.Forms.Label();
             this.MaxTypeLabel = new System.Windows.Forms.Label();
             this.CountLabel = new System.Windows.Forms.Label();
             this.MaxTypeNumeric = new System.Windows.Forms.NumericUpDown();
             this.CountNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
-            this.StimulusOpacityNumeric = new System.Windows.Forms.NumericUpDown();
             this.StimulusGroup.SuspendLayout();
             this.AllBRMSGroupBox.SuspendLayout();
             this.ParamsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StimulusOpacityNumeric)).BeginInit();
             this.TagsGroupBox.SuspendLayout();
             this.OrderGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FrameHeightNumeric)).BeginInit();
@@ -129,18 +124,14 @@ namespace bRMS_Generator
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectHeightNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectWithNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FadeOutLengthNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TrialLimitNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianMaxOpacityNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusMaxOpacityNumeric)).BeginInit();
             this.TypeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectangleNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExperimentLengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingResponseNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianCountNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItiNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StimulusDelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingPostTrialNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreakTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VisUnitNumeric)).BeginInit();
@@ -148,7 +139,6 @@ namespace bRMS_Generator
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxTypeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusOpacityNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // StimulusGroup
@@ -312,37 +302,29 @@ namespace bRMS_Generator
             this.ParamsGroupBox.Controls.Add(this.label1);
             this.ParamsGroupBox.Controls.Add(this.RectWithNumeric);
             this.ParamsGroupBox.Controls.Add(this.label4);
-            this.ParamsGroupBox.Controls.Add(this.label13);
-            this.ParamsGroupBox.Controls.Add(this.FadeOutLengthNumeric);
-            this.ParamsGroupBox.Controls.Add(this.TrialLimitNumeric);
-            this.ParamsGroupBox.Controls.Add(this.label11);
             this.ParamsGroupBox.Controls.Add(this.MondrianMaxOpacityNumeric);
             this.ParamsGroupBox.Controls.Add(this.label8);
             this.ParamsGroupBox.Controls.Add(this.label3);
-            this.ParamsGroupBox.Controls.Add(this.StimulusMaxOpacityNumeric);
             this.ParamsGroupBox.Controls.Add(this.OriantetionComboBox);
             this.ParamsGroupBox.Controls.Add(this.label2);
             this.ParamsGroupBox.Controls.Add(this.TypeGroupBox);
             this.ParamsGroupBox.Controls.Add(this.rectNumLabel);
             this.ParamsGroupBox.Controls.Add(this.RectangleNumeric);
-            this.ParamsGroupBox.Controls.Add(this.ExperimentLengthNumeric);
             this.ParamsGroupBox.Controls.Add(this.TimingResponseLabel);
             this.ParamsGroupBox.Controls.Add(this.TimingResponseNumeric);
             this.ParamsGroupBox.Controls.Add(this.MondrianCountLabel);
             this.ParamsGroupBox.Controls.Add(this.MondrianCountNumeric);
-            this.ParamsGroupBox.Controls.Add(this.ITILabel);
-            this.ParamsGroupBox.Controls.Add(this.ItiNumeric);
+            this.ParamsGroupBox.Controls.Add(this.StimulusDelayLabel);
+            this.ParamsGroupBox.Controls.Add(this.StimulusDelayNumeric);
             this.ParamsGroupBox.Controls.Add(this.label10);
             this.ParamsGroupBox.Controls.Add(this.label9);
             this.ParamsGroupBox.Controls.Add(this.TimingPostTrialNumeric);
-            this.ParamsGroupBox.Controls.Add(this.MondrianMaxOpacity);
             this.ParamsGroupBox.Controls.Add(this.BreakTimeNumeric);
             this.ParamsGroupBox.Controls.Add(this.VisUnitNumeric);
             this.ParamsGroupBox.Controls.Add(this.label6);
             this.ParamsGroupBox.Controls.Add(this.FacdeOutTimeNumeric);
             this.ParamsGroupBox.Controls.Add(this.label5);
             this.ParamsGroupBox.Controls.Add(this.FadeInTimeNumeric);
-            this.ParamsGroupBox.Controls.Add(this.TrialLengthLabel);
             this.ParamsGroupBox.Controls.Add(this.MaxTypeLabel);
             this.ParamsGroupBox.Controls.Add(this.CountLabel);
             this.ParamsGroupBox.Controls.Add(this.MaxTypeNumeric);
@@ -353,6 +335,22 @@ namespace bRMS_Generator
             this.ParamsGroupBox.TabIndex = 22;
             this.ParamsGroupBox.TabStop = false;
             this.ParamsGroupBox.Text = "Paramenters";
+            // 
+            // StimulusOpacityNumeric
+            // 
+            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(173, 289);
+            this.StimulusOpacityNumeric.Name = "StimulusOpacityNumeric";
+            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusOpacityNumeric.TabIndex = 53;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 291);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 13);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "Stimulus Opacity";
             // 
             // TagsGroupBox
             // 
@@ -373,9 +371,12 @@ namespace bRMS_Generator
             this.TagsListView.TabIndex = 7;
             this.TagsListView.UseCompatibleStateImageBehavior = false;
             this.TagsListView.View = System.Windows.Forms.View.List;
+            this.TagsListView.SelectedIndexChanged += new System.EventHandler(this.TagsListView_SelectedIndexChanged);
             // 
             // OrderGroup
             // 
+            this.OrderGroup.Controls.Add(this.DuplicateOrderButton);
+            this.OrderGroup.Controls.Add(this.RemoveOrderButton);
             this.OrderGroup.Controls.Add(this.PlusButton);
             this.OrderGroup.Controls.Add(this.MinusButton);
             this.OrderGroup.Controls.Add(this.OrderlistView);
@@ -387,32 +388,56 @@ namespace bRMS_Generator
             this.OrderGroup.TabStop = false;
             this.OrderGroup.Text = "Order";
             // 
+            // DuplicateOrderButton
+            // 
+            this.DuplicateOrderButton.Location = new System.Drawing.Point(5, 184);
+            this.DuplicateOrderButton.Name = "DuplicateOrderButton";
+            this.DuplicateOrderButton.Size = new System.Drawing.Size(60, 23);
+            this.DuplicateOrderButton.TabIndex = 5;
+            this.DuplicateOrderButton.Text = "DuplicateOrderButton";
+            this.DuplicateOrderButton.UseVisualStyleBackColor = true;
+            this.DuplicateOrderButton.Click += new System.EventHandler(this.DuplicateOrderButton_Click);
+            // 
+            // RemoveOrderButton
+            // 
+            this.RemoveOrderButton.Location = new System.Drawing.Point(155, 184);
+            this.RemoveOrderButton.Name = "RemoveOrderButton";
+            this.RemoveOrderButton.Size = new System.Drawing.Size(60, 23);
+            this.RemoveOrderButton.TabIndex = 4;
+            this.RemoveOrderButton.Text = "Remove";
+            this.RemoveOrderButton.UseVisualStyleBackColor = true;
+            this.RemoveOrderButton.Click += new System.EventHandler(this.RemoveOrderButton_Click);
+            // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(179, 188);
+            this.PlusButton.Location = new System.Drawing.Point(71, 184);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(36, 23);
             this.PlusButton.TabIndex = 3;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
+            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(9, 188);
+            this.MinusButton.Location = new System.Drawing.Point(113, 184);
             this.MinusButton.Name = "MinusButton";
             this.MinusButton.Size = new System.Drawing.Size(36, 23);
             this.MinusButton.TabIndex = 1;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
+            this.MinusButton.Click += new System.EventHandler(this.MinusButton_Click);
             // 
             // OrderlistView
             // 
             this.OrderlistView.HideSelection = false;
             this.OrderlistView.Location = new System.Drawing.Point(6, 19);
+            this.OrderlistView.MultiSelect = false;
             this.OrderlistView.Name = "OrderlistView";
             this.OrderlistView.Size = new System.Drawing.Size(209, 159);
             this.OrderlistView.TabIndex = 0;
             this.OrderlistView.UseCompatibleStateImageBehavior = false;
+            this.OrderlistView.View = System.Windows.Forms.View.List;
             // 
             // FrameHeightNumeric
             // 
@@ -459,9 +484,9 @@ namespace bRMS_Generator
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.StopMessageRichTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(508, 458);
+            this.groupBox3.Location = new System.Drawing.Point(508, 422);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(237, 107);
+            this.groupBox3.Size = new System.Drawing.Size(237, 143);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Stop Message";
@@ -470,16 +495,16 @@ namespace bRMS_Generator
             // 
             this.StopMessageRichTextBox.Location = new System.Drawing.Point(6, 19);
             this.StopMessageRichTextBox.Name = "StopMessageRichTextBox";
-            this.StopMessageRichTextBox.Size = new System.Drawing.Size(225, 82);
+            this.StopMessageRichTextBox.Size = new System.Drawing.Size(225, 119);
             this.StopMessageRichTextBox.TabIndex = 0;
             this.StopMessageRichTextBox.Text = "";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.PerformanceMessageRchTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(259, 458);
+            this.groupBox2.Location = new System.Drawing.Point(259, 422);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 107);
+            this.groupBox2.Size = new System.Drawing.Size(244, 143);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Performance Message";
@@ -488,16 +513,16 @@ namespace bRMS_Generator
             // 
             this.PerformanceMessageRchTextBox.Location = new System.Drawing.Point(6, 19);
             this.PerformanceMessageRchTextBox.Name = "PerformanceMessageRchTextBox";
-            this.PerformanceMessageRchTextBox.Size = new System.Drawing.Size(232, 82);
+            this.PerformanceMessageRchTextBox.Size = new System.Drawing.Size(232, 119);
             this.PerformanceMessageRchTextBox.TabIndex = 0;
             this.PerformanceMessageRchTextBox.Text = "";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.BreakMessageRichTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(8, 458);
+            this.groupBox1.Location = new System.Drawing.Point(8, 422);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 107);
+            this.groupBox1.Size = new System.Drawing.Size(245, 143);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Break Message";
@@ -506,13 +531,13 @@ namespace bRMS_Generator
             // 
             this.BreakMessageRichTextBox.Location = new System.Drawing.Point(6, 19);
             this.BreakMessageRichTextBox.Name = "BreakMessageRichTextBox";
-            this.BreakMessageRichTextBox.Size = new System.Drawing.Size(232, 82);
+            this.BreakMessageRichTextBox.Size = new System.Drawing.Size(232, 119);
             this.BreakMessageRichTextBox.TabIndex = 0;
             this.BreakMessageRichTextBox.Text = "";
             // 
             // AllowedToRepeatNumeric
             // 
-            this.AllowedToRepeatNumeric.Location = new System.Drawing.Point(452, 338);
+            this.AllowedToRepeatNumeric.Location = new System.Drawing.Point(439, 105);
             this.AllowedToRepeatNumeric.Name = "AllowedToRepeatNumeric";
             this.AllowedToRepeatNumeric.Size = new System.Drawing.Size(71, 20);
             this.AllowedToRepeatNumeric.TabIndex = 45;
@@ -520,7 +545,7 @@ namespace bRMS_Generator
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(289, 338);
+            this.label12.Location = new System.Drawing.Point(289, 110);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 13);
             this.label12.TabIndex = 44;
@@ -528,7 +553,7 @@ namespace bRMS_Generator
             // 
             // PerformanceNumeric
             // 
-            this.PerformanceNumeric.Location = new System.Drawing.Point(452, 260);
+            this.PerformanceNumeric.Location = new System.Drawing.Point(174, 315);
             this.PerformanceNumeric.Name = "PerformanceNumeric";
             this.PerformanceNumeric.Size = new System.Drawing.Size(71, 20);
             this.PerformanceNumeric.TabIndex = 43;
@@ -541,7 +566,7 @@ namespace bRMS_Generator
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(288, 262);
+            this.label7.Location = new System.Drawing.Point(9, 316);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 13);
             this.label7.TabIndex = 42;
@@ -549,7 +574,7 @@ namespace bRMS_Generator
             // 
             // RectHeightNumeric
             // 
-            this.RectHeightNumeric.Location = new System.Drawing.Point(453, 312);
+            this.RectHeightNumeric.Location = new System.Drawing.Point(452, 341);
             this.RectHeightNumeric.Name = "RectHeightNumeric";
             this.RectHeightNumeric.Size = new System.Drawing.Size(71, 20);
             this.RectHeightNumeric.TabIndex = 41;
@@ -557,7 +582,7 @@ namespace bRMS_Generator
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 312);
+            this.label1.Location = new System.Drawing.Point(287, 341);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 40;
@@ -566,7 +591,7 @@ namespace bRMS_Generator
             // RectWithNumeric
             // 
             this.RectWithNumeric.DecimalPlaces = 1;
-            this.RectWithNumeric.Location = new System.Drawing.Point(453, 286);
+            this.RectWithNumeric.Location = new System.Drawing.Point(452, 315);
             this.RectWithNumeric.Name = "RectWithNumeric";
             this.RectWithNumeric.Size = new System.Drawing.Size(71, 20);
             this.RectWithNumeric.TabIndex = 39;
@@ -579,53 +604,16 @@ namespace bRMS_Generator
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(288, 286);
+            this.label4.Location = new System.Drawing.Point(287, 315);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 38;
             this.label4.Text = "Rectangle Width";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 186);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 13);
-            this.label13.TabIndex = 37;
-            this.label13.Text = "Fade Out Length";
-            // 
-            // FadeOutLengthNumeric
-            // 
-            this.FadeOutLengthNumeric.Location = new System.Drawing.Point(107, 184);
-            this.FadeOutLengthNumeric.Name = "FadeOutLengthNumeric";
-            this.FadeOutLengthNumeric.Size = new System.Drawing.Size(71, 20);
-            this.FadeOutLengthNumeric.TabIndex = 36;
-            this.FadeOutLengthNumeric.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // TrialLimitNumeric
-            // 
-            this.TrialLimitNumeric.Location = new System.Drawing.Point(107, 315);
-            this.TrialLimitNumeric.Name = "TrialLimitNumeric";
-            this.TrialLimitNumeric.Size = new System.Drawing.Size(71, 20);
-            this.TrialLimitNumeric.TabIndex = 35;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 315);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 13);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "Trial Limit";
-            // 
             // MondrianMaxOpacityNumeric
             // 
             this.MondrianMaxOpacityNumeric.DecimalPlaces = 1;
-            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(453, 234);
+            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(439, 130);
             this.MondrianMaxOpacityNumeric.Name = "MondrianMaxOpacityNumeric";
             this.MondrianMaxOpacityNumeric.Size = new System.Drawing.Size(71, 20);
             this.MondrianMaxOpacityNumeric.TabIndex = 33;
@@ -638,7 +626,7 @@ namespace bRMS_Generator
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(288, 238);
+            this.label8.Location = new System.Drawing.Point(289, 134);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 13);
             this.label8.TabIndex = 32;
@@ -647,40 +635,24 @@ namespace bRMS_Generator
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 264);
+            this.label3.Location = new System.Drawing.Point(7, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 31;
             this.label3.Text = "Break time";
             // 
-            // StimulusMaxOpacityNumeric
-            // 
-            this.StimulusMaxOpacityNumeric.DecimalPlaces = 1;
-            this.StimulusMaxOpacityNumeric.Location = new System.Drawing.Point(453, 210);
-            this.StimulusMaxOpacityNumeric.Name = "StimulusMaxOpacityNumeric";
-            this.StimulusMaxOpacityNumeric.Size = new System.Drawing.Size(71, 20);
-            this.StimulusMaxOpacityNumeric.TabIndex = 30;
-            this.StimulusMaxOpacityNumeric.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            // 
             // OriantetionComboBox
             // 
             this.OriantetionComboBox.FormattingEnabled = true;
-            this.OriantetionComboBox.Items.AddRange(new object[] {
-            "v",
-            "h"});
-            this.OriantetionComboBox.Location = new System.Drawing.Point(108, 288);
+            this.OriantetionComboBox.Location = new System.Drawing.Point(173, 234);
             this.OriantetionComboBox.Name = "OriantetionComboBox";
-            this.OriantetionComboBox.Size = new System.Drawing.Size(71, 21);
+            this.OriantetionComboBox.Size = new System.Drawing.Size(72, 21);
             this.OriantetionComboBox.TabIndex = 29;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 290);
+            this.label2.Location = new System.Drawing.Point(7, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 28;
@@ -748,7 +720,6 @@ namespace bRMS_Generator
             // OrderdRadio
             // 
             this.OrderdRadio.AutoSize = true;
-            this.OrderdRadio.Enabled = false;
             this.OrderdRadio.Location = new System.Drawing.Point(164, 23);
             this.OrderdRadio.Name = "OrderdRadio";
             this.OrderdRadio.Size = new System.Drawing.Size(78, 17);
@@ -756,6 +727,7 @@ namespace bRMS_Generator
             this.OrderdRadio.TabStop = true;
             this.OrderdRadio.Text = "Fixed-Fixed";
             this.OrderdRadio.UseVisualStyleBackColor = true;
+            this.OrderdRadio.CheckedChanged += new System.EventHandler(this.OrderdRadio_CheckedChanged);
             // 
             // MixedRadio
             // 
@@ -772,7 +744,7 @@ namespace bRMS_Generator
             // rectNumLabel
             // 
             this.rectNumLabel.AutoSize = true;
-            this.rectNumLabel.Location = new System.Drawing.Point(288, 158);
+            this.rectNumLabel.Location = new System.Drawing.Point(9, 340);
             this.rectNumLabel.Name = "rectNumLabel";
             this.rectNumLabel.Size = new System.Drawing.Size(155, 13);
             this.rectNumLabel.TabIndex = 27;
@@ -780,7 +752,7 @@ namespace bRMS_Generator
             // 
             // RectangleNumeric
             // 
-            this.RectangleNumeric.Location = new System.Drawing.Point(452, 156);
+            this.RectangleNumeric.Location = new System.Drawing.Point(173, 338);
             this.RectangleNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -795,17 +767,10 @@ namespace bRMS_Generator
             0,
             0});
             // 
-            // ExperimentLengthNumeric
-            // 
-            this.ExperimentLengthNumeric.Location = new System.Drawing.Point(452, 130);
-            this.ExperimentLengthNumeric.Name = "ExperimentLengthNumeric";
-            this.ExperimentLengthNumeric.Size = new System.Drawing.Size(71, 20);
-            this.ExperimentLengthNumeric.TabIndex = 24;
-            // 
             // TimingResponseLabel
             // 
             this.TimingResponseLabel.AutoSize = true;
-            this.TimingResponseLabel.Location = new System.Drawing.Point(288, 183);
+            this.TimingResponseLabel.Location = new System.Drawing.Point(9, 260);
             this.TimingResponseLabel.Name = "TimingResponseLabel";
             this.TimingResponseLabel.Size = new System.Drawing.Size(89, 13);
             this.TimingResponseLabel.TabIndex = 23;
@@ -813,7 +778,7 @@ namespace bRMS_Generator
             // 
             // TimingResponseNumeric
             // 
-            this.TimingResponseNumeric.Location = new System.Drawing.Point(453, 183);
+            this.TimingResponseNumeric.Location = new System.Drawing.Point(175, 259);
             this.TimingResponseNumeric.Name = "TimingResponseNumeric";
             this.TimingResponseNumeric.Size = new System.Drawing.Size(71, 20);
             this.TimingResponseNumeric.TabIndex = 22;
@@ -826,7 +791,7 @@ namespace bRMS_Generator
             // MondrianCountLabel
             // 
             this.MondrianCountLabel.AutoSize = true;
-            this.MondrianCountLabel.Location = new System.Drawing.Point(6, 238);
+            this.MondrianCountLabel.Location = new System.Drawing.Point(7, 183);
             this.MondrianCountLabel.Name = "MondrianCountLabel";
             this.MondrianCountLabel.Size = new System.Drawing.Size(82, 13);
             this.MondrianCountLabel.TabIndex = 21;
@@ -834,7 +799,7 @@ namespace bRMS_Generator
             // 
             // MondrianCountNumeric
             // 
-            this.MondrianCountNumeric.Location = new System.Drawing.Point(108, 236);
+            this.MondrianCountNumeric.Location = new System.Drawing.Point(175, 182);
             this.MondrianCountNumeric.Name = "MondrianCountNumeric";
             this.MondrianCountNumeric.Size = new System.Drawing.Size(71, 20);
             this.MondrianCountNumeric.TabIndex = 20;
@@ -844,26 +809,26 @@ namespace bRMS_Generator
             0,
             0});
             // 
-            // ITILabel
+            // StimulusDelayLabel
             // 
-            this.ITILabel.AutoSize = true;
-            this.ITILabel.Location = new System.Drawing.Point(288, 108);
-            this.ITILabel.Name = "ITILabel";
-            this.ITILabel.Size = new System.Drawing.Size(112, 13);
-            this.ITILabel.TabIndex = 19;
-            this.ITILabel.Text = "ITI Reserved Duration";
+            this.StimulusDelayLabel.AutoSize = true;
+            this.StimulusDelayLabel.Location = new System.Drawing.Point(289, 161);
+            this.StimulusDelayLabel.Name = "StimulusDelayLabel";
+            this.StimulusDelayLabel.Size = new System.Drawing.Size(119, 13);
+            this.StimulusDelayLabel.TabIndex = 19;
+            this.StimulusDelayLabel.Text = "Stimulus Delay Duration";
             // 
-            // ItiNumeric
+            // StimulusDelayNumeric
             // 
-            this.ItiNumeric.Location = new System.Drawing.Point(452, 104);
-            this.ItiNumeric.Name = "ItiNumeric";
-            this.ItiNumeric.Size = new System.Drawing.Size(71, 20);
-            this.ItiNumeric.TabIndex = 18;
+            this.StimulusDelayNumeric.Location = new System.Drawing.Point(439, 156);
+            this.StimulusDelayNumeric.Name = "StimulusDelayNumeric";
+            this.StimulusDelayNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusDelayNumeric.TabIndex = 18;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 211);
+            this.label10.Location = new System.Drawing.Point(11, 390);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 13);
             this.label10.TabIndex = 17;
@@ -874,29 +839,20 @@ namespace bRMS_Generator
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(288, 85);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 13);
+            this.label9.Size = new System.Drawing.Size(85, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Timing Post Experiment ";
+            this.label9.Text = "Timing Post Trial";
             // 
             // TimingPostTrialNumeric
             // 
-            this.TimingPostTrialNumeric.Location = new System.Drawing.Point(452, 78);
+            this.TimingPostTrialNumeric.Location = new System.Drawing.Point(439, 81);
             this.TimingPostTrialNumeric.Name = "TimingPostTrialNumeric";
             this.TimingPostTrialNumeric.Size = new System.Drawing.Size(71, 20);
             this.TimingPostTrialNumeric.TabIndex = 14;
             // 
-            // MondrianMaxOpacity
-            // 
-            this.MondrianMaxOpacity.AutoSize = true;
-            this.MondrianMaxOpacity.Location = new System.Drawing.Point(288, 212);
-            this.MondrianMaxOpacity.Name = "MondrianMaxOpacity";
-            this.MondrianMaxOpacity.Size = new System.Drawing.Size(132, 13);
-            this.MondrianMaxOpacity.TabIndex = 13;
-            this.MondrianMaxOpacity.Text = "Stimulus Maximum Opacity";
-            // 
             // BreakTimeNumeric
             // 
-            this.BreakTimeNumeric.Location = new System.Drawing.Point(108, 262);
+            this.BreakTimeNumeric.Location = new System.Drawing.Point(175, 208);
             this.BreakTimeNumeric.Name = "BreakTimeNumeric";
             this.BreakTimeNumeric.Size = new System.Drawing.Size(71, 20);
             this.BreakTimeNumeric.TabIndex = 12;
@@ -908,7 +864,7 @@ namespace bRMS_Generator
             // 
             // VisUnitNumeric
             // 
-            this.VisUnitNumeric.Location = new System.Drawing.Point(108, 209);
+            this.VisUnitNumeric.Location = new System.Drawing.Point(113, 388);
             this.VisUnitNumeric.Name = "VisUnitNumeric";
             this.VisUnitNumeric.Size = new System.Drawing.Size(71, 20);
             this.VisUnitNumeric.TabIndex = 10;
@@ -929,7 +885,7 @@ namespace bRMS_Generator
             // 
             // FacdeOutTimeNumeric
             // 
-            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(108, 158);
+            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(174, 159);
             this.FacdeOutTimeNumeric.Name = "FacdeOutTimeNumeric";
             this.FacdeOutTimeNumeric.Size = new System.Drawing.Size(71, 20);
             this.FacdeOutTimeNumeric.TabIndex = 8;
@@ -950,7 +906,7 @@ namespace bRMS_Generator
             // 
             // FadeInTimeNumeric
             // 
-            this.FadeInTimeNumeric.Location = new System.Drawing.Point(108, 132);
+            this.FadeInTimeNumeric.Location = new System.Drawing.Point(174, 133);
             this.FadeInTimeNumeric.Name = "FadeInTimeNumeric";
             this.FadeInTimeNumeric.Size = new System.Drawing.Size(71, 20);
             this.FadeInTimeNumeric.TabIndex = 6;
@@ -959,15 +915,6 @@ namespace bRMS_Generator
             0,
             0,
             0});
-            // 
-            // TrialLengthLabel
-            // 
-            this.TrialLengthLabel.AutoSize = true;
-            this.TrialLengthLabel.Location = new System.Drawing.Point(288, 134);
-            this.TrialLengthLabel.Name = "TrialLengthLabel";
-            this.TrialLengthLabel.Size = new System.Drawing.Size(95, 13);
-            this.TrialLengthLabel.TabIndex = 5;
-            this.TrialLengthLabel.Text = "Experiment Length";
             // 
             // MaxTypeLabel
             // 
@@ -989,14 +936,14 @@ namespace bRMS_Generator
             // 
             // MaxTypeNumeric
             // 
-            this.MaxTypeNumeric.Location = new System.Drawing.Point(108, 104);
+            this.MaxTypeNumeric.Location = new System.Drawing.Point(174, 105);
             this.MaxTypeNumeric.Name = "MaxTypeNumeric";
             this.MaxTypeNumeric.Size = new System.Drawing.Size(71, 20);
             this.MaxTypeNumeric.TabIndex = 1;
             // 
             // CountNumeric
             // 
-            this.CountNumeric.Location = new System.Drawing.Point(108, 78);
+            this.CountNumeric.Location = new System.Drawing.Point(174, 79);
             this.CountNumeric.Name = "CountNumeric";
             this.CountNumeric.Size = new System.Drawing.Size(71, 20);
             this.CountNumeric.TabIndex = 0;
@@ -1006,27 +953,11 @@ namespace bRMS_Generator
             0,
             0});
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 345);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 13);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "Stimulus Opacity";
-            // 
-            // StimulusOpacityNumeric
-            // 
-            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(107, 343);
-            this.StimulusOpacityNumeric.Name = "StimulusOpacityNumeric";
-            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(71, 20);
-            this.StimulusOpacityNumeric.TabIndex = 53;
-            // 
             // BrmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 692);
+            this.ClientSize = new System.Drawing.Size(1013, 685);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
@@ -1040,6 +971,7 @@ namespace bRMS_Generator
             this.AllBRMSGroupBox.ResumeLayout(false);
             this.ParamsGroupBox.ResumeLayout(false);
             this.ParamsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StimulusOpacityNumeric)).EndInit();
             this.TagsGroupBox.ResumeLayout(false);
             this.OrderGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FrameHeightNumeric)).EndInit();
@@ -1051,19 +983,15 @@ namespace bRMS_Generator
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectHeightNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectWithNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FadeOutLengthNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TrialLimitNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianMaxOpacityNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusMaxOpacityNumeric)).EndInit();
             this.TypeGroupBox.ResumeLayout(false);
             this.TypeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RectangleNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExperimentLengthNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingResponseNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianCountNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItiNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StimulusDelayNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingPostTrialNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreakTimeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VisUnitNumeric)).EndInit();
@@ -1071,7 +999,6 @@ namespace bRMS_Generator
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxTypeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusOpacityNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1118,14 +1045,9 @@ namespace bRMS_Generator
         private Label label1;
         private NumericUpDown RectWithNumeric;
         private Label label4;
-        private Label label13;
-        private NumericUpDown FadeOutLengthNumeric;
-        private NumericUpDown TrialLimitNumeric;
-        private Label label11;
         private NumericUpDown MondrianMaxOpacityNumeric;
         private Label label8;
         private Label label3;
-        private NumericUpDown StimulusMaxOpacityNumeric;
         private ComboBox OriantetionComboBox;
         private Label label2;
         private GroupBox TypeGroupBox;
@@ -1138,29 +1060,28 @@ namespace bRMS_Generator
         private RadioButton MixedRadio;
         private Label rectNumLabel;
         private NumericUpDown RectangleNumeric;
-        private NumericUpDown ExperimentLengthNumeric;
         private Label TimingResponseLabel;
         private NumericUpDown TimingResponseNumeric;
         private Label MondrianCountLabel;
         private NumericUpDown MondrianCountNumeric;
-        private Label ITILabel;
-        private NumericUpDown ItiNumeric;
+        private Label StimulusDelayLabel;
+        private NumericUpDown StimulusDelayNumeric;
         private Label label10;
         private Label label9;
         private NumericUpDown TimingPostTrialNumeric;
-        private Label MondrianMaxOpacity;
         private NumericUpDown BreakTimeNumeric;
         private NumericUpDown VisUnitNumeric;
         private Label label6;
         private NumericUpDown FacdeOutTimeNumeric;
         private Label label5;
         private NumericUpDown FadeInTimeNumeric;
-        private Label TrialLengthLabel;
         private Label MaxTypeLabel;
         private Label CountLabel;
         private NumericUpDown MaxTypeNumeric;
         private NumericUpDown CountNumeric;
         private NumericUpDown StimulusOpacityNumeric;
         private Label label16;
+        private Button DuplicateOrderButton;
+        private Button RemoveOrderButton;
     }
 }

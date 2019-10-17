@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using bRMS_Generator.src;
 using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
@@ -62,13 +55,13 @@ namespace bRMS_Generator
         #region Private Methods 
 
         /// <summary>
-        /// Get Sacle from input
+        /// Get Scale from input
         /// </summary>
         /// <returns>List<string></returns>
         private List<string> GetScale()
         {
             var numberList = Enumerable.Range(1, decimal.ToInt32(ScaleNumeric.Value)).ToList();
-            List<string> result = new List<string>();
+            var result = new List<string>();
             for (var i = 0; i < numberList.Count; i++)
             {
                 if (i == 0)
@@ -176,62 +169,62 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(PromptRichTextBox.Text))
+            if (string.IsNullOrWhiteSpace(PromptRichTextBox.Text)) return;
+
+            switch (this.type)
             {
-                if (this.type == SurveyTypes.Text)
-                {
+                case SurveyTypes.Text:
                     this.question = new TextQuestion(this.PromptRichTextBox.Text, this.RowsNumeric.Value,
                         this.ColsNumeric.Value, this.ValueTextBox.Text, this.RequiredCheckBox.Checked);
                     Close();
-                }
-                else
+                    break;
+                case SurveyTypes.Scale:
                 {
-                    if (this.type == SurveyTypes.Scale)
+                    var values = new List<string>();
+                    if(string.IsNullOrWhiteSpace(StartLabelText.Text))
                     {
-                        List<string> values = new List<string>();
-                        if(string.IsNullOrWhiteSpace(StartLabelText.Text))
-                        {
-                            values.Add("1");
-                        }
-                        else
-                        {
-                            values.Add(StartLabelText.Text);
-                        }
-                        for(int i = 2; i < this.ScaleNumeric.Value; i++)
-                        {
-                            values.Add(i.ToString());
-                        }
-                        if (!string.IsNullOrWhiteSpace(MiddleLabelText.Text))
-                        {
-                            values[(int)ScaleNumeric.Value / 2] = MiddleLabelText.Text;
-                        }
-                        if (string.IsNullOrWhiteSpace(EndLabelText.Text))
-                        {
-                            values.Add(this.ScaleNumeric.Value.ToString());
-                        }
-                        else
-                        {
-                            values.Add(EndLabelText.Text);
-                        }
-                        this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
-                            this.RequiredCheckBox.Checked, values);
-                        Close();
-
+                        values.Add("1");
                     }
                     else
                     {
-                        List<string> values = new List<string>();
-                        foreach(ListViewItem item in listView1.Items)
-                        {
-                            values.Add(item.Text);
-                        }
-                        if(values.Count > 0)
-                        {
-                            this.question = this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
-                                this.RequiredCheckBox.Checked, values);
-                            Close();
-                        }
-                    } 
+                        values.Add(StartLabelText.Text);
+                    }
+                    for(var i = 2; i < this.ScaleNumeric.Value; i++)
+                    {
+                        values.Add(i.ToString());
+                    }
+                    if (!string.IsNullOrWhiteSpace(MiddleLabelText.Text))
+                    {
+                        values[(int)ScaleNumeric.Value / 2] = MiddleLabelText.Text;
+                    }
+                    if (string.IsNullOrWhiteSpace(EndLabelText.Text))
+                    {
+                        values.Add(this.ScaleNumeric.Value.ToString());
+                    }
+                    else
+                    {
+                        values.Add(EndLabelText.Text);
+                    }
+                    this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
+                        this.RequiredCheckBox.Checked, values);
+                    Close();
+                    break;
+                }
+                default:
+                {
+                    List<string> values = new List<string>();
+                    foreach(ListViewItem item in listView1.Items)
+                    {
+                        values.Add(item.Text);
+                    }
+
+                    if (values.Count <= 0) return;
+
+                    this.question = this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
+                        this.RequiredCheckBox.Checked, values);
+
+                    Close();
+                    break;
                 }
             }
         }

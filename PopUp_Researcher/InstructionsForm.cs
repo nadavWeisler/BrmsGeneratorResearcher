@@ -22,12 +22,12 @@ namespace bRMS_Generator
         /// <summary>
         /// Return value for edit
         /// </summary>
-        public Instructions returnEdit;
+        public Instructions ReturnEdit;
 
         /// <summary>
         /// Existing trial to edit
         /// </summary>
-        private Instructions existingTrial;
+        private Instructions _existingTrial;
 
         /// <summary>
         /// Contractor
@@ -37,12 +37,10 @@ namespace bRMS_Generator
             InitializeComponent();
             this.instru = new Instructions();
 
-            if (existing != null)
-            {
-                this.existingTrial = existing;
-                UpdateExistingTrial();
-                BindListView();
-            }
+            if (existing == null) return;
+            this._existingTrial = existing;
+            UpdateExistingTrial();
+            BindListView();
         }
 
         /// <summary>
@@ -50,9 +48,9 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
-            this.BlockNumeric.Value = this.existingTrial.group;
-            foreach(string page in this.existingTrial.Pages)
+            this.SubBlockNumeric.Value = this._existingTrial.sub_group;
+            this.BlockNumeric.Value = this._existingTrial.group;
+            foreach(var page in this._existingTrial.Pages)
             {
                 this.instru.Pages.Add(page);
             }
@@ -80,9 +78,9 @@ namespace bRMS_Generator
                 this.instru.SetGroup(this.BlockNumeric.Value);
                 this.instru.SetSubGroup(this.SubBlockNumeric.Value);
               
-                if(this.existingTrial != null)
+                if(this._existingTrial != null)
                 {
-                    this.returnEdit = instru;
+                    this.ReturnEdit = instru;
                 }
                 else
                 {
@@ -99,20 +97,18 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            string newintro = Utils.AddHtmlBreakLines(PageRichTextBox.Text);
-            if (!string.IsNullOrEmpty(newintro))
+            var newIntro = Utils.AddHtmlBreakLines(PageRichTextBox.Text);
+            if (string.IsNullOrEmpty(newIntro)) return;
+            if (listView1.SelectedItems.Count == 0)
             {
-                if (listView1.SelectedItems.Count == 0)
-                {
-                    this.instru.AddPage(newintro);
-                }
-                else
-                {
-                    this.instru.Pages[this.listView1.SelectedItems[0].Index] = newintro;
-                }
-                BindListView();
-                PageRichTextBox.ResetText();
+                this.instru.AddPage(newIntro);
             }
+            else
+            {
+                this.instru.Pages[this.listView1.SelectedItems[0].Index] = newIntro;
+            }
+            BindListView();
+            PageRichTextBox.ResetText();
         }
 
         /// <summary>
@@ -157,7 +153,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Change Oreder (Down) of selected item in ListView
+        /// Change Order (Down) of selected item in ListView
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,7 +167,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Change Oreder (Up) of selected item in ListView
+        /// Change Order (Up) of selected item in ListView
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
