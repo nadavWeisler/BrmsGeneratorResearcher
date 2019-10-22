@@ -1,6 +1,7 @@
 ﻿using bRMS_Generator.src;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
@@ -98,11 +99,17 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void HelpCsvTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(HelpCsvTextBox.Text))
+            if (string.IsNullOrEmpty(HelpCsvTextBox.Text)) return;
+
+            if (UpdateHelperFromCsv(HelpCsvTextBox.Text))
             {
-                UpdateHelperFromCsv(HelpCsvTextBox.Text);
+                PageEnabled();
             }
-            PageEnabled();
+            else
+            {
+                this.HelpCsvTextBox.Text = string.Empty;
+            }
+
         }
 
         /// <summary>
@@ -120,28 +127,18 @@ namespace bRMS_Generator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OrderedRadio_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioEnabled();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             if(TagsListView.SelectedItems.Count < 1) { return; }
 
-            string validationString = ValidateBeforeAdd();
+            var validationString = ValidateBeforeAdd();
             if(!string.IsNullOrEmpty(validationString))
             {
                 MessageBox.Show(validationString);
                 return;
             }
 
-            var new_brms = new Brms
+            var newBrms = new Brms
             {
                 name = "bRMS" + brms_count,
                 group = this.BlockNumeric.Value,
@@ -151,60 +148,67 @@ namespace bRMS_Generator
             var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
-                new_brms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+                newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
                 tagString += "_" + tag.Text;
             }
             if(this.MixedRadio.Checked)
             {
-                new_brms.brms_type = "mix";
+                newBrms.brms_type = "mix";
             }
             else
             {
                 if(this.RandomRadio.Checked)
                 {
-                    new_brms.brms_type = "random";
+                    newBrms.brms_type = "random";
                 }
                 else
                 {
-                    new_brms.brms_type = "order";
+                    newBrms.brms_type = "order";
                 }
             }
-            new_brms.repetitions = this.CountNumeric.Value;
-            new_brms.max_type = this.MaxTypeNumeric.Value;
-            new_brms.fade_in_time = this.FadeInTimeNumeric.Value;
-            new_brms.fade_out_time = this.FacdeOutTimeNumeric.Value;
-            new_brms.visUnit = this.VisUnitNumeric.Value;
-            new_brms.mondrian_count = this.MondrianCountNumeric.Value;
-            new_brms.break_time = this.BreakTimeNumeric.Value;
-            new_brms.allowed_to_repeat = this.AllowedToRepeatNumeric.Value;
-            new_brms.break_message = this.BreakMessageRichTextBox.Text;
-            new_brms.performance_message = this.PerformanceMessageRchTextBox.Text;
-            new_brms.stop_trial_message = this.StopMessageRichTextBox.Text;
-            new_brms.stimulus_opacity = this.StimulusOpacityNumeric.Value;
+            newBrms.repetitions = this.CountNumeric.Value;
+            newBrms.max_type = this.MaxTypeNumeric.Value;
+            newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
+            newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
+            newBrms.mondrian_count = this.MondrianCountNumeric.Value;
+            newBrms.break_time = this.BreakTimeNumeric.Value;
+            newBrms.allowed_to_repeat = this.AllowedToRepeatNumeric.Value;
+            newBrms.break_message = this.BreakMessageRichTextBox.Text;
+            newBrms.performance_message = this.PerformanceMessageRchTextBox.Text;
+            newBrms.stop_trial_message = this.StopMessageRichTextBox.Text;
+            newBrms.stimulus_opacity = this.StimulusOpacityNumeric.Value;
+            newBrms.fixation_width = this.FixationWidthNumeric.Value;
+            newBrms.fixation_height = this.FixationHeightNumeric.Value;
+            newBrms.frame_width = this.FrameWidthNumeric.Value;
+            newBrms.frame_height = this.FrameHeightNumeric.Value;
+            newBrms.stimulus_width = this.StimulusWidthNumeric.Value;
+            newBrms.stimulus_height = this.StimulusHeightNumeric.Value;
+            newBrms.rectangle_width = this.RectWidthNumeric.Value;
+            newBrms.rectangle_height = this.RectHeightNumeric.Value;
             if ((this.OriantetionComboBox.SelectedValue == null))
             {
-                new_brms.orientation = "h";
+                newBrms.orientation = "h";
             }
             else
             {
                 switch (this.OriantetionComboBox.SelectedValue.ToString().ToLower())
                 {
                     case "horizontal":
-                        new_brms.orientation = "h";
+                        newBrms.orientation = "h";
                         break;
                     case "vertical":
-                        new_brms.orientation = "v";
+                        newBrms.orientation = "v";
                         break;
                 }
             }
-            new_brms.timing_post_trial = this.TimingPostTrialNumeric.Value;
-            new_brms.stimulus_delay = this.StimulusDelayNumeric.Value;
-            new_brms.rectangle_number = this.RectangleNumeric.Value;
-            new_brms.timing_response = this.TimingResponseNumeric.Value;
-            new_brms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
-            var new_bRMS_name = "bRMS" + brms_count + "_" + new_brms.brms_type + "_" + tagString;
-            this.brms_names.Add(new_bRMS_name);
-            this.brms_trials[new_bRMS_name] = new_brms;
+            newBrms.post_trial_gap = this.PostTrialGapNumeric.Value;
+            newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
+            newBrms.rectangle_number = this.RectangleNumeric.Value;
+            newBrms.timing_response = this.TimingResponseNumeric.Value;
+            newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
+            var newBRmsName = "bRMS" + brms_count + "_" + newBrms.brms_type + "_" + tagString;
+            this.brms_names.Add(newBRmsName);
+            this.brms_trials[newBRmsName] = newBrms;
             brms_count++;
             BindListView();
         }
@@ -240,15 +244,22 @@ namespace bRMS_Generator
             this.MaxTypeNumeric.Value = this.existingTrial.max_type;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
-            this.VisUnitNumeric.Value = this.existingTrial.visUnit;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
             this.BreakTimeNumeric.Value = this.existingTrial.break_time;
             this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
-            this.TimingPostTrialNumeric.Value = this.existingTrial.timing_post_trial;
+            this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap * 1000;
             this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
             this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;
+            this.FixationWidthNumeric.Value = this.existingTrial.fixation_width;
+            this.FixationHeightNumeric.Value = this.existingTrial.fixation_height;
+            this.FrameWidthNumeric.Value = this.existingTrial.frame_width;
+            this.FrameHeightNumeric.Value = this.existingTrial.frame_height;
+            this.StimulusWidthNumeric.Value = this.existingTrial.stimulus_width;
+            this.StimulusHeightNumeric.Value = this.existingTrial.stimulus_height;
+            this.RectWidthNumeric.Value = this.existingTrial.rectangle_width;
+            this.RectHeightNumeric.Value = this.existingTrial.rectangle_height;
         }
 
         /// <summary>
@@ -267,14 +278,22 @@ namespace bRMS_Generator
         /// Update Tags from CSV
         /// </summary>
         /// <param name="csvFileName"></param>
-        private void UpdateHelperFromCsv(string csvFileName)
+        private bool UpdateHelperFromCsv(string csvFileName)
         {
-            this.Helper.UpdateStimulusFromCsv(csvFileName);
-            TagsListView.Clear();
-            foreach (var tag in this.Helper.GetTagList())
+            if (this.Helper.UpdateStimulusFromCsv(csvFileName))
             {
-                TagsListView.Items.Add(tag);
+                TagsListView.Clear();
+                foreach (var tag in this.Helper.GetTagList())
+                {
+                    TagsListView.Items.Add(tag);
+                }
             }
+            else
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -380,6 +399,7 @@ namespace bRMS_Generator
                 this.OrderlistView.Clear();
                 this.OrderGroup.Enabled = false;
             }
+            RadioEnabled();
         }
 
         /// <summary>
@@ -388,8 +408,10 @@ namespace bRMS_Generator
         private void UpdateOrderedListView()
         {
             this.OrderlistView.Clear();
-            foreach (var item in this.Helper.GetStimulusByTags(
-                Utils.GetItemsListFromListView(TagsListView, true)))
+            var stimulusList = this.Helper.GetStimulusByTags(
+                Utils.GetItemsListFromListView(TagsListView, true));
+            stimulusList = stimulusList.Distinct().ToList();
+            foreach (var item in stimulusList)
             {
                 this.OrderlistView.Items.Add(item);
             }
@@ -468,8 +490,12 @@ namespace bRMS_Generator
             }
         }
 
+
         #endregion
 
+        private void ParamsGroupBox_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -40,9 +40,11 @@ namespace PopUp_Researcher.Helpers
         /// Update stimulus from instructions CSV
         /// </summary>
         /// <param name="fileName"></param>
-        public void UpdateStimulusFromCsv(string fileName)
+        public bool UpdateStimulusFromCsv(string fileName)
         {
             var csvContent = Utils.LoadCsvFile(fileName);
+            if (csvContent.Count == 0) return false;
+
             var resultDictionary = new Dictionary<string, List<string>>();
             foreach (var csvLine in csvContent)
             {
@@ -63,6 +65,7 @@ namespace PopUp_Researcher.Helpers
             }
 
             this.StimulusDictionary = resultDictionary;
+            return true;
         }
 
         /// <summary>

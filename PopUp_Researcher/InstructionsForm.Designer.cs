@@ -50,15 +50,15 @@
             // 
             this.PageRichTextBox.Location = new System.Drawing.Point(12, 12);
             this.PageRichTextBox.Name = "PageRichTextBox";
-            this.PageRichTextBox.Size = new System.Drawing.Size(309, 67);
+            this.PageRichTextBox.Size = new System.Drawing.Size(516, 193);
             this.PageRichTextBox.TabIndex = 2;
             this.PageRichTextBox.Text = "";
             // 
             // cleanButton
             // 
-            this.cleanButton.Location = new System.Drawing.Point(12, 85);
+            this.cleanButton.Location = new System.Drawing.Point(372, 211);
             this.cleanButton.Name = "cleanButton";
-            this.cleanButton.Size = new System.Drawing.Size(44, 23);
+            this.cleanButton.Size = new System.Drawing.Size(75, 23);
             this.cleanButton.TabIndex = 4;
             this.cleanButton.Text = "clean";
             this.cleanButton.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(272, 85);
+            this.confirmButton.Location = new System.Drawing.Point(453, 211);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(49, 23);
+            this.confirmButton.Size = new System.Drawing.Size(75, 23);
             this.confirmButton.TabIndex = 6;
             this.confirmButton.Text = "confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(246, 371);
+            this.saveButton.Location = new System.Drawing.Point(453, 371);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -128,11 +128,11 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 114);
+            this.listView1.Location = new System.Drawing.Point(12, 240);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(309, 251);
+            this.listView1.Size = new System.Drawing.Size(516, 125);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -140,7 +140,7 @@
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(212, 88);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(396, 374);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
             this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
             this.SubBlockNumeric.TabIndex = 26;
@@ -148,7 +148,7 @@
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(150, 90);
+            this.SubBlockLabel.Location = new System.Drawing.Point(334, 376);
             this.SubBlockLabel.Name = "SubBlockLabel";
             this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
             this.SubBlockLabel.TabIndex = 25;
@@ -156,7 +156,7 @@
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(93, 88);
+            this.BlockNumeric.Location = new System.Drawing.Point(277, 374);
             this.BlockNumeric.Name = "BlockNumeric";
             this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
             this.BlockNumeric.TabIndex = 24;
@@ -164,7 +164,7 @@
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(62, 90);
+            this.BlockLabel.Location = new System.Drawing.Point(246, 376);
             this.BlockLabel.Name = "BlockLabel";
             this.BlockLabel.Size = new System.Drawing.Size(34, 13);
             this.BlockLabel.TabIndex = 23;
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 398);
+            this.ClientSize = new System.Drawing.Size(537, 398);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);

@@ -341,8 +341,10 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddFullscreen(FullScreen obj)
         {
-            Experiments.Add("Fullscreen" + FullscreenCount, obj);
-            ExperimentsOrder.Add("Fullscreen" + FullscreenCount);
+            Experiments.Add("Fullscreen" + FullscreenCount + "_" +
+                            obj.group + "_" + obj.sub_group, obj);
+            ExperimentsOrder.Add("Fullscreen" + FullscreenCount + "_" +
+                                 obj.group + "_" + obj.sub_group);
             FullscreenCount++;
         }
 
@@ -352,8 +354,10 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddIntro(Instructions obj)
         {
-            Experiments.Add("Introduction" + IntroCount, obj);
-            ExperimentsOrder.Add("Introduction" + IntroCount);
+            Experiments.Add("Introduction" + IntroCount + "_" +
+                            obj.group + "_" + obj.sub_group, obj);
+            ExperimentsOrder.Add("Introduction" + IntroCount + "_" +
+                                 obj.group + "_" + obj.sub_group);
             IntroCount++;
         }
 
@@ -363,8 +367,10 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddSurvey(Survey obj)
         {
-            Experiments.Add("Survey" + SurveyCount, obj);
-            ExperimentsOrder.Add("Survey" + SurveyCount);
+            Experiments.Add("Survey" + SurveyCount + "_"  +
+                obj.group + "_" + obj.sub_group, obj);
+            ExperimentsOrder.Add("Survey" + SurveyCount + "_" +
+                                 obj.group + "_" + obj.sub_group);
             SurveyCount++;
         }
 
@@ -376,8 +382,12 @@ namespace bRMS_Generator
         {
             foreach (var item in _brmsList)
             {
-                Experiments.Add(item.Key + "_" + BRmsCount, item.Value);
-                ExperimentsOrder.Add(item.Key + "_" + BRmsCount);
+                Experiments.Add(item.Key + BRmsCount + "_" +
+                                item.Value.group + "_" +
+                                item.Value.sub_group, item.Value);
+                ExperimentsOrder.Add(item.Key + BRmsCount + "_" +
+                                     item.Value.group + "_" +
+                                     item.Value.sub_group);
                 BRmsCount++;
             }
         }

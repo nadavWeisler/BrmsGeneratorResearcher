@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using PopUp_Researcher.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 
@@ -18,17 +20,25 @@ namespace bRMS_Generator
         public static List<List<string>> LoadCsvFile(string filePath)
         {
             var searchList = new List<List<string>>();
-            using (var reader = new StreamReader(filePath))
+            try
             {
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(filePath))
                 {
-                    var line = reader.ReadLine();
-                    if (!string.IsNullOrEmpty(line))
+                    while (!reader.EndOfStream)
                     {
-                        searchList.Add(line.Split(',').ToList());
+                        var line = reader.ReadLine();
+                        if (!string.IsNullOrEmpty(line))
+                        {
+                            searchList.Add(line.Split(',').ToList());
+                        }
                     }
                 }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Close file");
+            }
+            
             return searchList;
         }
 

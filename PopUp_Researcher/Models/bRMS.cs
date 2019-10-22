@@ -20,8 +20,7 @@ namespace PopUp_Researcher.Models
 
         public decimal fade_in_time;
         public decimal fade_out_time;
-        public decimal timing_post_trial;
-        public decimal visUnit;
+        public decimal post_trial_gap;
         public decimal stimulus_delay;
         public decimal repetitions;
         public decimal max_type;
@@ -31,8 +30,15 @@ namespace PopUp_Researcher.Models
         public decimal rectangle_number;
         public decimal stimulus_opacity;
         public decimal mondrian_max_opacity;
-        public decimal trial_limit;
         public decimal allowed_to_repeat;
+        public decimal fixation_width;
+        public decimal fixation_height;
+        public decimal frame_width;
+        public decimal frame_height;
+        public decimal stimulus_width;
+        public decimal stimulus_height;
+        public decimal rectangle_width;
+        public decimal rectangle_height;
 
 
 

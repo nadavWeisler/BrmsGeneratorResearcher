@@ -57,7 +57,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Get Scale from input
         /// </summary>
-        /// <returns>List<string></returns>
+        /// <returns>string list</returns>
         private List<string> GetScale()
         {
             var numberList = Enumerable.Range(1, decimal.ToInt32(ScaleNumeric.Value)).ToList();
