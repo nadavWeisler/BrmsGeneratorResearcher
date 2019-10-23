@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using bRMS_Generator.src;
 using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
@@ -194,11 +193,11 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index < this.Questions.Count - 1)
-            {
-                this.Questions = Utils.UpOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
-                BindListView();
-            }
+            if (QuestionsListView.SelectedItems.Count <= 0 ||
+                QuestionsListView.SelectedItems[0].Index >= this.Questions.Count - 1) return;
+
+            this.Questions = Utils.UpOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
+            BindListView();
         }
 
         /// <summary>
@@ -208,11 +207,11 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (QuestionsListView.SelectedItems.Count > 0 && QuestionsListView.SelectedItems[0].Index > 0)
-            {
-                this.Questions = Utils.DownOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
-                BindListView();
-            }
+            if (QuestionsListView.SelectedItems.Count <= 0 || 
+                QuestionsListView.SelectedItems[0].Index <= 0) return;
+            
+            this.Questions = Utils.DownOneItem(this.Questions, QuestionsListView.SelectedItems[0].Index);
+            BindListView();
         }
 
         /// <summary>

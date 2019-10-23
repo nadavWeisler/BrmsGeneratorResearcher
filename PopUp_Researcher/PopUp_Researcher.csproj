@@ -100,6 +100,12 @@
       <DependentUpon>BrmsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BRmsHelperTests.cs" />
+    <Compile Include="ImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageForm.Designer.cs">
+      <DependentUpon>ImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
       <DependentUpon>FullscreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Helpers\ErrorMsg.resx" />
+    <EmbeddedResource Include="ImageForm.resx">
+      <DependentUpon>ImageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructionsForm.resx">
       <DependentUpon>InstructionsForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -46,6 +46,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
+            this.ImageButton = new System.Windows.Forms.Button();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -54,17 +55,19 @@
             // HeaderLabel
             // 
             this.HeaderLabel.AutoSize = true;
-            this.HeaderLabel.Location = new System.Drawing.Point(12, 9);
+            this.HeaderLabel.Location = new System.Drawing.Point(18, 14);
+            this.HeaderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HeaderLabel.Name = "HeaderLabel";
-            this.HeaderLabel.Size = new System.Drawing.Size(35, 13);
+            this.HeaderLabel.Size = new System.Drawing.Size(51, 20);
             this.HeaderLabel.TabIndex = 1;
             this.HeaderLabel.Text = "Name";
             // 
             // bRMS_button
             // 
-            this.bRMS_button.Location = new System.Drawing.Point(10, 77);
+            this.bRMS_button.Location = new System.Drawing.Point(15, 74);
+            this.bRMS_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bRMS_button.Name = "bRMS_button";
-            this.bRMS_button.Size = new System.Drawing.Size(75, 23);
+            this.bRMS_button.Size = new System.Drawing.Size(112, 35);
             this.bRMS_button.TabIndex = 2;
             this.bRMS_button.Text = "bRMS";
             this.bRMS_button.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // 
             // introButton
             // 
-            this.introButton.Location = new System.Drawing.Point(10, 106);
+            this.introButton.Location = new System.Drawing.Point(135, 74);
+            this.introButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.introButton.Name = "introButton";
-            this.introButton.Size = new System.Drawing.Size(75, 23);
+            this.introButton.Size = new System.Drawing.Size(112, 35);
             this.introButton.TabIndex = 3;
             this.introButton.Text = "Instructions";
             this.introButton.UseVisualStyleBackColor = true;
@@ -82,9 +86,10 @@
             // 
             // surveyButton
             // 
-            this.surveyButton.Location = new System.Drawing.Point(10, 19);
+            this.surveyButton.Location = new System.Drawing.Point(15, 29);
+            this.surveyButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.surveyButton.Name = "surveyButton";
-            this.surveyButton.Size = new System.Drawing.Size(75, 23);
+            this.surveyButton.Size = new System.Drawing.Size(112, 35);
             this.surveyButton.TabIndex = 4;
             this.surveyButton.Text = "Survey";
             this.surveyButton.UseVisualStyleBackColor = true;
@@ -92,9 +97,10 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(10, 80);
+            this.saveButton.Location = new System.Drawing.Point(15, 79);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(112, 35);
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -102,9 +108,10 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(10, 22);
+            this.removeButton.Location = new System.Drawing.Point(15, 34);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(75, 23);
+            this.removeButton.Size = new System.Drawing.Size(112, 35);
             this.removeButton.TabIndex = 6;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
@@ -112,22 +119,26 @@
             // 
             // TrialsButtonGroup
             // 
+            this.TrialsButtonGroup.Controls.Add(this.ImageButton);
             this.TrialsButtonGroup.Controls.Add(this.FullscreenButton);
             this.TrialsButtonGroup.Controls.Add(this.bRMS_button);
             this.TrialsButtonGroup.Controls.Add(this.introButton);
             this.TrialsButtonGroup.Controls.Add(this.surveyButton);
-            this.TrialsButtonGroup.Location = new System.Drawing.Point(359, 32);
+            this.TrialsButtonGroup.Location = new System.Drawing.Point(538, 49);
+            this.TrialsButtonGroup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TrialsButtonGroup.Name = "TrialsButtonGroup";
-            this.TrialsButtonGroup.Size = new System.Drawing.Size(96, 135);
+            this.TrialsButtonGroup.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TrialsButtonGroup.Size = new System.Drawing.Size(257, 165);
             this.TrialsButtonGroup.TabIndex = 8;
             this.TrialsButtonGroup.TabStop = false;
             this.TrialsButtonGroup.Text = "Experiments";
             // 
             // FullscreenButton
             // 
-            this.FullscreenButton.Location = new System.Drawing.Point(10, 48);
+            this.FullscreenButton.Location = new System.Drawing.Point(135, 29);
+            this.FullscreenButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FullscreenButton.Name = "FullscreenButton";
-            this.FullscreenButton.Size = new System.Drawing.Size(75, 23);
+            this.FullscreenButton.Size = new System.Drawing.Size(112, 35);
             this.FullscreenButton.TabIndex = 5;
             this.FullscreenButton.Text = "Fullscreen";
             this.FullscreenButton.UseVisualStyleBackColor = true;
@@ -138,18 +149,21 @@
             this.SaveButtonGroup.Controls.Add(this.EditButton);
             this.SaveButtonGroup.Controls.Add(this.saveButton);
             this.SaveButtonGroup.Controls.Add(this.removeButton);
-            this.SaveButtonGroup.Location = new System.Drawing.Point(359, 251);
+            this.SaveButtonGroup.Location = new System.Drawing.Point(535, 314);
+            this.SaveButtonGroup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButtonGroup.Name = "SaveButtonGroup";
-            this.SaveButtonGroup.Size = new System.Drawing.Size(96, 109);
+            this.SaveButtonGroup.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButtonGroup.Size = new System.Drawing.Size(260, 126);
             this.SaveButtonGroup.TabIndex = 9;
             this.SaveButtonGroup.TabStop = false;
             this.SaveButtonGroup.Text = "Save";
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(10, 51);
+            this.EditButton.Location = new System.Drawing.Point(135, 34);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.Size = new System.Drawing.Size(112, 35);
             this.EditButton.TabIndex = 7;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -157,26 +171,29 @@
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(53, 6);
+            this.NameTextBox.Location = new System.Drawing.Point(80, 9);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(300, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(448, 26);
             this.NameTextBox.TabIndex = 10;
             // 
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 32);
+            this.listView1.Location = new System.Drawing.Point(22, 49);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(338, 328);
+            this.listView1.Size = new System.Drawing.Size(505, 391);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(369, 4);
+            this.LoadButton.Location = new System.Drawing.Point(554, 6);
+            this.LoadButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton.Size = new System.Drawing.Size(112, 35);
             this.LoadButton.TabIndex = 6;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
@@ -191,18 +208,21 @@
             // 
             this.groupBox1.Controls.Add(this.MinusButton);
             this.groupBox1.Controls.Add(this.PlusButton);
-            this.groupBox1.Location = new System.Drawing.Point(359, 167);
+            this.groupBox1.Location = new System.Drawing.Point(538, 224);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(96, 81);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(257, 80);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Navigation";
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(10, 48);
+            this.MinusButton.Location = new System.Drawing.Point(135, 29);
+            this.MinusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(75, 23);
+            this.MinusButton.Size = new System.Drawing.Size(112, 35);
             this.MinusButton.TabIndex = 7;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
@@ -210,19 +230,30 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(10, 19);
+            this.PlusButton.Location = new System.Drawing.Point(15, 29);
+            this.PlusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(75, 23);
+            this.PlusButton.Size = new System.Drawing.Size(112, 35);
             this.PlusButton.TabIndex = 6;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
             this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
+            // ImageButton
+            // 
+            this.ImageButton.Location = new System.Drawing.Point(15, 119);
+            this.ImageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ImageButton.Name = "ImageButton";
+            this.ImageButton.Size = new System.Drawing.Size(112, 35);
+            this.ImageButton.TabIndex = 6;
+            this.ImageButton.Text = "Image";
+            this.ImageButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 366);
+            this.ClientSize = new System.Drawing.Size(807, 449);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.listView1);
@@ -232,8 +263,10 @@
             this.Controls.Add(this.HeaderLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.TrialsButtonGroup.ResumeLayout(false);
             this.SaveButtonGroup.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -261,6 +294,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button MinusButton;
         private System.Windows.Forms.Button PlusButton;
+        private System.Windows.Forms.Button ImageButton;
     }
 }
 

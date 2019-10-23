@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public class UserHelper
     {

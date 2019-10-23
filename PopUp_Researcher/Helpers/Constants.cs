@@ -1,4 +1,4 @@
-﻿namespace bRMS_Generator
+﻿namespace PopUp_Researcher.Helpers
 {
     internal class Constants
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using bRMS_Generator.src;
 using Newtonsoft.Json;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
@@ -331,6 +330,37 @@ namespace bRMS_Generator
             BindListView();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
+
+            var tmp = listView1.SelectedItems[0].Text;
+            var tmpIndex = listView1.SelectedItems[0].Index;
+            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
+            listView1.Items[tmpIndex - 1].Text = tmp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MinusButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count <= 0 ||
+                listView1.SelectedItems[0].Index >= listView1.Items.Count - 1) return;
+
+            var tmp = listView1.SelectedItems[0].Text;
+            var tmpIndex = listView1.SelectedItems[0].Index;
+            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
+            listView1.Items[tmpIndex + 1].Text = tmp;
+        }
+
         #endregion
 
         #region Public Methods
@@ -392,25 +422,12 @@ namespace bRMS_Generator
             }
         }
 
+
         #endregion
 
-        private void PlusButton_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
-            var tmp = listView1.SelectedItems[0].Text;
-            var tmpIndex = listView1.SelectedItems[0].Index;
-            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
-            listView1.Items[tmpIndex - 1].Text = tmp;
-        }
 
-        private void MinusButton_Click(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count <= 0 ||
-                listView1.SelectedItems[0].Index >= listView1.Items.Count - 1) return;
-            var tmp = listView1.SelectedItems[0].Text;
-            var tmpIndex = listView1.SelectedItems[0].Index;
-            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
-            listView1.Items[tmpIndex + 1].Text = tmp;
         }
     }
 }

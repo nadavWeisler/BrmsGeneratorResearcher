@@ -1,14 +1,12 @@
 ﻿using System;
-using Newtonsoft.Json;
-using PopUp_Researcher.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
+using Newtonsoft.Json;
+using PopUp_Researcher.Models;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher.Helpers
 {
     public static class Utils
     {

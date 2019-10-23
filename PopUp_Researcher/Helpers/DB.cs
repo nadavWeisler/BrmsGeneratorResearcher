@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using bRMS_Generator.Models;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using System.Security.Cryptography;
-using PopUp_Researcher.Helpers;
+using System.Text;
+using MongoDB.Driver;
+using PopUp_Researcher.Models;
 
-namespace bRMS_Generator.src
+namespace PopUp_Researcher.Helpers
 {
     public class DbHelper
     {

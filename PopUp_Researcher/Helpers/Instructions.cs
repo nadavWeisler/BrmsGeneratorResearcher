@@ -8,14 +8,14 @@ namespace PopUp_Researcher.Helpers
         #region Properties
 
         /// <summary>
-        /// Pages Property
+        /// pages Property
         /// </summary>
-        public List<string> Pages;
+        public List<string> pages;
 
         /// <summary>
         /// Show click-able navigation 
         /// </summary>
-        public bool ShowClickAbleNav;
+        public bool show_clickable_nav;
 
         #endregion
 
@@ -27,8 +27,8 @@ namespace PopUp_Researcher.Helpers
         public Instructions()
         {
             this.type = "instructions";
-            this.Pages = new List<string>();
-            this.ShowClickAbleNav = true;
+            this.pages = new List<string>();
+            this.show_clickable_nav = true;
         }
 
         #endregion
@@ -36,21 +36,21 @@ namespace PopUp_Researcher.Helpers
         #region Public Methods
 
         /// <summary>
-        /// Get Pages
+        /// Get pages
         /// </summary>
         /// <returns></returns>
         public List<string> GetPages()
         {
-            return this.Pages;
+            return this.pages;
         }
 
         /// <summary>
-        /// Set Pages
+        /// Set pages
         /// </summary>
         /// <param name="lst"></param>
         public void SetPages(List<string> lst)
         {
-            this.Pages = lst;
+            this.pages = lst;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace PopUp_Researcher.Helpers
         /// <param name="page"></param>
         public void AddPage(string page)
         {
-            this.Pages.Add(page);
+            this.pages.Add(page);
         }
 
         #endregion

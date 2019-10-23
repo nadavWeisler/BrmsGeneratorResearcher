@@ -1,5 +1,4 @@
 ﻿using bRMS_Generator;
-using bRMS_Generator.src;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -70,7 +69,7 @@ namespace PopUp_Researcher.Models
                         };
                         break;
                     case "fullscreen":
-                        FullScreen newFullscreen = new FullScreen((string)item["message"])
+                        var newFullscreen = new FullScreen((string)item["Message"])
                         {
                             group = decimal.Parse(item["group"].ToString()),
                             sub_group = decimal.Parse(item["sub_group"].ToString())
@@ -78,9 +77,9 @@ namespace PopUp_Researcher.Models
                         this.Trials.Add(newFullscreen);
                         break;
                     case "instructions":
-                        Instructions newIntro = new Instructions
+                        var newIntro = new Instructions
                         {
-                            Pages = Utils.GetPagesFromJson(item["pages"].ToString()),
+                            pages = Utils.GetPagesFromJson(item["pages"].ToString()),
                             group = decimal.Parse(item["group"].ToString()),
                             sub_group = decimal.Parse(item["sub_group"].ToString())
                         };

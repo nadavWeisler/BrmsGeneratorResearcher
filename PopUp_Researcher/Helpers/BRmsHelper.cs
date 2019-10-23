@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using bRMS_Generator;
-using bRMS_Generator.src;
 using PopUp_Researcher.Models;
 
 namespace PopUp_Researcher.Helpers

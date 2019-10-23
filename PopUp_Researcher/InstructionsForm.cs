@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using bRMS_Generator.src;
 using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
@@ -15,9 +9,9 @@ namespace bRMS_Generator
     public partial class InstructionsForm : Form
     {
         /// <summary>
-        /// Introduction result object
+        /// 
         /// </summary>
-        protected Instructions instru;
+        protected Dictionary<string, string> PagesDictionary;
 
         /// <summary>
         /// Return value for edit
@@ -35,8 +29,7 @@ namespace bRMS_Generator
         public InstructionsForm(Instructions existing=null)
         {
             InitializeComponent();
-            this.instru = new Instructions();
-
+            this.PagesDictionary = new Dictionary<string, string>();
             if (existing == null) return;
             this._existingTrial = existing;
             UpdateExistingTrial();
@@ -50,9 +43,9 @@ namespace bRMS_Generator
         {
             this.SubBlockNumeric.Value = this._existingTrial.sub_group;
             this.BlockNumeric.Value = this._existingTrial.group;
-            foreach(var page in this._existingTrial.Pages)
+            foreach(var page in this._existingTrial.pages)
             {
-                this.instru.Pages.Add(page);
+                AddPageToPagesDictionary(page);
             }
         }
 
@@ -72,22 +65,26 @@ namespace bRMS_Generator
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
-        {       
-            if (this.instru.GetPages().Count > 0)
+        {
+            var newInstructions = new Instructions
             {
-                this.instru.SetGroup(this.BlockNumeric.Value);
-                this.instru.SetSubGroup(this.SubBlockNumeric.Value);
+                pages = this.PagesDictionary.Values.ToList()
+            };
+
+            if (newInstructions.GetPages().Count <= 0) return;
+
+            newInstructions.SetGroup(this.BlockNumeric.Value);
+            newInstructions.SetSubGroup(this.SubBlockNumeric.Value);
               
-                if(this._existingTrial != null)
-                {
-                    this.ReturnEdit = instru;
-                }
-                else
-                {
-                    MainForm.AddIntro(instru);
-                }
-                Close();
+            if(this._existingTrial != null)
+            {
+                this.ReturnEdit = newInstructions;
             }
+            else
+            {
+                MainForm.AddIntro(newInstructions);
+            }
+            Close();
         }
 
         /// <summary>
@@ -101,14 +98,37 @@ namespace bRMS_Generator
             if (string.IsNullOrEmpty(newIntro)) return;
             if (listView1.SelectedItems.Count == 0)
             {
-                this.instru.AddPage(newIntro);
+                AddPageToPagesDictionary(newIntro);
             }
             else
             {
-                this.instru.Pages[this.listView1.SelectedItems[0].Index] = newIntro;
+                PagesDictionary[this.listView1.SelectedItems[0].Text] = newIntro;
             }
             BindListView();
             PageRichTextBox.ResetText();
+        }
+
+        /// <summary>
+        /// Add new page and his display name to PagesDictionary
+        /// </summary>
+        /// <param name="newIntro"></param>
+        private void AddPageToPagesDictionary(string newIntro)
+        {
+            var pageDisplayName = newIntro.Substring(0, Math.Min(10, newIntro.Length));
+            pageDisplayName = pageDisplayName.Replace("<br>", " ");
+
+            if (PagesDictionary.ContainsKey(pageDisplayName + "..."))
+            {
+                var count = 1;
+                while (PagesDictionary.ContainsKey(pageDisplayName + "(" + count + ")" + "..."))
+                {
+                    count++;
+                }
+                pageDisplayName += "(" + count + ")";
+            }
+
+            pageDisplayName += "...";
+            PagesDictionary.Add(pageDisplayName , newIntro);
         }
 
         /// <summary>
@@ -117,10 +137,9 @@ namespace bRMS_Generator
         private void BindListView()
         {
             this.listView1.Items.Clear();
-            foreach (var item in this.instru.GetPages())
+            foreach (var item in this.PagesDictionary.Keys)
             {
-                int endIndex = Math.Min(10, item.Length - 1);
-                this.listView1.Items.Add(item.Substring(endIndex) + "...");
+                this.listView1.Items.Add(item);
             }
         }
 
@@ -133,7 +152,15 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in listView1.SelectedItems)
             {
-                this.instru.SetPages(Utils.RemoveItemByIndex(this.instru.GetPages(), item.Index));
+                var allPages = Utils.RemoveItemByIndex(this.PagesDictionary.Keys.ToList(), 
+                    item.Index);
+                var newDic = new Dictionary<string, string>();
+                foreach (var page in allPages)
+                {
+                    newDic.Add(page, PagesDictionary[page]);
+                }
+
+                this.PagesDictionary = newDic;
             }
             BindListView();
         }
@@ -147,7 +174,7 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in listView1.SelectedItems)
             {
-                this.instru.AddPage(item.Text);
+                AddPageToPagesDictionary(item.Text);
             }
             BindListView();
         }
@@ -159,11 +186,20 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index < this.instru.GetPages().Count - 1)
+            if (listView1.SelectedItems.Count <= 0 ||
+                listView1.SelectedItems[0].Index >= this.PagesDictionary.Count - 1) return;
+
+            var allPages = Utils.UpOneItem(this.PagesDictionary.Values.ToList(),
+                listView1.SelectedItems[0].Index);
+            var newDic = new Dictionary<string, string>();
+            foreach (var page in allPages)
             {
-                this.instru.SetPages(Utils.UpOneItem(this.instru.GetPages(), listView1.SelectedItems[0].Index));
-                BindListView();
+                newDic.Add(page, PagesDictionary[page]);
             }
+
+            this.PagesDictionary = newDic;
+
+            BindListView();
         }
 
         /// <summary>
@@ -173,11 +209,19 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
+            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
+            
+            var allPages = Utils.DownOneItem(this.PagesDictionary.Values.ToList(),
+                listView1.SelectedItems[0].Index);
+            var newDic = new Dictionary<string, string>();
+            foreach (var page in allPages)
             {
-                this.instru.SetPages(Utils.DownOneItem(this.instru.GetPages(), listView1.SelectedItems[0].Index));
-                BindListView();
+                newDic.Add(page, PagesDictionary[page]);
             }
+
+            this.PagesDictionary = newDic;
+
+            BindListView();
         }
 
         /// <summary>
@@ -187,13 +231,13 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count == 0)
+            if (listView1.SelectedItems.Count != 0)
             {
-                PageRichTextBox.Text = string.Empty;
+                PageRichTextBox.Text = listView1.SelectedItems[0].Text;
             }
             else
             {
-                PageRichTextBox.Text = listView1.SelectedItems[0].Text;
+                PageRichTextBox.Text = string.Empty;
             }
         }
     }
