@@ -12,12 +12,12 @@
         /// <summary>
         /// Trial Group
         /// </summary>
-        public decimal group;
+        public decimal block;
 
         /// <summary>
         /// Trial Sub Group
         /// </summary>
-        public decimal sub_group;
+        public decimal sub_block;
 
         #endregion
 
@@ -29,7 +29,7 @@
         /// <param name="_group"></param>
         public void SetGroup(decimal _group)
         {
-            this.group = _group;
+            this.block = _group;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@
         /// <param name="_sub_group"></param>
         public void SetSubGroup(decimal _sub_group)
         {
-            this.sub_group = _sub_group;
+            this.sub_block = _sub_group;
         }
 
         #endregion

@@ -61,8 +61,8 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubBlockNumeric.Value = this.ExistingTrial.sub_group;
-            this.BlockNumeric.Value = this.ExistingTrial.group;
+            this.SubBlockNumeric.Value = this.ExistingTrial.sub_block;
+            this.BlockNumeric.Value = this.ExistingTrial.block;
 
             switch (this.ExistingTrial.type)
             {

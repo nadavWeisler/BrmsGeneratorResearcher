@@ -10,7 +10,7 @@ namespace PopUp_Researcher.Models
         public string name;
         public string stimulusFolder;
         public string stimulus;
-        public string block;
+        public string stimulus_block;
         public string brms_type;
         public string orientation;
         public string file;

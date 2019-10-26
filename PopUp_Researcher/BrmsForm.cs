@@ -140,8 +140,8 @@ namespace bRMS_Generator
             var newBrms = new Brms
             {
                 name = "bRMS" + brms_count,
-                group = this.BlockNumeric.Value,
-                sub_group = this.SubBlockNumeric.Value,
+                block = this.BlockNumeric.Value,
+                sub_block = this.SubBlockNumeric.Value,
                 StimulusDictionary = new Dictionary<string, List<string>>()
             };
             var tagString = string.Empty;
@@ -237,8 +237,8 @@ namespace bRMS_Generator
             //        new_brms.brms_type = "order";
             //    }
             //}
-            this.BlockNumeric.Value = this.existingTrial.group;
-            this.SubBlockNumeric.Value = this.existingTrial.sub_group;
+            this.BlockNumeric.Value = ((Trial) this.existingTrial).block;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.CountNumeric.Value = this.existingTrial.repetitions;
             this.MaxTypeNumeric.Value = this.existingTrial.max_type;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;

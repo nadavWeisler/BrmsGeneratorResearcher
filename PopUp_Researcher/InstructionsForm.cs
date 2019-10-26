@@ -41,8 +41,8 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubBlockNumeric.Value = this._existingTrial.sub_group;
-            this.BlockNumeric.Value = this._existingTrial.group;
+            this.SubBlockNumeric.Value = this._existingTrial.sub_block;
+            this.BlockNumeric.Value = this._existingTrial.block;
             foreach(var page in this._existingTrial.pages)
             {
                 AddPageToPagesDictionary(page);

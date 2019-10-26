@@ -36,6 +36,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.TrialsButtonGroup = new System.Windows.Forms.GroupBox();
+            this.ImageButton = new System.Windows.Forms.Button();
             this.FullscreenButton = new System.Windows.Forms.Button();
             this.SaveButtonGroup = new System.Windows.Forms.GroupBox();
             this.EditButton = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
-            this.ImageButton = new System.Windows.Forms.Button();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -132,6 +132,17 @@
             this.TrialsButtonGroup.TabIndex = 8;
             this.TrialsButtonGroup.TabStop = false;
             this.TrialsButtonGroup.Text = "Experiments";
+            // 
+            // ImageButton
+            // 
+            this.ImageButton.Enabled = false;
+            this.ImageButton.Location = new System.Drawing.Point(15, 119);
+            this.ImageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ImageButton.Name = "ImageButton";
+            this.ImageButton.Size = new System.Drawing.Size(112, 35);
+            this.ImageButton.TabIndex = 6;
+            this.ImageButton.Text = "Image";
+            this.ImageButton.UseVisualStyleBackColor = true;
             // 
             // FullscreenButton
             // 
@@ -238,16 +249,6 @@
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
             this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
-            // 
-            // ImageButton
-            // 
-            this.ImageButton.Location = new System.Drawing.Point(15, 119);
-            this.ImageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ImageButton.Name = "ImageButton";
-            this.ImageButton.Size = new System.Drawing.Size(112, 35);
-            this.ImageButton.TabIndex = 6;
-            this.ImageButton.Text = "Image";
-            this.ImageButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

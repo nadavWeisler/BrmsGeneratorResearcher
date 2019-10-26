@@ -26,19 +26,18 @@ namespace PopUp_Researcher.Models
         public void UpdateTrialsByTimeline()
         {
             this.Trials = new List<Trial>();
-            string questionsJson = null;
-            List<Question> qList = null;
-            Survey newSurvey;
             foreach (var item in this.Timeline)
             {
-                newSurvey = null;
+                Survey newSurvey = null;
+                string questionsJson = null;
+                List<Question> qList = null;
                 switch(item["type"])
                 {
                     case "bRMS":
-                        Brms newBRMS = new Brms()
+                        var newBrms = new Brms()
                         {
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "survey-text":
@@ -46,8 +45,8 @@ namespace PopUp_Researcher.Models
                         qList = Utils.GetQuestionsListFromJson("survey-text", questionsJson);
                         newSurvey = new TextSurvey(qList)
                         {
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "survey-likert":
@@ -55,8 +54,8 @@ namespace PopUp_Researcher.Models
                         qList = Utils.GetQuestionsListFromJson("survey-likert", questionsJson);
                         newSurvey = new ScaleSurvey(qList)
                         {
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "survey-multi-choice":
@@ -64,15 +63,15 @@ namespace PopUp_Researcher.Models
                         qList = Utils.GetQuestionsListFromJson("survey-multi-choice", questionsJson);
                         newSurvey = new MultiSurvey(qList)
                         {
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "fullscreen":
                         var newFullscreen = new FullScreen((string)item["Message"])
                         {
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         this.Trials.Add(newFullscreen);
                         break;
@@ -80,8 +79,8 @@ namespace PopUp_Researcher.Models
                         var newIntro = new Instructions
                         {
                             pages = Utils.GetPagesFromJson(item["pages"].ToString()),
-                            group = decimal.Parse(item["group"].ToString()),
-                            sub_group = decimal.Parse(item["sub_group"].ToString())
+                            block = decimal.Parse(item["block"].ToString()),
+                            sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         this.Trials.Add(newIntro);
                         break;
