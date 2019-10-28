@@ -205,14 +205,14 @@ namespace bRMS_Generator
                     {
                         values.Add(EndLabelText.Text);
                     }
-                    this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
+                    this.question = new ScaleQuestion(this.PromptRichTextBox.Text,
                         this.RequiredCheckBox.Checked, values);
                     Close();
                     break;
                 }
                 default:
                 {
-                    List<string> values = new List<string>();
+                    var values = new List<string>();
                     foreach(ListViewItem item in listView1.Items)
                     {
                         values.Add(item.Text);
@@ -220,7 +220,7 @@ namespace bRMS_Generator
 
                     if (values.Count <= 0) return;
 
-                    this.question = this.question = new MultiScaleQuestion(this.PromptRichTextBox.Text,
+                    this.question = this.question = new MultiSelectQuestion(this.PromptRichTextBox.Text,
                         this.RequiredCheckBox.Checked, values);
 
                     Close();

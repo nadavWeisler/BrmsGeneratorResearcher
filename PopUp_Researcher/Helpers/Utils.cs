@@ -41,13 +41,13 @@ namespace PopUp_Researcher.Helpers
         }
 
         /// <summary>
-        /// Get Questions list from TextQuestions/MultiScaleQuestion list
+        /// Get Questions list from TextQuestions/MultiSelectQuestion list
         /// </summary>
         /// <param name="textQ"></param>
         /// <param name="scaleQ"></param>
         /// <returns></returns>
         private static List<Question> GetListFromTextScale(IReadOnlyCollection<TextQuestion> textQ=null,
-            IEnumerable<MultiScaleQuestion> scaleQ=null)
+            IEnumerable<MultiSelectQuestion> scaleQ=null)
         {
             var ret = new List<Question>();
             if(textQ == null)
@@ -75,13 +75,13 @@ namespace PopUp_Researcher.Helpers
         /// <returns></returns>
         public static List<Question> GetQuestionsListFromJson(string questionType, string jsonString)
         {
-            List<MultiScaleQuestion> scaleList = null;
+            List<MultiSelectQuestion> scaleList = null;
             List<TextQuestion> textList = null;
             if (questionType == "survey-text")
                 textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
             else if (questionType == "survey-likert" || questionType == "survey-multi-choice")
             {
-                scaleList = JsonConvert.DeserializeObject<List<MultiScaleQuestion>>(jsonString);
+                scaleList = JsonConvert.DeserializeObject<List<MultiSelectQuestion>>(jsonString);
             }
 
             return GetListFromTextScale(textList, scaleList);

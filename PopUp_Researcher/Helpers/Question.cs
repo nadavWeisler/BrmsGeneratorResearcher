@@ -7,26 +7,26 @@ namespace PopUp_Researcher.Helpers
         #region Properties
 
         /// <summary>
-        /// Question Prompt
+        /// Question prompt
         /// </summary>
-        public string Prompt = "";
+        public string prompt = "";
 
         /// <summary>
         /// If question is required
         /// </summary>
-        public bool Required = true;
+        public bool required = true;
 
         #endregion
 
         #region Public Methods
 
         /// <summary>
-        /// Get Prompt
+        /// Get prompt
         /// </summary>
         /// <returns></returns>
         public string GetPrompt()
         {
-            return this.Prompt;
+            return this.prompt;
         }
 
         #endregion
@@ -37,19 +37,19 @@ namespace PopUp_Researcher.Helpers
         #region Properties
 
         /// <summary>
-        /// Rows
+        /// rows
         /// </summary>
-        public decimal Rows;
+        public decimal rows;
 
         /// <summary>
         /// Cols
         /// </summary>
-        public decimal Columns;
+        public decimal columns;
 
         /// <summary>
         /// Default value
         /// </summary>
-        public string Value;
+        public string value;
 
         #endregion
 
@@ -65,24 +65,48 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_required"></param>
         public TextQuestion(string _prompt, decimal _rows, decimal _cols, string _value, bool _required)
         {
-            this.Prompt = _prompt;
-            this.Rows = _rows;
-            this.Columns = _cols;
-            this.Value = _value;
-            this.Required = _required;
+            this.prompt = _prompt;
+            this.rows = _rows;
+            this.columns = _cols;
+            this.value = _value;
+            this.required = _required;
         }
 
         #endregion
     }
 
-    public class MultiScaleQuestion: Question
+    public class ScaleQuestion : Question
     {
         #region Properties
 
         /// <summary>
-        /// Options
+        /// Labels
         /// </summary>
-        public List<string> Options;
+        public List<string> labels;
+
+        /// <summary>
+        /// Scale Question Basic Constructor
+        /// </summary>
+        /// <param name="_prompt"></param>
+        /// <param name="_required"></param>
+        /// <param name="_labels"></param>
+        public ScaleQuestion(string _prompt, bool _required, List<string> _labels)
+        {
+            this.prompt = _prompt;
+            this.required = _required;
+            this.labels = _labels;
+        }
+        #endregion
+    }
+
+    public class MultiSelectQuestion: Question
+    {
+        #region Properties
+
+        /// <summary>
+        /// options
+        /// </summary>
+        public List<string> options;
 
         #endregion
 
@@ -94,11 +118,11 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_prompt"></param>
         /// <param name="_required"></param>
         /// <param name="_options"></param>
-        public MultiScaleQuestion(string _prompt, bool _required, List<string> _options)
+        public MultiSelectQuestion(string _prompt, bool _required, List<string> _options)
         {
-            this.Prompt = _prompt;
-            this.Required = _required;
-            this.Options = _options;
+            this.prompt = _prompt;
+            this.required = _required;
+            this.options = _options;
         }
 
         #endregion

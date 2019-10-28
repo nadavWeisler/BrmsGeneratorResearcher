@@ -136,40 +136,36 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(this.Questions.Count > 0)
+            if (this.Questions.Count <= 0) return;
+
+            Survey newSurvey;
+            if (this.TextSurveyRadio.Checked)
             {
-                Survey newSurvey = null;
-                if(this.TextSurveyRadio.Checked)
+                newSurvey = new TextSurvey(this.Questions);
+            }
+            else
+            {
+                if(this.ScaleSurveyRadio.Checked)
                 {
-                    newSurvey = new TextSurvey(this.Questions);
+                    newSurvey = new ScaleSurvey(this.Questions);
                 }
                 else
                 {
-                    if(this.ScaleSurveyRadio.Checked)
-                    {
-                        newSurvey = new ScaleSurvey(this.Questions);
-                    }
-                    else
-                    {
-                        newSurvey = new MultiSurvey(this.Questions);
-                    }
-                }
-
-                if(newSurvey != null)
-                {
-                    newSurvey.SetGroup(BlockNumeric.Value);
-                    newSurvey.SetSubGroup(SubBlockNumeric.Value);
-                    if(this.ExistingTrial == null)
-                    {
-                        MainForm.AddSurvey(newSurvey);
-                    }
-                    else
-                    {
-                        ReturnEdit = newSurvey;
-                    }
-                    Close();
+                    newSurvey = new MultiSurvey(this.Questions);
                 }
             }
+
+            newSurvey.SetGroup(BlockNumeric.Value);
+            newSurvey.SetSubGroup(SubBlockNumeric.Value);
+            if(this.ExistingTrial == null)
+            {
+                MainForm.AddSurvey(newSurvey);
+            }
+            else
+            {
+                ReturnEdit = newSurvey;
+            }
+            Close();
         }
 
         /// <summary>
@@ -265,12 +261,12 @@ namespace bRMS_Generator
         {
             if (!Loaded || QuestionsListView.Items.Count <= 0) return;
 
-            var dialogResult = MessageBox.Show("Are You Sure?", "Change Survey Type",
+            var dialogResult = MessageBox.Show("Are You Sure?",
+                "Change Survey Type",
                 MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                QuestionsListView.Clear();
-            }
+            if (dialogResult != DialogResult.Yes) return;
+            QuestionsListView.Clear();
+            BindListView();
         }
 
         #endregion

@@ -240,5 +240,10 @@ namespace bRMS_Generator
                 PageRichTextBox.Text = string.Empty;
             }
         }
+
+        private void InstructionsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

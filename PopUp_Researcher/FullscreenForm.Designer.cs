@@ -5,7 +5,7 @@ namespace bRMS_Generator
     partial class FullscreenForm: Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -25,7 +25,7 @@ namespace bRMS_Generator
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()

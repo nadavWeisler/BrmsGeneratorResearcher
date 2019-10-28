@@ -100,6 +100,7 @@
       <DependentUpon>BrmsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BRmsHelperTests.cs" />
+    <Compile Include="Helpers\ImageKeyboard.cs" />
     <Compile Include="ImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +198,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="IMAGES\qMark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

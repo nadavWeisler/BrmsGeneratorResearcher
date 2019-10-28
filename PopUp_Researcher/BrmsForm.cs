@@ -22,7 +22,7 @@ namespace bRMS_Generator
         protected List<string> brms_names;
 
         /// <summary>
-        /// bRMS Dictionary of bRMS name and Object Key Value Pair
+        /// bRMS Dictionary of bRMS name and Object Key value Pair
         /// </summary>
         protected Dictionary<string, Brms> brms_trials;
 

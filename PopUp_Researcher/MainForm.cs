@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using PopUp_Researcher;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
 
@@ -30,6 +31,11 @@ namespace bRMS_Generator
         /// Introduction Trial Count
         /// </summary>
         protected static int IntroCount;
+
+        /// <summary>
+        /// Introduction Trial Count
+        /// </summary>
+        protected static int ImageKeyboardCount;
 
         /// <summary>
         /// Survry Trials Count
@@ -143,7 +149,7 @@ namespace bRMS_Generator
         /// Load experiment
         /// </summary>
         /// <param name="trialLst"></param>
-        private void LoadExperiment(List<Trial> trialLst)
+        private void LoadExperiment(IEnumerable<Trial> trialLst)
         {
             foreach (var item in trialLst)
             {
@@ -392,6 +398,19 @@ namespace bRMS_Generator
         }
 
         /// <summary>
+        /// Add ImageKeyboard experiment in to experiments list
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void AddImageKeyboard(ImageKeyboard obj)
+        {
+            Experiments.Add("ImageKeyboard" + ImageKeyboardCount + "_" +
+                            obj.block + "_" + obj.sub_block, obj);
+            ExperimentsOrder.Add("ImageKeyboard" + ImageKeyboardCount + "_" +
+                                 obj.block + "_" + obj.sub_block);
+            ImageKeyboardCount++;
+        }
+
+        /// <summary>
         /// Add survey experiment in to experiments list
         /// </summary>
         /// <param name="obj"></param>
@@ -428,6 +447,13 @@ namespace bRMS_Generator
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ImageButton_Click(object sender, EventArgs e)
+        {
+            var newForm = new ImageForm();
+            newForm.ShowDialog();
+            BindListView();
         }
     }
 }

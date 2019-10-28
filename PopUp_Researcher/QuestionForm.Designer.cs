@@ -3,7 +3,7 @@
     partial class QuestionForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -23,7 +23,7 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -75,7 +75,7 @@
             this.PromptGroup.Size = new System.Drawing.Size(393, 221);
             this.PromptGroup.TabIndex = 27;
             this.PromptGroup.TabStop = false;
-            this.PromptGroup.Text = "Prompt";
+            this.PromptGroup.Text = "prompt";
             // 
             // PromptRichTextBox
             // 
@@ -117,7 +117,7 @@
             this.ValueLabel.Name = "ValueLabel";
             this.ValueLabel.Size = new System.Drawing.Size(34, 13);
             this.ValueLabel.TabIndex = 32;
-            this.ValueLabel.Text = "Value";
+            this.ValueLabel.Text = "value";
             // 
             // ColsLabel
             // 
@@ -126,7 +126,7 @@
             this.ColsLabel.Name = "ColsLabel";
             this.ColsLabel.Size = new System.Drawing.Size(47, 13);
             this.ColsLabel.TabIndex = 31;
-            this.ColsLabel.Text = "Columns";
+            this.ColsLabel.Text = "columns";
             // 
             // RowsLabel
             // 
@@ -135,7 +135,7 @@
             this.RowsLabel.Name = "RowsLabel";
             this.RowsLabel.Size = new System.Drawing.Size(34, 13);
             this.RowsLabel.TabIndex = 30;
-            this.RowsLabel.Text = "Rows";
+            this.RowsLabel.Text = "rows";
             // 
             // ColsNumeric
             // 
@@ -170,7 +170,7 @@
             this.RequiredCheckBox.Name = "RequiredCheckBox";
             this.RequiredCheckBox.Size = new System.Drawing.Size(69, 17);
             this.RequiredCheckBox.TabIndex = 29;
-            this.RequiredCheckBox.Text = "Required";
+            this.RequiredCheckBox.Text = "required";
             this.RequiredCheckBox.UseVisualStyleBackColor = true;
             // 
             // SaveButton
@@ -294,7 +294,7 @@
             this.OptionsGroupBox.Size = new System.Drawing.Size(346, 355);
             this.OptionsGroupBox.TabIndex = 33;
             this.OptionsGroupBox.TabStop = false;
-            this.OptionsGroupBox.Text = "Options";
+            this.OptionsGroupBox.Text = "options";
             // 
             // MinusButton
             // 

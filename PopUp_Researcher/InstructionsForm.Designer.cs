@@ -3,7 +3,7 @@
     partial class InstructionsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -23,7 +23,7 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -48,17 +48,19 @@
             // 
             // PageRichTextBox
             // 
-            this.PageRichTextBox.Location = new System.Drawing.Point(12, 12);
+            this.PageRichTextBox.Location = new System.Drawing.Point(18, 18);
+            this.PageRichTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PageRichTextBox.Name = "PageRichTextBox";
-            this.PageRichTextBox.Size = new System.Drawing.Size(516, 193);
+            this.PageRichTextBox.Size = new System.Drawing.Size(772, 295);
             this.PageRichTextBox.TabIndex = 2;
             this.PageRichTextBox.Text = "";
             // 
             // cleanButton
             // 
-            this.cleanButton.Location = new System.Drawing.Point(372, 211);
+            this.cleanButton.Location = new System.Drawing.Point(558, 325);
+            this.cleanButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cleanButton.Name = "cleanButton";
-            this.cleanButton.Size = new System.Drawing.Size(75, 23);
+            this.cleanButton.Size = new System.Drawing.Size(112, 35);
             this.cleanButton.TabIndex = 4;
             this.cleanButton.Text = "clean";
             this.cleanButton.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(453, 211);
+            this.confirmButton.Location = new System.Drawing.Point(680, 325);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.Size = new System.Drawing.Size(112, 35);
             this.confirmButton.TabIndex = 6;
             this.confirmButton.Text = "confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -76,9 +79,10 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(453, 371);
+            this.saveButton.Location = new System.Drawing.Point(680, 571);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(112, 35);
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -86,9 +90,10 @@
             // 
             // DuplicateButton
             // 
-            this.DuplicateButton.Location = new System.Drawing.Point(12, 371);
+            this.DuplicateButton.Location = new System.Drawing.Point(18, 571);
+            this.DuplicateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DuplicateButton.Name = "DuplicateButton";
-            this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
+            this.DuplicateButton.Size = new System.Drawing.Size(112, 35);
             this.DuplicateButton.TabIndex = 8;
             this.DuplicateButton.Text = "Duplicate";
             this.DuplicateButton.UseVisualStyleBackColor = true;
@@ -96,9 +101,10 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(165, 371);
+            this.RemoveButton.Location = new System.Drawing.Point(248, 571);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveButton.Size = new System.Drawing.Size(112, 35);
             this.RemoveButton.TabIndex = 9;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
@@ -106,9 +112,10 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(93, 371);
+            this.PlusButton.Location = new System.Drawing.Point(140, 571);
+            this.PlusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(30, 23);
+            this.PlusButton.Size = new System.Drawing.Size(45, 35);
             this.PlusButton.TabIndex = 10;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
@@ -116,9 +123,10 @@
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(129, 371);
+            this.MinusButton.Location = new System.Drawing.Point(194, 571);
+            this.MinusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(30, 23);
+            this.MinusButton.Size = new System.Drawing.Size(45, 35);
             this.MinusButton.TabIndex = 11;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
@@ -128,11 +136,12 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 240);
+            this.listView1.Location = new System.Drawing.Point(18, 369);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(516, 125);
+            this.listView1.Size = new System.Drawing.Size(772, 190);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -140,41 +149,45 @@
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(396, 374);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(594, 575);
+            this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.SubBlockNumeric.TabIndex = 26;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(334, 376);
+            this.SubBlockLabel.Location = new System.Drawing.Point(501, 578);
+            this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
-            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
             this.SubBlockLabel.TabIndex = 25;
             this.SubBlockLabel.Text = "Sub Block";
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(277, 374);
+            this.BlockNumeric.Location = new System.Drawing.Point(416, 575);
+            this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.BlockNumeric.TabIndex = 24;
             // 
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(246, 376);
+            this.BlockLabel.Location = new System.Drawing.Point(369, 578);
+            this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.Size = new System.Drawing.Size(48, 20);
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
             // InstructionsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 398);
+            this.ClientSize = new System.Drawing.Size(806, 612);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
@@ -190,8 +203,10 @@
             this.Controls.Add(this.PageRichTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InstructionsForm";
             this.Text = "Instructions";
+            this.Load += new System.EventHandler(this.InstructionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.ResumeLayout(false);

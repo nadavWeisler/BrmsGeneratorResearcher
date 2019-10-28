@@ -3,7 +3,7 @@
     partial class MainForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -23,7 +23,7 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -135,7 +135,6 @@
             // 
             // ImageButton
             // 
-            this.ImageButton.Enabled = false;
             this.ImageButton.Location = new System.Drawing.Point(15, 119);
             this.ImageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ImageButton.Name = "ImageButton";
@@ -143,6 +142,7 @@
             this.ImageButton.TabIndex = 6;
             this.ImageButton.Text = "Image";
             this.ImageButton.UseVisualStyleBackColor = true;
+            this.ImageButton.Click += new System.EventHandler(this.ImageButton_Click);
             // 
             // FullscreenButton
             // 
