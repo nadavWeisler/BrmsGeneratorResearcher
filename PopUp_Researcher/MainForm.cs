@@ -221,6 +221,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (listView1.Items.Count == 0){ return; }
             var validationString = ValidateBeforeSave();
             if (!string.IsNullOrWhiteSpace(validationString))
             {
@@ -236,12 +237,10 @@ namespace bRMS_Generator
 
             var toJsonDic = new Dictionary<string, object>
             {
-                {
-                    "timeline", valuesList
-                }
+                {"timeline", valuesList},
+                {"name", NameTextBox.Text}
             };
 
-            toJsonDic.Add("name", NameTextBox.Text);
 
             var json = JsonConvert.SerializeObject(toJsonDic, Formatting.Indented);
 
@@ -255,7 +254,7 @@ namespace bRMS_Generator
             };
             saveFileDialog1.ShowDialog();
 
-            if (saveFileDialog1.FileName != "")
+            if (!string.IsNullOrEmpty(saveFileDialog1.FileName))
             {
                 //write string to file
                 System.IO.File.WriteAllText(saveFileDialog1.FileName, json);
@@ -269,10 +268,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
+            if (listView1.SelectedItems.Count == 0) {return;}
 
             var selectedIndex = listView1.SelectedItems[0].Index;
             EditExperiment(selectedIndex);

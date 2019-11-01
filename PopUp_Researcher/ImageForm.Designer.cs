@@ -28,21 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.UrlTextBox = new System.Windows.Forms.TextBox();
             this.ChoosePicButton = new System.Windows.Forms.Button();
             this.ImagePictureBox = new System.Windows.Forms.PictureBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.PromptTextBox = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.UrlTextBox = new System.Windows.Forms.TextBox();
             this.SubBlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.SubBlockLabel = new System.Windows.Forms.Label();
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -56,6 +61,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pic";
             // 
+            // UrlTextBox
+            // 
+            this.UrlTextBox.Enabled = false;
+            this.UrlTextBox.Location = new System.Drawing.Point(138, 34);
+            this.UrlTextBox.Name = "UrlTextBox";
+            this.UrlTextBox.Size = new System.Drawing.Size(425, 26);
+            this.UrlTextBox.TabIndex = 1;
+            this.UrlTextBox.TextChanged += new System.EventHandler(this.UrlTextBox_TextChanged);
+            // 
             // ChoosePicButton
             // 
             this.ChoosePicButton.Location = new System.Drawing.Point(6, 29);
@@ -68,9 +82,9 @@
             // 
             // ImagePictureBox
             // 
-            this.ImagePictureBox.Location = new System.Drawing.Point(588, 24);
+            this.ImagePictureBox.Location = new System.Drawing.Point(6, 25);
             this.ImagePictureBox.Name = "ImagePictureBox";
-            this.ImagePictureBox.Size = new System.Drawing.Size(400, 300);
+            this.ImagePictureBox.Size = new System.Drawing.Size(384, 280);
             this.ImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImagePictureBox.TabIndex = 1;
             this.ImagePictureBox.TabStop = false;
@@ -87,9 +101,9 @@
             // 
             // PromptTextBox
             // 
-            this.PromptTextBox.Location = new System.Drawing.Point(12, 96);
+            this.PromptTextBox.Location = new System.Drawing.Point(6, 25);
             this.PromptTextBox.Name = "PromptTextBox";
-            this.PromptTextBox.Size = new System.Drawing.Size(570, 228);
+            this.PromptTextBox.Size = new System.Drawing.Size(557, 197);
             this.PromptTextBox.TabIndex = 3;
             this.PromptTextBox.Text = "";
             // 
@@ -97,15 +111,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Image files (*.jpg)|*.jpg";
-            // 
-            // UrlTextBox
-            // 
-            this.UrlTextBox.Enabled = false;
-            this.UrlTextBox.Location = new System.Drawing.Point(138, 34);
-            this.UrlTextBox.Name = "UrlTextBox";
-            this.UrlTextBox.Size = new System.Drawing.Size(425, 26);
-            this.UrlTextBox.TabIndex = 1;
-            this.UrlTextBox.TextChanged += new System.EventHandler(this.UrlTextBox_TextChanged);
             // 
             // SubBlockNumeric
             // 
@@ -143,26 +148,49 @@
             this.BlockLabel.TabIndex = 27;
             this.BlockLabel.Text = "Block";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.PromptTextBox);
+            this.groupBox2.Location = new System.Drawing.Point(13, 96);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(569, 228);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Prompt";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ImagePictureBox);
+            this.groupBox3.Location = new System.Drawing.Point(589, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(396, 311);
+            this.groupBox3.TabIndex = 32;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Display Image";
+            // 
             // ImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 378);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
             this.Controls.Add(this.BlockLabel);
-            this.Controls.Add(this.PromptTextBox);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.ImagePictureBox);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImageForm";
-            this.Text = "ImageForm";
+            this.Text = "Image";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +209,7 @@
         private System.Windows.Forms.Label SubBlockLabel;
         private System.Windows.Forms.NumericUpDown BlockNumeric;
         private System.Windows.Forms.Label BlockLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

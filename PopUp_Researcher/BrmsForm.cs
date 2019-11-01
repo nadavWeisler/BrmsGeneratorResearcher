@@ -200,7 +200,7 @@ namespace bRMS_Generator
                         break;
                 }
             }
-            newBrms.post_trial_gap = this.PostTrialGapNumeric.Value;
+            newBrms.post_trial_gap = this.PostTrialGapNumeric.Value * 1000;
             newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
             newBrms.rectangle_number = this.RectangleNumeric.Value;
             newBrms.timing_response = this.TimingResponseNumeric.Value;
@@ -246,7 +246,7 @@ namespace bRMS_Generator
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
             this.BreakTimeNumeric.Value = this.existingTrial.break_time;
             this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
-            this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap * 1000;
+            this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap / 1000;
             this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
@@ -491,10 +491,5 @@ namespace bRMS_Generator
 
 
         #endregion
-
-        private void ParamsGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

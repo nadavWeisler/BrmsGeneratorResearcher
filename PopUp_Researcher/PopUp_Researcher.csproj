@@ -202,6 +202,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="IMAGES\qMark.png" />
+    <None Include="Resources\%24this.Icon.ico" />
+    <None Include="Resources\Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

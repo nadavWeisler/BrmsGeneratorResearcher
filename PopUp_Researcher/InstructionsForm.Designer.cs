@@ -57,7 +57,7 @@
             // 
             // cleanButton
             // 
-            this.cleanButton.Location = new System.Drawing.Point(558, 325);
+            this.cleanButton.Location = new System.Drawing.Point(18, 325);
             this.cleanButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cleanButton.Name = "cleanButton";
             this.cleanButton.Size = new System.Drawing.Size(112, 35);

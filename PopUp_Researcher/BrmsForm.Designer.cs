@@ -323,6 +323,7 @@ namespace bRMS_Generator
             // 
             // PostTrialGapNumeric
             // 
+            this.PostTrialGapNumeric.DecimalPlaces = 1;
             this.PostTrialGapNumeric.Location = new System.Drawing.Point(658, 125);
             this.PostTrialGapNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PostTrialGapNumeric.Name = "PostTrialGapNumeric";
@@ -332,7 +333,7 @@ namespace bRMS_Generator
             4,
             0,
             0,
-            0});
+            65536});
             // 
             // label9
             // 
@@ -468,11 +469,10 @@ namespace bRMS_Generator
             this.ParamsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ParamsGroupBox.Name = "ParamsGroupBox";
             this.ParamsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 883);
+            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 874);
             this.ParamsGroupBox.TabIndex = 22;
             this.ParamsGroupBox.TabStop = false;
             this.ParamsGroupBox.Text = "Paramenters";
-            this.ParamsGroupBox.Enter += new System.EventHandler(this.ParamsGroupBox_Enter);
             // 
             // FixationHeightNumeric
             // 
@@ -1170,7 +1170,8 @@ namespace bRMS_Generator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1520, 994);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1524, 994);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
