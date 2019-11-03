@@ -15,6 +15,8 @@ namespace PopUp_Researcher.Models
 
         public string Name { get; set; }
 
+        public int Count = 0;
+
         public List<Dictionary<string, object>> Timeline { get; set; }
 
         public List<Trial> Trials;

@@ -238,7 +238,8 @@ namespace bRMS_Generator
             var toJsonDic = new Dictionary<string, object>
             {
                 {"timeline", valuesList},
-                {"name", NameTextBox.Text}
+                {"name", NameTextBox.Text},
+                {"count", 0 }
             };
 
 
