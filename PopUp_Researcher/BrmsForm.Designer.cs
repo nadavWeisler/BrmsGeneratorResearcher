@@ -107,10 +107,14 @@ namespace bRMS_Generator
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.HelpCsvTextBox = new System.Windows.Forms.TextBox();
             this.StimulusGroup = new System.Windows.Forms.GroupBox();
+            this.UploadImgButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.HelpCsvButton = new System.Windows.Forms.Button();
             this.HelpCsvLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.AllBRMSGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CountNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxTypeNumeric)).BeginInit();
@@ -447,7 +451,7 @@ namespace bRMS_Generator
             this.ParamsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ParamsGroupBox.Name = "ParamsGroupBox";
             this.ParamsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 874);
+            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 824);
             this.ParamsGroupBox.TabIndex = 22;
             this.ParamsGroupBox.TabStop = false;
             this.ParamsGroupBox.Text = "Paramenters";
@@ -602,7 +606,7 @@ namespace bRMS_Generator
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(12, 834);
+            this.ClearButton.Location = new System.Drawing.Point(1, 768);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(112, 35);
@@ -612,7 +616,7 @@ namespace bRMS_Generator
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(1005, 834);
+            this.AddButton.Location = new System.Drawing.Point(1011, 779);
             this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(112, 35);
@@ -1058,13 +1062,16 @@ namespace bRMS_Generator
             this.HelpCsvTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HelpCsvTextBox.Name = "HelpCsvTextBox";
             this.HelpCsvTextBox.ReadOnly = true;
-            this.HelpCsvTextBox.Size = new System.Drawing.Size(943, 26);
+            this.HelpCsvTextBox.Size = new System.Drawing.Size(365, 26);
             this.HelpCsvTextBox.TabIndex = 4;
             this.HelpCsvTextBox.TextChanged += new System.EventHandler(this.HelpCsvTextBox_TextChanged);
             this.HelpCsvTextBox.DoubleClick += new System.EventHandler(this.HelpCsvTextBox_DoubleClick);
             // 
             // StimulusGroup
             // 
+            this.StimulusGroup.Controls.Add(this.comboBox1);
+            this.StimulusGroup.Controls.Add(this.UploadImgButton);
+            this.StimulusGroup.Controls.Add(this.label3);
             this.StimulusGroup.Controls.Add(this.HelpCsvButton);
             this.StimulusGroup.Controls.Add(this.HelpCsvLabel);
             this.StimulusGroup.Controls.Add(this.HelpCsvTextBox);
@@ -1077,9 +1084,30 @@ namespace bRMS_Generator
             this.StimulusGroup.TabStop = false;
             this.StimulusGroup.Text = "Basic";
             // 
+            // UploadImgButton
+            // 
+            this.UploadImgButton.Location = new System.Drawing.Point(1087, 30);
+            this.UploadImgButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UploadImgButton.Name = "UploadImgButton";
+            this.UploadImgButton.Size = new System.Drawing.Size(36, 31);
+            this.UploadImgButton.TabIndex = 9;
+            this.UploadImgButton.Text = "...";
+            this.UploadImgButton.UseVisualStyleBackColor = true;
+            this.UploadImgButton.Click += new System.EventHandler(this.UploadImgButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(553, 32);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Upload Images";
+            // 
             // HelpCsvButton
             // 
-            this.HelpCsvButton.Location = new System.Drawing.Point(1090, 29);
+            this.HelpCsvButton.Location = new System.Drawing.Point(509, 27);
             this.HelpCsvButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HelpCsvButton.Name = "HelpCsvButton";
             this.HelpCsvButton.Size = new System.Drawing.Size(36, 31);
@@ -1113,12 +1141,25 @@ namespace bRMS_Generator
             // 
             this.openFileDialog1.Filter = "CSV files (*.csv)|*.csv";
             // 
+            // openFileDialogImages
+            // 
+            this.openFileDialogImages.Filter = "IMAGE files (*.jpg)|*.jpg";
+            this.openFileDialogImages.Multiselect = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(677, 32);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(403, 28);
+            this.comboBox1.TabIndex = 10;
+            // 
             // BrmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1524, 994);
+            this.ClientSize = new System.Drawing.Size(1524, 945);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
@@ -1248,5 +1289,9 @@ namespace bRMS_Generator
         private Label HelpCsvLabel;
         private Button SaveButton;
         private OpenFileDialog openFileDialog1;
+        private Button UploadImgButton;
+        private Label label3;
+        private OpenFileDialog openFileDialogImages;
+        private ComboBox comboBox1;
     }
 }

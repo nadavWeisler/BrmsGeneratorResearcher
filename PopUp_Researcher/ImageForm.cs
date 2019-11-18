@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,7 +65,9 @@ namespace PopUp_Researcher
         {
             if (string.IsNullOrEmpty(UrlTextBox.Text)) return;
 
-            var newImageKeyboard = new ImageKeyboard(PromptTextBox.Text, UrlTextBox.Text);
+            var bytes = File.ReadAllBytes(UrlTextBox.Text);
+            var file = Convert.ToBase64String(bytes);
+            var newImageKeyboard = new ImageKeyboard(PromptTextBox.Text, file);
 
             newImageKeyboard.SetGroup(this.BlockNumeric.Value);
             newImageKeyboard.SetSubGroup(this.SubBlockNumeric.Value);

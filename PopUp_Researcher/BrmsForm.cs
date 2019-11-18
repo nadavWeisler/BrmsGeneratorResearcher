@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
@@ -144,6 +145,16 @@ namespace bRMS_Generator
                 sub_block = this.SubBlockNumeric.Value,
                 StimulusDictionary = new Dictionary<string, List<string>>()
             };
+            var ImageBlobs = new Dictionary<string, string>();
+            foreach (var item in comboBox1.Items)
+            {
+                var fileName = comboBox1.GetItemText(item);
+                var bytes = File.ReadAllBytes(fileName);
+                var file = Convert.ToBase64String(bytes);
+                ImageBlobs.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(fileName)), file);
+            }
+
+            newBrms.ImagesBlobs = ImageBlobs;
             var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
@@ -170,9 +181,7 @@ namespace bRMS_Generator
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
             newBrms.mondrian_count = this.MondrianCountNumeric.Value;
-            newBrms.break_time = this.BreakTimeNumeric.Value;
             newBrms.allowed_to_repeat = this.AllowedToRepeatNumeric.Value;
-            newBrms.break_message = this.BreakMessageRichTextBox.Text;
             newBrms.performance_message = this.PerformanceMessageRchTextBox.Text;
             newBrms.stop_trial_message = this.StopMessageRichTextBox.Text;
             newBrms.stimulus_opacity = this.StimulusOpacityNumeric.Value;
@@ -244,7 +253,6 @@ namespace bRMS_Generator
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
-            this.BreakTimeNumeric.Value = this.existingTrial.break_time;
             this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
             this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap / 1000;
             this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
@@ -491,5 +499,15 @@ namespace bRMS_Generator
 
 
         #endregion
+
+        private void UploadImgButton_Click(object sender, EventArgs e)
+        {
+            // Show the FolderBrowserDialog.  
+            var result = openFileDialogImages.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                comboBox1.Items.AddRange(openFileDialogImages.FileNames);
+            }
+        }
     }
 }

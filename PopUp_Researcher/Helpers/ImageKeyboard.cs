@@ -25,6 +25,11 @@ namespace PopUp_Researcher.Helpers
         /// </summary>
         public int[] choices;
 
+        /// <summary>
+        /// Image blob
+        /// </summary>
+        public string ImageBlob;
+
         #endregion
 
         #region Constructors
