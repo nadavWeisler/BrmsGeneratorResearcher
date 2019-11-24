@@ -1028,7 +1028,7 @@ namespace bRMS_Generator
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(1395, 948);
+            this.SaveButton.Location = new System.Drawing.Point(1394, 690);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(112, 35);
@@ -1051,7 +1051,7 @@ namespace bRMS_Generator
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1524, 683);
+            this.ClientSize = new System.Drawing.Size(1524, 729);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
