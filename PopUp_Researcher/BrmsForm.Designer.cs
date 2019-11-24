@@ -98,7 +98,7 @@ namespace bRMS_Generator
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.HelpCsvTextBox = new System.Windows.Forms.TextBox();
             this.StimulusGroup = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ImagesComboBox = new System.Windows.Forms.ComboBox();
             this.UploadImgButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.HelpCsvButton = new System.Windows.Forms.Button();
@@ -961,7 +961,7 @@ namespace bRMS_Generator
             // 
             // StimulusGroup
             // 
-            this.StimulusGroup.Controls.Add(this.comboBox1);
+            this.StimulusGroup.Controls.Add(this.ImagesComboBox);
             this.StimulusGroup.Controls.Add(this.UploadImgButton);
             this.StimulusGroup.Controls.Add(this.label3);
             this.StimulusGroup.Controls.Add(this.HelpCsvButton);
@@ -976,13 +976,13 @@ namespace bRMS_Generator
             this.StimulusGroup.TabStop = false;
             this.StimulusGroup.Text = "Basic";
             // 
-            // comboBox1
+            // ImagesComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(677, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(403, 28);
-            this.comboBox1.TabIndex = 10;
+            this.ImagesComboBox.FormattingEnabled = true;
+            this.ImagesComboBox.Location = new System.Drawing.Point(677, 32);
+            this.ImagesComboBox.Name = "ImagesComboBox";
+            this.ImagesComboBox.Size = new System.Drawing.Size(403, 28);
+            this.ImagesComboBox.TabIndex = 10;
             // 
             // UploadImgButton
             // 
@@ -1171,6 +1171,6 @@ namespace bRMS_Generator
         private Button UploadImgButton;
         private Label label3;
         private OpenFileDialog openFileDialogImages;
-        private ComboBox comboBox1;
+        private ComboBox ImagesComboBox;
     }
 }

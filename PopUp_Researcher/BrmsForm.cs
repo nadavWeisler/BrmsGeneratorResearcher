@@ -146,9 +146,9 @@ namespace bRMS_Generator
                 StimulusDictionary = new Dictionary<string, List<string>>()
             };
             var ImageBlobs = new Dictionary<string, string>();
-            foreach (var item in comboBox1.Items)
+            foreach (var item in ImagesComboBox.Items)
             {
-                var fileName = comboBox1.GetItemText(item);
+                var fileName = ImagesComboBox.GetItemText(item);
                 var bytes = File.ReadAllBytes(fileName);
                 var file = Convert.ToBase64String(bytes);
                 ImageBlobs.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(fileName)), file);
@@ -177,13 +177,9 @@ namespace bRMS_Generator
                 }
             }
             newBrms.repetitions = this.CountNumeric.Value;
-            newBrms.max_type = this.MaxTypeNumeric.Value;
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
             newBrms.mondrian_count = this.MondrianCountNumeric.Value;
-            newBrms.allowed_to_repeat = this.AllowedToRepeatNumeric.Value;
-            newBrms.performance_message = this.PerformanceMessageRchTextBox.Text;
-            newBrms.stop_trial_message = this.StopMessageRichTextBox.Text;
             newBrms.stimulus_opacity = this.StimulusOpacityNumeric.Value;
             newBrms.fixation_width = this.FixationWidthNumeric.Value;
             newBrms.fixation_height = this.FixationHeightNumeric.Value;
@@ -249,7 +245,6 @@ namespace bRMS_Generator
             this.BlockNumeric.Value = ((Trial) this.existingTrial).block;
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.CountNumeric.Value = this.existingTrial.repetitions;
-            this.MaxTypeNumeric.Value = this.existingTrial.max_type;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
@@ -506,7 +501,7 @@ namespace bRMS_Generator
             var result = openFileDialogImages.ShowDialog();
             if (result == DialogResult.OK)
             {
-                comboBox1.Items.AddRange(openFileDialogImages.FileNames);
+                ImagesComboBox.Items.AddRange(openFileDialogImages.FileNames);
             }
         }
     }
