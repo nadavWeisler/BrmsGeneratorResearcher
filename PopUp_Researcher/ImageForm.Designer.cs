@@ -42,19 +42,22 @@
             this.BlockLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.NameGroupBox = new System.Windows.Forms.GroupBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.NameGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.UrlTextBox);
             this.groupBox1.Controls.Add(this.ChoosePicButton);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(16, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(569, 77);
             this.groupBox1.TabIndex = 0;
@@ -91,7 +94,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(860, 330);
+            this.SaveButton.Location = new System.Drawing.Point(857, 407);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(128, 43);
             this.SaveButton.TabIndex = 2;
@@ -103,7 +106,7 @@
             // 
             this.PromptTextBox.Location = new System.Drawing.Point(6, 25);
             this.PromptTextBox.Name = "PromptTextBox";
-            this.PromptTextBox.Size = new System.Drawing.Size(557, 197);
+            this.PromptTextBox.Size = new System.Drawing.Size(557, 162);
             this.PromptTextBox.TabIndex = 3;
             this.PromptTextBox.Text = "";
             // 
@@ -114,7 +117,7 @@
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(240, 338);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(243, 416);
             this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
             this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
@@ -123,7 +126,7 @@
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(147, 341);
+            this.SubBlockLabel.Location = new System.Drawing.Point(150, 419);
             this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
             this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
@@ -132,7 +135,7 @@
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(62, 338);
+            this.BlockNumeric.Location = new System.Drawing.Point(65, 416);
             this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
             this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
@@ -141,7 +144,7 @@
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(15, 341);
+            this.BlockLabel.Location = new System.Drawing.Point(18, 419);
             this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
             this.BlockLabel.Size = new System.Drawing.Size(48, 20);
@@ -151,9 +154,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.PromptTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(13, 96);
+            this.groupBox2.Location = new System.Drawing.Point(16, 204);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(569, 228);
+            this.groupBox2.Size = new System.Drawing.Size(569, 198);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prompt";
@@ -161,18 +164,38 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.ImagePictureBox);
-            this.groupBox3.Location = new System.Drawing.Point(589, 13);
+            this.groupBox3.Location = new System.Drawing.Point(592, 91);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(396, 311);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Image";
             // 
+            // NameGroupBox
+            // 
+            this.NameGroupBox.Controls.Add(this.NameTextBox);
+            this.NameGroupBox.Location = new System.Drawing.Point(16, 14);
+            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Name = "NameGroupBox";
+            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Size = new System.Drawing.Size(569, 70);
+            this.NameGroupBox.TabIndex = 33;
+            this.NameGroupBox.TabStop = false;
+            this.NameGroupBox.Text = "Name";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(6, 27);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(556, 26);
+            this.NameTextBox.TabIndex = 0;
+            // 
             // ImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 378);
+            this.ClientSize = new System.Drawing.Size(997, 477);
+            this.Controls.Add(this.NameGroupBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.SubBlockNumeric);
@@ -184,6 +207,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImageForm";
             this.Text = "Image";
+            this.Load += new System.EventHandler(this.ImageForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).EndInit();
@@ -191,6 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.NameGroupBox.ResumeLayout(false);
+            this.NameGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +237,7 @@
         private System.Windows.Forms.Label BlockLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox NameGroupBox;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }

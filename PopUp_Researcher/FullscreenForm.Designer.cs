@@ -39,24 +39,29 @@ namespace bRMS_Generator
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MsgRich
             // 
-            this.MsgRich.Location = new System.Drawing.Point(6, 19);
+            this.MsgRich.Location = new System.Drawing.Point(7, 29);
+            this.MsgRich.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MsgRich.Name = "MsgRich";
-            this.MsgRich.Size = new System.Drawing.Size(360, 166);
+            this.MsgRich.Size = new System.Drawing.Size(538, 286);
             this.MsgRich.TabIndex = 0;
             this.MsgRich.Text = "";
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(309, 202);
+            this.SaveButton.Location = new System.Drawing.Point(464, 429);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(112, 35);
             this.SaveButton.TabIndex = 1;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -64,60 +69,87 @@ namespace bRMS_Generator
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(12, 202);
+            this.ClearButton.Location = new System.Drawing.Point(18, 429);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.Size = new System.Drawing.Size(112, 35);
             this.ClearButton.TabIndex = 2;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(255, 205);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(382, 433);
+            this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.SubBlockNumeric.TabIndex = 26;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(191, 207);
+            this.SubBlockLabel.Location = new System.Drawing.Point(286, 436);
+            this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
-            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
             this.SubBlockLabel.TabIndex = 25;
             this.SubBlockLabel.Text = "Sub Block";
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(135, 205);
+            this.BlockNumeric.Location = new System.Drawing.Point(202, 433);
+            this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.BlockNumeric.TabIndex = 24;
             // 
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(93, 207);
+            this.BlockLabel.Location = new System.Drawing.Point(140, 436);
+            this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.Size = new System.Drawing.Size(48, 20);
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.MsgRich);
-            this.groupBox1.Location = new System.Drawing.Point(12, 5);
+            this.groupBox1.Location = new System.Drawing.Point(18, 94);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(372, 191);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(558, 325);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Messeage";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Location = new System.Drawing.Point(18, 14);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(558, 70);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(544, 26);
+            this.textBox1.TabIndex = 0;
+            // 
             // FullscreenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 235);
+            this.ClientSize = new System.Drawing.Size(594, 478);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
@@ -127,11 +159,14 @@ namespace bRMS_Generator
             this.Controls.Add(this.SaveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FullscreenForm";
             this.Text = "Fullscreen";
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +182,7 @@ namespace bRMS_Generator
         private NumericUpDown BlockNumeric;
         private Label BlockLabel;
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private TextBox textBox1;
     }
 }

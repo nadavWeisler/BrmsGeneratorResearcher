@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
 
@@ -15,12 +16,12 @@ namespace bRMS_Generator
         /// <summary>
         /// bRMS Helper Object
         /// </summary>
-        protected BRmsHelper Helper = null;
+        protected BRmsHelper Helper;
 
         /// <summary>
         /// bRMS Trials Names List
         /// </summary>
-        protected List<string> brms_names;
+        protected List<string> BrmsNames;
 
         /// <summary>
         /// bRMS Dictionary of bRMS name and Object Key value Pair
@@ -51,7 +52,7 @@ namespace bRMS_Generator
             {
                 this.Helper = new BRmsHelper();
             }
-            this.brms_names = new List<string>();
+            this.BrmsNames = new List<string>();
             this.brms_trials = new Dictionary<string, Brms>();
 
             if(_existingTrial != null)
@@ -145,16 +146,16 @@ namespace bRMS_Generator
                 sub_block = this.SubBlockNumeric.Value,
                 StimulusDictionary = new Dictionary<string, List<string>>()
             };
-            var ImageBlobs = new Dictionary<string, string>();
+            var imageBlobs = new Dictionary<string, string>();
             foreach (var item in ImagesComboBox.Items)
             {
                 var fileName = ImagesComboBox.GetItemText(item);
                 var bytes = File.ReadAllBytes(fileName);
                 var file = Convert.ToBase64String(bytes);
-                ImageBlobs.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(fileName)), file);
+                imageBlobs.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(fileName)), file);
             }
 
-            newBrms.ImagesBlobs = ImageBlobs;
+            newBrms.ImagesBlobs = imageBlobs;
             var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
@@ -189,6 +190,7 @@ namespace bRMS_Generator
             newBrms.stimulus_height = this.StimulusHeightNumeric.Value;
             newBrms.rectangle_width = this.RectWidthNumeric.Value;
             newBrms.rectangle_height = this.RectHeightNumeric.Value;
+            newBrms.stimulus_duration = this.StimulusDurationNumeric.Value;
             if ((this.OriantetionComboBox.SelectedValue == null))
             {
                 newBrms.orientation = "h";
@@ -211,7 +213,7 @@ namespace bRMS_Generator
             newBrms.timing_response = this.TimingResponseNumeric.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
             var newBRmsName = "bRMS" + brms_count + "_" + newBrms.brms_type + "_" + tagString;
-            this.brms_names.Add(newBRmsName);
+            this.BrmsNames.Add(newBRmsName);
             this.brms_trials[newBRmsName] = newBrms;
             brms_count++;
             BindListView();
@@ -242,7 +244,7 @@ namespace bRMS_Generator
             //        new_brms.brms_type = "order";
             //    }
             //}
-            this.BlockNumeric.Value = ((Trial) this.existingTrial).block;
+            this.BlockNumeric.Value = existingTrial.block;
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.CountNumeric.Value = this.existingTrial.repetitions;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
@@ -262,6 +264,7 @@ namespace bRMS_Generator
             this.StimulusHeightNumeric.Value = this.existingTrial.stimulus_height;
             this.RectWidthNumeric.Value = this.existingTrial.rectangle_width;
             this.RectHeightNumeric.Value = this.existingTrial.rectangle_height;
+            this.StimulusDurationNumeric.Value = this.existingTrial.stimulus_duration;
         }
 
         /// <summary>
@@ -270,7 +273,7 @@ namespace bRMS_Generator
         private void BindListView()
         {
             AllTrialsListView.Clear();
-            foreach(var name in brms_names)
+            foreach(var name in BrmsNames)
             {
                 AllTrialsListView.Items.Add(name);
             }
@@ -318,7 +321,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Validate bRMS before createtion
+        /// Validate bRMS before creation
         /// </summary>
         private string ValidateBeforeAdd()
         {
@@ -339,7 +342,7 @@ namespace bRMS_Generator
         {
             foreach (ListViewItem item in AllTrialsListView.SelectedItems)
             {
-                this.brms_names = (Utils.RemoveItemByIndex(this.brms_names, item.Index));
+                this.BrmsNames = (Utils.RemoveItemByIndex(this.BrmsNames, item.Index));
                 this.brms_trials.Remove(item.Text);
             }
             BindListView();
@@ -353,9 +356,9 @@ namespace bRMS_Generator
         private void DownButton_Click(object sender, EventArgs e)
         {
             if (AllTrialsListView.SelectedItems.Count <= 0 ||
-                AllTrialsListView.SelectedItems[0].Index >= this.brms_names.Count) return;
+                AllTrialsListView.SelectedItems[0].Index >= this.BrmsNames.Count) return;
 
-            this.brms_names = Utils.UpOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
+            this.BrmsNames = Utils.UpOneItem(this.BrmsNames, AllTrialsListView.SelectedItems[0].Index);
             BindListView();
         }
 
@@ -368,7 +371,7 @@ namespace bRMS_Generator
         {
             if (AllTrialsListView.SelectedItems.Count <= 0 || AllTrialsListView.SelectedItems[0].Index <= 0) return;
             
-            this.brms_names = Utils.DownOneItem(this.brms_names, AllTrialsListView.SelectedItems[0].Index);
+            this.BrmsNames = Utils.DownOneItem(this.BrmsNames, AllTrialsListView.SelectedItems[0].Index);
             BindListView();
         }
 
@@ -379,7 +382,7 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (brms_names.Count <= 0) return;
+            if (BrmsNames.Count <= 0) return;
             MainForm.AddBrms(brms_trials);
             Close();
         }
@@ -503,6 +506,16 @@ namespace bRMS_Generator
             {
                 ImagesComboBox.Items.AddRange(openFileDialogImages.FileNames);
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

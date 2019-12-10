@@ -38,6 +38,7 @@ namespace PopUp_Researcher.Models
         public decimal frame_height;
         public decimal stimulus_width;
         public decimal stimulus_height;
+        public decimal stimulus_duration;
         public decimal rectangle_width;
         public decimal rectangle_height;
 

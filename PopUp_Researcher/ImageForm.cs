@@ -75,5 +75,10 @@ namespace PopUp_Researcher
             }
             Close();
         }
+
+        private void ImageForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

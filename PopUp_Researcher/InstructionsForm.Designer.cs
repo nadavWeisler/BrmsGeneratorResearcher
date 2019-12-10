@@ -42,13 +42,16 @@
             this.SubBlockLabel = new System.Windows.Forms.Label();
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
+            this.NameGroupBox = new System.Windows.Forms.GroupBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
+            this.NameGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // PageRichTextBox
             // 
-            this.PageRichTextBox.Location = new System.Drawing.Point(18, 18);
+            this.PageRichTextBox.Location = new System.Drawing.Point(21, 94);
             this.PageRichTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PageRichTextBox.Name = "PageRichTextBox";
             this.PageRichTextBox.Size = new System.Drawing.Size(772, 295);
@@ -57,7 +60,7 @@
             // 
             // cleanButton
             // 
-            this.cleanButton.Location = new System.Drawing.Point(18, 325);
+            this.cleanButton.Location = new System.Drawing.Point(21, 401);
             this.cleanButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cleanButton.Name = "cleanButton";
             this.cleanButton.Size = new System.Drawing.Size(112, 35);
@@ -68,7 +71,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(680, 325);
+            this.confirmButton.Location = new System.Drawing.Point(683, 401);
             this.confirmButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(112, 35);
@@ -79,7 +82,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(680, 571);
+            this.saveButton.Location = new System.Drawing.Point(683, 647);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 35);
@@ -90,7 +93,7 @@
             // 
             // DuplicateButton
             // 
-            this.DuplicateButton.Location = new System.Drawing.Point(18, 571);
+            this.DuplicateButton.Location = new System.Drawing.Point(21, 647);
             this.DuplicateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DuplicateButton.Name = "DuplicateButton";
             this.DuplicateButton.Size = new System.Drawing.Size(112, 35);
@@ -101,7 +104,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(248, 571);
+            this.RemoveButton.Location = new System.Drawing.Point(251, 647);
             this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(112, 35);
@@ -112,7 +115,7 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(140, 571);
+            this.PlusButton.Location = new System.Drawing.Point(143, 647);
             this.PlusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(45, 35);
@@ -123,7 +126,7 @@
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(194, 571);
+            this.MinusButton.Location = new System.Drawing.Point(197, 647);
             this.MinusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinusButton.Name = "MinusButton";
             this.MinusButton.Size = new System.Drawing.Size(45, 35);
@@ -136,7 +139,7 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 369);
+            this.listView1.Location = new System.Drawing.Point(21, 445);
             this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -149,7 +152,7 @@
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(594, 575);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(597, 651);
             this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
             this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
@@ -158,7 +161,7 @@
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(501, 578);
+            this.SubBlockLabel.Location = new System.Drawing.Point(504, 654);
             this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
             this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
@@ -167,7 +170,7 @@
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(416, 575);
+            this.BlockNumeric.Location = new System.Drawing.Point(419, 651);
             this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
             this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
@@ -176,18 +179,38 @@
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(369, 578);
+            this.BlockLabel.Location = new System.Drawing.Point(372, 654);
             this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
             this.BlockLabel.Size = new System.Drawing.Size(48, 20);
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
+            // NameGroupBox
+            // 
+            this.NameGroupBox.Controls.Add(this.NameTextBox);
+            this.NameGroupBox.Location = new System.Drawing.Point(21, 14);
+            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Name = "NameGroupBox";
+            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Size = new System.Drawing.Size(772, 70);
+            this.NameGroupBox.TabIndex = 34;
+            this.NameGroupBox.TabStop = false;
+            this.NameGroupBox.Text = "Name";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(8, 27);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(757, 26);
+            this.NameTextBox.TabIndex = 0;
+            // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 612);
+            this.ClientSize = new System.Drawing.Size(806, 699);
+            this.Controls.Add(this.NameGroupBox);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
@@ -209,6 +232,8 @@
             this.Load += new System.EventHandler(this.InstructionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
+            this.NameGroupBox.ResumeLayout(false);
+            this.NameGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +253,7 @@
         private System.Windows.Forms.Label SubBlockLabel;
         private System.Windows.Forms.NumericUpDown BlockNumeric;
         private System.Windows.Forms.Label BlockLabel;
+        private System.Windows.Forms.GroupBox NameGroupBox;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }
