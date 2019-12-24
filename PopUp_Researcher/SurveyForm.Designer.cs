@@ -44,17 +44,21 @@
             this.SubBlockLabel = new System.Windows.Forms.Label();
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
+            this.NameGroupBox = new System.Windows.Forms.GroupBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
+            this.NameGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextSurveyRadio
             // 
             this.TextSurveyRadio.AutoSize = true;
-            this.TextSurveyRadio.Location = new System.Drawing.Point(6, 20);
+            this.TextSurveyRadio.Location = new System.Drawing.Point(9, 31);
+            this.TextSurveyRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TextSurveyRadio.Name = "TextSurveyRadio";
-            this.TextSurveyRadio.Size = new System.Drawing.Size(46, 17);
+            this.TextSurveyRadio.Size = new System.Drawing.Size(64, 24);
             this.TextSurveyRadio.TabIndex = 14;
             this.TextSurveyRadio.TabStop = true;
             this.TextSurveyRadio.Text = "Text";
@@ -66,9 +70,11 @@
             this.groupBox1.Controls.Add(this.ScaleSurveyRadio);
             this.groupBox1.Controls.Add(this.MultiSurveyRadio);
             this.groupBox1.Controls.Add(this.TextSurveyRadio);
-            this.groupBox1.Location = new System.Drawing.Point(6, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 98);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(307, 48);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(460, 74);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Survey type";
@@ -76,9 +82,10 @@
             // ScaleSurveyRadio
             // 
             this.ScaleSurveyRadio.AutoSize = true;
-            this.ScaleSurveyRadio.Location = new System.Drawing.Point(219, 19);
+            this.ScaleSurveyRadio.Location = new System.Drawing.Point(328, 29);
+            this.ScaleSurveyRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ScaleSurveyRadio.Name = "ScaleSurveyRadio";
-            this.ScaleSurveyRadio.Size = new System.Drawing.Size(52, 17);
+            this.ScaleSurveyRadio.Size = new System.Drawing.Size(74, 24);
             this.ScaleSurveyRadio.TabIndex = 16;
             this.ScaleSurveyRadio.TabStop = true;
             this.ScaleSurveyRadio.Text = "Scale";
@@ -88,9 +95,10 @@
             // MultiSurveyRadio
             // 
             this.MultiSurveyRadio.AutoSize = true;
-            this.MultiSurveyRadio.Location = new System.Drawing.Point(94, 20);
+            this.MultiSurveyRadio.Location = new System.Drawing.Point(141, 31);
+            this.MultiSurveyRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MultiSurveyRadio.Name = "MultiSurveyRadio";
-            this.MultiSurveyRadio.Size = new System.Drawing.Size(83, 17);
+            this.MultiSurveyRadio.Size = new System.Drawing.Size(120, 24);
             this.MultiSurveyRadio.TabIndex = 15;
             this.MultiSurveyRadio.TabStop = true;
             this.MultiSurveyRadio.Text = "Multi Choice";
@@ -99,9 +107,10 @@
             // 
             // AddQuestionButton
             // 
-            this.AddQuestionButton.Location = new System.Drawing.Point(231, 63);
+            this.AddQuestionButton.Location = new System.Drawing.Point(350, 177);
+            this.AddQuestionButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddQuestionButton.Name = "AddQuestionButton";
-            this.AddQuestionButton.Size = new System.Drawing.Size(82, 23);
+            this.AddQuestionButton.Size = new System.Drawing.Size(123, 35);
             this.AddQuestionButton.TabIndex = 23;
             this.AddQuestionButton.Text = "Add Question";
             this.AddQuestionButton.UseVisualStyleBackColor = true;
@@ -109,9 +118,10 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(238, 367);
+            this.SaveButton.Location = new System.Drawing.Point(361, 645);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(112, 35);
             this.SaveButton.TabIndex = 25;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -120,18 +130,20 @@
             // QuestionsListView
             // 
             this.QuestionsListView.HideSelection = false;
-            this.QuestionsListView.Location = new System.Drawing.Point(6, 92);
+            this.QuestionsListView.Location = new System.Drawing.Point(13, 222);
+            this.QuestionsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QuestionsListView.Name = "QuestionsListView";
-            this.QuestionsListView.Size = new System.Drawing.Size(307, 269);
+            this.QuestionsListView.Size = new System.Drawing.Size(458, 412);
             this.QuestionsListView.TabIndex = 26;
             this.QuestionsListView.UseCompatibleStateImageBehavior = false;
             this.QuestionsListView.View = System.Windows.Forms.View.List;
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(159, 367);
+            this.RemoveButton.Location = new System.Drawing.Point(242, 645);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveButton.Size = new System.Drawing.Size(112, 35);
             this.RemoveButton.TabIndex = 27;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
@@ -139,9 +151,10 @@
             // 
             // DuplicateButton
             // 
-            this.DuplicateButton.Location = new System.Drawing.Point(6, 367);
+            this.DuplicateButton.Location = new System.Drawing.Point(13, 645);
+            this.DuplicateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DuplicateButton.Name = "DuplicateButton";
-            this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
+            this.DuplicateButton.Size = new System.Drawing.Size(112, 35);
             this.DuplicateButton.TabIndex = 28;
             this.DuplicateButton.Text = "Duplicate";
             this.DuplicateButton.UseVisualStyleBackColor = true;
@@ -149,9 +162,10 @@
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(123, 367);
+            this.MinusButton.Location = new System.Drawing.Point(188, 645);
+            this.MinusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(30, 23);
+            this.MinusButton.Size = new System.Drawing.Size(45, 35);
             this.MinusButton.TabIndex = 29;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
@@ -159,9 +173,10 @@
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(87, 367);
+            this.PlusButton.Location = new System.Drawing.Point(134, 645);
+            this.PlusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(30, 23);
+            this.PlusButton.Size = new System.Drawing.Size(45, 35);
             this.PlusButton.TabIndex = 30;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
@@ -169,41 +184,65 @@
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(169, 66);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(258, 182);
+            this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.SubBlockNumeric.TabIndex = 34;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(105, 68);
+            this.SubBlockLabel.Location = new System.Drawing.Point(162, 185);
+            this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
-            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
+            this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
             this.SubBlockLabel.TabIndex = 33;
             this.SubBlockLabel.Text = "Sub Block";
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(49, 66);
+            this.BlockNumeric.Location = new System.Drawing.Point(78, 182);
+            this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.BlockNumeric.TabIndex = 32;
             // 
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(7, 68);
+            this.BlockLabel.Location = new System.Drawing.Point(14, 185);
+            this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
+            this.BlockLabel.Size = new System.Drawing.Size(48, 20);
             this.BlockLabel.TabIndex = 31;
             this.BlockLabel.Text = "Block";
             // 
+            // NameGroupBox
+            // 
+            this.NameGroupBox.Controls.Add(this.NameTextBox);
+            this.NameGroupBox.Location = new System.Drawing.Point(13, 18);
+            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Name = "NameGroupBox";
+            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Size = new System.Drawing.Size(460, 70);
+            this.NameGroupBox.TabIndex = 35;
+            this.NameGroupBox.TabStop = false;
+            this.NameGroupBox.Text = "Name";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(9, 27);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(439, 26);
+            this.NameTextBox.TabIndex = 0;
+            // 
             // SurveyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 394);
+            this.ClientSize = new System.Drawing.Size(483, 685);
+            this.Controls.Add(this.NameGroupBox);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
             this.Controls.Add(this.BlockNumeric);
@@ -218,12 +257,15 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SurveyForm";
             this.Text = "Survey";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
+            this.NameGroupBox.ResumeLayout(false);
+            this.NameGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +287,7 @@
         private System.Windows.Forms.Label SubBlockLabel;
         private System.Windows.Forms.NumericUpDown BlockNumeric;
         private System.Windows.Forms.Label BlockLabel;
+        private System.Windows.Forms.GroupBox NameGroupBox;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }

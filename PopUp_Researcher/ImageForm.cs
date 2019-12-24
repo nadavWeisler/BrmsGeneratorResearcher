@@ -58,10 +58,18 @@ namespace PopUp_Researcher
         {
             if (string.IsNullOrEmpty(UrlTextBox.Text)) return;
 
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Enter Name");
+                return;
+            }
+
             var bytes = File.ReadAllBytes(UrlTextBox.Text);
             var file = Convert.ToBase64String(bytes);
-            var newImageKeyboard = new ImageKeyboard(PromptTextBox.Text, file);
-
+            var newImageKeyboard = new ImageKeyboard(PromptTextBox.Text, file)
+            {
+                name = NameTextBox.Text
+            };
             newImageKeyboard.SetGroup(this.BlockNumeric.Value);
             newImageKeyboard.SetSubGroup(this.SubBlockNumeric.Value);
 

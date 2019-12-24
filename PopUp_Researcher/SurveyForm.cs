@@ -138,6 +138,12 @@ namespace bRMS_Generator
         {
             if (this.Questions.Count <= 0) return;
 
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Enter Name");
+                return;
+            }
+
             Survey newSurvey;
             if (this.TextSurveyRadio.Checked)
             {
@@ -155,6 +161,7 @@ namespace bRMS_Generator
                 }
             }
 
+            newSurvey.name = NameTextBox.Text;
             newSurvey.SetGroup(BlockNumeric.Value);
             newSurvey.SetSubGroup(SubBlockNumeric.Value);
             if(this.ExistingTrial == null)

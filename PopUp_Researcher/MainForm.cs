@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using PopUp_Researcher;
@@ -364,6 +365,21 @@ namespace bRMS_Generator
             listView1.Items[tmpIndex + 1].Text = tmp;
         }
 
+        private static void AddTrial(Trial obj)
+        {
+            if (ExperimentsOrder.Contains(obj.name))
+            {
+                var i = 2;
+                while (ExperimentsOrder.Contains(obj.name + 1))
+                {
+                    i++;
+                }
+
+                obj.name += i;
+            }
+            Experiments.Add(obj.name, obj);
+            ExperimentsOrder.Add(obj.name);
+        }
         #endregion
 
         #region Public Methods
@@ -374,10 +390,7 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddFullscreen(FullScreen obj)
         {
-            Experiments.Add("Fullscreen" + FullscreenCount + "_" +
-                            obj.block + "_" + obj.sub_block, obj);
-            ExperimentsOrder.Add("Fullscreen" + FullscreenCount + "_" +
-                                 obj.block + "_" + obj.sub_block);
+            AddTrial(obj);
             FullscreenCount++;
         }
 
@@ -387,10 +400,7 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddIntro(Instructions obj)
         {
-            Experiments.Add("Introduction" + IntroCount + "_" +
-                            obj.block + "_" + obj.sub_block, obj);
-            ExperimentsOrder.Add("Introduction" + IntroCount + "_" +
-                                 obj.block + "_" + obj.sub_block);
+            AddTrial(obj);
             IntroCount++;
         }
 
@@ -400,10 +410,7 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddImageKeyboard(ImageKeyboard obj)
         {
-            Experiments.Add("ImageKeyboard" + ImageKeyboardCount + "_" +
-                            obj.block + "_" + obj.sub_block, obj);
-            ExperimentsOrder.Add("ImageKeyboard" + ImageKeyboardCount + "_" +
-                                 obj.block + "_" + obj.sub_block);
+            AddTrial(obj);
             ImageKeyboardCount++;
         }
 
@@ -413,10 +420,7 @@ namespace bRMS_Generator
         /// <param name="obj"></param>
         public static void AddSurvey(Survey obj)
         {
-            Experiments.Add("Survey" + SurveyCount + "_"  +
-                obj.block + "_" + obj.sub_block, obj);
-            ExperimentsOrder.Add("Survey" + SurveyCount + "_" +
-                                 obj.block + "_" + obj.sub_block);
+            AddTrial(obj);
             SurveyCount++;
         }
 
@@ -428,12 +432,7 @@ namespace bRMS_Generator
         {
             foreach (var item in _brmsList)
             {
-                Experiments.Add(item.Key + BRmsCount + "_" +
-                                ((Trial) item.Value).block + "_" +
-                                item.Value.sub_block, item.Value);
-                ExperimentsOrder.Add(item.Key + BRmsCount + "_" +
-                                     ((Trial) item.Value).block + "_" +
-                                     item.Value.sub_block);
+                AddTrial(item.Value);
                 BRmsCount++;
             }
         }

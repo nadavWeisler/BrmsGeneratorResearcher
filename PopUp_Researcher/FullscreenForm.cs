@@ -67,11 +67,19 @@ namespace bRMS_Generator
         {
             if (string.IsNullOrEmpty(MsgRich.Text)) return;
 
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Enter Name");
+                return;
+            }
+
             var newFullScreen = new FullScreen(MsgRich.Text)
             {
                 block = (BlockNumeric.Value),
                 sub_block = (SubBlockNumeric.Value)
             };
+
+            newFullScreen.name = NameTextBox.Text;
 
             if (this.existingTrial != null)
             {

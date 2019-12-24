@@ -66,6 +66,12 @@ namespace bRMS_Generator
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Enter Name");
+                return;
+            }
+
             var newInstructions = new Instructions
             {
                 pages = this.PagesDictionary.Values.ToList()
@@ -75,6 +81,7 @@ namespace bRMS_Generator
 
             newInstructions.SetGroup(this.BlockNumeric.Value);
             newInstructions.SetSubGroup(this.SubBlockNumeric.Value);
+            newInstructions.name = NameTextBox.Text;
               
             if(this._existingTrial != null)
             {

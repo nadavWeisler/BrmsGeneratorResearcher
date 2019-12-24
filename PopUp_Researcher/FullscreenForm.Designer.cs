@@ -39,12 +39,12 @@ namespace bRMS_Generator
             this.BlockNumeric = new System.Windows.Forms.NumericUpDown();
             this.BlockLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NameGroupBox = new System.Windows.Forms.GroupBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.NameGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // MsgRich
@@ -125,31 +125,31 @@ namespace bRMS_Generator
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Messeage";
             // 
-            // groupBox2
+            // NameGroupBox
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(18, 14);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(558, 70);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Name";
+            this.NameGroupBox.Controls.Add(this.NameTextBox);
+            this.NameGroupBox.Location = new System.Drawing.Point(18, 14);
+            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Name = "NameGroupBox";
+            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Size = new System.Drawing.Size(558, 70);
+            this.NameGroupBox.TabIndex = 28;
+            this.NameGroupBox.TabStop = false;
+            this.NameGroupBox.Text = "Name";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 26);
-            this.textBox1.TabIndex = 0;
+            this.NameTextBox.Location = new System.Drawing.Point(7, 27);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(544, 26);
+            this.NameTextBox.TabIndex = 0;
             // 
             // FullscreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 478);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.NameGroupBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SubBlockNumeric);
             this.Controls.Add(this.SubBlockLabel);
@@ -165,8 +165,8 @@ namespace bRMS_Generator
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.NameGroupBox.ResumeLayout(false);
+            this.NameGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +182,7 @@ namespace bRMS_Generator
         private NumericUpDown BlockNumeric;
         private Label BlockLabel;
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private TextBox textBox1;
+        private GroupBox NameGroupBox;
+        private TextBox NameTextBox;
     }
 }

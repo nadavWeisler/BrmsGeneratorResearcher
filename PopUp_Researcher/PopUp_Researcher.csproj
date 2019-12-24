@@ -129,7 +129,7 @@
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\DB.cs" />
     <Compile Include="Helpers\ErrorMsg.Designer.cs" />
-    <Compile Include="Helpers\Experiment.cs" />
+    <Compile Include="Helpers\Trial.cs" />
     <Compile Include="Helpers\FullScreen.cs" />
     <Compile Include="Helpers\Instructions.cs" />
     <Compile Include="Helpers\Question.cs" />

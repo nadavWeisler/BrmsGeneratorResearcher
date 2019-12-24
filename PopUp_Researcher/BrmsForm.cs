@@ -139,13 +139,34 @@ namespace bRMS_Generator
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Enter Name");
+                return;
+            }
+
             var newBrms = new Brms
             {
-                name = "bRMS" + brms_count,
                 block = this.BlockNumeric.Value,
                 sub_block = this.SubBlockNumeric.Value,
                 StimulusDictionary = new Dictionary<string, List<string>>()
             };
+
+            if (this.AllTrialsListView.Items.ContainsKey(NameTextBox.Text))
+            {
+                var i = 1;
+                while (this.AllTrialsListView.Items.ContainsKey(NameTextBox.Text+i))
+                {
+                    i++;
+                }
+
+                newBrms.name = NameTextBox.Text + i;
+            }
+            else
+            {
+                newBrms.name = NameTextBox.Text;
+            }
+
             var imageBlobs = new Dictionary<string, string>();
             foreach (var item in ImagesComboBox.Items)
             {
@@ -177,7 +198,6 @@ namespace bRMS_Generator
                     newBrms.brms_type = "order";
                 }
             }
-            newBrms.repetitions = this.CountNumeric.Value;
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
             newBrms.mondrian_count = this.MondrianCountNumeric.Value;
@@ -246,7 +266,6 @@ namespace bRMS_Generator
             //}
             this.BlockNumeric.Value = existingTrial.block;
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
-            this.CountNumeric.Value = this.existingTrial.repetitions;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;

@@ -19,6 +19,11 @@
         /// </summary>
         public decimal sub_block;
 
+        /// <summary>
+        /// Trial Name
+        /// </summary>
+        public string name;
+
         #endregion
 
         #region Public Methods
