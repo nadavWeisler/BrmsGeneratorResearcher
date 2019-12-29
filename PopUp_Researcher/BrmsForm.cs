@@ -149,7 +149,7 @@ namespace bRMS_Generator
             {
                 block = this.BlockNumeric.Value,
                 sub_block = this.SubBlockNumeric.Value,
-                StimulusDictionary = new Dictionary<string, List<string>>()
+                StimulusDictionary = new Dictionary<string, List<string>>(),
             };
 
             if (this.AllTrialsListView.Items.ContainsKey(NameTextBox.Text))
@@ -167,16 +167,13 @@ namespace bRMS_Generator
                 newBrms.name = NameTextBox.Text;
             }
 
-            var imageBlobs = new Dictionary<string, string>();
+            var all_images_list = new List<string>();
             foreach (var item in ImagesComboBox.Items)
             {
-                var fileName = ImagesComboBox.GetItemText(item);
-                var bytes = File.ReadAllBytes(fileName);
-                var file = Convert.ToBase64String(bytes);
-                imageBlobs.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(fileName)), file);
+                all_images_list.Add(ImagesComboBox.GetItemText(item));
             }
 
-            newBrms.ImagesBlobs = imageBlobs;
+            newBrms.all_images = all_images_list;
             var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
@@ -232,9 +229,8 @@ namespace bRMS_Generator
             newBrms.rectangle_number = this.RectangleNumeric.Value;
             newBrms.timing_response = this.TimingResponseNumeric.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
-            var newBRmsName = "bRMS" + brms_count + "_" + newBrms.brms_type + "_" + tagString;
-            this.BrmsNames.Add(newBRmsName);
-            this.brms_trials[newBRmsName] = newBrms;
+            this.BrmsNames.Add(newBrms.name);
+            this.brms_trials[newBrms.name] = newBrms;
             brms_count++;
             BindListView();
         }

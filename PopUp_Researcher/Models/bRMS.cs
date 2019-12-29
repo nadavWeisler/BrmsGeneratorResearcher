@@ -6,7 +6,7 @@ namespace PopUp_Researcher.Models
     public class Brms: Trial
     {
         public Dictionary<string, List<string>> StimulusDictionary;
-        public Dictionary<string, string> ImagesBlobs;
+        public List<string> all_images;
 
         public string name;
         public string stimulusFolder;
