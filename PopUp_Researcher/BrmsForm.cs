@@ -228,6 +228,8 @@ namespace bRMS_Generator
             newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
             newBrms.rectangle_number = this.RectangleNumeric.Value;
             newBrms.timing_response = this.TimingResponseNumeric.Value;
+            newBrms.mask_duration = this.numericMondrianDuration.Value;
+            newBrms.gap_duration = this.numericGapDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
             this.BrmsNames.Add(newBrms.name);
             this.brms_trials[newBrms.name] = newBrms;
@@ -269,6 +271,8 @@ namespace bRMS_Generator
             this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap / 1000;
             this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
+            this.numericMondrianDuration.Value = this.existingTrial.mask_duration;
+            this.numericGapDuration.Value = this.existingTrial.gap_duration;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
             this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;
             this.FixationWidthNumeric.Value = this.existingTrial.fixation_width;
@@ -529,6 +533,11 @@ namespace bRMS_Generator
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TimingResponseNumeric_ValueChanged(object sender, EventArgs e)
         {
 
         }

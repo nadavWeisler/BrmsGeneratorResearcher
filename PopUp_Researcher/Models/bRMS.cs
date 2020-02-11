@@ -32,6 +32,8 @@ namespace PopUp_Researcher.Models
         public decimal stimulus_opacity;
         public decimal mondrian_max_opacity;
         public decimal allowed_to_repeat;
+        public decimal mask_duration;
+        public decimal gap_duration;
         public decimal fixation_width;
         public decimal fixation_height;
         public decimal frame_width;
