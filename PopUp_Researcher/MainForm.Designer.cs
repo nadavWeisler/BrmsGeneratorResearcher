@@ -47,9 +47,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BackgroundColorComboBox = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -184,6 +188,7 @@
             // 
             this.NameTextBox.Location = new System.Drawing.Point(80, 9);
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameTextBox.MaxLength = 20;
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(448, 26);
             this.NameTextBox.TabIndex = 10;
@@ -250,11 +255,52 @@
             this.PlusButton.UseVisualStyleBackColor = true;
             this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BackgroundColorComboBox);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Enabled = false;
+            this.groupBox2.Location = new System.Drawing.Point(22, 448);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(763, 65);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Parameters";
+            // 
+            // BackgroundColorComboBox
+            // 
+            this.BackgroundColorComboBox.FormattingEnabled = true;
+            this.BackgroundColorComboBox.Items.AddRange(new object[] {
+            "white",
+            "black",
+            "grey",
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "brown"});
+            this.BackgroundColorComboBox.Location = new System.Drawing.Point(151, 27);
+            this.BackgroundColorComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BackgroundColorComboBox.Name = "BackgroundColorComboBox";
+            this.BackgroundColorComboBox.Size = new System.Drawing.Size(106, 28);
+            this.BackgroundColorComboBox.TabIndex = 71;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 31);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(136, 20);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "Background Color";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 449);
+            this.ClientSize = new System.Drawing.Size(807, 525);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.listView1);
@@ -271,6 +317,8 @@
             this.TrialsButtonGroup.ResumeLayout(false);
             this.SaveButtonGroup.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,6 +344,9 @@
         private System.Windows.Forms.Button MinusButton;
         private System.Windows.Forms.Button PlusButton;
         private System.Windows.Forms.Button ImageButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox BackgroundColorComboBox;
+        private System.Windows.Forms.Label label19;
     }
 }
 

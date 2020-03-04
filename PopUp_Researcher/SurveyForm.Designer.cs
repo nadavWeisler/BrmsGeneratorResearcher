@@ -46,6 +46,7 @@
             this.BlockLabel = new System.Windows.Forms.Label();
             this.NameGroupBox = new System.Windows.Forms.GroupBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.ScaleCustomRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlockNumeric)).BeginInit();
@@ -67,6 +68,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ScaleCustomRadio);
             this.groupBox1.Controls.Add(this.ScaleSurveyRadio);
             this.groupBox1.Controls.Add(this.MultiSurveyRadio);
             this.groupBox1.Controls.Add(this.TextSurveyRadio);
@@ -82,7 +84,7 @@
             // ScaleSurveyRadio
             // 
             this.ScaleSurveyRadio.AutoSize = true;
-            this.ScaleSurveyRadio.Location = new System.Drawing.Point(328, 29);
+            this.ScaleSurveyRadio.Location = new System.Drawing.Point(209, 31);
             this.ScaleSurveyRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ScaleSurveyRadio.Name = "ScaleSurveyRadio";
             this.ScaleSurveyRadio.Size = new System.Drawing.Size(74, 24);
@@ -95,7 +97,7 @@
             // MultiSurveyRadio
             // 
             this.MultiSurveyRadio.AutoSize = true;
-            this.MultiSurveyRadio.Location = new System.Drawing.Point(141, 31);
+            this.MultiSurveyRadio.Location = new System.Drawing.Point(81, 31);
             this.MultiSurveyRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MultiSurveyRadio.Name = "MultiSurveyRadio";
             this.MultiSurveyRadio.Size = new System.Drawing.Size(120, 24);
@@ -237,6 +239,18 @@
             this.NameTextBox.Size = new System.Drawing.Size(439, 26);
             this.NameTextBox.TabIndex = 0;
             // 
+            // ScaleCustomRadio
+            // 
+            this.ScaleCustomRadio.AutoSize = true;
+            this.ScaleCustomRadio.Location = new System.Drawing.Point(291, 31);
+            this.ScaleCustomRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ScaleCustomRadio.Name = "ScaleCustomRadio";
+            this.ScaleCustomRadio.Size = new System.Drawing.Size(133, 24);
+            this.ScaleCustomRadio.TabIndex = 17;
+            this.ScaleCustomRadio.TabStop = true;
+            this.ScaleCustomRadio.Text = "Scale Custom";
+            this.ScaleCustomRadio.UseVisualStyleBackColor = true;
+            // 
             // SurveyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -289,5 +303,6 @@
         private System.Windows.Forms.Label BlockLabel;
         private System.Windows.Forms.GroupBox NameGroupBox;
         private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.RadioButton ScaleCustomRadio;
     }
 }

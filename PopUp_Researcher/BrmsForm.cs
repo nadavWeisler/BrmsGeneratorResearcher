@@ -208,7 +208,7 @@ namespace bRMS_Generator
             newBrms.rectangle_width = this.RectWidthNumeric.Value;
             newBrms.rectangle_height = this.RectHeightNumeric.Value;
             newBrms.stimulus_duration = this.StimulusDurationNumeric.Value;
-            if ((this.OriantetionComboBox.SelectedValue == null))
+            if (this.OriantetionComboBox.SelectedValue == null)
             {
                 newBrms.orientation = "h";
             }
@@ -223,6 +223,14 @@ namespace bRMS_Generator
                         newBrms.orientation = "v";
                         break;
                 }
+            }
+            if (this.OriantetionComboBox.SelectedValue == null)
+            {
+                newBrms.background_color = "white";
+            }
+            else
+            {
+                newBrms.background_color = this.OriantetionComboBox.SelectedValue.ToString().ToLower();
             }
             newBrms.post_trial_gap = this.PostTrialGapNumeric.Value * 1000;
             newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
@@ -525,21 +533,6 @@ namespace bRMS_Generator
             {
                 ImagesComboBox.Items.AddRange(openFileDialogImages.FileNames);
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TimingResponseNumeric_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,7 +8,6 @@ namespace PopUp_Researcher.Models
         public Dictionary<string, List<string>> StimulusDictionary;
         public List<string> all_images;
 
-        public string name;
         public string stimulusFolder;
         public string stimulus;
         public string stimulus_block;
@@ -18,6 +17,7 @@ namespace PopUp_Researcher.Models
         public string performance_message;
         public string stop_trial_message;
         public string break_message;
+        public string background_color;
 
         public decimal fade_in_time;
         public decimal fade_out_time;

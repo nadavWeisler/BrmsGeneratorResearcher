@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using PopUp_Researcher;
 using PopUp_Researcher.Helpers;
 
 namespace bRMS_Generator
@@ -105,22 +106,22 @@ namespace bRMS_Generator
             QuestionForm qForm = null;
             if (TextSurveyRadio.Checked)
             {
-                qForm = new QuestionForm(SurveyTypes.Text);
+                qForm = new QuestionForm(EnumSurveyTypes.Text);
             }
-            else
+            else if (MultiSurveyRadio.Checked)
             {
-                if (MultiSurveyRadio.Checked)
-                {
-                    qForm = new QuestionForm(SurveyTypes.MultiChoice);
-                }
-                else
-                {
-                    if (ScaleSurveyRadio.Checked)
-                    {
-                        qForm = new QuestionForm(SurveyTypes.Scale);
-                    }
-                }
+                qForm = new QuestionForm(EnumSurveyTypes.MultiChoice);
             }
+            else if (ScaleSurveyRadio.Checked)
+            {
+                qForm = new QuestionForm(EnumSurveyTypes.Scale);
+            } 
+            else if (ScaleCustomRadio.Checked)
+            {
+                qForm = new QuestionForm(EnumSurveyTypes.CustomScale);
+            }
+
+
 
             if (qForm == null) return;
             qForm?.ShowDialog();
@@ -149,17 +150,23 @@ namespace bRMS_Generator
             {
                 newSurvey = new TextSurvey(this.Questions);
             }
+            else if(this.ScaleSurveyRadio.Checked)
+            {
+                newSurvey = new ScaleSurvey(this.Questions);
+            }
+            else if(this.MultiSurveyRadio.Checked)
+            {
+                newSurvey = new MultiSurvey(this.Questions);
+            } 
+            else if (this.ScaleCustomRadio.Checked)
+            {
+                newSurvey = new ScaleSurvey(this.Questions);
+            }
             else
             {
-                if(this.ScaleSurveyRadio.Checked)
-                {
-                    newSurvey = new ScaleSurvey(this.Questions);
-                }
-                else
-                {
-                    newSurvey = new MultiSurvey(this.Questions);
-                }
+                return;
             }
+            
 
             newSurvey.name = NameTextBox.Text;
             newSurvey.SetGroup(BlockNumeric.Value);

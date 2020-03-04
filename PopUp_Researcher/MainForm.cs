@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using System.Xml;
 using Firebase.Storage;
 using Newtonsoft.Json;
 using PopUp_Researcher;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace bRMS_Generator
 {
@@ -271,11 +273,22 @@ namespace bRMS_Generator
                 valuesList.Add(item);
             }
 
+            string background_color;
+            if (BackgroundColorComboBox.SelectedText == null)
+            {
+                background_color = "white";
+            }
+            else
+            {
+                background_color = BackgroundColorComboBox.SelectedText;
+            }
+
             var toJsonDic = new Dictionary<string, object>
             {
                 {"timeline", valuesList},
                 {"name", NameTextBox.Text},
-                {"count", 0 }
+                {"count", 0 },
+                {"background_color", background_color }
             };
 
 

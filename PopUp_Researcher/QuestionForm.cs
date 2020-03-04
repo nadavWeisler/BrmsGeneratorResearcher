@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class QuestionForm : Form
     {
@@ -22,32 +23,37 @@ namespace bRMS_Generator
 
         #region Constractors
 
-        public QuestionForm(string _type)
+        public QuestionForm(EnumSurveyTypes _type)
         {
             InitializeComponent();
-            this.type = _type;
-            this.question = null;
-            if (this.type == SurveyTypes.Text)
+            switch (_type)
             {
-                ScaleGroupBox.Enabled = false;
-                TextGroupBox.Enabled = true;
-                OptionsGroupBox.Enabled = false;
-            }
-            else
-            {
-                if (this.type == SurveyTypes.Scale)
-                {
-                    ScaleGroupBox.Enabled = true;
-                    TextGroupBox.Enabled = false;
-                    OptionsGroupBox.Enabled = false;
-                }
-                else
-                {
+                case EnumSurveyTypes.CustomScale:
+                    this.type = SurveyTypes.Scale;
                     ScaleGroupBox.Enabled = false;
                     TextGroupBox.Enabled = false;
                     OptionsGroupBox.Enabled = true;
-                }
+                    break;
+                case EnumSurveyTypes.Scale:
+                    this.type = SurveyTypes.Scale;
+                    ScaleGroupBox.Enabled = true;
+                    TextGroupBox.Enabled = false;
+                    OptionsGroupBox.Enabled = false;
+                    break;
+                case EnumSurveyTypes.MultiChoice:
+                    this.type = SurveyTypes.MultiChoice;
+                    ScaleGroupBox.Enabled = false;
+                    TextGroupBox.Enabled = false;
+                    OptionsGroupBox.Enabled = true;
+                    break;
+                case EnumSurveyTypes.Text:
+                    this.type = SurveyTypes.Text;
+                    ScaleGroupBox.Enabled = false;
+                    TextGroupBox.Enabled = true;
+                    OptionsGroupBox.Enabled = false;
+                    break;
             }
+            this.question = null;
         }
 
         #endregion
@@ -170,7 +176,7 @@ namespace bRMS_Generator
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(PromptRichTextBox.Text)) return;
-
+            List<string> values;
             switch (this.type)
             {
                 case SurveyTypes.Text:
@@ -179,40 +185,52 @@ namespace bRMS_Generator
                     Close();
                     break;
                 case SurveyTypes.Scale:
-                {
-                    var values = new List<string>();
-                    if(string.IsNullOrWhiteSpace(StartLabelText.Text))
+                    values = new List<string>();
+                    if (ScaleGroupBox.Enabled)
                     {
-                        values.Add("1");
+                        if (string.IsNullOrWhiteSpace(StartLabelText.Text))
+                        {
+                            values.Add("1");
+                        }
+                        else
+                        {
+                            values.Add(StartLabelText.Text);
+                        }
+
+                        for (var i = 2; i < this.ScaleNumeric.Value; i++)
+                        {
+                            values.Add(i.ToString());
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(MiddleLabelText.Text))
+                        {
+                            values[(int) ScaleNumeric.Value / 2] = MiddleLabelText.Text;
+                        }
+
+                        if (string.IsNullOrWhiteSpace(EndLabelText.Text))
+                        {
+                            values.Add(this.ScaleNumeric.Value.ToString(CultureInfo.InvariantCulture));
+                        }
+                        else
+                        {
+                            values.Add(EndLabelText.Text);
+                        }
                     }
                     else
                     {
-                        values.Add(StartLabelText.Text);
-                    }
-                    for(var i = 2; i < this.ScaleNumeric.Value; i++)
-                    {
-                        values.Add(i.ToString());
-                    }
-                    if (!string.IsNullOrWhiteSpace(MiddleLabelText.Text))
-                    {
-                        values[(int)ScaleNumeric.Value / 2] = MiddleLabelText.Text;
-                    }
-                    if (string.IsNullOrWhiteSpace(EndLabelText.Text))
-                    {
-                        values.Add(this.ScaleNumeric.Value.ToString());
-                    }
-                    else
-                    {
-                        values.Add(EndLabelText.Text);
+                        foreach (ListViewItem item in listView1.Items)
+                        {
+                            values.Add(item.Text);
+                        }
+
+                        if (values.Count <= 0) return;
                     }
                     this.question = new ScaleQuestion(this.PromptRichTextBox.Text,
                         this.RequiredCheckBox.Checked, values);
                     Close();
                     break;
-                }
                 default:
-                {
-                    var values = new List<string>();
+                    values = new List<string>();
                     foreach(ListViewItem item in listView1.Items)
                     {
                         values.Add(item.Text);
@@ -225,7 +243,6 @@ namespace bRMS_Generator
 
                     Close();
                     break;
-                }
             }
         }
 
