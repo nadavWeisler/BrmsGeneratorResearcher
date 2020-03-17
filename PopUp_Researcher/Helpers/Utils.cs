@@ -77,11 +77,15 @@ namespace PopUp_Researcher.Helpers
         {
             List<MultiSelectQuestion> scaleList = null;
             List<TextQuestion> textList = null;
-            if (questionType == "survey-text")
-                textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
-            else if (questionType == "survey-likert" || questionType == "survey-multi-choice")
+            switch (questionType)
             {
-                scaleList = JsonConvert.DeserializeObject<List<MultiSelectQuestion>>(jsonString);
+                case "survey-text":
+                    textList = JsonConvert.DeserializeObject<List<TextQuestion>>(jsonString);
+                    break;
+                case "survey-likert":
+                case "survey-multi-choice":
+                    scaleList = JsonConvert.DeserializeObject<List<MultiSelectQuestion>>(jsonString);
+                    break;
             }
 
             return GetListFromTextScale(textList, scaleList);

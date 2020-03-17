@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using System.Xml;
 using Firebase.Storage;
 using Newtonsoft.Json;
 using PopUp_Researcher;
@@ -267,7 +265,14 @@ namespace bRMS_Generator
 
                     foreach (var image in allImages)
                     {
-                        _ = AddImageToStorageAsync(image, NameTextBox.Text);
+                        try
+                        {
+                            _ = AddImageToStorageAsync(image, NameTextBox.Text);
+                        }
+                        catch (Exception)
+                        {
+                            _ = AddImageToStorageAsync(image, NameTextBox.Text);
+                        }
                     }
                 }
                 valuesList.Add(item);

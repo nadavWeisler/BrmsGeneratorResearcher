@@ -259,7 +259,6 @@
             // 
             this.groupBox2.Controls.Add(this.BackgroundColorComboBox);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(22, 448);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(763, 65);
