@@ -32,7 +32,7 @@ namespace PopUp_Researcher.Helpers
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
                 MessageBox.Show("Close file");
             }
@@ -124,6 +124,7 @@ namespace PopUp_Researcher.Helpers
             return text.Replace("\n", "<br>");
         }
 
+
         #region ListView Methods
 
         public static List<string> GetItemsListFromListView(ListView listView, bool _onlySelected=false)
@@ -192,4 +193,17 @@ namespace PopUp_Researcher.Helpers
 
         #endregion
     }
+
+    public static class ExperimentTypes
+    {
+        public static readonly string bRMS = "bRMS";
+        public static readonly string Survey = "survey";
+        public static readonly string Instructions = "instructions";
+        public static readonly string ImageKeyboard = "image-keyboard-response";
+        public static readonly string Fullscreen = "fullscreen";
+        public static readonly string TextSurvey = "survey-text";
+        public static readonly string ScaleSurvey = "survey-likert";
+        public static readonly string MultiChoiceSurvey = "survey-multi-choice";
+    }
+
 }

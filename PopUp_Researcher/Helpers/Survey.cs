@@ -25,7 +25,7 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_questions"></param>
         public TextSurvey(List<Question> _questions)
         {
-            this.type = "survey-text";
+            this.type = ExperimentTypes.TextSurvey;
             this.questions = _questions;
         }
 
@@ -42,7 +42,7 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_questions"></param>
         public MultiSurvey(List<Question> _questions)
         {
-            this.type = "survey-multi-choice";
+            this.type = ExperimentTypes.MultiChoiceSurvey;
             this.questions = _questions;
         }
 
@@ -54,12 +54,12 @@ namespace PopUp_Researcher.Helpers
         #region Constractors
 
         /// <summary>
-        /// Constractor
+        /// Constructor
         /// </summary>
         /// <param name="_questions"></param>
         public ScaleSurvey(List<Question> _questions)
         {
-            this.type = "survey-likert";
+            this.type = ExperimentTypes.ScaleSurvey;
             this.questions = _questions;
         }
 

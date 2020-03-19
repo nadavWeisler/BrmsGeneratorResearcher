@@ -1,4 +1,4 @@
-﻿namespace bRMS_Generator
+﻿namespace PopUp_Researcher
 {
     partial class SurveyForm
     {

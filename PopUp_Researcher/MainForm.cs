@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-using Firebase.Storage;
 using Newtonsoft.Json;
 using PopUp_Researcher;
 using PopUp_Researcher.Helpers;
@@ -217,25 +217,6 @@ namespace bRMS_Generator
             return string.Empty;
         }
 
-        private async System.Threading.Tasks.Task AddImageToStorageAsync(string filePath, string folderName)
-        {
-            // Get any Stream - it can be FileStream, MemoryStream or any other type of Stream
-            var stream = File.Open(filePath, FileMode.Open);
-            Console.WriteLine(Path.GetFileName(filePath));
-            // Construct FirebaseStorage, path to where you want to upload the file and Put it there
-            var task = new FirebaseStorage("popup-965c9.appspot.com")
-                .Child(folderName)
-                .Child(Path.GetFileName(filePath))
-                .PutAsync(stream);
-
-            // Track progress of the upload
-            task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
-
-            // await the task to wait until upload completes and get the download url
-            var downloadUrl = await task;
-            Console.WriteLine("down" + downloadUrl);
-        }
-
         /// <summary>
         /// Save all experiment button click
         /// </summary>
@@ -251,37 +232,13 @@ namespace bRMS_Generator
                 return;
             }
 
-            var valuesList = new List<Trial>();
             var allImages = new HashSet<string>();
-            foreach (var item in Experiments.Values)
-            {
-                if (item.type == "bRMS")
-                {
-                    var brmsTrial = (Brms) item;
-                    foreach (var image in brmsTrial.all_images)
-                    {
-                        allImages.Add(image);
-                    } 
-
-                    foreach (var image in allImages)
-                    {
-                        try
-                        {
-                            _ = AddImageToStorageAsync(image, NameTextBox.Text);
-                        }
-                        catch (Exception)
-                        {
-                            _ = AddImageToStorageAsync(image, NameTextBox.Text);
-                        }
-                    }
-                }
-                valuesList.Add(item);
-            }
+            var valuesList = Experiments.Values.ToList();
 
             string background_color;
             if (BackgroundColorComboBox.SelectedText == null)
             {
-                background_color = "white";
+                background_color = "grey";
             }
             else
             {
@@ -324,8 +281,12 @@ namespace bRMS_Generator
         private void EditButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0) {return;}
-
             var selectedIndex = listView1.SelectedItems[0].Index;
+            if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
+            {
+                MessageBox.Show("Edit bRMS experiment is not supported at this moment");
+                return;
+            }
             EditExperiment(selectedIndex);
         }
 
@@ -336,53 +297,34 @@ namespace bRMS_Generator
         private void EditExperiment(int trialIndex)
         {
             var trial = Experiments[ExperimentsOrder[trialIndex]];
-            switch (trial.type)
+            if (trial.type == ExperimentTypes.ScaleSurvey ||
+                     trial.type == ExperimentTypes.TextSurvey ||
+                     trial.type == ExperimentTypes.MultiChoiceSurvey)
             {
-                case "bRMS":
-                    MessageBox.Show("There is no options to edit bRMS trial, sorry");
-                    if (false)
-                    {
-                        var bRms = new BrmsForm((Brms)trial);
-                        bRms.ShowDialog();
-                    }
-                    break;
-                case "survey-text":
-                case "survey-multi-choice":
-                case "survey-likert":
+                var surveyF = new SurveyForm((Survey)trial);
+                surveyF.ShowDialog();
+                if (surveyF.ReturnEdit != null)
                 {
-                    var surveyF = new SurveyForm((Survey)trial);
-                    surveyF.ShowDialog();
-                    if (surveyF.ReturnEdit != null)
-                    {
-                        Experiments[ExperimentsOrder[trialIndex]] = surveyF.ReturnEdit;
-                    }
-
-                    break;
+                    Experiments[ExperimentsOrder[trialIndex]] = surveyF.ReturnEdit;
                 }
-                case "fullscreen":
+            }
+            else if (trial.type == ExperimentTypes.Fullscreen)
+            {
+                var fullscreenF = new FullscreenForm((FullScreen)trial);
+                fullscreenF.ShowDialog();
+                if (fullscreenF.returnEdit != null)
                 {
-                    var fullscreenF = new FullscreenForm((FullScreen)trial);
-                    fullscreenF.ShowDialog();
-                    if (fullscreenF.returnEdit != null)
-                    {
-                        Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.returnEdit;
-                    }
-
-                    break;
+                    Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.returnEdit;
                 }
-                case "instructions":
+            }
+            else if (trial.type == ExperimentTypes.Instructions)
+            {
+                var instructionsF = new InstructionsForm((Instructions)trial);
+                instructionsF.ShowDialog();
+                if (instructionsF.ReturnEdit != null)
                 {
-                    var instructionsF = new InstructionsForm((Instructions)trial);
-                    instructionsF.ShowDialog();
-                    if (instructionsF.ReturnEdit != null)
-                    {
-                        Experiments[ExperimentsOrder[trialIndex]] = instructionsF.ReturnEdit;
-                    }
-
-                    break;
+                    Experiments[ExperimentsOrder[trialIndex]] = instructionsF.ReturnEdit;
                 }
-                default:
-                    return;
             }
             BindListView();
         }
@@ -400,6 +342,12 @@ namespace bRMS_Generator
             var tmpIndex = listView1.SelectedItems[0].Index;
             listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
             listView1.Items[tmpIndex - 1].Text = tmp;
+
+            ExperimentsOrder[tmpIndex] = ExperimentsOrder[tmpIndex - 1];
+            ExperimentsOrder[tmpIndex - 1] = tmp;
+
+            listView1.Items[tmpIndex].Selected = false;
+            listView1.Items[tmpIndex - 1].Selected = true;
         }
 
         /// <summary>
@@ -416,6 +364,12 @@ namespace bRMS_Generator
             var tmpIndex = listView1.SelectedItems[0].Index;
             listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
             listView1.Items[tmpIndex + 1].Text = tmp;
+
+            ExperimentsOrder[tmpIndex] = ExperimentsOrder[tmpIndex + 1];
+            ExperimentsOrder[tmpIndex + 1] = tmp;
+
+            listView1.Items[tmpIndex].Selected = false;
+            listView1.Items[tmpIndex + 1].Selected = true;
         }
 
         private static void AddTrial(Trial obj)

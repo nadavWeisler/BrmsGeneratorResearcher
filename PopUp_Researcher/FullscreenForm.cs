@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,12 +35,10 @@ namespace bRMS_Generator
         public FullscreenForm(FullScreen existing=null)
         {
             InitializeComponent();
-            
-            if(existing != null)
-            {
-                this.existingTrial = existing;
-                UpdateExistingTrial();
-            }
+
+            if (existing == null) return;
+            this.existingTrial = existing;
+            UpdateExistingTrial();
         }
 
         #endregion
@@ -55,7 +52,8 @@ namespace bRMS_Generator
         {
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.BlockNumeric.Value = this.existingTrial.block;
-            MsgRich.Text = this.existingTrial.Message;
+            this.NameTextBox.Text = this.existingTrial.name;
+            MsgRich.Text = this.existingTrial.message;
         }
 
         /// <summary>

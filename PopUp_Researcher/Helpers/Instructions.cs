@@ -26,7 +26,7 @@ namespace PopUp_Researcher.Helpers
         /// </summary>
         public Instructions()
         {
-            this.type = "instructions";
+            this.type = ExperimentTypes.Instructions;
             this.pages = new List<string>();
             this.show_clickable_nav = true;
         }

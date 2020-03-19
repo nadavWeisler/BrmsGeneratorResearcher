@@ -9,12 +9,12 @@ namespace PopUp_Researcher.Helpers
         /// <summary>
         /// Fullscreen Mode
         /// </summary>
-        public bool FullscreenMode;
+        public bool fullscreenMode;
 
         /// <summary>
         /// Fullscreen Display Message
         /// </summary>
-        public string Message;
+        public string message;
 
         #endregion
 
@@ -26,9 +26,9 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_message"></param>
         public FullScreen(string _message)
         {
-            this.type = "fullscreen";
-            this.Message = _message;
-            this.FullscreenMode = true;
+            this.type = ExperimentTypes.Fullscreen;
+            this.message = _message;
+            this.fullscreenMode = true;
         }
 
         #endregion

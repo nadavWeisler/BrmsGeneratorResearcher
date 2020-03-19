@@ -41,6 +41,7 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
+            this.NameTextBox.Text = this._existingTrial.name;
             this.SubBlockNumeric.Value = this._existingTrial.sub_block;
             this.BlockNumeric.Value = this._existingTrial.block;
             foreach(var page in this._existingTrial.pages)

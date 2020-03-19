@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using bRMS_Generator;
@@ -13,7 +14,7 @@ namespace PopUp_Researcher
         /// <summary>
         /// Existing trial to edit
         /// </summary>
-        private ImageKeyboard _existingTrial;
+        private ImageKeyboard existingTrial;
 
         /// <summary>
         /// Return value for edit
@@ -22,9 +23,34 @@ namespace PopUp_Researcher
 
         #endregion
 
-        public ImageForm()
+        public ImageForm(ImageKeyboard existing = null)
         {
             InitializeComponent();
+
+            if(existing == null) { return;}
+
+            this.existingTrial = existing;
+            UpdateExistingTrial();
+        }
+
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            var ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
+        /// <summary>
+        /// Update Existing Trial by this.existingTrial
+        /// </summary>
+        private void UpdateExistingTrial()
+        {
+            this.NameTextBox.Text = this.existingTrial.name;
+            this.SubBlockNumeric.Value = this.existingTrial.sub_block;
+            this.BlockNumeric.Value = this.existingTrial.block;
+            this.NameTextBox.Text = this.existingTrial.name;
+            PromptTextBox.Text = this.existingTrial.prompt;
+            ImagePictureBox.Image = ByteArrayToImage(Convert.FromBase64String(this.existingTrial.ImageBlob));
         }
 
         private void ChoosePicButton_Click(object sender, EventArgs e)
@@ -73,7 +99,7 @@ namespace PopUp_Researcher
             newImageKeyboard.SetGroup(this.BlockNumeric.Value);
             newImageKeyboard.SetSubGroup(this.SubBlockNumeric.Value);
 
-            if (this._existingTrial != null)
+            if (this.existingTrial != null)
             {
                 this.ReturnEdit = newImageKeyboard;
             }

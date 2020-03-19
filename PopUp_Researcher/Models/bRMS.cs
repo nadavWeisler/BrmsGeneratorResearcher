@@ -48,7 +48,7 @@ namespace PopUp_Researcher.Models
 
         public Brms()
         {
-            this.type = "bRMS";
+            this.type = ExperimentTypes.bRMS;
         }
     }
 }

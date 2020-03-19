@@ -59,22 +59,12 @@ namespace bRMS_Generator
                 UpdateExistingTrial();
             }
 
-            SetOrientationComboBox();
-
             PageEnabled();
         }
 
         #endregion
 
         #region Private Methods
-
-        private void SetOrientationComboBox()
-        {
-            OriantetionComboBox.Items.Clear();
-            var valuesList = new List<string> {"horizontal", "vertical"};
-            OriantetionComboBox.DataSource = valuesList;
-            OriantetionComboBox.SelectedIndex = 0;
-        }
 
         /// <summary>
         /// Update CSV click
@@ -166,10 +156,6 @@ namespace bRMS_Generator
             }
 
             var all_images_list = new List<string>();
-            foreach (var item in ImagesComboBox.Items)
-            {
-                all_images_list.Add(ImagesComboBox.GetItemText(item));
-            }
 
             newBrms.all_images = all_images_list;
             var tagString = string.Empty;
@@ -206,30 +192,6 @@ namespace bRMS_Generator
             newBrms.rectangle_width = this.RectWidthNumeric.Value;
             newBrms.rectangle_height = this.RectHeightNumeric.Value;
             newBrms.stimulus_duration = this.StimulusDurationNumeric.Value;
-            if (this.OriantetionComboBox.SelectedValue == null)
-            {
-                newBrms.orientation = "h";
-            }
-            else
-            {
-                switch (this.OriantetionComboBox.SelectedValue.ToString().ToLower())
-                {
-                    case "horizontal":
-                        newBrms.orientation = "h";
-                        break;
-                    case "vertical":
-                        newBrms.orientation = "v";
-                        break;
-                }
-            }
-            if (this.OriantetionComboBox.SelectedValue == null)
-            {
-                newBrms.background_color = "white";
-            }
-            else
-            {
-                newBrms.background_color = this.OriantetionComboBox.SelectedValue.ToString().ToLower();
-            }
             newBrms.post_trial_gap = this.PostTrialGapNumeric.Value * 1000;
             newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
             newBrms.rectangle_number = this.RectangleNumeric.Value;
@@ -273,7 +235,6 @@ namespace bRMS_Generator
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
-            this.OriantetionComboBox.SelectedValue = this.existingTrial.orientation;
             this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap / 1000;
             this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
@@ -522,15 +483,5 @@ namespace bRMS_Generator
 
 
         #endregion
-
-        private void UploadImgButton_Click(object sender, EventArgs e)
-        {
-            // Show the FolderBrowserDialog.  
-            var result = openFileDialogImages.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                ImagesComboBox.Items.AddRange(openFileDialogImages.FileNames);
-            }
-        }
     }
 }

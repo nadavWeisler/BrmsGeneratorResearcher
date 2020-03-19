@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PopUp_Researcher.Helpers
+﻿namespace PopUp_Researcher.Helpers
 {
     public class ImageKeyboard: Trial
     {
@@ -41,7 +35,7 @@ namespace PopUp_Researcher.Helpers
         /// <param name="_stimulus"></param>
         public ImageKeyboard(string _prompt, string _stimulus)
         {
-            this.type = "image-keyboard-response";
+            this.type = ExperimentTypes.ImageKeyboard;
             this.choices = new int[] {32};
             this.prompt = _prompt;
             this.stimulus = _stimulus;

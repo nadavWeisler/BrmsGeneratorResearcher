@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using PopUp_Researcher;
+using bRMS_Generator;
 using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class SurveyForm : Form
     {
@@ -35,7 +35,7 @@ namespace bRMS_Generator
         #region Constractors
 
         /// <summary>
-        /// Constractors
+        /// Constructors
         /// </summary>
         public SurveyForm(Survey existing = null)
         {
@@ -58,12 +58,13 @@ namespace bRMS_Generator
         #region Private Methods
 
         /// <summary>
-        /// Update Qustions listview by existing survey
+        /// Update Questions list view by existing survey
         /// </summary>
         private void UpdateExistingTrial()
         {
             this.SubBlockNumeric.Value = this.ExistingTrial.sub_block;
             this.BlockNumeric.Value = this.ExistingTrial.block;
+            this.NameTextBox.Text = this.ExistingTrial.name;
 
             switch (this.ExistingTrial.type)
             {
