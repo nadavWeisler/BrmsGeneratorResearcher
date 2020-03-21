@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
@@ -35,6 +36,8 @@ namespace bRMS_Generator
         /// bRMS Trials Count
         /// </summary>
         protected int brms_count;
+
+        private Regex _addChoiceRegex = new Regex("^[a-zA-Z0-9 ]*$");
 
         #endregion
 
@@ -199,6 +202,8 @@ namespace bRMS_Generator
             newBrms.mask_duration = this.numericMondrianDuration.Value;
             newBrms.gap_duration = this.numericGapDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
+            newBrms.choices = this.ChoicesTextBox.Text.Split(',');
+
             this.BrmsNames.Add(newBrms.name);
             this.brms_trials[newBrms.name] = newBrms;
             brms_count++;
@@ -283,7 +288,6 @@ namespace bRMS_Generator
             {
                 return false;
             }
-
             return true;
         }
 
@@ -483,5 +487,36 @@ namespace bRMS_Generator
 
 
         #endregion
+
+        private void ChoicesButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AddChoiceTextBox.Text))
+            {
+                AddChoiceTextBox.Text = string.Empty;
+            }
+            else if (!_addChoiceRegex.IsMatch(AddChoiceTextBox.Text))
+            {
+                MessageBox.Show("Wrong letter");
+                this.AddChoiceTextBox.Text = string.Empty;
+            }
+            else if (this.ChoicesTextBox.Text.Contains(this.AddChoiceTextBox.Text))
+            {
+                MessageBox.Show("Letter already exist");
+                this.AddChoiceTextBox.Text = string.Empty;
+            }
+            else
+            {
+                this.ChoicesTextBox.Text += this.AddChoiceTextBox.Text;
+                if (!string.IsNullOrEmpty(this.ChoicesTextBox.Text))
+                {
+                    this.ChoicesTextBox.Text += ",";
+                }
+                this.AddChoiceTextBox.Text = string.Empty;
+            }
+
+
+
+
+        }
     }
 }

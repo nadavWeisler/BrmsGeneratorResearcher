@@ -105,6 +105,10 @@ namespace bRMS_Generator
             this.SaveButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ChoicesTextBox = new System.Windows.Forms.TextBox();
+            this.ChoicesButton = new System.Windows.Forms.Button();
+            this.AddChoiceTextBox = new System.Windows.Forms.TextBox();
             this.AllBRMSGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacdeOutTimeNumeric)).BeginInit();
@@ -343,6 +347,10 @@ namespace bRMS_Generator
             // 
             // ParamsGroupBox
             // 
+            this.ParamsGroupBox.Controls.Add(this.AddChoiceTextBox);
+            this.ParamsGroupBox.Controls.Add(this.ChoicesButton);
+            this.ParamsGroupBox.Controls.Add(this.ChoicesTextBox);
+            this.ParamsGroupBox.Controls.Add(this.label2);
             this.ParamsGroupBox.Controls.Add(this.label18);
             this.ParamsGroupBox.Controls.Add(this.numericGapDuration);
             this.ParamsGroupBox.Controls.Add(this.label7);
@@ -545,6 +553,11 @@ namespace bRMS_Generator
             this.FixationHeightNumeric.DecimalPlaces = 1;
             this.FixationHeightNumeric.Location = new System.Drawing.Point(662, 440);
             this.FixationHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FixationHeightNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.FixationHeightNumeric.Name = "FixationHeightNumeric";
             this.FixationHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.FixationHeightNumeric.TabIndex = 61;
@@ -569,6 +582,11 @@ namespace bRMS_Generator
             this.FixationWidthNumeric.DecimalPlaces = 1;
             this.FixationWidthNumeric.Location = new System.Drawing.Point(662, 404);
             this.FixationWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FixationWidthNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.FixationWidthNumeric.Name = "FixationWidthNumeric";
             this.FixationWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.FixationWidthNumeric.TabIndex = 59;
@@ -592,6 +610,11 @@ namespace bRMS_Generator
             // 
             this.StimulusHeightNumeric.Location = new System.Drawing.Point(662, 368);
             this.StimulusHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusHeightNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.StimulusHeightNumeric.Name = "StimulusHeightNumeric";
             this.StimulusHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusHeightNumeric.TabIndex = 57;
@@ -616,6 +639,11 @@ namespace bRMS_Generator
             this.StimulusWidthNumeric.DecimalPlaces = 1;
             this.StimulusWidthNumeric.Location = new System.Drawing.Point(662, 332);
             this.StimulusWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusWidthNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.StimulusWidthNumeric.Name = "StimulusWidthNumeric";
             this.StimulusWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusWidthNumeric.TabIndex = 55;
@@ -777,6 +805,11 @@ namespace bRMS_Generator
             this.FrameHeightNumeric.DecimalPlaces = 1;
             this.FrameHeightNumeric.Location = new System.Drawing.Point(662, 296);
             this.FrameHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FrameHeightNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.FrameHeightNumeric.Name = "FrameHeightNumeric";
             this.FrameHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.FrameHeightNumeric.TabIndex = 49;
@@ -802,7 +835,7 @@ namespace bRMS_Generator
             this.FrameWidthNumeric.Location = new System.Drawing.Point(662, 260);
             this.FrameWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FrameWidthNumeric.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -1048,6 +1081,43 @@ namespace bRMS_Generator
             this.openFileDialogImages.Filter = "IMAGE files (*.jpg)|*.jpg";
             this.openFileDialogImages.Multiselect = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 485);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 20);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Choices";
+            // 
+            // ChoicesTextBox
+            // 
+            this.ChoicesTextBox.Enabled = false;
+            this.ChoicesTextBox.Location = new System.Drawing.Point(196, 482);
+            this.ChoicesTextBox.Name = "ChoicesTextBox";
+            this.ChoicesTextBox.Size = new System.Drawing.Size(169, 26);
+            this.ChoicesTextBox.TabIndex = 69;
+            // 
+            // ChoicesButton
+            // 
+            this.ChoicesButton.Location = new System.Drawing.Point(155, 480);
+            this.ChoicesButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ChoicesButton.Name = "ChoicesButton";
+            this.ChoicesButton.Size = new System.Drawing.Size(34, 30);
+            this.ChoicesButton.TabIndex = 70;
+            this.ChoicesButton.Text = "+";
+            this.ChoicesButton.UseVisualStyleBackColor = true;
+            this.ChoicesButton.Click += new System.EventHandler(this.ChoicesButton_Click);
+            // 
+            // AddChoiceTextBox
+            // 
+            this.AddChoiceTextBox.Location = new System.Drawing.Point(83, 482);
+            this.AddChoiceTextBox.MaxLength = 1;
+            this.AddChoiceTextBox.Name = "AddChoiceTextBox";
+            this.AddChoiceTextBox.Size = new System.Drawing.Size(65, 26);
+            this.AddChoiceTextBox.TabIndex = 71;
+            // 
             // BrmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1176,5 +1246,9 @@ namespace bRMS_Generator
         private NumericUpDown numericGapDuration;
         private Label label7;
         private NumericUpDown numericMondrianDuration;
+        private TextBox AddChoiceTextBox;
+        private Button ChoicesButton;
+        private TextBox ChoicesTextBox;
+        private Label label2;
     }
 }

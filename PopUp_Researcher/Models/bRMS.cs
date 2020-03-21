@@ -44,7 +44,7 @@ namespace PopUp_Researcher.Models
         public decimal rectangle_width;
         public decimal rectangle_height;
 
-
+        public string[] choices;
 
         public Brms()
         {
