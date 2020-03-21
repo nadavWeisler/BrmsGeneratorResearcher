@@ -202,7 +202,16 @@ namespace bRMS_Generator
             newBrms.mask_duration = this.numericMondrianDuration.Value;
             newBrms.gap_duration = this.numericGapDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
-            newBrms.choices = this.ChoicesTextBox.Text.Split(',');
+
+            List<string> choicesList = new List<string>();
+            foreach (string choice in this.ChoicesTextBox.Text.Split(','))
+            {
+                if (!string.IsNullOrEmpty(choice))
+                {
+                    choicesList.Add(choice);
+                }
+            }
+            newBrms.choices = choicesList;
 
             this.BrmsNames.Add(newBrms.name);
             this.brms_trials[newBrms.name] = newBrms;

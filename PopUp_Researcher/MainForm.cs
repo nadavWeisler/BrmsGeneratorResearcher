@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using bRMS_Generator;
 using Newtonsoft.Json;
-using PopUp_Researcher;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class MainForm : Form
     {
@@ -232,15 +231,10 @@ namespace bRMS_Generator
                 return;
             }
 
-            var allImages = new HashSet<string>();
             var valuesList = Experiments.Values.ToList();
 
-            string background_color;
-            if (BackgroundColorComboBox.SelectedText == null)
-            {
-                background_color = "grey";
-            }
-            else
+            string background_color = "grey";
+            if (BackgroundColorComboBox.SelectedItem != null)
             {
                 background_color = BackgroundColorComboBox.SelectedText;
             }
@@ -249,8 +243,8 @@ namespace bRMS_Generator
             {
                 {"timeline", valuesList},
                 {"name", NameTextBox.Text},
-                {"count", 0 },
-                {"background_color", background_color }
+                {"count", 0},
+                {"background_color", background_color}
             };
 
 
@@ -262,7 +256,7 @@ namespace bRMS_Generator
             {
                 FileName = NameTextBox.Text,
                 Filter = "Experiment JSON|*.json",
-                Title = "Save an Expriment File"
+                Title = "Save an Experiment File"
             };
             saveFileDialog1.ShowDialog();
 
