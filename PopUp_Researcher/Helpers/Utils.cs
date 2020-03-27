@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using PopUp_Researcher.Models;
@@ -194,16 +194,17 @@ namespace PopUp_Researcher.Helpers
         #endregion
     }
 
-    public static class ExperimentTypes
+    public class ExperimentTypes
     {
-        public static readonly string bRMS = "bRMS";
-        public static readonly string Survey = "survey";
-        public static readonly string Instructions = "instructions";
-        public static readonly string ImageKeyboard = "image-keyboard-response";
-        public static readonly string Fullscreen = "fullscreen";
-        public static readonly string TextSurvey = "survey-text";
-        public static readonly string ScaleSurvey = "survey-likert";
-        public static readonly string MultiChoiceSurvey = "survey-multi-choice";
+        public const string bRMS = "bRMS";
+        public const  string Survey = "survey";
+        public const  string Instructions = "instructions";
+        public const string ImageKeyboard = "image-keyboard-response";
+        public const string ImageButton = "image-button-response";
+        public const string Fullscreen = "fullscreen";
+        public const string TextSurvey = "survey-text";
+        public const string ScaleSurvey = "survey-likert";
+        public const string MultiChoiceSurvey = "survey-multi-choice";
     }
 
 }

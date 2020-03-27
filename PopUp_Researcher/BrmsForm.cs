@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class BrmsForm : Form
     {
@@ -37,14 +37,14 @@ namespace bRMS_Generator
         /// </summary>
         protected int brms_count;
 
-        private Regex _addChoiceRegex = new Regex("^[a-zA-Z0-9 ]*$");
+        public Regex AddChoiceRegex { get; } = new Regex("^[a-zA-Z0-9 ]*$");
 
         #endregion
 
         #region Constractors
 
         /// <summary>
-        /// Basic Constractors
+        /// Basic Constructors
         /// </summary>
         public BrmsForm(Brms _existingTrial=null)
         {
@@ -161,11 +161,9 @@ namespace bRMS_Generator
             var all_images_list = new List<string>();
 
             newBrms.all_images = all_images_list;
-            var tagString = string.Empty;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
                 newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
-                tagString += "_" + tag.Text;
             }
             if(this.MixedRadio.Checked)
             {
@@ -203,8 +201,8 @@ namespace bRMS_Generator
             newBrms.gap_duration = this.numericGapDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
 
-            List<string> choicesList = new List<string>();
-            foreach (string choice in this.ChoicesTextBox.Text.Split(','))
+            var choicesList = new List<string>();
+            foreach (var choice in this.ChoicesTextBox.Text.Split(','))
             {
                 if (!string.IsNullOrEmpty(choice))
                 {
@@ -224,26 +222,6 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            //new_brms.stimulus_dictionary = new Dictionary<string, List<string>>();
-            //foreach (ListViewItem tag in TagsListView.SelectedItems)
-            //{
-            //    new_brms.stimulus_dictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
-            //}
-            //if (this.MixedRadio.Checked)
-            //{
-            //    new_brms.brms_type = "mix";
-            //}
-            //else
-            //{
-            //    if (this.RandomRadio.Checked)
-            //    {
-            //        new_brms.brms_type = "random";
-            //    }
-            //    else
-            //    {
-            //        new_brms.brms_type = "order";
-            //    }
-            //}
             this.BlockNumeric.Value = existingTrial.block;
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
@@ -268,7 +246,7 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// Bind brms list view
+        /// Bind bRMS list view
         /// </summary>
         private void BindListView()
         {
@@ -328,12 +306,11 @@ namespace bRMS_Generator
             {
                 //return ErrorMsg.bRMS_Form_HelpCsvMissing;
             }
-
             return string.Empty;
         }
 
         /// <summary>
-        /// 
+        /// Remove button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -387,11 +364,11 @@ namespace bRMS_Generator
         }
 
         /// <summary>
-        /// 
+        /// Ordered radio checked changed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OrderdRadio_CheckedChanged(object sender, EventArgs e)
+        private void OrderedRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (this.OrderdRadio.Checked)
             {
@@ -494,16 +471,18 @@ namespace bRMS_Generator
             }
         }
 
-
-        #endregion
-
+        /// <summary>
+        /// Choice button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChoicesButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(AddChoiceTextBox.Text))
             {
                 AddChoiceTextBox.Text = string.Empty;
             }
-            else if (!_addChoiceRegex.IsMatch(AddChoiceTextBox.Text))
+            else if (!AddChoiceRegex.IsMatch(AddChoiceTextBox.Text))
             {
                 MessageBox.Show("Wrong letter");
                 this.AddChoiceTextBox.Text = string.Empty;
@@ -522,10 +501,8 @@ namespace bRMS_Generator
                 }
                 this.AddChoiceTextBox.Text = string.Empty;
             }
-
-
-
-
         }
+        
+        #endregion
     }
 }

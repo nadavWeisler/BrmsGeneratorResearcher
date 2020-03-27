@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class InstructionsForm : Form
     {
@@ -21,7 +21,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Existing trial to edit
         /// </summary>
-        private Instructions _existingTrial;
+        private readonly Instructions _existingTrial;
 
         /// <summary>
         /// Contractor

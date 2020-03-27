@@ -1,6 +1,6 @@
 ﻿namespace PopUp_Researcher.Helpers
 {
-    public class ImageKeyboard: Trial
+    public class ImageButton: Trial
     {
         #region Properties
 
@@ -17,12 +17,7 @@
         /// <summary>
         /// Keyboard choice
         /// </summary>
-        public int[] choices;
-
-        /// <summary>
-        /// Image blob
-        /// </summary>
-        public string ImageBlob;
+        public string[] choices;
 
         #endregion
 
@@ -33,11 +28,10 @@
         /// </summary>
         /// <param name="_prompt"></param>
         /// <param name="_stimulus"></param>
-        public ImageKeyboard(string _prompt, string _stimulus)
+        public ImageButton(string _stimulus)
         {
             this.type = ExperimentTypes.ImageButton;
-            this.choices = new[] {32};
-            this.prompt = _prompt;
+            this.choices = new[] { "Next" };
             this.stimulus = _stimulus;
         }
 

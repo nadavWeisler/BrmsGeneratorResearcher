@@ -205,7 +205,7 @@
     <Compile Include="BrmsForm.Designer.cs">
       <DependentUpon>BrmsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\BRmsHelperTests.cs" />
+    <Compile Include="Helpers\ImageButton.cs" />
     <Compile Include="Helpers\ImageKeyboard.cs" />
     <Compile Include="ImageForm.cs">
       <SubType>Form</SubType>
@@ -239,7 +239,6 @@
     <Compile Include="Helpers\Instructions.cs" />
     <Compile Include="Helpers\Question.cs" />
     <Compile Include="Helpers\Survey.cs" />
-    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Models\bRMS.cs" />
     <Compile Include="Models\Experiment.cs" />

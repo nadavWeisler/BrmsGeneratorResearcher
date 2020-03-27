@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     partial class BrmsForm : Form
     {
@@ -972,7 +972,7 @@ namespace bRMS_Generator
             this.OrderdRadio.TabStop = true;
             this.OrderdRadio.Text = "Fixed-Fixed";
             this.OrderdRadio.UseVisualStyleBackColor = true;
-            this.OrderdRadio.CheckedChanged += new System.EventHandler(this.OrderdRadio_CheckedChanged);
+            this.OrderdRadio.CheckedChanged += new System.EventHandler(this.OrderedRadio_CheckedChanged);
             // 
             // MixedRadio
             // 

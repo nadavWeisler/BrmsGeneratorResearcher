@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using bRMS_Generator;
 using PopUp_Researcher.Helpers;
 
 namespace PopUp_Researcher
@@ -14,12 +13,12 @@ namespace PopUp_Researcher
         /// <summary>
         /// Existing trial to edit
         /// </summary>
-        private ImageKeyboard existingTrial;
+        private readonly ImageKeyboard _existingTrial;
 
         /// <summary>
         /// Return value for edit
         /// </summary>
-        public ImageKeyboard ReturnEdit;
+        public ImageButton ReturnEdit;
 
         #endregion
 
@@ -29,7 +28,7 @@ namespace PopUp_Researcher
 
             if(existing == null) { return;}
 
-            this.existingTrial = existing;
+            this._existingTrial = existing;
             UpdateExistingTrial();
         }
 
@@ -45,12 +44,11 @@ namespace PopUp_Researcher
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.NameTextBox.Text = this.existingTrial.name;
-            this.SubBlockNumeric.Value = this.existingTrial.sub_block;
-            this.BlockNumeric.Value = this.existingTrial.block;
-            this.NameTextBox.Text = this.existingTrial.name;
-            PromptTextBox.Text = this.existingTrial.prompt;
-            ImagePictureBox.Image = ByteArrayToImage(Convert.FromBase64String(this.existingTrial.ImageBlob));
+            this.NameTextBox.Text = this._existingTrial.name;
+            this.SubBlockNumeric.Value = this._existingTrial.sub_block;
+            this.BlockNumeric.Value = this._existingTrial.block;
+            this.NameTextBox.Text = this._existingTrial.name;
+            ImagePictureBox.Image = ByteArrayToImage(Convert.FromBase64String(this._existingTrial.ImageBlob));
         }
 
         private void ChoosePicButton_Click(object sender, EventArgs e)
@@ -92,20 +90,20 @@ namespace PopUp_Researcher
 
             var bytes = File.ReadAllBytes(UrlTextBox.Text);
             var file = Convert.ToBase64String(bytes);
-            var newImageKeyboard = new ImageKeyboard(PromptTextBox.Text, file)
+            var newImageButton = new ImageButton(file)
             {
                 name = NameTextBox.Text
             };
-            newImageKeyboard.SetGroup(this.BlockNumeric.Value);
-            newImageKeyboard.SetSubGroup(this.SubBlockNumeric.Value);
+            newImageButton.SetGroup(this.BlockNumeric.Value);
+            newImageButton.SetSubGroup(this.SubBlockNumeric.Value);
 
-            if (this.existingTrial != null)
+            if (this._existingTrial != null)
             {
-                this.ReturnEdit = newImageKeyboard;
+                this.ReturnEdit = newImageButton;
             }
             else
             {
-                MainForm.AddImageKeyboard(newImageKeyboard);
+                MainForm.AddImageKeyboard(newImageButton);
             }
             Close();
         }

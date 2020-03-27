@@ -29,25 +29,25 @@ namespace PopUp_Researcher
             switch (_type)
             {
                 case EnumSurveyTypes.CustomScale:
-                    this.type = SurveyTypes.Scale;
+                    this.type = ExperimentTypes.ScaleSurvey;
                     ScaleGroupBox.Enabled = false;
                     TextGroupBox.Enabled = false;
                     OptionsGroupBox.Enabled = true;
                     break;
                 case EnumSurveyTypes.Scale:
-                    this.type = SurveyTypes.Scale;
+                    this.type = ExperimentTypes.ScaleSurvey;
                     ScaleGroupBox.Enabled = true;
                     TextGroupBox.Enabled = false;
                     OptionsGroupBox.Enabled = false;
                     break;
                 case EnumSurveyTypes.MultiChoice:
-                    this.type = SurveyTypes.MultiChoice;
+                    this.type = ExperimentTypes.MultiChoiceSurvey;
                     ScaleGroupBox.Enabled = false;
                     TextGroupBox.Enabled = false;
                     OptionsGroupBox.Enabled = true;
                     break;
                 case EnumSurveyTypes.Text:
-                    this.type = SurveyTypes.Text;
+                    this.type = ExperimentTypes.TextSurvey;
                     ScaleGroupBox.Enabled = false;
                     TextGroupBox.Enabled = true;
                     OptionsGroupBox.Enabled = false;
@@ -179,12 +179,12 @@ namespace PopUp_Researcher
             List<string> values;
             switch (this.type)
             {
-                case SurveyTypes.Text:
+                case ExperimentTypes.TextSurvey:
                     this.question = new TextQuestion(this.PromptRichTextBox.Text, this.RowsNumeric.Value,
                         this.ColsNumeric.Value, this.ValueTextBox.Text, this.RequiredCheckBox.Checked);
                     Close();
                     break;
-                case SurveyTypes.Scale:
+                case ExperimentTypes.ScaleSurvey:
                     values = new List<string>();
                     if (ScaleGroupBox.Enabled)
                     {

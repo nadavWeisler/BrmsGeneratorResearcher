@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 
-namespace bRMS_Generator
+namespace PopUp_Researcher
 {
     public partial class FullscreenForm : Form
     {
@@ -17,7 +11,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Return fullscreen for edit
         /// </summary>
-        public FullScreen returnEdit;
+        public FullScreen ReturnEdit;
 
         #endregion
 
@@ -26,7 +20,7 @@ namespace bRMS_Generator
         /// <summary>
         /// Existing trial for edit
         /// </summary>
-        private FullScreen existingTrial;
+        private readonly FullScreen _existingTrial;
 
         #endregion
 
@@ -37,7 +31,7 @@ namespace bRMS_Generator
             InitializeComponent();
 
             if (existing == null) return;
-            this.existingTrial = existing;
+            this._existingTrial = existing;
             UpdateExistingTrial();
         }
 
@@ -50,10 +44,10 @@ namespace bRMS_Generator
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.SubBlockNumeric.Value = this.existingTrial.sub_block;
-            this.BlockNumeric.Value = this.existingTrial.block;
-            this.NameTextBox.Text = this.existingTrial.name;
-            MsgRich.Text = this.existingTrial.message;
+            this.SubBlockNumeric.Value = this._existingTrial.sub_block;
+            this.BlockNumeric.Value = this._existingTrial.block;
+            this.NameTextBox.Text = this._existingTrial.name;
+            MsgRich.Text = this._existingTrial.message;
         }
 
         /// <summary>
@@ -73,15 +67,13 @@ namespace bRMS_Generator
 
             var newFullScreen = new FullScreen(MsgRich.Text)
             {
-                block = (BlockNumeric.Value),
-                sub_block = (SubBlockNumeric.Value)
+                block = (BlockNumeric.Value), sub_block = (SubBlockNumeric.Value), name = NameTextBox.Text
             };
 
-            newFullScreen.name = NameTextBox.Text;
 
-            if (this.existingTrial != null)
+            if (this._existingTrial != null)
             {
-                this.returnEdit = newFullScreen;
+                this.ReturnEdit = newFullScreen;
             }
             else
             {

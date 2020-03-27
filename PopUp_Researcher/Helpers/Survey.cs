@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using bRMS_Generator;
 
 namespace PopUp_Researcher.Helpers
 {
@@ -20,7 +19,7 @@ namespace PopUp_Researcher.Helpers
         #region Constractor
 
         /// <summary>
-        /// Constractor
+        /// Constructor
         /// </summary>
         /// <param name="_questions"></param>
         public TextSurvey(List<Question> _questions)
@@ -37,7 +36,7 @@ namespace PopUp_Researcher.Helpers
         #region Constractor
 
         /// <summary>
-        /// Constractor
+        /// Constructor
         /// </summary>
         /// <param name="_questions"></param>
         public MultiSurvey(List<Question> _questions)

@@ -37,10 +37,10 @@ namespace PopUp_Researcher
         /// <summary>
         /// Introduction Trial Count
         /// </summary>
-        protected static int ImageKeyboardCount;
+        protected static int ImageButtonCount;
 
         /// <summary>
-        /// Survry Trials Count
+        /// Survey Trials Count
         /// </summary>
         protected static int SurveyCount;
 
@@ -54,7 +54,7 @@ namespace PopUp_Researcher
         #region Constractors
 
         /// <summary>
-        /// MainForm Constractor
+        /// MainForm Constructor
         /// </summary>
         public MainForm()
         {
@@ -143,7 +143,7 @@ namespace PopUp_Researcher
             NameTextBox.Text = newExperiment.Name;
             NameTextBox.Enabled = false;
             this.listView1.Clear();
-            this.LoadExperiment(newExperiment.Trials);
+            LoadExperiment(newExperiment.Trials);
             BindListView();
         }
 
@@ -151,7 +151,7 @@ namespace PopUp_Researcher
         /// Load experiment
         /// </summary>
         /// <param name="trialLst"></param>
-        private void LoadExperiment(IEnumerable<Trial> trialLst)
+        private static void LoadExperiment(IEnumerable<Trial> trialLst)
         {
             foreach (var item in trialLst)
             {
@@ -197,6 +197,26 @@ namespace PopUp_Researcher
             BindListView();
         }
 
+        private static bool ValidRgb(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return false;
+            }
+            else if (!str.StartsWith("#"))
+            {
+                return false;
+            }
+            else if (str.Length < 7)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         /// <summary>
         /// Validation Before Save
         /// </summary>
@@ -207,13 +227,18 @@ namespace PopUp_Researcher
             {
                 return "Experiment Name Is Missing";
             }
-
-            if (listView1.Items.Count == 0)
+            else if (listView1.Items.Count == 0)
             {
                 return "No Trials Selected";
             }
-
-            return string.Empty;
+            else if(!ValidRgb(BackgoundRgbTextBox.Text))
+            {
+                return "Invalid RGB code";
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -233,18 +258,12 @@ namespace PopUp_Researcher
 
             var valuesList = Experiments.Values.ToList();
 
-            string background_color = "grey";
-            if (BackgroundColorComboBox.SelectedItem != null)
-            {
-                background_color = BackgroundColorComboBox.SelectedText;
-            }
-
             var toJsonDic = new Dictionary<string, object>
             {
                 {"timeline", valuesList},
                 {"name", NameTextBox.Text},
                 {"count", 0},
-                {"background_color", background_color}
+                {"background_color", BackgoundRgbTextBox.Text}
             };
 
 
@@ -306,9 +325,9 @@ namespace PopUp_Researcher
             {
                 var fullscreenF = new FullscreenForm((FullScreen)trial);
                 fullscreenF.ShowDialog();
-                if (fullscreenF.returnEdit != null)
+                if (fullscreenF.ReturnEdit != null)
                 {
-                    Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.returnEdit;
+                    Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.ReturnEdit;
                 }
             }
             else if (trial.type == ExperimentTypes.Instructions)
@@ -409,10 +428,10 @@ namespace PopUp_Researcher
         /// Add ImageKeyboard experiment in to experiments list
         /// </summary>
         /// <param name="obj"></param>
-        public static void AddImageKeyboard(ImageKeyboard obj)
+        public static void AddImageKeyboard(ImageButton obj)
         {
             AddTrial(obj);
-            ImageKeyboardCount++;
+            ImageButtonCount++;
         }
 
         /// <summary>
@@ -449,19 +468,15 @@ namespace PopUp_Researcher
             }
         }
 
-
-        #endregion
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ImageButton_Click(object sender, EventArgs e)
         {
             var newForm = new ImageForm();
             newForm.ShowDialog();
             BindListView();
         }
+
+        #endregion
+
+
     }
 }

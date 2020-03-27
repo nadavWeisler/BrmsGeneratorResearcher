@@ -44,24 +44,6 @@ namespace PopUp_Researcher.Helpers
             return this.pages;
         }
 
-        /// <summary>
-        /// Set pages
-        /// </summary>
-        /// <param name="lst"></param>
-        public void SetPages(List<string> lst)
-        {
-            this.pages = lst;
-        }
-
-        /// <summary>
-        /// Add new page to instructions pages
-        /// </summary>
-        /// <param name="page"></param>
-        public void AddPage(string page)
-        {
-            this.pages.Add(page);
-        }
-
         #endregion
     }
 
