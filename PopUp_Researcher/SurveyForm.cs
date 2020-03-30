@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using bRMS_Generator;
 using PopUp_Researcher.Helpers;
 
 namespace PopUp_Researcher
@@ -18,7 +17,7 @@ namespace PopUp_Researcher
         /// <summary>
         /// If Page Loaded
         /// </summary>
-        protected bool Loaded = false;
+        protected bool Loaded;
 
         /// <summary>
         /// Existing Trial
@@ -125,7 +124,7 @@ namespace PopUp_Researcher
 
 
             if (qForm == null) return;
-            qForm?.ShowDialog();
+            qForm.ShowDialog();
             if (qForm.question == null) return;
             this.Questions.Add(qForm.question);
             BindListView();
@@ -226,7 +225,7 @@ namespace PopUp_Researcher
         }
 
         /// <summary>
-        /// Dublicate qustion button
+        /// Duplicate question button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
