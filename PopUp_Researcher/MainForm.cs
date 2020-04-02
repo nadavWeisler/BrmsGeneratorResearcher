@@ -122,10 +122,10 @@ namespace PopUp_Researcher
         /// </summary>
         private void BindListView()
         {
-            listView1.Clear();
+            TrialsListView.Clear();
             foreach (var item in ExperimentsOrder)
             {
-                listView1.Items.Add(item);
+                TrialsListView.Items.Add(item);
             }
         }
 
@@ -142,7 +142,7 @@ namespace PopUp_Researcher
             var newExperiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
             NameTextBox.Text = newExperiment.Name;
             NameTextBox.Enabled = false;
-            this.listView1.Clear();
+            this.TrialsListView.Clear();
             LoadExperiment(newExperiment.Trials);
             BindListView();
         }
@@ -188,9 +188,9 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count < 1) { return; }
+            if (TrialsListView.SelectedItems.Count < 1) { return; }
 
-            var itemIndex = listView1.SelectedItems[0].Index;
+            var itemIndex = TrialsListView.SelectedItems[0].Index;
             var item = ExperimentsOrder[itemIndex];
             Experiments.Remove(item);
             ExperimentsOrder.Remove(item);
@@ -227,7 +227,7 @@ namespace PopUp_Researcher
             {
                 return "Experiment Name Is Missing";
             }
-            else if (listView1.Items.Count == 0)
+            else if (TrialsListView.Items.Count == 0)
             {
                 return "No Trials Selected";
             }
@@ -241,6 +241,15 @@ namespace PopUp_Researcher
             }
         }
 
+        private List<Trial> GetFinalTimeline()
+        {
+            var resultList = new List<Trial>();
+            foreach (var trialString in ExperimentsOrder)
+            {
+                resultList.Add(Experiments[trialString]);
+            }
+            return resultList;
+        }
         /// <summary>
         /// Save all experiment button click
         /// </summary>
@@ -248,7 +257,7 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (listView1.Items.Count == 0){ return; }
+            if (TrialsListView.Items.Count == 0){ return; }
             var validationString = ValidateBeforeSave();
             if (!string.IsNullOrWhiteSpace(validationString))
             {
@@ -256,11 +265,9 @@ namespace PopUp_Researcher
                 return;
             }
 
-            var valuesList = Experiments.Values.ToList();
-
             var toJsonDic = new Dictionary<string, object>
             {
-                {"timeline", valuesList},
+                {"timeline", this.GetFinalTimeline()},
                 {"name", NameTextBox.Text},
                 {"count", 0},
                 {"background_color", BackgoundRgbTextBox.Text}
@@ -293,8 +300,8 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count == 0) {return;}
-            var selectedIndex = listView1.SelectedItems[0].Index;
+            if (TrialsListView.SelectedItems.Count == 0) {return;}
+            var selectedIndex = TrialsListView.SelectedItems[0].Index;
             if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
             {
                 MessageBox.Show("Edit bRMS experiment is not supported at this moment");
@@ -343,46 +350,46 @@ namespace PopUp_Researcher
         }
 
         /// <summary>
-        /// 
+        /// Plus button click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
+            if (TrialsListView.SelectedItems.Count <= 0 || TrialsListView.SelectedItems[0].Index <= 0) return;
 
-            var tmp = listView1.SelectedItems[0].Text;
-            var tmpIndex = listView1.SelectedItems[0].Index;
-            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
-            listView1.Items[tmpIndex - 1].Text = tmp;
+            var tmp = TrialsListView.SelectedItems[0].Text;
+            var tmpIndex = TrialsListView.SelectedItems[0].Index;
+            TrialsListView.Items[tmpIndex].Text = TrialsListView.Items[tmpIndex - 1].Text;
+            TrialsListView.Items[tmpIndex - 1].Text = tmp;
 
             ExperimentsOrder[tmpIndex] = ExperimentsOrder[tmpIndex - 1];
             ExperimentsOrder[tmpIndex - 1] = tmp;
 
-            listView1.Items[tmpIndex].Selected = false;
-            listView1.Items[tmpIndex - 1].Selected = true;
+            TrialsListView.Items[tmpIndex].Selected = false;
+            TrialsListView.Items[tmpIndex - 1].Selected = true;
         }
 
         /// <summary>
-        /// 
+        /// Minus button click 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count <= 0 ||
-                listView1.SelectedItems[0].Index >= listView1.Items.Count - 1) return;
+            if (TrialsListView.SelectedItems.Count <= 0 ||
+                TrialsListView.SelectedItems[0].Index >= TrialsListView.Items.Count - 1) return;
 
-            var tmp = listView1.SelectedItems[0].Text;
-            var tmpIndex = listView1.SelectedItems[0].Index;
-            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex + 1].Text;
-            listView1.Items[tmpIndex + 1].Text = tmp;
+            var tmp = TrialsListView.SelectedItems[0].Text;
+            var tmpIndex = TrialsListView.SelectedItems[0].Index;
+            TrialsListView.Items[tmpIndex].Text = TrialsListView.Items[tmpIndex + 1].Text;
+            TrialsListView.Items[tmpIndex + 1].Text = tmp;
 
             ExperimentsOrder[tmpIndex] = ExperimentsOrder[tmpIndex + 1];
             ExperimentsOrder[tmpIndex + 1] = tmp;
 
-            listView1.Items[tmpIndex].Selected = false;
-            listView1.Items[tmpIndex + 1].Selected = true;
+            TrialsListView.Items[tmpIndex].Selected = false;
+            TrialsListView.Items[tmpIndex + 1].Selected = true;
         }
 
         private static void AddTrial(Trial obj)

@@ -41,15 +41,15 @@
             this.SaveButtonGroup = new System.Windows.Forms.GroupBox();
             this.EditButton = new System.Windows.Forms.Button();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.TrialsListView = new System.Windows.Forms.ListView();
             this.LoadButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MinusButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.BackgoundRgbTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -193,16 +193,16 @@
             this.NameTextBox.Size = new System.Drawing.Size(448, 26);
             this.NameTextBox.TabIndex = 10;
             // 
-            // listView1
+            // TrialsListView
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(22, 49);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(505, 391);
-            this.listView1.TabIndex = 11;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.TrialsListView.HideSelection = false;
+            this.TrialsListView.Location = new System.Drawing.Point(22, 49);
+            this.TrialsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TrialsListView.Name = "TrialsListView";
+            this.TrialsListView.Size = new System.Drawing.Size(505, 391);
+            this.TrialsListView.TabIndex = 11;
+            this.TrialsListView.UseCompatibleStateImageBehavior = false;
+            this.TrialsListView.View = System.Windows.Forms.View.List;
             // 
             // LoadButton
             // 
@@ -266,6 +266,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parameters";
             // 
+            // BackgoundRgbTextBox
+            // 
+            this.BackgoundRgbTextBox.Location = new System.Drawing.Point(269, 28);
+            this.BackgoundRgbTextBox.MaxLength = 7;
+            this.BackgoundRgbTextBox.Name = "BackgoundRgbTextBox";
+            this.BackgoundRgbTextBox.Size = new System.Drawing.Size(100, 26);
+            this.BackgoundRgbTextBox.TabIndex = 71;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -276,14 +284,6 @@
             this.label19.TabIndex = 70;
             this.label19.Text = "Background Color (RGB Include #)";
             // 
-            // BackgoundRgbTextBox
-            // 
-            this.BackgoundRgbTextBox.Location = new System.Drawing.Point(269, 28);
-            this.BackgoundRgbTextBox.MaxLength = 7;
-            this.BackgoundRgbTextBox.Name = "BackgoundRgbTextBox";
-            this.BackgoundRgbTextBox.Size = new System.Drawing.Size(100, 26);
-            this.BackgoundRgbTextBox.TabIndex = 71;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -292,7 +292,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LoadButton);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.TrialsListView);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SaveButtonGroup);
             this.Controls.Add(this.TrialsButtonGroup);
@@ -323,7 +323,7 @@
         private System.Windows.Forms.GroupBox SaveButtonGroup;
         private System.Windows.Forms.Button FullscreenButton;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView TrialsListView;
         private System.Windows.Forms.Button LoadButton
             ;
         private System.Windows.Forms.Button EditButton;
