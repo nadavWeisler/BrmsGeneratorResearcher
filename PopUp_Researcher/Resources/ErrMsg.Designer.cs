@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace bRMS_Generator.Helpers {
+namespace PopUp_Researcher.Resources {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace bRMS_Generator.Helpers {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorMsg {
+    internal class ErrMsg {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorMsg() {
+        internal ErrMsg() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace bRMS_Generator.Helpers {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("bRMS_Generator.Helpers.ErrorMsg", typeof(ErrorMsg).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PopUp_Researcher.Resources.ErrMsg", typeof(ErrMsg).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,38 @@ namespace bRMS_Generator.Helpers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CSV File is Missing.
+        ///   Looks up a localized string similar to ERROR: Letter already exist.
         /// </summary>
-        internal static string bRMS_Form_HelpCsvMissing {
+        internal static string ChoiceAlreadyExistError {
             get {
-                return ResourceManager.GetString("bRMS_Form_HelpCsvMissing", resourceCulture);
+                return ResourceManager.GetString("ChoiceAlreadyExistError", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stimulus Folder Is Missing.
+        ///   Looks up a localized string similar to ERROR: Invalid choice.
         /// </summary>
-        internal static string bRMS_Form_StimulusFileMissing {
+        internal static string InvalidChoiceError {
             get {
-                return ResourceManager.GetString("bRMS_Form_StimulusFileMissing", resourceCulture);
+                return ResourceManager.GetString("InvalidChoiceError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR: Name already exist..
+        /// </summary>
+        internal static string NameAlreadyExistError {
+            get {
+                return ResourceManager.GetString("NameAlreadyExistError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR: Name is missing.
+        /// </summary>
+        internal static string NameMissingError {
+            get {
+                return ResourceManager.GetString("NameMissingError", resourceCulture);
             }
         }
     }

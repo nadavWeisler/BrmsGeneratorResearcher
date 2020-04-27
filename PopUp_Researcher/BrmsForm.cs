@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
+using PopUp_Researcher.Resources;
 
 namespace PopUp_Researcher
 {
@@ -25,7 +26,7 @@ namespace PopUp_Researcher
         /// <summary>
         /// bRMS Dictionary of bRMS name and Object Key value Pair
         /// </summary>
-        protected Dictionary<string, Brms> brms_trials;
+        protected Dictionary<string, Brms> brmsTrials;
 
         /// <summary>
         /// Existing bRMS(edit)
@@ -37,6 +38,11 @@ namespace PopUp_Researcher
         /// </summary>
         protected int brms_count;
 
+        /// <summary>
+        /// Already exist bRMS names
+        /// </summary>
+        protected List<string> existingNames;
+
         public Regex AddChoiceRegex { get; } = new Regex("^[a-zA-Z0-9 ]*$");
 
         #endregion
@@ -46,15 +52,21 @@ namespace PopUp_Researcher
         /// <summary>
         /// Basic Constructors
         /// </summary>
-        public BrmsForm(Brms _existingTrial=null)
+        public BrmsForm(Brms _existingTrial=null,List<string> existingTrialsNames = null)
         {
             InitializeComponent();
             if (this.Helper == null)
             {
                 this.Helper = new BRmsHelper();
             }
+
+            if (existingTrialsNames != null)
+            {
+                this.existingNames = existingTrialsNames;
+            }
+
             this.BrmsNames = new List<string>();
-            this.brms_trials = new Dictionary<string, Brms>();
+            this.brmsTrials = new Dictionary<string, Brms>();
 
             if(_existingTrial != null)
             {
@@ -130,56 +142,28 @@ namespace PopUp_Researcher
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
-            {
-                MessageBox.Show("Enter Name");
-                return;
-            }
-
             var newBrms = new Brms
             {
                 block = this.BlockNumeric.Value,
                 sub_block = this.SubBlockNumeric.Value,
                 StimulusDictionary = new Dictionary<string, List<string>>(),
+                name = NameTextBox.Text
             };
 
-            if (this.AllTrialsListView.Items.ContainsKey(NameTextBox.Text))
-            {
-                var i = 1;
-                while (this.AllTrialsListView.Items.ContainsKey(NameTextBox.Text+i))
-                {
-                    i++;
-                }
-
-                newBrms.name = NameTextBox.Text + i;
-            }
-            else
-            {
-                newBrms.name = NameTextBox.Text;
-            }
-
-            var all_images_list = new List<string>();
-
-            newBrms.all_images = all_images_list;
             foreach(ListViewItem tag in TagsListView.SelectedItems)
             {
                 newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
             }
+
             if(this.MixedRadio.Checked)
             {
                 newBrms.brms_type = "mix";
             }
             else
             {
-                if(this.RandomRadio.Checked)
-                {
-                    newBrms.brms_type = "random";
-                }
-                else
-                {
-                    newBrms.brms_type = "order";
-                }
+                newBrms.brms_type = this.RandomRadio.Checked ? "random" : "order";
             }
+            
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
             newBrms.mondrian_count = this.MondrianCountNumeric.Value;
@@ -212,7 +196,7 @@ namespace PopUp_Researcher
             newBrms.choices = choicesList;
 
             this.BrmsNames.Add(newBrms.name);
-            this.brms_trials[newBrms.name] = newBrms;
+            this.brmsTrials[newBrms.name] = newBrms;
             brms_count++;
             BindListView();
         }
@@ -302,10 +286,25 @@ namespace PopUp_Researcher
         /// </summary>
         private string ValidateBeforeAdd()
         {
-            if (string.IsNullOrEmpty(HelpCsvTextBox.Text))
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                //return ErrorMsg.bRMS_Form_HelpCsvMissing;
+                return ErrMsg.NameMissingError;
             }
+            foreach (var name in BrmsNames)
+            {
+                if (name.Equals(NameTextBox.Text))
+                {
+                    return ErrMsg.NameAlreadyExistError;
+                }
+            }
+            foreach (var name in this.existingNames)
+            {
+                if (name.Equals(NameTextBox.Text))
+                {
+                    return ErrMsg.NameAlreadyExistError;
+                }
+            }
+            
             return string.Empty;
         }
 
@@ -319,7 +318,7 @@ namespace PopUp_Researcher
             foreach (ListViewItem item in AllTrialsListView.SelectedItems)
             {
                 this.BrmsNames = (Utils.RemoveItemByIndex(this.BrmsNames, item.Index));
-                this.brms_trials.Remove(item.Text);
+                this.brmsTrials.Remove(item.Text);
             }
             BindListView();
         }
@@ -359,7 +358,7 @@ namespace PopUp_Researcher
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (BrmsNames.Count <= 0) return;
-            MainForm.AddBrms(brms_trials);
+            MainForm.AddBrms(brmsTrials);
             Close();
         }
 
@@ -484,12 +483,12 @@ namespace PopUp_Researcher
             }
             else if (!AddChoiceRegex.IsMatch(AddChoiceTextBox.Text))
             {
-                MessageBox.Show("Wrong letter");
+                MessageBox.Show(ErrMsg.InvalidChoiceError);
                 this.AddChoiceTextBox.Text = string.Empty;
             }
             else if (this.ChoicesTextBox.Text.Contains(this.AddChoiceTextBox.Text))
             {
-                MessageBox.Show("Letter already exist");
+                MessageBox.Show(ErrMsg.ChoiceAlreadyExistError);
                 this.AddChoiceTextBox.Text = string.Empty;
             }
             else
@@ -502,7 +501,7 @@ namespace PopUp_Researcher
                 this.AddChoiceTextBox.Text = string.Empty;
             }
         }
-        
+
         #endregion
     }
 }

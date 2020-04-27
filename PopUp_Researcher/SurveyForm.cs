@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
+using PopUp_Researcher.Resources;
 
 namespace PopUp_Researcher
 {
@@ -141,7 +142,7 @@ namespace PopUp_Researcher
 
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("Enter Name");
+                MessageBox.Show(ErrMsg.NameMissingError);
                 return;
             }
 
@@ -275,8 +276,8 @@ namespace PopUp_Researcher
         {
             if (!Loaded || QuestionsListView.Items.Count <= 0) return;
 
-            var dialogResult = MessageBox.Show("Are You Sure?",
-                "Change Survey Type",
+            var dialogResult = MessageBox.Show(BasicResources.AreYouSureQ,
+                BasicResources.ChangeSurveyTypeQ,
                 MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return;
             QuestionsListView.Clear();

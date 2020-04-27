@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using bRMS_Generator;
 using Newtonsoft.Json;
 using PopUp_Researcher.Helpers;
 using PopUp_Researcher.Models;
+using PopUp_Researcher.Resources;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace PopUp_Researcher
@@ -81,6 +80,20 @@ namespace PopUp_Researcher
             BindListView();
         }
 
+        private List<string> GetExistingBrmsNames()
+        {
+            var result = new List<string>();
+            foreach (var trial in Experiments.Keys)
+            {
+                if (Experiments[trial].type == ExperimentTypes.bRMS)
+                {
+                    result.Add(Experiments[trial].name);
+                }
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Open Create bRMS Dialog
         /// </summary>
@@ -88,7 +101,7 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void BRms_button_Click(object sender, EventArgs e)
         {
-            var bRms = new BrmsForm();
+            var bRms = new BrmsForm(null, GetExistingBrmsNames());
             bRms.ShowDialog();
             BindListView();
         }
@@ -281,8 +294,8 @@ namespace PopUp_Researcher
             var saveFileDialog1 = new SaveFileDialog
             {
                 FileName = NameTextBox.Text,
-                Filter = "Experiment JSON|*.json",
-                Title = "Save an Experiment File"
+                Filter = BasicResources.ExperimentFilter,
+                Title = BasicResources.ExperimentDialogTitle
             };
             saveFileDialog1.ShowDialog();
 
@@ -304,7 +317,7 @@ namespace PopUp_Researcher
             var selectedIndex = TrialsListView.SelectedItems[0].Index;
             if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
             {
-                MessageBox.Show("Edit bRMS experiment is not supported at this moment");
+                MessageBox.Show(BasicResources.EditBrmsInvalid);
                 return;
             }
             EditExperiment(selectedIndex);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
+using PopUp_Researcher.Resources;
 
 namespace PopUp_Researcher
 {
@@ -69,7 +70,7 @@ namespace PopUp_Researcher
         {
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("Enter Name");
+                MessageBox.Show(ErrMsg.NameMissingError);
                 return;
             }
 

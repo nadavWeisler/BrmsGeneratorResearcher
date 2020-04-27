@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bRMS_Form_HelpCsvMissing" xml:space="preserve">
-    <value>CSV File is Missing</value>
+  <data name="AreYouSureQ" xml:space="preserve">
+    <value>Are You Sure?</value>
   </data>
-  <data name="bRMS_Form_StimulusFileMissing" xml:space="preserve">
-    <value>Stimulus Folder Is Missing</value>
+  <data name="ChangeSurveyTypeQ" xml:space="preserve">
+    <value>Change Survey Type</value>
+  </data>
+  <data name="DeafultImagePath" xml:space="preserve">
+    <value>.\\IMAGES\\qMark.png</value>
+  </data>
+  <data name="EditBrmsInvalid" xml:space="preserve">
+    <value>Edit bRMS experiment is not supported at this moment</value>
+  </data>
+  <data name="ExperimentDialogTitle" xml:space="preserve">
+    <value>Save an Experiment File</value>
+  </data>
+  <data name="ExperimentFilter" xml:space="preserve">
+    <value>Experiment JSON|*.json</value>
+  </data>
+  <data name="ImageButtonText" xml:space="preserve">
+    <value>Next</value>
   </data>
 </root>

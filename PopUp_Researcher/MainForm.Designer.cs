@@ -213,6 +213,7 @@
             this.LoadButton.TabIndex = 6;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Visible = false;
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // openFileDialog1

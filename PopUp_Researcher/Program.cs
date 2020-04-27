@@ -1,8 +1,4 @@
-﻿using bRMS_Generator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace PopUp_Researcher

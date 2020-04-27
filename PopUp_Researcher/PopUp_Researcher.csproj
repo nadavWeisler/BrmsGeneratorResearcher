@@ -233,7 +233,6 @@
     </Compile>
     <Compile Include="Helpers\BRmsHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
-    <Compile Include="Helpers\ErrorMsg.Designer.cs" />
     <Compile Include="Helpers\Trial.cs" />
     <Compile Include="Helpers\FullScreen.cs" />
     <Compile Include="Helpers\Instructions.cs" />
@@ -250,6 +249,16 @@
     <Compile Include="QuestionForm.Designer.cs">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resources\BasicResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BasicResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ErrMsg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrMsg.resx</DependentUpon>
+    </Compile>
     <Compile Include="SurveyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,7 +271,14 @@
     <EmbeddedResource Include="FullscreenForm.resx">
       <DependentUpon>FullscreenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Helpers\ErrorMsg.resx" />
+    <EmbeddedResource Include="Resources\BasicResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BasicResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ErrMsg.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrMsg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImageForm.resx">
       <DependentUpon>ImageForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 using PopUp_Researcher.Helpers;
+using PopUp_Researcher.Resources;
 
 namespace PopUp_Researcher
 {
-    public partial class FullscreenForm : Form
+    public partial class FullscreenForm
     {
         #region Public Properties
 
@@ -61,7 +62,7 @@ namespace PopUp_Researcher
 
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("Enter Name");
+                MessageBox.Show(ErrMsg.NameMissingError);
                 return;
             }
 

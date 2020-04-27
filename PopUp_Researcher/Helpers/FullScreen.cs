@@ -1,6 +1,4 @@
-﻿using bRMS_Generator;
-
-namespace PopUp_Researcher.Helpers
+﻿namespace PopUp_Researcher.Helpers
 {
     public class FullScreen: Trial
     {
