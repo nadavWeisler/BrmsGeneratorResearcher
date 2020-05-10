@@ -79,6 +79,15 @@ namespace PopUp_Researcher.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ERROR: Invalid RGB code.
+        /// </summary>
+        internal static string InvalidRGBcode {
+            get {
+                return ResourceManager.GetString("InvalidRGBcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ERROR: Name already exist..
         /// </summary>
         internal static string NameAlreadyExistError {
@@ -93,6 +102,15 @@ namespace PopUp_Researcher.Resources {
         internal static string NameMissingError {
             get {
                 return ResourceManager.GetString("NameMissingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR: No trials added.
+        /// </summary>
+        internal static string NoTrialAddedError {
+            get {
+                return ResourceManager.GetString("NoTrialAddedError", resourceCulture);
             }
         }
     }

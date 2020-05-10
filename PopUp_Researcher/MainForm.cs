@@ -238,15 +238,15 @@ namespace PopUp_Researcher
         {
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                return "Experiment Name Is Missing";
+                return ErrMsg.NameMissingError;
             }
             else if (TrialsListView.Items.Count == 0)
             {
-                return "No Trials Selected";
+                return ErrMsg.NoTrialAddedError;
             }
             else if(!ValidRgb(BackgoundRgbTextBox.Text))
             {
-                return "Invalid RGB code";
+                return ErrMsg.InvalidRGBcode;
             }
             else
             {

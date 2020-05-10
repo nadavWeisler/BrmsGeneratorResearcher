@@ -123,10 +123,16 @@
   <data name="InvalidChoiceError" xml:space="preserve">
     <value>ERROR: Invalid choice</value>
   </data>
+  <data name="InvalidRGBcode" xml:space="preserve">
+    <value>ERROR: Invalid RGB code</value>
+  </data>
   <data name="NameAlreadyExistError" xml:space="preserve">
     <value>ERROR: Name already exist.</value>
   </data>
   <data name="NameMissingError" xml:space="preserve">
     <value>ERROR: Name is missing</value>
+  </data>
+  <data name="NoTrialAddedError" xml:space="preserve">
+    <value>ERROR: No trials added</value>
   </data>
 </root>
