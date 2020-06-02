@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using PopUp_Researcher.Models;
@@ -105,7 +106,7 @@ namespace PopUp_Researcher.Helpers
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static Experiment LoadExperimentCsv(string filePath)
+        public static Experiment LoadExperimentJson(string filePath)
         {
             var json = File.ReadAllText(filePath);
             var experimentJson = JsonConvert.DeserializeObject<Experiment>(json);

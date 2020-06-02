@@ -43,12 +43,16 @@ namespace PopUp_Researcher
 
             InitializeComponent();
             this.Questions = new List<Question>();
-            
             if(existing != null)
             {
+                this.NameTextBox.Enabled = false;
                 this.ExistingTrial = existing;
                 UpdateExistingTrial();
                 BindListView();
+            }
+            else
+            {
+                this.NameTextBox.Enabled = true;
             }
             this.Loaded = true;
         }

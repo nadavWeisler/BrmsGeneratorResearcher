@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PopUp_Researcher.Helpers;
 
 namespace PopUp_Researcher.Models
@@ -12,13 +8,26 @@ namespace PopUp_Researcher.Models
     {
         #region Properties
 
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        public int Count = 0;
+        public int count = 0;
 
-        public List<Dictionary<string, object>> Timeline { get; set; }
+        public string background_color;
 
-        public List<Trial> Trials;
+        public List<Dictionary<string, object>> timeline { get; set; }
+
+        public List<Trial> trialList;
+
+        #endregion
+
+        #region Constructors
+
+        public Experiment(string _name, string _background, List<Trial> trialList)
+        {
+            this.name = _name;
+            this.background_color = _background;
+            this.trialList = trialList;
+        }
 
         #endregion
 
@@ -26,69 +35,79 @@ namespace PopUp_Researcher.Models
 
         public void UpdateTrialsByTimeline()
         {
-            this.Trials = new List<Trial>();
-            foreach (var item in this.Timeline)
+            this.trialList = new List<Trial>();
+            foreach (var item in this.timeline)
             {
                 Survey newSurvey = null;
-                string questionsJson = null;
-                List<Question> qList = null;
-                switch(item["type"])
+                string questionsJson;
+                List<Question> qList;
+                switch (item["type"])
                 {
                     case "bRMS":
                         var newBrms = new Brms()
                         {
+                            name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
+                        this.trialList.Add(newBrms);
                         break;
                     case "survey-text":
-                        questionsJson = item["questions"].ToString();
-                        qList = Utils.GetQuestionsListFromJson("survey-text", questionsJson);
+                        qList = Utils.GetQuestionsListFromJson(
+                            "survey-text",
+                            item["questions"].ToString());
                         newSurvey = new TextSurvey(qList)
                         {
+                            name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "survey-likert":
-                        questionsJson = File.ReadAllText((string)item["questions"]);
-                        qList = Utils.GetQuestionsListFromJson("survey-likert", questionsJson);
+                        qList = Utils.GetQuestionsListFromJson(
+                            "survey-likert",
+                            item["questions"].ToString());
                         newSurvey = new ScaleSurvey(qList)
                         {
+                            name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "survey-multi-choice":
-                        questionsJson = File.ReadAllText((string)item["questions"]);
-                        qList = Utils.GetQuestionsListFromJson("survey-multi-choice", questionsJson);
+                        qList = Utils.GetQuestionsListFromJson(
+                            "survey-multi-choice",
+                            item["questions"].ToString());
                         newSurvey = new MultiSurvey(qList)
                         {
+                            name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
                         break;
                     case "fullscreen":
-                        var newFullscreen = new FullScreen((string)item["Message"])
+                        var newFullscreen = new FullScreen((string)item["message"])
                         {
+                            name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
-                        this.Trials.Add(newFullscreen);
+                        this.trialList.Add(newFullscreen);
                         break;
                     case "instructions":
                         var newIntro = new Instructions
                         {
+                            name = item["name"].ToString(),
                             pages = Utils.GetPagesFromJson(item["pages"].ToString()),
                             block = decimal.Parse(item["block"].ToString()),
                             sub_block = decimal.Parse(item["sub_block"].ToString())
                         };
-                        this.Trials.Add(newIntro);
+                        this.trialList.Add(newIntro);
                         break;
                 }
                 if(newSurvey != null)
                 {
-                    this.Trials.Add(newSurvey);
+                    this.trialList.Add(newSurvey);
                 }
             }
         }

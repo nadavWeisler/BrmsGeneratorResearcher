@@ -30,9 +30,10 @@ namespace PopUp_Researcher
         public FullscreenForm(FullScreen existing=null)
         {
             InitializeComponent();
-
+            this.NameGroupBox.Enabled = true;
             if (existing == null) return;
             this._existingTrial = existing;
+            this.NameGroupBox.Enabled = false;
             UpdateExistingTrial();
         }
 

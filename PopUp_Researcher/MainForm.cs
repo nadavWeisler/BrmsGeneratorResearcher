@@ -62,6 +62,8 @@ namespace PopUp_Researcher
             ExperimentsOrder = new List<string>();
             FullscreenCount = 0;
             IntroCount = 0;
+            BRmsCount = 0;
+            ImageButtonCount = 0;
         }
 
         #endregion
@@ -80,7 +82,11 @@ namespace PopUp_Researcher
             BindListView();
         }
 
-        private List<string> GetExistingBrmsNames()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private static List<string> GetExistingBrmsNames()
         {
             var result = new List<string>();
             foreach (var trial in Experiments.Keys)
@@ -152,11 +158,11 @@ namespace PopUp_Researcher
             // Show the FolderBrowserDialog.  
             var result = openFileDialog1.ShowDialog();
             if (result != DialogResult.OK) return;
-            var newExperiment = Utils.LoadExperimentCsv(openFileDialog1.FileName);
-            NameTextBox.Text = newExperiment.Name;
+            var newExperiment = Utils.LoadExperimentJson(openFileDialog1.FileName);
+            NameTextBox.Text = newExperiment.name;
             NameTextBox.Enabled = false;
             this.TrialsListView.Clear();
-            LoadExperiment(newExperiment.Trials);
+            LoadExperiment(newExperiment.trialList);
             BindListView();
         }
 
@@ -263,6 +269,25 @@ namespace PopUp_Researcher
             }
             return resultList;
         }
+
+        private static Dictionary<string, object> ToDictionary(object obj)
+        {
+            var json = JsonConvert.SerializeObject(obj);
+            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            return dictionary;
+        }
+
+        private Experiment ExperimentListToDic(Experiment experiment)
+        {
+            experiment.timeline = new List<Dictionary<string, object>>();
+            foreach (var trial in experiment.trialList)
+            {
+                experiment.timeline.Add(ToDictionary(trial));
+            }
+
+            experiment.trialList = null;
+            return experiment;
+        }
         /// <summary>
         /// Save all experiment button click
         /// </summary>
@@ -278,16 +303,12 @@ namespace PopUp_Researcher
                 return;
             }
 
-            var toJsonDic = new Dictionary<string, object>
-            {
-                {"timeline", this.GetFinalTimeline()},
-                {"name", NameTextBox.Text},
-                {"count", 0},
-                {"background_color", BackgoundRgbTextBox.Text}
-            };
+            var newExperiment = new Experiment(NameTextBox.Text,
+                BackgoundRgbTextBox.Text,
+                this.GetFinalTimeline());
+            newExperiment = this.ExperimentListToDic(newExperiment);
 
-
-            var json = JsonConvert.SerializeObject(toJsonDic, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(newExperiment, Formatting.Indented);
 
 
             // Displays a SaveFileDialog so the user can save the Image  
@@ -330,34 +351,42 @@ namespace PopUp_Researcher
         private void EditExperiment(int trialIndex)
         {
             var trial = Experiments[ExperimentsOrder[trialIndex]];
-            if (trial.type == ExperimentTypes.ScaleSurvey ||
-                     trial.type == ExperimentTypes.TextSurvey ||
-                     trial.type == ExperimentTypes.MultiChoiceSurvey)
+            switch (trial.type)
             {
-                var surveyF = new SurveyForm((Survey)trial);
-                surveyF.ShowDialog();
-                if (surveyF.ReturnEdit != null)
+                case ExperimentTypes.ScaleSurvey:
+                case ExperimentTypes.TextSurvey:
+                case ExperimentTypes.MultiChoiceSurvey:
                 {
-                    Experiments[ExperimentsOrder[trialIndex]] = surveyF.ReturnEdit;
+                    var surveyF = new SurveyForm((Survey)trial);
+                    surveyF.ShowDialog();
+                    if (surveyF.ReturnEdit != null)
+                    {
+                        Experiments[ExperimentsOrder[trialIndex]] = surveyF.ReturnEdit;
+                    }
+                    break;
                 }
-            }
-            else if (trial.type == ExperimentTypes.Fullscreen)
-            {
-                var fullscreenF = new FullscreenForm((FullScreen)trial);
-                fullscreenF.ShowDialog();
-                if (fullscreenF.ReturnEdit != null)
+                case ExperimentTypes.Fullscreen:
                 {
-                    Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.ReturnEdit;
+                    var fullscreenF = new FullscreenForm((FullScreen)trial);
+                    fullscreenF.ShowDialog();
+                    if (fullscreenF.ReturnEdit != null)
+                    {
+                        Experiments[ExperimentsOrder[trialIndex]] = fullscreenF.ReturnEdit;
+                    }
+                    break;
                 }
-            }
-            else if (trial.type == ExperimentTypes.Instructions)
-            {
-                var instructionsF = new InstructionsForm((Instructions)trial);
-                instructionsF.ShowDialog();
-                if (instructionsF.ReturnEdit != null)
+                case ExperimentTypes.Instructions:
                 {
-                    Experiments[ExperimentsOrder[trialIndex]] = instructionsF.ReturnEdit;
+                    var instructionsF = new InstructionsForm((Instructions)trial);
+                    instructionsF.ShowDialog();
+                    if (instructionsF.ReturnEdit != null)
+                    {
+                        Experiments[ExperimentsOrder[trialIndex]] = instructionsF.ReturnEdit;
+                    }
+                    break;
                 }
+                case ExperimentTypes.bRMS:
+                    break;
             }
             BindListView();
         }

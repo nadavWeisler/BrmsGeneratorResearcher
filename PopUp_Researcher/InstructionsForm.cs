@@ -31,7 +31,9 @@ namespace PopUp_Researcher
         {
             InitializeComponent();
             this.PagesDictionary = new Dictionary<string, string>();
+            this.NameTextBox.Enabled = true;
             if (existing == null) return;
+            this.NameTextBox.Enabled = false;
             this._existingTrial = existing;
             UpdateExistingTrial();
             BindListView();

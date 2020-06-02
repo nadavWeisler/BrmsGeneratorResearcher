@@ -26,9 +26,9 @@ namespace PopUp_Researcher
         public ImageForm(ImageKeyboard existing = null)
         {
             InitializeComponent();
-
-            if(existing == null) { return;}
-
+            this.NameTextBox.Enabled = true;
+            if (existing == null) { return;}
+            this.NameTextBox.Enabled = false;
             this._existingTrial = existing;
             UpdateExistingTrial();
         }

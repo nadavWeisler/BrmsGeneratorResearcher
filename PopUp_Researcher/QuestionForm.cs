@@ -104,10 +104,9 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void AddOptionButton_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(OptionsTextBox.Text))
-            {
-                listView1.Items.Add(OptionsTextBox.Text);
-            }
+            if (string.IsNullOrWhiteSpace(OptionsTextBox.Text)) return;
+            listView1.Items.Add(OptionsTextBox.Text);
+            OptionsTextBox.Text = string.Empty;
         }
 
         /// <summary>
@@ -130,13 +129,11 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0].Index > 0)
-            {
-                var tmp = listView1.SelectedItems[0].Text;
-                var tmpIndex = listView1.SelectedItems[0].Index;
-                listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
-                listView1.Items[tmpIndex - 1].Text = tmp;
-            }
+            if (listView1.SelectedItems.Count <= 0 || listView1.SelectedItems[0].Index <= 0) return;
+            var tmp = listView1.SelectedItems[0].Text;
+            var tmpIndex = listView1.SelectedItems[0].Index;
+            listView1.Items[tmpIndex].Text = listView1.Items[tmpIndex - 1].Text;
+            listView1.Items[tmpIndex - 1].Text = tmp;
         }
 
         /// <summary>
