@@ -43,15 +43,15 @@ namespace PopUp_Researcher
             this.label6 = new System.Windows.Forms.Label();
             this.PostTrialGapNumeric = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.StimulusDelayNumeric = new System.Windows.Forms.NumericUpDown();
-            this.StimulusDelayLabel = new System.Windows.Forms.Label();
             this.MondrianCountNumeric = new System.Windows.Forms.NumericUpDown();
             this.MondrianCountLabel = new System.Windows.Forms.Label();
             this.TimingResponseNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimingResponseLabel = new System.Windows.Forms.Label();
             this.ParamsGroupBox = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.numericGapDuration = new System.Windows.Forms.NumericUpDown();
+            this.AddChoiceTextBox = new System.Windows.Forms.TextBox();
+            this.ChoicesButton = new System.Windows.Forms.Button();
+            this.ChoicesTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.numericMondrianDuration = new System.Windows.Forms.NumericUpDown();
             this.NameGroupBox = new System.Windows.Forms.GroupBox();
@@ -105,19 +105,13 @@ namespace PopUp_Researcher
             this.SaveButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ChoicesTextBox = new System.Windows.Forms.TextBox();
-            this.ChoicesButton = new System.Windows.Forms.Button();
-            this.AddChoiceTextBox = new System.Windows.Forms.TextBox();
             this.AllBRMSGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacdeOutTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PostTrialGapNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusDelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianCountNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingResponseNumeric)).BeginInit();
             this.ParamsGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericGapDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMondrianDuration)).BeginInit();
             this.NameGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubBlockNumeric)).BeginInit();
@@ -142,10 +136,9 @@ namespace PopUp_Researcher
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(240, 618);
-            this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RemoveButton.Location = new System.Drawing.Point(160, 402);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(112, 35);
+            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
             this.RemoveButton.TabIndex = 31;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
@@ -154,20 +147,18 @@ namespace PopUp_Researcher
             // DuplicateButton
             // 
             this.DuplicateButton.Enabled = false;
-            this.DuplicateButton.Location = new System.Drawing.Point(8, 618);
-            this.DuplicateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DuplicateButton.Location = new System.Drawing.Point(5, 402);
             this.DuplicateButton.Name = "DuplicateButton";
-            this.DuplicateButton.Size = new System.Drawing.Size(112, 35);
+            this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
             this.DuplicateButton.TabIndex = 32;
             this.DuplicateButton.Text = "Duplicate";
             this.DuplicateButton.UseVisualStyleBackColor = true;
             // 
             // DownButton
             // 
-            this.DownButton.Location = new System.Drawing.Point(186, 618);
-            this.DownButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DownButton.Location = new System.Drawing.Point(124, 402);
             this.DownButton.Name = "DownButton";
-            this.DownButton.Size = new System.Drawing.Size(45, 35);
+            this.DownButton.Size = new System.Drawing.Size(30, 23);
             this.DownButton.TabIndex = 33;
             this.DownButton.Text = "-";
             this.DownButton.UseVisualStyleBackColor = true;
@@ -175,10 +166,9 @@ namespace PopUp_Researcher
             // 
             // UpButton
             // 
-            this.UpButton.Location = new System.Drawing.Point(128, 618);
-            this.UpButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UpButton.Location = new System.Drawing.Point(85, 402);
             this.UpButton.Name = "UpButton";
-            this.UpButton.Size = new System.Drawing.Size(45, 35);
+            this.UpButton.Size = new System.Drawing.Size(30, 23);
             this.UpButton.TabIndex = 34;
             this.UpButton.Text = "+";
             this.UpButton.UseVisualStyleBackColor = true;
@@ -191,11 +181,9 @@ namespace PopUp_Researcher
             this.AllBRMSGroupBox.Controls.Add(this.DuplicateButton);
             this.AllBRMSGroupBox.Controls.Add(this.RemoveButton);
             this.AllBRMSGroupBox.Controls.Add(this.AllTrialsListView);
-            this.AllBRMSGroupBox.Location = new System.Drawing.Point(1154, 18);
-            this.AllBRMSGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AllBRMSGroupBox.Location = new System.Drawing.Point(769, 12);
             this.AllBRMSGroupBox.Name = "AllBRMSGroupBox";
-            this.AllBRMSGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.AllBRMSGroupBox.Size = new System.Drawing.Size(368, 662);
+            this.AllBRMSGroupBox.Size = new System.Drawing.Size(245, 430);
             this.AllBRMSGroupBox.TabIndex = 10;
             this.AllBRMSGroupBox.TabStop = false;
             this.AllBRMSGroupBox.Text = "All Trials";
@@ -203,20 +191,18 @@ namespace PopUp_Researcher
             // AllTrialsListView
             // 
             this.AllTrialsListView.HideSelection = false;
-            this.AllTrialsListView.Location = new System.Drawing.Point(9, 29);
-            this.AllTrialsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AllTrialsListView.Location = new System.Drawing.Point(6, 19);
             this.AllTrialsListView.Name = "AllTrialsListView";
-            this.AllTrialsListView.Size = new System.Drawing.Size(343, 572);
+            this.AllTrialsListView.Size = new System.Drawing.Size(230, 373);
             this.AllTrialsListView.TabIndex = 8;
             this.AllTrialsListView.UseCompatibleStateImageBehavior = false;
             this.AllTrialsListView.View = System.Windows.Forms.View.List;
             // 
             // FadeInTimeNumeric
             // 
-            this.FadeInTimeNumeric.Location = new System.Drawing.Point(259, 119);
-            this.FadeInTimeNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FadeInTimeNumeric.Location = new System.Drawing.Point(173, 77);
             this.FadeInTimeNumeric.Name = "FadeInTimeNumeric";
-            this.FadeInTimeNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FadeInTimeNumeric.Size = new System.Drawing.Size(71, 20);
             this.FadeInTimeNumeric.TabIndex = 6;
             this.FadeInTimeNumeric.Value = new decimal(new int[] {
             1,
@@ -227,19 +213,17 @@ namespace PopUp_Researcher
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 122);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(5, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 20);
+            this.label5.Size = new System.Drawing.Size(137, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Stimulus Fade In Time (sec)";
             // 
             // FacdeOutTimeNumeric
             // 
-            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(259, 152);
-            this.FacdeOutTimeNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(173, 99);
             this.FacdeOutTimeNumeric.Name = "FacdeOutTimeNumeric";
-            this.FacdeOutTimeNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FacdeOutTimeNumeric.Size = new System.Drawing.Size(71, 20);
             this.FacdeOutTimeNumeric.TabIndex = 8;
             this.FacdeOutTimeNumeric.Value = new decimal(new int[] {
             3,
@@ -250,20 +234,18 @@ namespace PopUp_Researcher
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 158);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(5, 103);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(231, 20);
+            this.label6.Size = new System.Drawing.Size(155, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Mondrians Fade Out Time (sec)";
             // 
             // PostTrialGapNumeric
             // 
             this.PostTrialGapNumeric.DecimalPlaces = 1;
-            this.PostTrialGapNumeric.Location = new System.Drawing.Point(259, 332);
-            this.PostTrialGapNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PostTrialGapNumeric.Location = new System.Drawing.Point(173, 193);
             this.PostTrialGapNumeric.Name = "PostTrialGapNumeric";
-            this.PostTrialGapNumeric.Size = new System.Drawing.Size(106, 26);
+            this.PostTrialGapNumeric.Size = new System.Drawing.Size(71, 20);
             this.PostTrialGapNumeric.TabIndex = 14;
             this.PostTrialGapNumeric.Value = new decimal(new int[] {
             4,
@@ -274,37 +256,17 @@ namespace PopUp_Researcher
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 334);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(5, 194);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 20);
+            this.label9.Size = new System.Drawing.Size(100, 13);
             this.label9.TabIndex = 15;
             this.label9.Text = "Post Trial Gap (sec)";
             // 
-            // StimulusDelayNumeric
-            // 
-            this.StimulusDelayNumeric.Location = new System.Drawing.Point(259, 368);
-            this.StimulusDelayNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.StimulusDelayNumeric.Name = "StimulusDelayNumeric";
-            this.StimulusDelayNumeric.Size = new System.Drawing.Size(106, 26);
-            this.StimulusDelayNumeric.TabIndex = 18;
-            // 
-            // StimulusDelayLabel
-            // 
-            this.StimulusDelayLabel.AutoSize = true;
-            this.StimulusDelayLabel.Location = new System.Drawing.Point(8, 368);
-            this.StimulusDelayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.StimulusDelayLabel.Name = "StimulusDelayLabel";
-            this.StimulusDelayLabel.Size = new System.Drawing.Size(218, 20);
-            this.StimulusDelayLabel.TabIndex = 19;
-            this.StimulusDelayLabel.Text = "Stimulus Delay Duration (sec)";
-            // 
             // MondrianCountNumeric
             // 
-            this.MondrianCountNumeric.Location = new System.Drawing.Point(662, 119);
-            this.MondrianCountNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MondrianCountNumeric.Location = new System.Drawing.Point(441, 77);
             this.MondrianCountNumeric.Name = "MondrianCountNumeric";
-            this.MondrianCountNumeric.Size = new System.Drawing.Size(106, 26);
+            this.MondrianCountNumeric.Size = new System.Drawing.Size(71, 20);
             this.MondrianCountNumeric.TabIndex = 20;
             this.MondrianCountNumeric.Value = new decimal(new int[] {
             50,
@@ -315,19 +277,17 @@ namespace PopUp_Researcher
             // MondrianCountLabel
             // 
             this.MondrianCountLabel.AutoSize = true;
-            this.MondrianCountLabel.Location = new System.Drawing.Point(410, 125);
-            this.MondrianCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MondrianCountLabel.Location = new System.Drawing.Point(273, 81);
             this.MondrianCountLabel.Name = "MondrianCountLabel";
-            this.MondrianCountLabel.Size = new System.Drawing.Size(176, 20);
+            this.MondrianCountLabel.Size = new System.Drawing.Size(118, 13);
             this.MondrianCountLabel.TabIndex = 21;
             this.MondrianCountLabel.Text = "Mondrian Count (count)";
             // 
             // TimingResponseNumeric
             // 
-            this.TimingResponseNumeric.Location = new System.Drawing.Point(259, 188);
-            this.TimingResponseNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TimingResponseNumeric.Location = new System.Drawing.Point(173, 122);
             this.TimingResponseNumeric.Name = "TimingResponseNumeric";
-            this.TimingResponseNumeric.Size = new System.Drawing.Size(106, 26);
+            this.TimingResponseNumeric.Size = new System.Drawing.Size(71, 20);
             this.TimingResponseNumeric.TabIndex = 22;
             this.TimingResponseNumeric.Value = new decimal(new int[] {
             10,
@@ -338,10 +298,9 @@ namespace PopUp_Researcher
             // TimingResponseLabel
             // 
             this.TimingResponseLabel.AutoSize = true;
-            this.TimingResponseLabel.Location = new System.Drawing.Point(8, 188);
-            this.TimingResponseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TimingResponseLabel.Location = new System.Drawing.Point(5, 122);
             this.TimingResponseLabel.Name = "TimingResponseLabel";
-            this.TimingResponseLabel.Size = new System.Drawing.Size(152, 20);
+            this.TimingResponseLabel.Size = new System.Drawing.Size(103, 13);
             this.TimingResponseLabel.TabIndex = 23;
             this.TimingResponseLabel.Text = "All Trial Length (sec)";
             // 
@@ -351,8 +310,6 @@ namespace PopUp_Researcher
             this.ParamsGroupBox.Controls.Add(this.ChoicesButton);
             this.ParamsGroupBox.Controls.Add(this.ChoicesTextBox);
             this.ParamsGroupBox.Controls.Add(this.label2);
-            this.ParamsGroupBox.Controls.Add(this.label18);
-            this.ParamsGroupBox.Controls.Add(this.numericGapDuration);
             this.ParamsGroupBox.Controls.Add(this.label7);
             this.ParamsGroupBox.Controls.Add(this.numericMondrianDuration);
             this.ParamsGroupBox.Controls.Add(this.NameGroupBox);
@@ -392,72 +349,75 @@ namespace PopUp_Researcher
             this.ParamsGroupBox.Controls.Add(this.TimingResponseNumeric);
             this.ParamsGroupBox.Controls.Add(this.MondrianCountLabel);
             this.ParamsGroupBox.Controls.Add(this.MondrianCountNumeric);
-            this.ParamsGroupBox.Controls.Add(this.StimulusDelayLabel);
-            this.ParamsGroupBox.Controls.Add(this.StimulusDelayNumeric);
             this.ParamsGroupBox.Controls.Add(this.label9);
             this.ParamsGroupBox.Controls.Add(this.PostTrialGapNumeric);
             this.ParamsGroupBox.Controls.Add(this.label6);
             this.ParamsGroupBox.Controls.Add(this.FacdeOutTimeNumeric);
             this.ParamsGroupBox.Controls.Add(this.label5);
             this.ParamsGroupBox.Controls.Add(this.FadeInTimeNumeric);
-            this.ParamsGroupBox.Location = new System.Drawing.Point(18, 114);
-            this.ParamsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ParamsGroupBox.Location = new System.Drawing.Point(12, 74);
             this.ParamsGroupBox.Name = "ParamsGroupBox";
-            this.ParamsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 566);
+            this.ParamsGroupBox.Size = new System.Drawing.Size(757, 368);
             this.ParamsGroupBox.TabIndex = 22;
             this.ParamsGroupBox.TabStop = false;
             this.ParamsGroupBox.Text = "Paramenters";
             // 
-            // label18
+            // AddChoiceTextBox
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 298);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(140, 20);
-            this.label18.TabIndex = 67;
-            this.label18.Text = "Gap Duration (ms)";
+            this.AddChoiceTextBox.Location = new System.Drawing.Point(54, 273);
+            this.AddChoiceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddChoiceTextBox.MaxLength = 1;
+            this.AddChoiceTextBox.Name = "AddChoiceTextBox";
+            this.AddChoiceTextBox.Size = new System.Drawing.Size(45, 20);
+            this.AddChoiceTextBox.TabIndex = 71;
             // 
-            // numericGapDuration
+            // ChoicesButton
             // 
-            this.numericGapDuration.Location = new System.Drawing.Point(259, 296);
-            this.numericGapDuration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.numericGapDuration.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericGapDuration.Name = "numericGapDuration";
-            this.numericGapDuration.Size = new System.Drawing.Size(106, 26);
-            this.numericGapDuration.TabIndex = 66;
-            this.numericGapDuration.Value = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
+            this.ChoicesButton.Location = new System.Drawing.Point(102, 272);
+            this.ChoicesButton.Name = "ChoicesButton";
+            this.ChoicesButton.Size = new System.Drawing.Size(23, 19);
+            this.ChoicesButton.TabIndex = 70;
+            this.ChoicesButton.Text = "+";
+            this.ChoicesButton.UseVisualStyleBackColor = true;
+            this.ChoicesButton.Click += new System.EventHandler(this.ChoicesButton_Click);
+            // 
+            // ChoicesTextBox
+            // 
+            this.ChoicesTextBox.Enabled = false;
+            this.ChoicesTextBox.Location = new System.Drawing.Point(130, 273);
+            this.ChoicesTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChoicesTextBox.Name = "ChoicesTextBox";
+            this.ChoicesTextBox.Size = new System.Drawing.Size(114, 20);
+            this.ChoicesTextBox.TabIndex = 69;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 275);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Choices";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 224);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(7, 146);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(147, 20);
+            this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 65;
             this.label7.Text = "Mask Duration (ms)";
             // 
             // numericMondrianDuration
             // 
-            this.numericMondrianDuration.Location = new System.Drawing.Point(259, 224);
-            this.numericMondrianDuration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericMondrianDuration.Location = new System.Drawing.Point(173, 146);
             this.numericMondrianDuration.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericMondrianDuration.Name = "numericMondrianDuration";
-            this.numericMondrianDuration.Size = new System.Drawing.Size(106, 26);
+            this.numericMondrianDuration.Size = new System.Drawing.Size(71, 20);
             this.numericMondrianDuration.TabIndex = 64;
             this.numericMondrianDuration.Value = new decimal(new int[] {
             67,
@@ -468,69 +428,63 @@ namespace PopUp_Researcher
             // NameGroupBox
             // 
             this.NameGroupBox.Controls.Add(this.NameTextBox);
-            this.NameGroupBox.Location = new System.Drawing.Point(414, 32);
-            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Location = new System.Drawing.Point(276, 21);
             this.NameGroupBox.Name = "NameGroupBox";
-            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.NameGroupBox.Size = new System.Drawing.Size(354, 78);
+            this.NameGroupBox.Size = new System.Drawing.Size(236, 51);
             this.NameGroupBox.TabIndex = 36;
             this.NameGroupBox.TabStop = false;
             this.NameGroupBox.Text = "Name";
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(8, 28);
+            this.NameTextBox.Location = new System.Drawing.Point(5, 18);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(337, 26);
+            this.NameTextBox.Size = new System.Drawing.Size(226, 20);
             this.NameTextBox.TabIndex = 0;
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(913, 528);
-            this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(609, 343);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
+            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
             this.SubBlockNumeric.TabIndex = 26;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(819, 529);
-            this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SubBlockLabel.Location = new System.Drawing.Point(546, 344);
             this.SubBlockLabel.Name = "SubBlockLabel";
-            this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
+            this.SubBlockLabel.Size = new System.Drawing.Size(56, 13);
             this.SubBlockLabel.TabIndex = 25;
             this.SubBlockLabel.Text = "Sub Block";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 262);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(5, 170);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(170, 20);
+            this.label12.Size = new System.Drawing.Size(111, 13);
             this.label12.TabIndex = 63;
             this.label12.Text = "Stimulus Duration (ms)";
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(734, 528);
-            this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BlockNumeric.Location = new System.Drawing.Point(489, 343);
             this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
+            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
             this.BlockNumeric.TabIndex = 24;
             // 
             // StimulusDurationNumeric
             // 
-            this.StimulusDurationNumeric.Location = new System.Drawing.Point(259, 260);
-            this.StimulusDurationNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusDurationNumeric.Location = new System.Drawing.Point(173, 169);
             this.StimulusDurationNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusDurationNumeric.Name = "StimulusDurationNumeric";
-            this.StimulusDurationNumeric.Size = new System.Drawing.Size(106, 26);
+            this.StimulusDurationNumeric.Size = new System.Drawing.Size(71, 20);
             this.StimulusDurationNumeric.TabIndex = 62;
             this.StimulusDurationNumeric.Value = new decimal(new int[] {
             33,
@@ -541,25 +495,23 @@ namespace PopUp_Researcher
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(673, 529);
-            this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BlockLabel.Location = new System.Drawing.Point(449, 344);
             this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(48, 20);
+            this.BlockLabel.Size = new System.Drawing.Size(34, 13);
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
             // FixationHeightNumeric
             // 
             this.FixationHeightNumeric.DecimalPlaces = 1;
-            this.FixationHeightNumeric.Location = new System.Drawing.Point(662, 440);
-            this.FixationHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FixationHeightNumeric.Location = new System.Drawing.Point(441, 286);
             this.FixationHeightNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.FixationHeightNumeric.Name = "FixationHeightNumeric";
-            this.FixationHeightNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FixationHeightNumeric.Size = new System.Drawing.Size(71, 20);
             this.FixationHeightNumeric.TabIndex = 61;
             this.FixationHeightNumeric.Value = new decimal(new int[] {
             25,
@@ -570,25 +522,23 @@ namespace PopUp_Researcher
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(412, 442);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(275, 287);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(155, 20);
+            this.label10.Size = new System.Drawing.Size(102, 13);
             this.label10.TabIndex = 60;
             this.label10.Text = "Fixation Height (mm)";
             // 
             // FixationWidthNumeric
             // 
             this.FixationWidthNumeric.DecimalPlaces = 1;
-            this.FixationWidthNumeric.Location = new System.Drawing.Point(662, 404);
-            this.FixationWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FixationWidthNumeric.Location = new System.Drawing.Point(441, 263);
             this.FixationWidthNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.FixationWidthNumeric.Name = "FixationWidthNumeric";
-            this.FixationWidthNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FixationWidthNumeric.Size = new System.Drawing.Size(71, 20);
             this.FixationWidthNumeric.TabIndex = 59;
             this.FixationWidthNumeric.Value = new decimal(new int[] {
             9,
@@ -599,24 +549,22 @@ namespace PopUp_Researcher
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(412, 404);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(275, 263);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(149, 20);
+            this.label17.Size = new System.Drawing.Size(99, 13);
             this.label17.TabIndex = 58;
             this.label17.Text = "Fixation Width (mm)";
             // 
             // StimulusHeightNumeric
             // 
-            this.StimulusHeightNumeric.Location = new System.Drawing.Point(662, 368);
-            this.StimulusHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusHeightNumeric.Location = new System.Drawing.Point(441, 239);
             this.StimulusHeightNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusHeightNumeric.Name = "StimulusHeightNumeric";
-            this.StimulusHeightNumeric.Size = new System.Drawing.Size(106, 26);
+            this.StimulusHeightNumeric.Size = new System.Drawing.Size(71, 20);
             this.StimulusHeightNumeric.TabIndex = 57;
             this.StimulusHeightNumeric.Value = new decimal(new int[] {
             65,
@@ -627,25 +575,23 @@ namespace PopUp_Researcher
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(410, 370);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(273, 240);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 20);
+            this.label11.Size = new System.Drawing.Size(105, 13);
             this.label11.TabIndex = 56;
             this.label11.Text = "Stimulus Height (mm)";
             // 
             // StimulusWidthNumeric
             // 
             this.StimulusWidthNumeric.DecimalPlaces = 1;
-            this.StimulusWidthNumeric.Location = new System.Drawing.Point(662, 332);
-            this.StimulusWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusWidthNumeric.Location = new System.Drawing.Point(441, 216);
             this.StimulusWidthNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusWidthNumeric.Name = "StimulusWidthNumeric";
-            this.StimulusWidthNumeric.Size = new System.Drawing.Size(106, 26);
+            this.StimulusWidthNumeric.Size = new System.Drawing.Size(71, 20);
             this.StimulusWidthNumeric.TabIndex = 55;
             this.StimulusWidthNumeric.Value = new decimal(new int[] {
             65,
@@ -656,25 +602,23 @@ namespace PopUp_Researcher
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(412, 334);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(275, 217);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 20);
+            this.label13.Size = new System.Drawing.Size(102, 13);
             this.label13.TabIndex = 54;
             this.label13.Text = "Stimulus Width (mm)";
             // 
             // StimulusOpacityNumeric
             // 
             this.StimulusOpacityNumeric.DecimalPlaces = 2;
-            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(259, 404);
-            this.StimulusOpacityNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(173, 219);
             this.StimulusOpacityNumeric.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.StimulusOpacityNumeric.Name = "StimulusOpacityNumeric";
-            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(106, 26);
+            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(71, 20);
             this.StimulusOpacityNumeric.TabIndex = 53;
             this.StimulusOpacityNumeric.Value = new decimal(new int[] {
             35,
@@ -685,21 +629,18 @@ namespace PopUp_Researcher
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 404);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(7, 219);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 20);
+            this.label16.Size = new System.Drawing.Size(109, 13);
             this.label16.TabIndex = 52;
             this.label16.Text = "Stimulus Opacity (0-1)";
             // 
             // TagsGroupBox
             // 
             this.TagsGroupBox.Controls.Add(this.TagsListView);
-            this.TagsGroupBox.Location = new System.Drawing.Point(795, 32);
-            this.TagsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TagsGroupBox.Location = new System.Drawing.Point(530, 21);
             this.TagsGroupBox.Name = "TagsGroupBox";
-            this.TagsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TagsGroupBox.Size = new System.Drawing.Size(332, 205);
+            this.TagsGroupBox.Size = new System.Drawing.Size(221, 133);
             this.TagsGroupBox.TabIndex = 51;
             this.TagsGroupBox.TabStop = false;
             this.TagsGroupBox.Text = "Tags";
@@ -707,10 +648,9 @@ namespace PopUp_Researcher
             // TagsListView
             // 
             this.TagsListView.HideSelection = false;
-            this.TagsListView.Location = new System.Drawing.Point(14, 32);
-            this.TagsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TagsListView.Location = new System.Drawing.Point(9, 21);
             this.TagsListView.Name = "TagsListView";
-            this.TagsListView.Size = new System.Drawing.Size(307, 159);
+            this.TagsListView.Size = new System.Drawing.Size(206, 105);
             this.TagsListView.TabIndex = 7;
             this.TagsListView.UseCompatibleStateImageBehavior = false;
             this.TagsListView.View = System.Windows.Forms.View.List;
@@ -718,10 +658,9 @@ namespace PopUp_Researcher
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(1005, 522);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AddButton.Location = new System.Drawing.Point(670, 339);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(112, 35);
+            this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 20;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -735,21 +674,18 @@ namespace PopUp_Researcher
             this.OrderGroup.Controls.Add(this.MinusButton);
             this.OrderGroup.Controls.Add(this.OrderlistView);
             this.OrderGroup.Enabled = false;
-            this.OrderGroup.Location = new System.Drawing.Point(796, 246);
-            this.OrderGroup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OrderGroup.Location = new System.Drawing.Point(531, 160);
             this.OrderGroup.Name = "OrderGroup";
-            this.OrderGroup.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.OrderGroup.Size = new System.Drawing.Size(332, 266);
+            this.OrderGroup.Size = new System.Drawing.Size(221, 173);
             this.OrderGroup.TabIndex = 50;
             this.OrderGroup.TabStop = false;
             this.OrderGroup.Text = "Order";
             // 
             // DuplicateOrderButton
             // 
-            this.DuplicateOrderButton.Location = new System.Drawing.Point(8, 212);
-            this.DuplicateOrderButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DuplicateOrderButton.Location = new System.Drawing.Point(5, 138);
             this.DuplicateOrderButton.Name = "DuplicateOrderButton";
-            this.DuplicateOrderButton.Size = new System.Drawing.Size(90, 35);
+            this.DuplicateOrderButton.Size = new System.Drawing.Size(60, 23);
             this.DuplicateOrderButton.TabIndex = 5;
             this.DuplicateOrderButton.Text = "DuplicateOrderButton";
             this.DuplicateOrderButton.UseVisualStyleBackColor = true;
@@ -757,10 +693,9 @@ namespace PopUp_Researcher
             // 
             // RemoveOrderButton
             // 
-            this.RemoveOrderButton.Location = new System.Drawing.Point(231, 212);
-            this.RemoveOrderButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RemoveOrderButton.Location = new System.Drawing.Point(154, 138);
             this.RemoveOrderButton.Name = "RemoveOrderButton";
-            this.RemoveOrderButton.Size = new System.Drawing.Size(90, 35);
+            this.RemoveOrderButton.Size = new System.Drawing.Size(60, 23);
             this.RemoveOrderButton.TabIndex = 4;
             this.RemoveOrderButton.Text = "Remove";
             this.RemoveOrderButton.UseVisualStyleBackColor = true;
@@ -768,10 +703,9 @@ namespace PopUp_Researcher
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(105, 212);
-            this.PlusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PlusButton.Location = new System.Drawing.Point(70, 138);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(54, 35);
+            this.PlusButton.Size = new System.Drawing.Size(36, 23);
             this.PlusButton.TabIndex = 3;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
@@ -779,10 +713,9 @@ namespace PopUp_Researcher
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(170, 212);
-            this.MinusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinusButton.Location = new System.Drawing.Point(113, 138);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(54, 35);
+            this.MinusButton.Size = new System.Drawing.Size(36, 23);
             this.MinusButton.TabIndex = 1;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
@@ -791,11 +724,10 @@ namespace PopUp_Researcher
             // OrderlistView
             // 
             this.OrderlistView.HideSelection = false;
-            this.OrderlistView.Location = new System.Drawing.Point(9, 29);
-            this.OrderlistView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OrderlistView.Location = new System.Drawing.Point(6, 19);
             this.OrderlistView.MultiSelect = false;
             this.OrderlistView.Name = "OrderlistView";
-            this.OrderlistView.Size = new System.Drawing.Size(312, 173);
+            this.OrderlistView.Size = new System.Drawing.Size(209, 114);
             this.OrderlistView.TabIndex = 0;
             this.OrderlistView.UseCompatibleStateImageBehavior = false;
             this.OrderlistView.View = System.Windows.Forms.View.List;
@@ -803,15 +735,14 @@ namespace PopUp_Researcher
             // FrameHeightNumeric
             // 
             this.FrameHeightNumeric.DecimalPlaces = 1;
-            this.FrameHeightNumeric.Location = new System.Drawing.Point(662, 296);
-            this.FrameHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FrameHeightNumeric.Location = new System.Drawing.Point(441, 192);
             this.FrameHeightNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.FrameHeightNumeric.Name = "FrameHeightNumeric";
-            this.FrameHeightNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FrameHeightNumeric.Size = new System.Drawing.Size(71, 20);
             this.FrameHeightNumeric.TabIndex = 49;
             this.FrameHeightNumeric.Value = new decimal(new int[] {
             67,
@@ -822,25 +753,23 @@ namespace PopUp_Researcher
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(410, 298);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(273, 194);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(146, 20);
+            this.label15.Size = new System.Drawing.Size(95, 13);
             this.label15.TabIndex = 48;
             this.label15.Text = "Frame Height (mm)";
             // 
             // FrameWidthNumeric
             // 
             this.FrameWidthNumeric.DecimalPlaces = 1;
-            this.FrameWidthNumeric.Location = new System.Drawing.Point(662, 260);
-            this.FrameWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FrameWidthNumeric.Location = new System.Drawing.Point(441, 169);
             this.FrameWidthNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.FrameWidthNumeric.Name = "FrameWidthNumeric";
-            this.FrameWidthNumeric.Size = new System.Drawing.Size(106, 26);
+            this.FrameWidthNumeric.Size = new System.Drawing.Size(71, 20);
             this.FrameWidthNumeric.TabIndex = 47;
             this.FrameWidthNumeric.Value = new decimal(new int[] {
             160,
@@ -851,20 +780,18 @@ namespace PopUp_Researcher
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(410, 260);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(273, 169);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 20);
+            this.label14.Size = new System.Drawing.Size(92, 13);
             this.label14.TabIndex = 46;
             this.label14.Text = "Frame Width (mm)";
             // 
             // RectHeightNumeric
             // 
             this.RectHeightNumeric.DecimalPlaces = 1;
-            this.RectHeightNumeric.Location = new System.Drawing.Point(662, 224);
-            this.RectHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RectHeightNumeric.Location = new System.Drawing.Point(441, 146);
             this.RectHeightNumeric.Name = "RectHeightNumeric";
-            this.RectHeightNumeric.Size = new System.Drawing.Size(106, 26);
+            this.RectHeightNumeric.Size = new System.Drawing.Size(71, 20);
             this.RectHeightNumeric.TabIndex = 41;
             this.RectHeightNumeric.Value = new decimal(new int[] {
             65,
@@ -875,20 +802,18 @@ namespace PopUp_Researcher
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(410, 224);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(273, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 20);
+            this.label1.Size = new System.Drawing.Size(138, 13);
             this.label1.TabIndex = 40;
             this.label1.Text = "Rectangle Max Height (mm)";
             // 
             // RectWidthNumeric
             // 
             this.RectWidthNumeric.DecimalPlaces = 1;
-            this.RectWidthNumeric.Location = new System.Drawing.Point(662, 188);
-            this.RectWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RectWidthNumeric.Location = new System.Drawing.Point(441, 122);
             this.RectWidthNumeric.Name = "RectWidthNumeric";
-            this.RectWidthNumeric.Size = new System.Drawing.Size(106, 26);
+            this.RectWidthNumeric.Size = new System.Drawing.Size(71, 20);
             this.RectWidthNumeric.TabIndex = 39;
             this.RectWidthNumeric.Value = new decimal(new int[] {
             65,
@@ -899,25 +824,23 @@ namespace PopUp_Researcher
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(410, 188);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(273, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 20);
+            this.label4.Size = new System.Drawing.Size(135, 13);
             this.label4.TabIndex = 38;
             this.label4.Text = "Rectangle Max Width (mm)";
             // 
             // MondrianMaxOpacityNumeric
             // 
             this.MondrianMaxOpacityNumeric.DecimalPlaces = 2;
-            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(259, 440);
-            this.MondrianMaxOpacityNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(173, 242);
             this.MondrianMaxOpacityNumeric.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MondrianMaxOpacityNumeric.Name = "MondrianMaxOpacityNumeric";
-            this.MondrianMaxOpacityNumeric.Size = new System.Drawing.Size(106, 26);
+            this.MondrianMaxOpacityNumeric.Size = new System.Drawing.Size(71, 20);
             this.MondrianMaxOpacityNumeric.TabIndex = 33;
             this.MondrianMaxOpacityNumeric.Value = new decimal(new int[] {
             1,
@@ -928,10 +851,9 @@ namespace PopUp_Researcher
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 442);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(7, 243);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(202, 20);
+            this.label8.Size = new System.Drawing.Size(137, 13);
             this.label8.TabIndex = 32;
             this.label8.Text = "Mondrian Max Opacity (0-1)\r\n";
             // 
@@ -940,11 +862,9 @@ namespace PopUp_Researcher
             this.TypeGroupBox.Controls.Add(this.RandomRadio);
             this.TypeGroupBox.Controls.Add(this.OrderdRadio);
             this.TypeGroupBox.Controls.Add(this.MixedRadio);
-            this.TypeGroupBox.Location = new System.Drawing.Point(14, 32);
-            this.TypeGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TypeGroupBox.Location = new System.Drawing.Point(9, 21);
             this.TypeGroupBox.Name = "TypeGroupBox";
-            this.TypeGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TypeGroupBox.Size = new System.Drawing.Size(392, 78);
+            this.TypeGroupBox.Size = new System.Drawing.Size(261, 51);
             this.TypeGroupBox.TabIndex = 4;
             this.TypeGroupBox.TabStop = false;
             this.TypeGroupBox.Text = "bRMS type";
@@ -952,10 +872,9 @@ namespace PopUp_Researcher
             // RandomRadio
             // 
             this.RandomRadio.AutoSize = true;
-            this.RandomRadio.Location = new System.Drawing.Point(98, 35);
-            this.RandomRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RandomRadio.Location = new System.Drawing.Point(65, 23);
             this.RandomRadio.Name = "RandomRadio";
-            this.RandomRadio.Size = new System.Drawing.Size(138, 24);
+            this.RandomRadio.Size = new System.Drawing.Size(100, 20);
             this.RandomRadio.TabIndex = 2;
             this.RandomRadio.TabStop = true;
             this.RandomRadio.Text = "Fixed-Random";
@@ -964,10 +883,9 @@ namespace PopUp_Researcher
             // OrderdRadio
             // 
             this.OrderdRadio.AutoSize = true;
-            this.OrderdRadio.Location = new System.Drawing.Point(255, 34);
-            this.OrderdRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OrderdRadio.Location = new System.Drawing.Point(170, 22);
             this.OrderdRadio.Name = "OrderdRadio";
-            this.OrderdRadio.Size = new System.Drawing.Size(115, 24);
+            this.OrderdRadio.Size = new System.Drawing.Size(85, 20);
             this.OrderdRadio.TabIndex = 1;
             this.OrderdRadio.TabStop = true;
             this.OrderdRadio.Text = "Fixed-Fixed";
@@ -978,10 +896,9 @@ namespace PopUp_Researcher
             // 
             this.MixedRadio.AutoSize = true;
             this.MixedRadio.Checked = true;
-            this.MixedRadio.Location = new System.Drawing.Point(9, 34);
-            this.MixedRadio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MixedRadio.Location = new System.Drawing.Point(6, 22);
             this.MixedRadio.Name = "MixedRadio";
-            this.MixedRadio.Size = new System.Drawing.Size(75, 24);
+            this.MixedRadio.Size = new System.Drawing.Size(60, 20);
             this.MixedRadio.TabIndex = 0;
             this.MixedRadio.TabStop = true;
             this.MixedRadio.Text = "Mixed";
@@ -990,24 +907,22 @@ namespace PopUp_Researcher
             // rectNumLabel
             // 
             this.rectNumLabel.AutoSize = true;
-            this.rectNumLabel.Location = new System.Drawing.Point(410, 158);
-            this.rectNumLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rectNumLabel.Location = new System.Drawing.Point(273, 103);
             this.rectNumLabel.Name = "rectNumLabel";
-            this.rectNumLabel.Size = new System.Drawing.Size(224, 20);
+            this.rectNumLabel.Size = new System.Drawing.Size(151, 13);
             this.rectNumLabel.TabIndex = 27;
             this.rectNumLabel.Text = "Rectangle In Mondrian (count)";
             // 
             // RectangleNumeric
             // 
-            this.RectangleNumeric.Location = new System.Drawing.Point(662, 152);
-            this.RectangleNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RectangleNumeric.Location = new System.Drawing.Point(441, 99);
             this.RectangleNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.RectangleNumeric.Name = "RectangleNumeric";
-            this.RectangleNumeric.Size = new System.Drawing.Size(106, 26);
+            this.RectangleNumeric.Size = new System.Drawing.Size(71, 20);
             this.RectangleNumeric.TabIndex = 26;
             this.RectangleNumeric.Value = new decimal(new int[] {
             500,
@@ -1017,11 +932,10 @@ namespace PopUp_Researcher
             // 
             // HelpCsvTextBox
             // 
-            this.HelpCsvTextBox.Location = new System.Drawing.Point(136, 29);
-            this.HelpCsvTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.HelpCsvTextBox.Location = new System.Drawing.Point(91, 19);
             this.HelpCsvTextBox.Name = "HelpCsvTextBox";
             this.HelpCsvTextBox.ReadOnly = true;
-            this.HelpCsvTextBox.Size = new System.Drawing.Size(949, 26);
+            this.HelpCsvTextBox.Size = new System.Drawing.Size(634, 20);
             this.HelpCsvTextBox.TabIndex = 4;
             this.HelpCsvTextBox.TextChanged += new System.EventHandler(this.HelpCsvTextBox_TextChanged);
             this.HelpCsvTextBox.DoubleClick += new System.EventHandler(this.HelpCsvTextBox_DoubleClick);
@@ -1031,21 +945,18 @@ namespace PopUp_Researcher
             this.StimulusGroup.Controls.Add(this.HelpCsvButton);
             this.StimulusGroup.Controls.Add(this.HelpCsvLabel);
             this.StimulusGroup.Controls.Add(this.HelpCsvTextBox);
-            this.StimulusGroup.Location = new System.Drawing.Point(18, 18);
-            this.StimulusGroup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusGroup.Location = new System.Drawing.Point(12, 12);
             this.StimulusGroup.Name = "StimulusGroup";
-            this.StimulusGroup.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.StimulusGroup.Size = new System.Drawing.Size(1137, 86);
+            this.StimulusGroup.Size = new System.Drawing.Size(758, 56);
             this.StimulusGroup.TabIndex = 1;
             this.StimulusGroup.TabStop = false;
             this.StimulusGroup.Text = "Basic";
             // 
             // HelpCsvButton
             // 
-            this.HelpCsvButton.Location = new System.Drawing.Point(1093, 27);
-            this.HelpCsvButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.HelpCsvButton.Location = new System.Drawing.Point(729, 18);
             this.HelpCsvButton.Name = "HelpCsvButton";
-            this.HelpCsvButton.Size = new System.Drawing.Size(36, 31);
+            this.HelpCsvButton.Size = new System.Drawing.Size(24, 20);
             this.HelpCsvButton.TabIndex = 6;
             this.HelpCsvButton.Text = "...";
             this.HelpCsvButton.UseVisualStyleBackColor = true;
@@ -1054,19 +965,17 @@ namespace PopUp_Researcher
             // HelpCsvLabel
             // 
             this.HelpCsvLabel.AutoSize = true;
-            this.HelpCsvLabel.Location = new System.Drawing.Point(20, 35);
-            this.HelpCsvLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.HelpCsvLabel.Location = new System.Drawing.Point(13, 23);
             this.HelpCsvLabel.Name = "HelpCsvLabel";
-            this.HelpCsvLabel.Size = new System.Drawing.Size(108, 20);
+            this.HelpCsvLabel.Size = new System.Drawing.Size(72, 13);
             this.HelpCsvLabel.TabIndex = 5;
             this.HelpCsvLabel.Text = "Help CSV File";
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(1394, 689);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.Location = new System.Drawing.Point(929, 448);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(112, 35);
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 6;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -1081,68 +990,28 @@ namespace PopUp_Researcher
             this.openFileDialogImages.Filter = "IMAGE files (*.jpg)|*.jpg";
             this.openFileDialogImages.Multiselect = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 485);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 20);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Choices";
-            // 
-            // ChoicesTextBox
-            // 
-            this.ChoicesTextBox.Enabled = false;
-            this.ChoicesTextBox.Location = new System.Drawing.Point(196, 482);
-            this.ChoicesTextBox.Name = "ChoicesTextBox";
-            this.ChoicesTextBox.Size = new System.Drawing.Size(169, 26);
-            this.ChoicesTextBox.TabIndex = 69;
-            // 
-            // ChoicesButton
-            // 
-            this.ChoicesButton.Location = new System.Drawing.Point(155, 480);
-            this.ChoicesButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ChoicesButton.Name = "ChoicesButton";
-            this.ChoicesButton.Size = new System.Drawing.Size(34, 30);
-            this.ChoicesButton.TabIndex = 70;
-            this.ChoicesButton.Text = "+";
-            this.ChoicesButton.UseVisualStyleBackColor = true;
-            this.ChoicesButton.Click += new System.EventHandler(this.ChoicesButton_Click);
-            // 
-            // AddChoiceTextBox
-            // 
-            this.AddChoiceTextBox.Location = new System.Drawing.Point(83, 482);
-            this.AddChoiceTextBox.MaxLength = 1;
-            this.AddChoiceTextBox.Name = "AddChoiceTextBox";
-            this.AddChoiceTextBox.Size = new System.Drawing.Size(65, 26);
-            this.AddChoiceTextBox.TabIndex = 71;
-            // 
             // BrmsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1524, 729);
+            this.ClientSize = new System.Drawing.Size(1016, 474);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.StimulusGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BrmsForm";
             this.Text = "bRMS";
             this.AllBRMSGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacdeOutTimeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PostTrialGapNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StimulusDelayNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondrianCountNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimingResponseNumeric)).EndInit();
             this.ParamsGroupBox.ResumeLayout(false);
             this.ParamsGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericGapDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMondrianDuration)).EndInit();
             this.NameGroupBox.ResumeLayout(false);
             this.NameGroupBox.PerformLayout();
@@ -1184,8 +1053,6 @@ namespace PopUp_Researcher
         private Label label6;
         private NumericUpDown PostTrialGapNumeric;
         private Label label9;
-        private NumericUpDown StimulusDelayNumeric;
-        private Label StimulusDelayLabel;
         private NumericUpDown MondrianCountNumeric;
         private Label MondrianCountLabel;
         private NumericUpDown TimingResponseNumeric;
@@ -1242,8 +1109,6 @@ namespace PopUp_Researcher
         private NumericUpDown StimulusDurationNumeric;
         private GroupBox NameGroupBox;
         private TextBox NameTextBox;
-        private Label label18;
-        private NumericUpDown numericGapDuration;
         private Label label7;
         private NumericUpDown numericMondrianDuration;
         private TextBox AddChoiceTextBox;

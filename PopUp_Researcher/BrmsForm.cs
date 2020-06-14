@@ -39,6 +39,11 @@ namespace PopUp_Researcher
         protected int brms_count;
 
         /// <summary>
+        /// Return fullscreen for edit
+        /// </summary>
+        public FullScreen ReturnEdit;
+
+        /// <summary>
         /// Already exist bRMS names
         /// </summary>
         protected List<string> existingNames;
@@ -52,7 +57,7 @@ namespace PopUp_Researcher
         /// <summary>
         /// Basic Constructors
         /// </summary>
-        public BrmsForm(Brms _existingTrial=null,List<string> existingTrialsNames = null)
+        public BrmsForm(Brms _existingTrial=null, List<string> existingTrialsNames = null)
         {
             InitializeComponent();
             if (this.Helper == null)

@@ -336,11 +336,11 @@ namespace PopUp_Researcher
         {
             if (TrialsListView.SelectedItems.Count == 0) {return;}
             var selectedIndex = TrialsListView.SelectedItems[0].Index;
-            if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
-            {
-                MessageBox.Show(BasicResources.EditBrmsInvalid);
-                return;
-            }
+            //if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
+            //{
+            //    MessageBox.Show(BasicResources.EditBrmsInvalid);
+            //    //return;
+            //}
             EditExperiment(selectedIndex);
         }
 
@@ -386,6 +386,12 @@ namespace PopUp_Researcher
                     break;
                 }
                 case ExperimentTypes.bRMS:
+                    var rmsForm = new BrmsForm((Brms)trial);
+                    rmsForm.ShowDialog();
+                    if (rmsForm.ReturnEdit != null)
+                    {
+                        Experiments[ExperimentsOrder[trialIndex]] = rmsForm.ReturnEdit;
+                    }
                     break;
             }
             BindListView();
