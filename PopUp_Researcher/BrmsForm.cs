@@ -183,11 +183,9 @@ namespace PopUp_Researcher
             newBrms.rectangle_height = this.RectHeightNumeric.Value;
             newBrms.stimulus_duration = this.StimulusDurationNumeric.Value;
             newBrms.post_trial_gap = this.PostTrialGapNumeric.Value * 1000;
-            newBrms.stimulus_delay = this.StimulusDelayNumeric.Value;
             newBrms.rectangle_number = this.RectangleNumeric.Value;
             newBrms.timing_response = this.TimingResponseNumeric.Value;
             newBrms.mask_duration = this.numericMondrianDuration.Value;
-            newBrms.gap_duration = this.numericGapDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
 
             var choicesList = new List<string>();
@@ -217,10 +215,8 @@ namespace PopUp_Researcher
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
             this.MondrianCountNumeric.Value = this.existingTrial.mondrian_count;
             this.PostTrialGapNumeric.Value = this.existingTrial.post_trial_gap / 1000;
-            this.StimulusDelayNumeric.Value = this.existingTrial.stimulus_delay;
             this.RectangleNumeric.Value = this.existingTrial.rectangle_number;
             this.numericMondrianDuration.Value = this.existingTrial.mask_duration;
-            this.numericGapDuration.Value = this.existingTrial.gap_duration;
             this.TimingResponseNumeric.Value = this.existingTrial.timing_response;
             this.MondrianMaxOpacityNumeric.Value = this.existingTrial.mondrian_max_opacity;
             this.FixationWidthNumeric.Value = this.existingTrial.fixation_width;
