@@ -31,8 +31,39 @@ namespace PopUp_Researcher.Models
 
         #endregion
 
-        #region Public Methods
+        #region Methods
 
+        private Brms getBrmsFromDic(Dictionary<string, object> dic)
+        {
+            return new Brms()
+            {
+                name = dic["name"].ToString(),
+                brms_type = dic["brms_type"].ToString(),
+
+                block = decimal.Parse(dic["block"].ToString()),
+                sub_block = decimal.Parse(dic["sub_block"].ToString()),
+                rectangle_height = decimal.Parse(dic["rectangle_height"].ToString()),
+                rectangle_width = decimal.Parse(dic["rectangle_width"].ToString()),
+                stimulus_duration = decimal.Parse(dic["stimulus_duration"].ToString()),
+                stimulus_height = decimal.Parse(dic["stimulus_height"].ToString()),
+                stimulus_width = decimal.Parse(dic["stimulus_width"].ToString()),
+                frame_height = decimal.Parse(dic["frame_height"].ToString()),
+                frame_width = decimal.Parse(dic["frame_width"].ToString()),
+                fixation_height = decimal.Parse(dic["fixation_height"].ToString()),
+                fixation_width = decimal.Parse(dic["fixation_width"].ToString()),
+                gap_duration = decimal.Parse(dic["gap_duration"].ToString()),
+                mask_duration = decimal.Parse(dic["mask_duration"].ToString()),
+                mondrian_max_opacity = decimal.Parse(dic["mondrian_max_opacity"].ToString()),
+                stimulus_opacity = decimal.Parse(dic["stimulus_opacity"].ToString()),
+                rectangle_number = decimal.Parse(dic["rectangle_number"].ToString()),
+                mondrian_count = decimal.Parse(dic["mondrian_count"].ToString()),
+                timing_response = decimal.Parse(dic["timing_response"].ToString()),
+                post_trial_gap = decimal.Parse(dic["post_trial_gap"].ToString()),
+                fade_out_time = decimal.Parse(dic["fade_out_time"].ToString()),
+                fade_in_time = decimal.Parse(dic["fade_in_time"].ToString()),
+
+            };
+        }
         public void UpdateTrialsByTimeline()
         {
             this.trialList = new List<Trial>();
@@ -48,7 +79,8 @@ namespace PopUp_Researcher.Models
                         {
                             name = item["name"].ToString(),
                             block = decimal.Parse(item["block"].ToString()),
-                            sub_block = decimal.Parse(item["sub_block"].ToString())
+                            sub_block = decimal.Parse(item["sub_block"].ToString()),
+                            
                         };
                         this.trialList.Add(newBrms);
                         break;

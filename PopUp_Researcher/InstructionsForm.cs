@@ -107,14 +107,13 @@ namespace PopUp_Researcher
         {
             var newIntro = Utils.AddHtmlBreakLines(PageRichTextBox.Text);
             if (string.IsNullOrEmpty(newIntro)) return;
-            if (listView1.SelectedItems.Count == 0)
+
+            if (listView1.SelectedItems.Count != 0)
             {
-                AddPageToPagesDictionary(newIntro);
+                PagesDictionary.Remove(this.listView1.SelectedItems[0].Text);
             }
-            else
-            {
-                PagesDictionary[this.listView1.SelectedItems[0].Text] = newIntro;
-            }
+
+            AddPageToPagesDictionary(newIntro);
             BindListView();
             PageRichTextBox.ResetText();
         }
@@ -244,7 +243,7 @@ namespace PopUp_Researcher
         {
             if (listView1.SelectedItems.Count != 0)
             {
-                PageRichTextBox.Text = listView1.SelectedItems[0].Text;
+                PageRichTextBox.Text = PagesDictionary[listView1.SelectedItems[0].Text];
             }
             else
             {
