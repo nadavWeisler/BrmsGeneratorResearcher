@@ -234,6 +234,11 @@ namespace PopUp_Researcher
             BindListView();
         }
 
+        private string getTextFromLine(string line)
+        {
+            return line.Replace("<br>", "\n");
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -243,7 +248,9 @@ namespace PopUp_Researcher
         {
             if (listView1.SelectedItems.Count != 0)
             {
-                PageRichTextBox.Text = PagesDictionary[listView1.SelectedItems[0].Text];
+                var getString = this.getTextFromLine(
+                    PagesDictionary[listView1.SelectedItems[0].Text]);
+                PageRichTextBox.Text = getString;
             }
             else
             {

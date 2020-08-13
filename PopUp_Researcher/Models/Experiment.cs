@@ -75,13 +75,9 @@ namespace PopUp_Researcher.Models
                 switch (item["type"])
                 {
                     case "bRMS":
-                        var newBrms = new Brms()
-                        {
-                            name = item["name"].ToString(),
-                            block = decimal.Parse(item["block"].ToString()),
-                            sub_block = decimal.Parse(item["sub_block"].ToString()),
-                            
-                        };
+                        var newBrms = this.getBrmsFromDic(item);
+                        newBrms.block = decimal.Parse(item["block"].ToString());
+                        newBrms.sub_block = decimal.Parse(item["sub_block"].ToString());
                         this.trialList.Add(newBrms);
                         break;
                     case "survey-text":
