@@ -83,7 +83,7 @@ namespace PopUp_Researcher
         }
 
         /// <summary>
-        /// 
+        /// Get names of exiting bRMS trials
         /// </summary>
         /// <returns></returns>
         private static List<string> GetExistingBrmsNames()
@@ -155,7 +155,6 @@ namespace PopUp_Researcher
         /// <param name="e"></param>
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            // Show the FolderBrowserDialog.  
             var result = openFileDialog1.ShowDialog();
             if (result != DialogResult.OK) return;
             var newExperiment = Utils.LoadExperimentJson(openFileDialog1.FileName);
@@ -260,7 +259,7 @@ namespace PopUp_Researcher
             }
         }
 
-        private List<Trial> GetFinalTimeline()
+        private static List<Trial> GetFinalTimeline()
         {
             var resultList = new List<Trial>();
             foreach (var trialString in ExperimentsOrder)
@@ -277,7 +276,7 @@ namespace PopUp_Researcher
             return dictionary;
         }
 
-        private Experiment ExperimentListToDic(Experiment experiment)
+        private static Experiment ExperimentListToDic(Experiment experiment)
         {
             experiment.timeline = new List<Dictionary<string, object>>();
             foreach (var trial in experiment.trialList)
@@ -305,8 +304,8 @@ namespace PopUp_Researcher
 
             var newExperiment = new Experiment(NameTextBox.Text,
                 BackgoundRgbTextBox.Text,
-                this.GetFinalTimeline());
-            newExperiment = this.ExperimentListToDic(newExperiment);
+                GetFinalTimeline());
+            newExperiment = ExperimentListToDic(newExperiment);
 
             var json = JsonConvert.SerializeObject(newExperiment, Formatting.Indented);
 
@@ -531,7 +530,5 @@ namespace PopUp_Researcher
         }
 
         #endregion
-
-
     }
 }
