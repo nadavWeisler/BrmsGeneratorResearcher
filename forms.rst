@@ -24,7 +24,9 @@ bRMS
 bRMS experiment contains stimulus and mask
 parts. On the stimulus part one of your
 stimulus picture will appear after a fade
-in time. The mask part contains several
+in time.
+
+The mask part contains several
 modrians in different colors, switching
 places and colors between each other.
 
@@ -104,6 +106,21 @@ Extras:
 .. image:: images/brms_form.png
    :width: 600
 
+Instructions
+--------------
+On the rich  textbox , we write the
+content of one page and press confirm
+for adding.
+
+All pages listed on the
+list view at the bottom of the page.
+We could change the pages order,
+duplicate or remove from the list view.
+
+For save press the button Save.
+
+.. image:: images/instruction_form.png
+   :width: 400
 
 Survey
 -------------
@@ -171,4 +188,14 @@ the Display Image section, for save
 press the Save button.
 
 .. image:: images/image_form.png
+   :width: 400
+
+Fullscreen
+-------------
+
+Simple trial that represent a message
+after which the browser will enter
+fullscreen mode.
+
+.. image:: images/fullscreen_form.png
    :width: 400

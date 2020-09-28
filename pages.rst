@@ -49,6 +49,7 @@ For each experiment we can see
 •	Name
 
 •	Id
+
 •	Participants count.
 
 •	Details.
