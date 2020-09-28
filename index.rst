@@ -1,10 +1,12 @@
-bRMS Generator - Researcher
-=================================
+bRMS Generator
+===================
 
-PopUpResearcher is a desktop application which generates bRMS experiments.
-PopUpResearcher responsible for JSON experiment file creation, which intended to be upload to PopUpWeb.
+bRMS generator is two part application for
+creation and running of bRMS experiments.
 
 .. toctree::
    :maxdepth: 3
 
-   forms
+    overview
+    researcher
+    web
