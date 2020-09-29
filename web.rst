@@ -1,7 +1,7 @@
-bRMS Generator - Web
+bRMS Generator - Runner
 ============================
 
-Popup web is a website that upload,
+bRMS Generator - Runner is a website that upload,
 run, organize and export bRMS experiments.
 
 .. image:: images/main_page.png
