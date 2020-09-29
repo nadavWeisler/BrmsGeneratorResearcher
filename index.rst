@@ -7,6 +7,5 @@ creation and running of bRMS experiments.
 .. toctree::
    :maxdepth: 3
 
-    overview
     researcher
     web
