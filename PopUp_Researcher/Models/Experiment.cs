@@ -14,6 +14,8 @@ namespace PopUp_Researcher.Models
 
         public string background_color;
 
+        public string completion_code;
+
         public List<Dictionary<string, object>> timeline { get; set; }
 
         public List<Trial> trialList;
@@ -22,10 +24,11 @@ namespace PopUp_Researcher.Models
 
         #region Constructors
 
-        public Experiment(string _name, string _background, List<Trial> trialList)
+        public Experiment(string _name, string _background, string _completionCode, List<Trial> trialList)
         {
             this.name = _name;
             this.background_color = _background;
+            this.completion_code = _completionCode;
             this.trialList = trialList;
         }
 

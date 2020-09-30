@@ -50,6 +50,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BackgoundRgbTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.CompletionCodeText = new System.Windows.Forms.TextBox();
+            this.CompletionCodeLabel = new System.Windows.Forms.Label();
             this.TrialsButtonGroup.SuspendLayout();
             this.SaveButtonGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -257,11 +259,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CompletionCodeText);
+            this.groupBox2.Controls.Add(this.CompletionCodeLabel);
             this.groupBox2.Controls.Add(this.BackgoundRgbTextBox);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Location = new System.Drawing.Point(22, 448);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(763, 65);
+            this.groupBox2.Size = new System.Drawing.Size(763, 107);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parameters";
@@ -271,7 +275,7 @@
             this.BackgoundRgbTextBox.Location = new System.Drawing.Point(269, 28);
             this.BackgoundRgbTextBox.MaxLength = 7;
             this.BackgoundRgbTextBox.Name = "BackgoundRgbTextBox";
-            this.BackgoundRgbTextBox.Size = new System.Drawing.Size(100, 26);
+            this.BackgoundRgbTextBox.Size = new System.Drawing.Size(236, 26);
             this.BackgoundRgbTextBox.TabIndex = 71;
             // 
             // label19
@@ -284,11 +288,29 @@
             this.label19.TabIndex = 70;
             this.label19.Text = "Background Color (RGB Include #)";
             // 
+            // CompletionCodeText
+            // 
+            this.CompletionCodeText.Location = new System.Drawing.Point(269, 65);
+            this.CompletionCodeText.MaxLength = 7;
+            this.CompletionCodeText.Name = "CompletionCodeText";
+            this.CompletionCodeText.Size = new System.Drawing.Size(237, 26);
+            this.CompletionCodeText.TabIndex = 73;
+            // 
+            // CompletionCodeLabel
+            // 
+            this.CompletionCodeLabel.AutoSize = true;
+            this.CompletionCodeLabel.Location = new System.Drawing.Point(7, 68);
+            this.CompletionCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CompletionCodeLabel.Name = "CompletionCodeLabel";
+            this.CompletionCodeLabel.Size = new System.Drawing.Size(157, 24);
+            this.CompletionCodeLabel.TabIndex = 72;
+            this.CompletionCodeLabel.Text = "Completion Code";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 525);
+            this.ClientSize = new System.Drawing.Size(807, 565);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LoadButton);
@@ -335,6 +357,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox BackgoundRgbTextBox;
+        private System.Windows.Forms.TextBox CompletionCodeText;
+        private System.Windows.Forms.Label CompletionCodeLabel;
     }
 }
 

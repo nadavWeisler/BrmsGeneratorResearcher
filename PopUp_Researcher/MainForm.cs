@@ -303,7 +303,8 @@ namespace PopUp_Researcher
             }
 
             var newExperiment = new Experiment(NameTextBox.Text,
-                BackgoundRgbTextBox.Text,
+                BackgoundRgbTextBox.Text, 
+                CompletionCodeText.Text,
                 GetFinalTimeline());
             newExperiment = ExperimentListToDic(newExperiment);
 
