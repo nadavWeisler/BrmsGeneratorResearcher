@@ -1,4 +1,4 @@
-﻿namespace PopUp_Researcher
+﻿namespace BrmsGeneratorResearcher
 {
     partial class ImageForm
     {

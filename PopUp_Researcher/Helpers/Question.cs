@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PopUp_Researcher.Helpers
+namespace BrmsGeneratorResearcher.Helpers
 {
     public abstract class Question
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using PopUp_Researcher.Models;
 
-namespace PopUp_Researcher.Helpers
+namespace BrmsGeneratorResearcher.Helpers
 {
     public class BRmsHelper
     {

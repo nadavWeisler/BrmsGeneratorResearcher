@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
-using PopUp_Researcher.Resources;
+using BrmsGeneratorResearcher.Helpers;
+using BrmsGeneratorResearcher.Resources;
+using PopUp_Researcher;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class SurveyForm : Form
     {
@@ -280,8 +281,7 @@ namespace PopUp_Researcher
         {
             if (!Loaded || QuestionsListView.Items.Count <= 0) return;
 
-            var dialogResult = MessageBox.Show(BasicResources.AreYouSureQ,
-                BasicResources.ChangeSurveyTypeQ,
+            var dialogResult = MessageBox.Show(BasicResources.AreYouSureQ,BasicResources.ChangeSurveyTypeQ,
                 MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return;
             QuestionsListView.Clear();

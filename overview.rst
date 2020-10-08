@@ -23,7 +23,7 @@ and show convergent validity with bCFS BTs (Abir & Hassin, 2020).
 
 Abir, Y., & Hassin, R. R. (2020). Getting to the heart of it: Multi-method exploration of nonconscious prioritization processes. Consciousness and Cognition, 85, 103005.
 
-.. image:: images\paradigm.PNG
+.. image:: images/paradigm.PNG
    :width: 400
 
 

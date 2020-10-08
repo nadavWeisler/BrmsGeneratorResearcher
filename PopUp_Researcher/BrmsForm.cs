@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
+using BrmsGeneratorResearcher.Helpers;
+using BrmsGeneratorResearcher.Resources;
 using PopUp_Researcher.Models;
-using PopUp_Researcher.Resources;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class BrmsForm : Form
     {

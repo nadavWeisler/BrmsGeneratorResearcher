@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using PopUp_Researcher.Helpers;
+using BrmsGeneratorResearcher.Helpers;
+using PopUp_Researcher.Models;
 
-namespace PopUp_Researcher.Models
+namespace BrmsGeneratorResearcher.Models
 {
     public class Experiment
     {
@@ -73,7 +73,6 @@ namespace PopUp_Researcher.Models
             foreach (var item in this.timeline)
             {
                 Survey newSurvey = null;
-                string questionsJson;
                 List<Question> qList;
                 switch (item["type"])
                 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PopUp_Researcher.Resources {
+namespace BrmsGeneratorResearcher.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PopUp_Researcher.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PopUp_Researcher.Resources.ErrMsg", typeof(ErrMsg).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BrmsGeneratorResearcher.Resources.ErrMsg", typeof(ErrMsg).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

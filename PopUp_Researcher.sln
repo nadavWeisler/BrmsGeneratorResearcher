@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopUp_Researcher", "PopUp_Researcher\PopUp_Researcher.csproj", "{D1127653-C1B4-453B-9534-FEF116259479}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrmsGeneratorResearcher", "PopUp_Researcher\BrmsGeneratorResearcher.csproj", "{D1127653-C1B4-453B-9534-FEF116259479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

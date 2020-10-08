@@ -1,6 +1,6 @@
-﻿using PopUp_Researcher.Resources;
+﻿using BrmsGeneratorResearcher.Resources;
 
-namespace PopUp_Researcher.Helpers
+namespace BrmsGeneratorResearcher.Helpers
 {
     public class ImageButton: Trial
     {

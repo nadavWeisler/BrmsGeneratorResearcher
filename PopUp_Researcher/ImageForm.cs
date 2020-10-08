@@ -2,10 +2,10 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
-using PopUp_Researcher.Resources;
+using BrmsGeneratorResearcher.Resources;
+using BrmsGeneratorResearcher.Helpers;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class ImageForm : Form
     {

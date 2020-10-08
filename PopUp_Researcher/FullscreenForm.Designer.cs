@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     partial class FullscreenForm: Form
     {

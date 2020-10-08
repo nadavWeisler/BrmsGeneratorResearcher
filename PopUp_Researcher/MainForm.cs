@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using BrmsGeneratorResearcher.Helpers;
+using BrmsGeneratorResearcher.Models;
+using BrmsGeneratorResearcher.Resources;
 using Newtonsoft.Json;
-using PopUp_Researcher.Helpers;
+using PopUp_Researcher;
 using PopUp_Researcher.Models;
-using PopUp_Researcher.Resources;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class MainForm : Form
     {

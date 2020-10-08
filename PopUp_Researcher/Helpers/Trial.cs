@@ -1,4 +1,4 @@
-﻿namespace PopUp_Researcher.Helpers
+﻿namespace BrmsGeneratorResearcher.Helpers
 {
     public abstract class Trial
     {

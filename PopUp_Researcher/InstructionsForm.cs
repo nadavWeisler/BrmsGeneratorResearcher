@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
-using PopUp_Researcher.Resources;
+using BrmsGeneratorResearcher.Helpers;
+using BrmsGeneratorResearcher.Resources;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class InstructionsForm : Form
     {

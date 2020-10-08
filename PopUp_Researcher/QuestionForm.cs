@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using PopUp_Researcher.Helpers;
+using BrmsGeneratorResearcher.Helpers;
 
 namespace PopUp_Researcher
 {
