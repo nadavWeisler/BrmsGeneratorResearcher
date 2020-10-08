@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BrmsGeneratorResearcher.Helpers;
 
-namespace PopUp_Researcher.Models
+namespace BrmsGeneratorResearcher.Models
 {
     public class Brms: Trial
     {

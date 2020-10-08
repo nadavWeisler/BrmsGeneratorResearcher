@@ -5,8 +5,6 @@ using BrmsGeneratorResearcher.Helpers;
 using BrmsGeneratorResearcher.Models;
 using BrmsGeneratorResearcher.Resources;
 using Newtonsoft.Json;
-using PopUp_Researcher;
-using PopUp_Researcher.Models;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace BrmsGeneratorResearcher

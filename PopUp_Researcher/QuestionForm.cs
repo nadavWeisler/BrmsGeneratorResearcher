@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BrmsGeneratorResearcher.Helpers;
 
-namespace PopUp_Researcher
+namespace BrmsGeneratorResearcher
 {
     public partial class QuestionForm : Form
     {

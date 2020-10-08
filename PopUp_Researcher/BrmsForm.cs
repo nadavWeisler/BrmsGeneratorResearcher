@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using BrmsGeneratorResearcher.Helpers;
+using BrmsGeneratorResearcher.Models;
 using BrmsGeneratorResearcher.Resources;
-using PopUp_Researcher.Models;
 
 namespace BrmsGeneratorResearcher
 {

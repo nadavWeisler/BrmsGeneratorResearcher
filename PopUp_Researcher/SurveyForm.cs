@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using BrmsGeneratorResearcher.Helpers;
 using BrmsGeneratorResearcher.Resources;
-using PopUp_Researcher;
 
 namespace BrmsGeneratorResearcher
 {

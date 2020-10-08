@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using BrmsGeneratorResearcher.Helpers;
-using PopUp_Researcher.Models;
 
 namespace BrmsGeneratorResearcher.Models
 {
