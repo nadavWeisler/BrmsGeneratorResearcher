@@ -13,3 +13,4 @@ creation and running of bRMS experiments.
    web
    order
    jspsych
+   license
