@@ -53,7 +53,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'bRMS Generator - Researcher'
+project = 'bRMS Generator'
 copyright = '2020, Nadav Weisler'
 author = 'Nadav Weisler'
 
