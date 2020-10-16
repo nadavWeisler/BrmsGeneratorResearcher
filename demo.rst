@@ -197,5 +197,5 @@ Press on "Submit" button
 
 Watch how the experiment result downloaded to your computer
 
-.. image:: images/export3.JPG
+.. image:: images/export4.JPG
    :width: 400
