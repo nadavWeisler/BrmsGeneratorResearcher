@@ -18,6 +18,7 @@ namespace BrmsGeneratorResearcher.Models
         public string stop_trial_message;
         public string break_message;
         public string background_color;
+        public string trial_type;
 
         public decimal fade_in_time;
         public decimal fade_out_time;

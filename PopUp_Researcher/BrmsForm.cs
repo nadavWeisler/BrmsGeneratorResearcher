@@ -168,6 +168,9 @@ namespace BrmsGeneratorResearcher
             {
                 newBrms.brms_type = this.RandomRadio.Checked ? "random" : "order";
             }
+
+            newBrms.trial_type = this.rmsRadioButton.Checked ? "RMS" :
+                this.MaskedControlRadioButton.Checked ? "Masked" : "UNMASK";
             
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
