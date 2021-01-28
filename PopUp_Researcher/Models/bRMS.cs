@@ -32,7 +32,7 @@ namespace BrmsGeneratorResearcher.Models
         public decimal rectangle_number;
         public decimal stimulus_opacity;
         public decimal mondrian_max_opacity;
-        public decimal remove_mondrian_before_time;
+        public decimal stimulus_after_press;
         public decimal allowed_to_repeat;
         public decimal mask_duration;
         public decimal gap_duration;

@@ -190,7 +190,7 @@ namespace BrmsGeneratorResearcher
             newBrms.timing_response = this.TimingResponseNumeric.Value;
             newBrms.mask_duration = this.numericMondrianDuration.Value;
             newBrms.mondrian_max_opacity = this.MondrianMaxOpacityNumeric.Value;
-            newBrms.remove_mondrian_before_time = this.FinishMondrianEarlyNumeric.Value;
+            newBrms.stimulus_after_press = this.ShowStimulusAfterNumeric.Value;
 
             var choicesList = new List<string>();
             foreach (var choice in this.ChoicesTextBox.Text.Split(','))
