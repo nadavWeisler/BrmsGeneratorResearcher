@@ -20,6 +20,8 @@ namespace BrmsGeneratorResearcher.Models
         public string background_color;
         public string trial_type;
 
+        public bool two_side;
+
         public decimal fade_in_time;
         public decimal fade_out_time;
         public decimal post_trial_gap;
@@ -47,6 +49,8 @@ namespace BrmsGeneratorResearcher.Models
         public decimal rectangle_height;
 
         public List<string> choices;
+        public List<string> tags1;
+        public List<string> tags2;
 
         public Brms()
         {

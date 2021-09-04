@@ -155,22 +155,27 @@ namespace BrmsGeneratorResearcher
                 name = NameTextBox.Text
             };
 
-            foreach(ListViewItem tag in TagsListView.SelectedItems)
+            newBrms.tags1 = new List<string>();
+            foreach (ListViewItem tag in TagsListView.SelectedItems)
             {
+                newBrms.tags1.Add(tag.Text);
                 newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
             }
 
-            if(this.MixedRadio.Checked)
-            {
-                newBrms.brms_type = "mix";
-            }
-            else
-            {
-                newBrms.brms_type = this.RandomRadio.Checked ? "random" : "order";
-            }
-
+            
+            newBrms.brms_type = "mix";
             newBrms.trial_type = this.rmsRadioButton.Checked ? "RMS" :
                 this.MaskedControlRadioButton.Checked ? "Masked" : "UNMASK";
+
+            newBrms.two_side = this.doubleTagCheckBox.Checked;
+            if(newBrms.two_side)
+            {
+                newBrms.tags2 = new List<string>();
+                foreach (ListViewItem tag in secondTagsListView.SelectedItems)
+                {
+                    newBrms.tags2.Add(tag.Text);
+                }
+            }
             
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
@@ -255,9 +260,11 @@ namespace BrmsGeneratorResearcher
             if (this.Helper.UpdateStimulusFromCsv(csvFileName))
             {
                 TagsListView.Clear();
+                secondTagsListView.Clear();
                 foreach (var tag in this.Helper.GetTagList())
                 {
                     TagsListView.Items.Add(tag);
+                    secondTagsListView.Items.Add(tag);
                 }
             }
             else
@@ -275,18 +282,12 @@ namespace BrmsGeneratorResearcher
             var enabled = !string.IsNullOrEmpty(HelpCsvTextBox.Text);
             AllBRMSGroupBox.Enabled = enabled;
             ParamsGroupBox.Enabled = enabled;
-            RadioEnabled();
+            EnableSecondStimulus();
         }
 
-        /// <summary>
-        /// Enabled Radio buttons
-        /// </summary>
-        private void RadioEnabled()
-        {
-            this.OrderGroup.Enabled = this.OrderdRadio.Checked;
-        }
+   
 
-        /// <summary>
+        /// <summary
         /// Validate bRMS before creation
         /// </summary>
         private string ValidateBeforeAdd()
@@ -308,8 +309,7 @@ namespace BrmsGeneratorResearcher
                 {
                     return ErrMsg.NameAlreadyExistError;
                 }
-            }
-            
+            }     
             return string.Empty;
         }
 
@@ -368,114 +368,6 @@ namespace BrmsGeneratorResearcher
         }
 
         /// <summary>
-        /// Ordered radio checked changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OrderedRadio_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.OrderdRadio.Checked)
-            {
-                this.OrderGroup.Enabled = true;
-                UpdateOrderedListView();
-            }
-            else
-            {
-                this.OrderlistView.Clear();
-                this.OrderGroup.Enabled = false;
-            }
-            RadioEnabled();
-        }
-
-        /// <summary>
-        /// Update fixed-fixed list view by stimulus by tags
-        /// </summary>
-        private void UpdateOrderedListView()
-        {
-            this.OrderlistView.Clear();
-            var stimulusList = this.Helper.GetStimulusByTags(
-                Utils.GetItemsListFromListView(TagsListView, true));
-            stimulusList = stimulusList.Distinct().ToList();
-            foreach (var item in stimulusList)
-            {
-                this.OrderlistView.Items.Add(item);
-            }
-        }
-
-        /// <summary>
-        /// Get Up selected item on fixed-fixed list view
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlusButton_Click(object sender, EventArgs e)
-        {
-            if (OrderlistView.SelectedItems.Count <= 0) return;
-            var orderView = Utils.GetItemsListFromListView(OrderlistView);
-            orderView = Utils.DownOneItem(orderView, OrderlistView.SelectedItems[0].Index);
-            OrderlistView.Items.Clear();
-            foreach (var item in orderView)
-            {
-                OrderlistView.Items.Add(item);
-            }
-        }
-
-        /// <summary>
-        /// Get down selected item on fixed-fixed list view
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MinusButton_Click(object sender, EventArgs e)
-        {
-            if (OrderlistView.SelectedItems.Count <= 0) return;
-            var orderView = Utils.GetItemsListFromListView(OrderlistView);
-            orderView = Utils.UpOneItem(orderView, OrderlistView.SelectedItems[0].Index);
-            OrderlistView.Items.Clear();
-            foreach (var item in orderView)
-            {
-                OrderlistView.Items.Add(item);
-            }
-        }
-
-        /// <summary>
-        /// Remove item on fixed-fixed list view
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RemoveOrderButton_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem item in OrderlistView.SelectedItems)
-            {
-                OrderlistView.Items.RemoveAt(item.Index);
-            }
-        }
-
-        /// <summary>
-        /// Change TagListView selected index
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TagsListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (OrderdRadio.Checked)
-            {
-                UpdateOrderedListView();
-            }
-        }
-
-        /// <summary>
-        /// Duplicate item on fixed-fixed list view
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DuplicateOrderButton_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem item in OrderlistView.SelectedItems)
-            {
-                OrderlistView.Items.Add(item.Text);
-            }
-        }
-
-        /// <summary>
         /// Choice button click
         /// </summary>
         /// <param name="sender"></param>
@@ -508,5 +400,15 @@ namespace BrmsGeneratorResearcher
         }
 
         #endregion
+
+        private void DoubleTagCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableSecondStimulus();
+        }
+
+        private void EnableSecondStimulus()
+        {
+            this.secondTagsGroupBox.Enabled = this.doubleTagCheckBox.Checked;
+        }
     }
 }
