@@ -162,7 +162,12 @@ namespace BrmsGeneratorResearcher
                 newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
             }
 
-            
+            foreach (ListViewItem tag in secondTagsListView.SelectedItems)
+            {
+                newBrms.StimulusDictionary[tag.Text] = Helper.GetStimulusByOneTag(tag.Text);
+            }
+
+
             newBrms.brms_type = "mix";
             newBrms.trial_type = this.rmsRadioButton.Checked ? "RMS" :
                 this.MaskedControlRadioButton.Checked ? "Masked" : "UNMASK";
