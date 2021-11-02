@@ -121,6 +121,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -229,6 +230,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
@@ -242,6 +244,13 @@
     <Compile Include="BrmsForm.Designer.cs">
       <DependentUpon>BrmsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="cpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cpt.Designer.cs">
+      <DependentUpon>cpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Cpt.cs" />
     <Compile Include="Helpers\ImageButton.cs" />
     <Compile Include="Helpers\ImageKeyboard.cs" />
     <Compile Include="ImageForm.cs">
@@ -304,6 +313,9 @@
     </Compile>
     <EmbeddedResource Include="BrmsForm.resx">
       <DependentUpon>BrmsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cpt.resx">
+      <DependentUpon>cpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullscreenForm.resx">
       <DependentUpon>FullscreenForm.cs</DependentUpon>

@@ -5,7 +5,6 @@ using BrmsGeneratorResearcher.Helpers;
 using BrmsGeneratorResearcher.Models;
 using BrmsGeneratorResearcher.Resources;
 using Newtonsoft.Json;
-using Formatting = Newtonsoft.Json.Formatting;
 
 namespace BrmsGeneratorResearcher
 {
@@ -27,6 +26,8 @@ namespace BrmsGeneratorResearcher
         /// Fullscreen Trial Count
         /// </summary>
         protected static int FullscreenCount;
+
+        protected static int CptCount;
 
         /// <summary>
         /// Introduction Trial Count
@@ -63,6 +64,7 @@ namespace BrmsGeneratorResearcher
             FullscreenCount = 0;
             IntroCount = 0;
             BRmsCount = 0;
+            CptCount = 0;
             ImageButtonCount = 0;
         }
 
@@ -215,26 +217,7 @@ namespace BrmsGeneratorResearcher
             BindListView();
         }
 
-        private static bool ValidRgb(string str)
-        {
-            if (string.IsNullOrWhiteSpace(str))
-            {
-                return false;
-            }
-            else if (!str.StartsWith("#"))
-            {
-                return false;
-            }
-            else if (str.Length < 7)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
+        
         /// <summary>
         /// Validation Before Save
         /// </summary>
@@ -249,7 +232,7 @@ namespace BrmsGeneratorResearcher
             {
                 return ErrMsg.NoTrialAddedError;
             }
-            else if(!ValidRgb(BackgoundRgbTextBox.Text))
+            else if(!Utils.ValidateRgb(BackgoundRgbTextBox.Text))
             {
                 return ErrMsg.InvalidRGBcode;
             }
@@ -469,6 +452,12 @@ namespace BrmsGeneratorResearcher
             FullscreenCount++;
         }
 
+        public static void AddCpt(Cpt obj)
+        {
+            AddTrial(obj);
+            CptCount++;
+        }
+
         /// <summary>
         /// Add intro experiment in to experiments list
         /// </summary>
@@ -531,5 +520,12 @@ namespace BrmsGeneratorResearcher
         }
 
         #endregion
+
+        private void cptButton_Click(object sender, EventArgs e)
+        {
+            var newForm = new CptForm();
+            newForm.ShowDialog();
+            BindListView();
+        }
     }
 }

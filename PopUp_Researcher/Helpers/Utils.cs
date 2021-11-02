@@ -101,6 +101,32 @@ namespace BrmsGeneratorResearcher.Helpers
         }
 
         /// <summary>
+        /// Validate RGB string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool ValidateRgb(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return false;
+            }
+            else if (!str.StartsWith("#"))
+            {
+                return false;
+            }
+            else if (str.Length < 7)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        /// <summary>
         /// Load Experiment CSV
         /// </summary>
         /// <param name="filePath"></param>
@@ -204,6 +230,15 @@ namespace BrmsGeneratorResearcher.Helpers
         public const string TextSurvey = "survey-text";
         public const string ScaleSurvey = "survey-likert";
         public const string MultiChoiceSurvey = "survey-multi-choice";
+        public const string ConjunctiveCPT = "conjunctive-cpt";
+    }
+
+    public class Shapes
+    {
+        public const string Squere = "squere";
+        public const string Circle = "circle";
+        public const string UpTriangle = "triangle";
+        public const string DownTriangle = "down_Triangle";
     }
 
 }
