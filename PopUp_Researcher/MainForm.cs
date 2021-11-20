@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using BrmsGeneratorResearcher.Helpers;
 using BrmsGeneratorResearcher.Models;
 using BrmsGeneratorResearcher.Resources;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace BrmsGeneratorResearcher
 {
@@ -159,11 +162,12 @@ namespace BrmsGeneratorResearcher
         {
             var result = openFileDialog1.ShowDialog();
             if (result != DialogResult.OK) return;
+            ExperimentsOrder.Clear();
+            Experiments.Clear();
             var newExperiment = Utils.LoadExperimentJson(openFileDialog1.FileName);
             NameTextBox.Text = newExperiment.name;
             NameTextBox.Enabled = false;
-            this.TrialsListView.Clear();
-            LoadExperiment(newExperiment.trialList);
+            LoadExperiment(newExperiment.trialList, newExperiment);
             BindListView();
         }
 
@@ -171,33 +175,58 @@ namespace BrmsGeneratorResearcher
         /// Load experiment
         /// </summary>
         /// <param name="trialLst"></param>
-        private static void LoadExperiment(IEnumerable<Trial> trialLst)
+        private static void LoadExperiment(IEnumerable<Trial> trialLst, Experiment ex)
         {
+            int count = 0;
             foreach (var item in trialLst)
             {
                 switch (item.type)
                 {
-                    case "bRMS":
-                    {
-                        var helpDic = new Dictionary<string, Brms>
-                        {
-                            {"bRMS", (Brms) item}
-                        };
-                        AddBrms(helpDic);
+                    case ExperimentTypes.Instructions:
+                        AddIntro((Instructions)item);
                         break;
-                    }
-                    case "survey-text":
-                    case "survey-likert":
-                    case "survey-multi-choice":
+                    case ExperimentTypes.bRMS:
+                        List<string> tags = new List<string>();
+                        if(ex.timeline[count].ContainsKey("StimulusDictionary"))
+                        {
+                            Dictionary<string, object> stimulusDictionaryValues =
+                            JObject.FromObject(ex.timeline[count]["StimulusDictionary"]).ToObject<Dictionary<string, object>>();
+                            Dictionary<string, List<string>> stimulusDictionary = new Dictionary<string, List<string>>();
+                            foreach (var key in stimulusDictionaryValues.Keys)
+                            {
+                                tags.Add(key);
+                                stimulusDictionary.Add(key, ((JArray)stimulusDictionaryValues[key]).ToObject<List<string>>());
+                            }
+                            ((Brms)item).StimulusDictionary = stimulusDictionary;
+                            //((Brms)item).tags1 = tags;
+                            //((Brms)item).tags2 = tags;
+                        }
+                        if (ex.timeline[count].ContainsKey("tags1"))
+                        {
+                            ((Brms)item).tags1 = ((JArray)ex.timeline[count]["tags1"]).ToObject<List<string>>();
+                        }
+                        if (ex.timeline[count].ContainsKey("tags2"))
+                        {
+                            ((Brms)item).tags2 = ((JArray)ex.timeline[count]["tags2"]).ToObject<List<string>>();
+                        }
+                        if (ex.timeline[count].ContainsKey("two_side"))
+                        {
+                            ((Brms)item).two_side = bool.Parse(ex.timeline[count]["two_side"].ToString());
+                        }
+                        ((Brms)item).choices = ((JArray)ex.timeline[count]["choices"]).ToObject<List<string>>();
+                        AddSingleBrms((Brms)item);
+                        break;
+                    case ExperimentTypes.Survey:
+                    case ExperimentTypes.MultiChoiceSurvey:
+                    case ExperimentTypes.ScaleSurvey:
+                    case ExperimentTypes.TextSurvey:
                         AddSurvey((Survey) item);
                         break;
-                    case "fullscreen":
+                    case ExperimentTypes.Fullscreen:
                         AddFullscreen((FullScreen) item);
                         break;
-                    case "instructions":
-                        AddIntro((Instructions) item);
-                        break;
                 }
+                count++;
             }
         }
 
@@ -306,7 +335,7 @@ namespace BrmsGeneratorResearcher
             if (!string.IsNullOrEmpty(saveFileDialog1.FileName))
             {
                 //write string to file
-                System.IO.File.WriteAllText(saveFileDialog1.FileName, json);
+                File.WriteAllText(saveFileDialog1.FileName, json);
             }
         }
 
@@ -318,13 +347,7 @@ namespace BrmsGeneratorResearcher
         private void EditButton_Click(object sender, EventArgs e)
         {
             if (TrialsListView.SelectedItems.Count == 0) {return;}
-            var selectedIndex = TrialsListView.SelectedItems[0].Index;
-            //if (Experiments[ExperimentsOrder[selectedIndex]].type == ExperimentTypes.bRMS)
-            //{
-            //    MessageBox.Show(BasicResources.EditBrmsInvalid);
-            //    //return;
-            //}
-            EditExperiment(selectedIndex);
+            EditExperiment(TrialsListView.SelectedItems[0].Index);
         }
 
         /// <summary>
@@ -369,7 +392,7 @@ namespace BrmsGeneratorResearcher
                     break;
                 }
                 case ExperimentTypes.bRMS:
-                    var rmsForm = new BrmsForm((Brms)trial);
+                    var rmsForm = new BrmsForm((Brms)trial, GetExistingBrmsNames());
                     rmsForm.ShowDialog();
                     if (rmsForm.ReturnEdit != null)
                     {
@@ -424,16 +447,26 @@ namespace BrmsGeneratorResearcher
         }
 
         private static void AddTrial(Trial obj)
-        {
+        {   
             if (ExperimentsOrder.Contains(obj.name))
             {
                 var i = 2;
-                while (ExperimentsOrder.Contains(obj.name + 1))
+                string[] splitedName = obj.name.Split('_');
+                string newName;
+                if (splitedName.Length > 2)
+                {
+                    newName = string.Join("_", splitedName.ToList().GetRange(0, splitedName.Length - 1)); 
+                } 
+                else
+                {
+                    newName = splitedName[0];
+                }
+                while (ExperimentsOrder.Contains(newName + "_" + i))
                 {
                     i++;
                 }
 
-                obj.name += i;
+                obj.name = newName + "_" + i;
             }
             Experiments.Add(obj.name, obj);
             ExperimentsOrder.Add(obj.name);
@@ -488,6 +521,12 @@ namespace BrmsGeneratorResearcher
             SurveyCount++;
         }
 
+        public static void AddSingleBrms(Brms item)
+        {
+            AddTrial(item);
+            BRmsCount++;
+        }
+
         /// <summary>
         /// Add bRMS trials to Experiment list view
         /// </summary>
@@ -496,19 +535,7 @@ namespace BrmsGeneratorResearcher
         {
             foreach (var item in _brmsList.Values)
             {
-                if (ExperimentsOrder.Contains(item.name))
-                {
-                    var i = 2;
-                    while (ExperimentsOrder.Contains(item.name + 1))
-                    {
-                        i++;
-                    }
-
-                    item.name += i;
-                }
-                Experiments.Add(item.name, item);
-                ExperimentsOrder.Add(item.name);
-                BRmsCount++;
+                AddSingleBrms(item);
             }
         }
 
@@ -525,6 +552,37 @@ namespace BrmsGeneratorResearcher
         {
             var newForm = new CptForm();
             newForm.ShowDialog();
+            BindListView();
+        }
+
+        private void DuplicateButton_Click(object sender, EventArgs e)
+        {
+            if (TrialsListView.SelectedItems.Count == 0) { return; }
+            var trial = Experiments[ExperimentsOrder[TrialsListView.SelectedItems[0].Index]];
+            switch(trial.type)
+            {
+                case ExperimentTypes.bRMS:
+                    AddSingleBrms((Brms) trial);
+                    break;
+                case ExperimentTypes.Instructions:
+                    AddIntro((Instructions)trial);
+                    break;
+                case ExperimentTypes.ImageKeyboard:
+                    AddImageKeyboard((ImageButton)trial);
+                    break;
+                case ExperimentTypes.ConjunctiveCPT:
+                    AddCpt((Cpt)trial);
+                    break;
+                case ExperimentTypes.MultiChoiceSurvey:
+                    AddSurvey((MultiSurvey)trial);
+                    break;
+                case ExperimentTypes.ScaleSurvey:
+                    AddSurvey((ScaleSurvey)trial);
+                    break;
+                case ExperimentTypes.TextSurvey:
+                    AddSurvey((TextSurvey)trial);
+                    break;
+            }
             BindListView();
         }
     }

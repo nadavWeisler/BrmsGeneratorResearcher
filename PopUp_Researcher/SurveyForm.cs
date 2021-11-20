@@ -46,6 +46,7 @@ namespace BrmsGeneratorResearcher
             if(existing != null)
             {
                 this.NameTextBox.Enabled = false;
+                this.groupBox1.Enabled = false;
                 this.ExistingTrial = existing;
                 UpdateExistingTrial();
                 BindListView();

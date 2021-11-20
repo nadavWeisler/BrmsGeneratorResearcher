@@ -41,7 +41,7 @@ namespace BrmsGeneratorResearcher
         /// <summary>
         /// Return fullscreen for edit
         /// </summary>
-        public FullScreen ReturnEdit;
+        public Brms ReturnEdit;
 
         /// <summary>
         /// Already exist bRMS names
@@ -57,7 +57,7 @@ namespace BrmsGeneratorResearcher
         /// <summary>
         /// Basic Constructors
         /// </summary>
-        public BrmsForm(Brms _existingTrial=null, List<string> existingTrialsNames = null)
+        public BrmsForm(Brms _existingTrial = null, List<string> existingTrialsNames = null)
         {
             InitializeComponent();
             if (this.Helper == null)
@@ -76,6 +76,7 @@ namespace BrmsGeneratorResearcher
             if(_existingTrial != null)
             {
                 this.existingTrial = _existingTrial;
+                this.StimulusGroup.Enabled = false;
                 UpdateExistingTrial();
             }
 
@@ -131,22 +132,8 @@ namespace BrmsGeneratorResearcher
             HelpCsvTextBox.Text = string.Empty;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddButton_Click(object sender, EventArgs e)
+        private Brms getNewBrms()
         {
-            if(TagsListView.SelectedItems.Count < 1) { return; }
-
-            var validationString = ValidateBeforeAdd();
-            if(!string.IsNullOrEmpty(validationString))
-            {
-                MessageBox.Show(validationString);
-                return;
-            }
-
             var newBrms = new Brms
             {
                 block = this.BlockNumeric.Value,
@@ -173,7 +160,7 @@ namespace BrmsGeneratorResearcher
                 this.MaskedControlRadioButton.Checked ? "Masked" : "UNMASK";
 
             newBrms.two_side = this.doubleTagCheckBox.Checked;
-            if(newBrms.two_side)
+            if (newBrms.two_side)
             {
                 newBrms.tags2 = new List<string>();
                 foreach (ListViewItem tag in secondTagsListView.SelectedItems)
@@ -181,7 +168,7 @@ namespace BrmsGeneratorResearcher
                     newBrms.tags2.Add(tag.Text);
                 }
             }
-            
+
             newBrms.fade_in_time = this.FadeInTimeNumeric.Value;
             newBrms.fade_out_time = this.FacdeOutTimeNumeric.Value;
             newBrms.mondrian_count = this.MondrianCountNumeric.Value;
@@ -212,6 +199,24 @@ namespace BrmsGeneratorResearcher
             }
             newBrms.choices = choicesList;
 
+            return newBrms;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            var validationString = ValidateBeforeAdd();
+            if (!string.IsNullOrEmpty(validationString))
+            {
+                MessageBox.Show(validationString);
+                return;
+            }
+
+            var newBrms = getNewBrms();
             this.BrmsNames.Add(newBrms.name);
             this.brmsTrials[newBrms.name] = newBrms;
             brms_count++;
@@ -223,7 +228,12 @@ namespace BrmsGeneratorResearcher
         /// </summary>
         private void UpdateExistingTrial()
         {
-            this.BlockNumeric.Value = existingTrial.block;
+            this.NameTextBox.Text = this.existingTrial.name;
+            this.NameGroupBox.Enabled = false;
+            this.AllBRMSGroupBox.Enabled = false;
+            this.AddButton.Enabled = false;
+
+            this.BlockNumeric.Value = this.existingTrial.block;
             this.SubBlockNumeric.Value = this.existingTrial.sub_block;
             this.FadeInTimeNumeric.Value = this.existingTrial.fade_in_time;
             this.FacdeOutTimeNumeric.Value = this.existingTrial.fade_out_time;
@@ -242,6 +252,35 @@ namespace BrmsGeneratorResearcher
             this.RectWidthNumeric.Value = this.existingTrial.rectangle_width;
             this.RectHeightNumeric.Value = this.existingTrial.rectangle_height;
             this.StimulusDurationNumeric.Value = this.existingTrial.stimulus_duration;
+            this.doubleTagCheckBox.Checked = this.existingTrial.two_side;
+
+            foreach(string choice in this.existingTrial.choices)
+            {
+                AddNewChoice(choice);
+            }
+
+            foreach(string tag in this.existingTrial.StimulusDictionary.Keys)
+            {
+                this.TagsListView.Items.Add(tag);
+                this.secondTagsListView.Items.Add(tag);
+            }
+
+            if (this.existingTrial.tags1 != null)
+            {
+                foreach (string tag in this.existingTrial.tags1)
+                {
+                    this.TagsListView.FindItemWithText(tag).Selected = true;
+                    //this.TagsListView.Items[tag].Selected = true;
+                }
+            } 
+
+            if (this.existingTrial.tags2 != null)
+            {
+                foreach (string tag in this.existingTrial.tags2)
+                {
+                    this.secondTagsListView.FindItemWithText(tag).Selected = true;
+                }
+            }    
         }
 
         /// <summary>
@@ -286,7 +325,10 @@ namespace BrmsGeneratorResearcher
         {
             var enabled = !string.IsNullOrEmpty(HelpCsvTextBox.Text);
             AllBRMSGroupBox.Enabled = enabled;
-            ParamsGroupBox.Enabled = enabled;
+            if(this.existingTrial == null)
+            {
+                ParamsGroupBox.Enabled = enabled;
+            }
             EnableSecondStimulus();
         }
 
@@ -301,6 +343,10 @@ namespace BrmsGeneratorResearcher
             {
                 return ErrMsg.NameMissingError;
             }
+            if(this.TagsListView.SelectedItems.Count == 0)
+            {
+                return "Missing Tags";
+            }
             foreach (var name in BrmsNames)
             {
                 if (name.Equals(NameTextBox.Text))
@@ -308,13 +354,17 @@ namespace BrmsGeneratorResearcher
                     return ErrMsg.NameAlreadyExistError;
                 }
             }
-            foreach (var name in this.existingNames)
+            if(this.existingTrial == null)
             {
-                if (name.Equals(NameTextBox.Text))
+                foreach (var name in this.existingNames)
                 {
-                    return ErrMsg.NameAlreadyExistError;
+                    if (name.Equals(NameTextBox.Text))
+                    {
+                        return ErrMsg.NameAlreadyExistError;
+                    }
                 }
-            }     
+            }
+              
             return string.Empty;
         }
 
@@ -367,9 +417,31 @@ namespace BrmsGeneratorResearcher
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (BrmsNames.Count <= 0) return;
-            MainForm.AddBrms(brmsTrials);
-            Close();
+            if(this.existingTrial != null)
+            {
+                var validationString = ValidateBeforeAdd();
+                if (!string.IsNullOrEmpty(validationString))
+                {
+                    MessageBox.Show(validationString);
+                    return;
+                }
+                this.ReturnEdit = getNewBrms();
+            } 
+            else
+            {
+                if (BrmsNames.Count <= 0) return;
+                MainForm.AddBrms(brmsTrials);
+                Close();
+            }    
+        }
+
+        private void AddNewChoice(string choice)
+        {
+            this.ChoicesTextBox.Text += choice;
+            if (!string.IsNullOrEmpty(this.ChoicesTextBox.Text))
+            {
+                this.ChoicesTextBox.Text += ",";
+            }
         }
 
         /// <summary>
@@ -395,11 +467,7 @@ namespace BrmsGeneratorResearcher
             }
             else
             {
-                this.ChoicesTextBox.Text += this.AddChoiceTextBox.Text;
-                if (!string.IsNullOrEmpty(this.ChoicesTextBox.Text))
-                {
-                    this.ChoicesTextBox.Text += ",";
-                }
+                this.AddNewChoice(this.AddChoiceTextBox.Text);
                 this.AddChoiceTextBox.Text = string.Empty;
             }
         }
@@ -414,6 +482,11 @@ namespace BrmsGeneratorResearcher
         private void EnableSecondStimulus()
         {
             this.secondTagsGroupBox.Enabled = this.doubleTagCheckBox.Checked;
+        }
+
+        private void ChoicesResetButton_Click(object sender, EventArgs e)
+        {
+            this.ChoicesTextBox.Text = string.Empty;
         }
     }
 }

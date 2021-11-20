@@ -104,6 +104,7 @@ namespace BrmsGeneratorResearcher
             this.SaveButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
+            this.ChoicesResetButton = new System.Windows.Forms.Button();
             this.AllBRMSGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FadeInTimeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacdeOutTimeNumeric)).BeginInit();
@@ -136,9 +137,10 @@ namespace BrmsGeneratorResearcher
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(160, 402);
+            this.RemoveButton.Location = new System.Drawing.Point(240, 618);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveButton.Size = new System.Drawing.Size(112, 35);
             this.RemoveButton.TabIndex = 31;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
@@ -147,18 +149,20 @@ namespace BrmsGeneratorResearcher
             // DuplicateButton
             // 
             this.DuplicateButton.Enabled = false;
-            this.DuplicateButton.Location = new System.Drawing.Point(5, 402);
+            this.DuplicateButton.Location = new System.Drawing.Point(8, 618);
+            this.DuplicateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DuplicateButton.Name = "DuplicateButton";
-            this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
+            this.DuplicateButton.Size = new System.Drawing.Size(112, 35);
             this.DuplicateButton.TabIndex = 32;
             this.DuplicateButton.Text = "Duplicate";
             this.DuplicateButton.UseVisualStyleBackColor = true;
             // 
             // DownButton
             // 
-            this.DownButton.Location = new System.Drawing.Point(124, 402);
+            this.DownButton.Location = new System.Drawing.Point(186, 618);
+            this.DownButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DownButton.Name = "DownButton";
-            this.DownButton.Size = new System.Drawing.Size(30, 23);
+            this.DownButton.Size = new System.Drawing.Size(45, 35);
             this.DownButton.TabIndex = 33;
             this.DownButton.Text = "-";
             this.DownButton.UseVisualStyleBackColor = true;
@@ -166,9 +170,10 @@ namespace BrmsGeneratorResearcher
             // 
             // UpButton
             // 
-            this.UpButton.Location = new System.Drawing.Point(85, 402);
+            this.UpButton.Location = new System.Drawing.Point(128, 618);
+            this.UpButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UpButton.Name = "UpButton";
-            this.UpButton.Size = new System.Drawing.Size(30, 23);
+            this.UpButton.Size = new System.Drawing.Size(45, 35);
             this.UpButton.TabIndex = 34;
             this.UpButton.Text = "+";
             this.UpButton.UseVisualStyleBackColor = true;
@@ -181,9 +186,11 @@ namespace BrmsGeneratorResearcher
             this.AllBRMSGroupBox.Controls.Add(this.DuplicateButton);
             this.AllBRMSGroupBox.Controls.Add(this.RemoveButton);
             this.AllBRMSGroupBox.Controls.Add(this.AllTrialsListView);
-            this.AllBRMSGroupBox.Location = new System.Drawing.Point(769, 12);
+            this.AllBRMSGroupBox.Location = new System.Drawing.Point(1154, 18);
+            this.AllBRMSGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AllBRMSGroupBox.Name = "AllBRMSGroupBox";
-            this.AllBRMSGroupBox.Size = new System.Drawing.Size(245, 430);
+            this.AllBRMSGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AllBRMSGroupBox.Size = new System.Drawing.Size(368, 662);
             this.AllBRMSGroupBox.TabIndex = 10;
             this.AllBRMSGroupBox.TabStop = false;
             this.AllBRMSGroupBox.Text = "All Trials";
@@ -191,18 +198,20 @@ namespace BrmsGeneratorResearcher
             // AllTrialsListView
             // 
             this.AllTrialsListView.HideSelection = false;
-            this.AllTrialsListView.Location = new System.Drawing.Point(6, 19);
+            this.AllTrialsListView.Location = new System.Drawing.Point(9, 29);
+            this.AllTrialsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AllTrialsListView.Name = "AllTrialsListView";
-            this.AllTrialsListView.Size = new System.Drawing.Size(230, 373);
+            this.AllTrialsListView.Size = new System.Drawing.Size(343, 572);
             this.AllTrialsListView.TabIndex = 8;
             this.AllTrialsListView.UseCompatibleStateImageBehavior = false;
             this.AllTrialsListView.View = System.Windows.Forms.View.List;
             // 
             // FadeInTimeNumeric
             // 
-            this.FadeInTimeNumeric.Location = new System.Drawing.Point(185, 79);
+            this.FadeInTimeNumeric.Location = new System.Drawing.Point(278, 122);
+            this.FadeInTimeNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FadeInTimeNumeric.Name = "FadeInTimeNumeric";
-            this.FadeInTimeNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FadeInTimeNumeric.Size = new System.Drawing.Size(106, 26);
             this.FadeInTimeNumeric.TabIndex = 6;
             this.FadeInTimeNumeric.Value = new decimal(new int[] {
             1,
@@ -213,17 +222,19 @@ namespace BrmsGeneratorResearcher
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 81);
+            this.label5.Location = new System.Drawing.Point(26, 125);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 15);
+            this.label5.Size = new System.Drawing.Size(206, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Stimulus Fade In Time (sec)";
             // 
             // FacdeOutTimeNumeric
             // 
-            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(185, 101);
+            this.FacdeOutTimeNumeric.Location = new System.Drawing.Point(278, 155);
+            this.FacdeOutTimeNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FacdeOutTimeNumeric.Name = "FacdeOutTimeNumeric";
-            this.FacdeOutTimeNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FacdeOutTimeNumeric.Size = new System.Drawing.Size(106, 26);
             this.FacdeOutTimeNumeric.TabIndex = 8;
             this.FacdeOutTimeNumeric.Value = new decimal(new int[] {
             3,
@@ -234,18 +245,20 @@ namespace BrmsGeneratorResearcher
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 105);
+            this.label6.Location = new System.Drawing.Point(26, 162);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 15);
+            this.label6.Size = new System.Drawing.Size(231, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Mondrians Fade Out Time (sec)";
             // 
             // PostTrialGapNumeric
             // 
             this.PostTrialGapNumeric.DecimalPlaces = 1;
-            this.PostTrialGapNumeric.Location = new System.Drawing.Point(185, 196);
+            this.PostTrialGapNumeric.Location = new System.Drawing.Point(278, 302);
+            this.PostTrialGapNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PostTrialGapNumeric.Name = "PostTrialGapNumeric";
-            this.PostTrialGapNumeric.Size = new System.Drawing.Size(71, 20);
+            this.PostTrialGapNumeric.Size = new System.Drawing.Size(106, 26);
             this.PostTrialGapNumeric.TabIndex = 14;
             this.PostTrialGapNumeric.Value = new decimal(new int[] {
             4,
@@ -256,17 +269,19 @@ namespace BrmsGeneratorResearcher
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 196);
+            this.label9.Location = new System.Drawing.Point(26, 302);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 15);
+            this.label9.Size = new System.Drawing.Size(148, 20);
             this.label9.TabIndex = 15;
             this.label9.Text = "Post Trial Gap (sec)";
             // 
             // MondrianCountNumeric
             // 
-            this.MondrianCountNumeric.Location = new System.Drawing.Point(441, 77);
+            this.MondrianCountNumeric.Location = new System.Drawing.Point(662, 118);
+            this.MondrianCountNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MondrianCountNumeric.Name = "MondrianCountNumeric";
-            this.MondrianCountNumeric.Size = new System.Drawing.Size(71, 20);
+            this.MondrianCountNumeric.Size = new System.Drawing.Size(106, 26);
             this.MondrianCountNumeric.TabIndex = 20;
             this.MondrianCountNumeric.Value = new decimal(new int[] {
             50,
@@ -277,17 +292,19 @@ namespace BrmsGeneratorResearcher
             // MondrianCountLabel
             // 
             this.MondrianCountLabel.AutoSize = true;
-            this.MondrianCountLabel.Location = new System.Drawing.Point(273, 81);
+            this.MondrianCountLabel.Location = new System.Drawing.Point(410, 125);
+            this.MondrianCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MondrianCountLabel.Name = "MondrianCountLabel";
-            this.MondrianCountLabel.Size = new System.Drawing.Size(136, 15);
+            this.MondrianCountLabel.Size = new System.Drawing.Size(176, 20);
             this.MondrianCountLabel.TabIndex = 21;
             this.MondrianCountLabel.Text = "Mondrian Count (count)";
             // 
             // TimingResponseNumeric
             // 
-            this.TimingResponseNumeric.Location = new System.Drawing.Point(185, 124);
+            this.TimingResponseNumeric.Location = new System.Drawing.Point(278, 191);
+            this.TimingResponseNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TimingResponseNumeric.Name = "TimingResponseNumeric";
-            this.TimingResponseNumeric.Size = new System.Drawing.Size(71, 20);
+            this.TimingResponseNumeric.Size = new System.Drawing.Size(106, 26);
             this.TimingResponseNumeric.TabIndex = 22;
             this.TimingResponseNumeric.Value = new decimal(new int[] {
             10,
@@ -298,14 +315,16 @@ namespace BrmsGeneratorResearcher
             // TimingResponseLabel
             // 
             this.TimingResponseLabel.AutoSize = true;
-            this.TimingResponseLabel.Location = new System.Drawing.Point(17, 124);
+            this.TimingResponseLabel.Location = new System.Drawing.Point(26, 191);
+            this.TimingResponseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TimingResponseLabel.Name = "TimingResponseLabel";
-            this.TimingResponseLabel.Size = new System.Drawing.Size(118, 15);
+            this.TimingResponseLabel.Size = new System.Drawing.Size(152, 20);
             this.TimingResponseLabel.TabIndex = 23;
             this.TimingResponseLabel.Text = "All Trial Length (sec)";
             // 
             // ParamsGroupBox
             // 
+            this.ParamsGroupBox.Controls.Add(this.ChoicesResetButton);
             this.ParamsGroupBox.Controls.Add(this.doubleTagCheckBox);
             this.ParamsGroupBox.Controls.Add(this.secondTagsGroupBox);
             this.ParamsGroupBox.Controls.Add(this.label3);
@@ -358,9 +377,11 @@ namespace BrmsGeneratorResearcher
             this.ParamsGroupBox.Controls.Add(this.FacdeOutTimeNumeric);
             this.ParamsGroupBox.Controls.Add(this.label5);
             this.ParamsGroupBox.Controls.Add(this.FadeInTimeNumeric);
-            this.ParamsGroupBox.Location = new System.Drawing.Point(12, 74);
+            this.ParamsGroupBox.Location = new System.Drawing.Point(18, 114);
+            this.ParamsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ParamsGroupBox.Name = "ParamsGroupBox";
-            this.ParamsGroupBox.Size = new System.Drawing.Size(757, 368);
+            this.ParamsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ParamsGroupBox.Size = new System.Drawing.Size(1136, 566);
             this.ParamsGroupBox.TabIndex = 22;
             this.ParamsGroupBox.TabStop = false;
             this.ParamsGroupBox.Text = "Paramenters";
@@ -368,10 +389,9 @@ namespace BrmsGeneratorResearcher
             // doubleTagCheckBox
             // 
             this.doubleTagCheckBox.AutoSize = true;
-            this.doubleTagCheckBox.Location = new System.Drawing.Point(530, 299);
-            this.doubleTagCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.doubleTagCheckBox.Location = new System.Drawing.Point(795, 460);
             this.doubleTagCheckBox.Name = "doubleTagCheckBox";
-            this.doubleTagCheckBox.Size = new System.Drawing.Size(136, 33);
+            this.doubleTagCheckBox.Size = new System.Drawing.Size(151, 24);
             this.doubleTagCheckBox.TabIndex = 76;
             this.doubleTagCheckBox.Text = "Double Stimulus";
             this.doubleTagCheckBox.UseVisualStyleBackColor = true;
@@ -380,9 +400,11 @@ namespace BrmsGeneratorResearcher
             // secondTagsGroupBox
             // 
             this.secondTagsGroupBox.Controls.Add(this.secondTagsListView);
-            this.secondTagsGroupBox.Location = new System.Drawing.Point(530, 161);
+            this.secondTagsGroupBox.Location = new System.Drawing.Point(795, 248);
+            this.secondTagsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.secondTagsGroupBox.Name = "secondTagsGroupBox";
-            this.secondTagsGroupBox.Size = new System.Drawing.Size(221, 133);
+            this.secondTagsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.secondTagsGroupBox.Size = new System.Drawing.Size(332, 205);
             this.secondTagsGroupBox.TabIndex = 74;
             this.secondTagsGroupBox.TabStop = false;
             this.secondTagsGroupBox.Text = "Second Tags";
@@ -390,9 +412,10 @@ namespace BrmsGeneratorResearcher
             // secondTagsListView
             // 
             this.secondTagsListView.HideSelection = false;
-            this.secondTagsListView.Location = new System.Drawing.Point(9, 21);
+            this.secondTagsListView.Location = new System.Drawing.Point(14, 32);
+            this.secondTagsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.secondTagsListView.Name = "secondTagsListView";
-            this.secondTagsListView.Size = new System.Drawing.Size(206, 105);
+            this.secondTagsListView.Size = new System.Drawing.Size(307, 159);
             this.secondTagsListView.TabIndex = 7;
             this.secondTagsListView.UseCompatibleStateImageBehavior = false;
             this.secondTagsListView.View = System.Windows.Forms.View.List;
@@ -400,18 +423,20 @@ namespace BrmsGeneratorResearcher
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 220);
+            this.label3.Location = new System.Drawing.Point(28, 338);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 15);
+            this.label3.Size = new System.Drawing.Size(221, 20);
             this.label3.TabIndex = 73;
             this.label3.Text = "Show stimulus after click (sec)";
             // 
             // ShowStimulusAfterNumeric
             // 
             this.ShowStimulusAfterNumeric.DecimalPlaces = 1;
-            this.ShowStimulusAfterNumeric.Location = new System.Drawing.Point(185, 219);
+            this.ShowStimulusAfterNumeric.Location = new System.Drawing.Point(278, 337);
+            this.ShowStimulusAfterNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ShowStimulusAfterNumeric.Name = "ShowStimulusAfterNumeric";
-            this.ShowStimulusAfterNumeric.Size = new System.Drawing.Size(71, 20);
+            this.ShowStimulusAfterNumeric.Size = new System.Drawing.Size(106, 26);
             this.ShowStimulusAfterNumeric.TabIndex = 72;
             // 
             // trialTypeGroupBox
@@ -419,9 +444,11 @@ namespace BrmsGeneratorResearcher
             this.trialTypeGroupBox.Controls.Add(this.MaskedControlRadioButton);
             this.trialTypeGroupBox.Controls.Add(this.NoMaskControlRadioButton);
             this.trialTypeGroupBox.Controls.Add(this.rmsRadioButton);
-            this.trialTypeGroupBox.Location = new System.Drawing.Point(9, 21);
+            this.trialTypeGroupBox.Location = new System.Drawing.Point(14, 32);
+            this.trialTypeGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trialTypeGroupBox.Name = "trialTypeGroupBox";
-            this.trialTypeGroupBox.Size = new System.Drawing.Size(261, 51);
+            this.trialTypeGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.trialTypeGroupBox.Size = new System.Drawing.Size(392, 78);
             this.trialTypeGroupBox.TabIndex = 5;
             this.trialTypeGroupBox.TabStop = false;
             this.trialTypeGroupBox.Text = "Trial type";
@@ -429,9 +456,10 @@ namespace BrmsGeneratorResearcher
             // MaskedControlRadioButton
             // 
             this.MaskedControlRadioButton.AutoSize = true;
-            this.MaskedControlRadioButton.Location = new System.Drawing.Point(58, 22);
+            this.MaskedControlRadioButton.Location = new System.Drawing.Point(87, 34);
+            this.MaskedControlRadioButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaskedControlRadioButton.Name = "MaskedControlRadioButton";
-            this.MaskedControlRadioButton.Size = new System.Drawing.Size(128, 32);
+            this.MaskedControlRadioButton.Size = new System.Drawing.Size(142, 24);
             this.MaskedControlRadioButton.TabIndex = 2;
             this.MaskedControlRadioButton.TabStop = true;
             this.MaskedControlRadioButton.Text = "Masked control";
@@ -440,9 +468,10 @@ namespace BrmsGeneratorResearcher
             // NoMaskControlRadioButton
             // 
             this.NoMaskControlRadioButton.AutoSize = true;
-            this.NoMaskControlRadioButton.Location = new System.Drawing.Point(158, 22);
+            this.NoMaskControlRadioButton.Location = new System.Drawing.Point(237, 34);
+            this.NoMaskControlRadioButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NoMaskControlRadioButton.Name = "NoMaskControlRadioButton";
-            this.NoMaskControlRadioButton.Size = new System.Drawing.Size(130, 32);
+            this.NoMaskControlRadioButton.Size = new System.Drawing.Size(145, 24);
             this.NoMaskControlRadioButton.TabIndex = 1;
             this.NoMaskControlRadioButton.TabStop = true;
             this.NoMaskControlRadioButton.Text = "Unmask control";
@@ -452,9 +481,10 @@ namespace BrmsGeneratorResearcher
             // 
             this.rmsRadioButton.AutoSize = true;
             this.rmsRadioButton.Checked = true;
-            this.rmsRadioButton.Location = new System.Drawing.Point(6, 22);
+            this.rmsRadioButton.Location = new System.Drawing.Point(9, 34);
+            this.rmsRadioButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rmsRadioButton.Name = "rmsRadioButton";
-            this.rmsRadioButton.Size = new System.Drawing.Size(72, 32);
+            this.rmsRadioButton.Size = new System.Drawing.Size(70, 24);
             this.rmsRadioButton.TabIndex = 0;
             this.rmsRadioButton.TabStop = true;
             this.rmsRadioButton.Text = "RMS";
@@ -462,18 +492,19 @@ namespace BrmsGeneratorResearcher
             // 
             // AddChoiceTextBox
             // 
-            this.AddChoiceTextBox.Location = new System.Drawing.Point(67, 287);
-            this.AddChoiceTextBox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.AddChoiceTextBox.Location = new System.Drawing.Point(101, 479);
+            this.AddChoiceTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddChoiceTextBox.MaxLength = 1;
             this.AddChoiceTextBox.Name = "AddChoiceTextBox";
-            this.AddChoiceTextBox.Size = new System.Drawing.Size(45, 20);
+            this.AddChoiceTextBox.Size = new System.Drawing.Size(66, 26);
             this.AddChoiceTextBox.TabIndex = 71;
             // 
             // ChoicesButton
             // 
-            this.ChoicesButton.Location = new System.Drawing.Point(115, 287);
+            this.ChoicesButton.Location = new System.Drawing.Point(173, 479);
+            this.ChoicesButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChoicesButton.Name = "ChoicesButton";
-            this.ChoicesButton.Size = new System.Drawing.Size(23, 19);
+            this.ChoicesButton.Size = new System.Drawing.Size(34, 29);
             this.ChoicesButton.TabIndex = 70;
             this.ChoicesButton.Text = "+";
             this.ChoicesButton.UseVisualStyleBackColor = true;
@@ -482,40 +513,43 @@ namespace BrmsGeneratorResearcher
             // ChoicesTextBox
             // 
             this.ChoicesTextBox.Enabled = false;
-            this.ChoicesTextBox.Location = new System.Drawing.Point(143, 287);
-            this.ChoicesTextBox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ChoicesTextBox.Location = new System.Drawing.Point(215, 479);
+            this.ChoicesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChoicesTextBox.Name = "ChoicesTextBox";
-            this.ChoicesTextBox.Size = new System.Drawing.Size(114, 20);
+            this.ChoicesTextBox.Size = new System.Drawing.Size(169, 26);
             this.ChoicesTextBox.TabIndex = 69;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 289);
+            this.label2.Location = new System.Drawing.Point(29, 482);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 68;
             this.label2.Text = "Choices";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 148);
+            this.label7.Location = new System.Drawing.Point(28, 228);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 15);
+            this.label7.Size = new System.Drawing.Size(147, 20);
             this.label7.TabIndex = 65;
             this.label7.Text = "Mask Duration (ms)";
             // 
             // numericMondrianDuration
             // 
-            this.numericMondrianDuration.Location = new System.Drawing.Point(185, 148);
+            this.numericMondrianDuration.Location = new System.Drawing.Point(278, 228);
+            this.numericMondrianDuration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericMondrianDuration.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericMondrianDuration.Name = "numericMondrianDuration";
-            this.numericMondrianDuration.Size = new System.Drawing.Size(71, 20);
+            this.numericMondrianDuration.Size = new System.Drawing.Size(106, 26);
             this.numericMondrianDuration.TabIndex = 64;
             this.numericMondrianDuration.Value = new decimal(new int[] {
             67,
@@ -526,63 +560,70 @@ namespace BrmsGeneratorResearcher
             // NameGroupBox
             // 
             this.NameGroupBox.Controls.Add(this.NameTextBox);
-            this.NameGroupBox.Location = new System.Drawing.Point(276, 21);
+            this.NameGroupBox.Location = new System.Drawing.Point(414, 32);
+            this.NameGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NameGroupBox.Name = "NameGroupBox";
-            this.NameGroupBox.Size = new System.Drawing.Size(236, 51);
+            this.NameGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NameGroupBox.Size = new System.Drawing.Size(354, 78);
             this.NameGroupBox.TabIndex = 36;
             this.NameGroupBox.TabStop = false;
             this.NameGroupBox.Text = "Name";
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(5, 18);
-            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.NameTextBox.Location = new System.Drawing.Point(8, 28);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(226, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(337, 26);
             this.NameTextBox.TabIndex = 0;
             // 
             // SubBlockNumeric
             // 
-            this.SubBlockNumeric.Location = new System.Drawing.Point(205, 316);
+            this.SubBlockNumeric.Location = new System.Drawing.Point(278, 531);
+            this.SubBlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubBlockNumeric.Name = "SubBlockNumeric";
-            this.SubBlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.SubBlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.SubBlockNumeric.TabIndex = 26;
             // 
             // SubBlockLabel
             // 
             this.SubBlockLabel.AutoSize = true;
-            this.SubBlockLabel.Location = new System.Drawing.Point(142, 317);
+            this.SubBlockLabel.Location = new System.Drawing.Point(183, 533);
+            this.SubBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubBlockLabel.Name = "SubBlockLabel";
-            this.SubBlockLabel.Size = new System.Drawing.Size(62, 15);
+            this.SubBlockLabel.Size = new System.Drawing.Size(81, 20);
             this.SubBlockLabel.TabIndex = 25;
             this.SubBlockLabel.Text = "Sub Block";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 172);
+            this.label12.Location = new System.Drawing.Point(26, 265);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 15);
+            this.label12.Size = new System.Drawing.Size(170, 20);
             this.label12.TabIndex = 63;
             this.label12.Text = "Stimulus Duration (ms)";
             // 
             // BlockNumeric
             // 
-            this.BlockNumeric.Location = new System.Drawing.Point(86, 315);
+            this.BlockNumeric.Location = new System.Drawing.Point(99, 530);
+            this.BlockNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BlockNumeric.Name = "BlockNumeric";
-            this.BlockNumeric.Size = new System.Drawing.Size(51, 20);
+            this.BlockNumeric.Size = new System.Drawing.Size(76, 26);
             this.BlockNumeric.TabIndex = 24;
             // 
             // StimulusDurationNumeric
             // 
-            this.StimulusDurationNumeric.Location = new System.Drawing.Point(185, 171);
+            this.StimulusDurationNumeric.Location = new System.Drawing.Point(278, 263);
+            this.StimulusDurationNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StimulusDurationNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusDurationNumeric.Name = "StimulusDurationNumeric";
-            this.StimulusDurationNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusDurationNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusDurationNumeric.TabIndex = 62;
             this.StimulusDurationNumeric.Value = new decimal(new int[] {
             33,
@@ -593,23 +634,25 @@ namespace BrmsGeneratorResearcher
             // BlockLabel
             // 
             this.BlockLabel.AutoSize = true;
-            this.BlockLabel.Location = new System.Drawing.Point(23, 316);
+            this.BlockLabel.Location = new System.Drawing.Point(4, 531);
+            this.BlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BlockLabel.Name = "BlockLabel";
-            this.BlockLabel.Size = new System.Drawing.Size(37, 15);
+            this.BlockLabel.Size = new System.Drawing.Size(48, 20);
             this.BlockLabel.TabIndex = 23;
             this.BlockLabel.Text = "Block";
             // 
             // FixationHeightNumeric
             // 
             this.FixationHeightNumeric.DecimalPlaces = 1;
-            this.FixationHeightNumeric.Location = new System.Drawing.Point(185, 242);
+            this.FixationHeightNumeric.Location = new System.Drawing.Point(278, 372);
+            this.FixationHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FixationHeightNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.FixationHeightNumeric.Name = "FixationHeightNumeric";
-            this.FixationHeightNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FixationHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.FixationHeightNumeric.TabIndex = 61;
             this.FixationHeightNumeric.Value = new decimal(new int[] {
             25,
@@ -620,23 +663,25 @@ namespace BrmsGeneratorResearcher
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 243);
+            this.label10.Location = new System.Drawing.Point(28, 374);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 15);
+            this.label10.Size = new System.Drawing.Size(155, 20);
             this.label10.TabIndex = 60;
             this.label10.Text = "Fixation Height (mm)";
             // 
             // FixationWidthNumeric
             // 
             this.FixationWidthNumeric.DecimalPlaces = 1;
-            this.FixationWidthNumeric.Location = new System.Drawing.Point(441, 263);
+            this.FixationWidthNumeric.Location = new System.Drawing.Point(662, 405);
+            this.FixationWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FixationWidthNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.FixationWidthNumeric.Name = "FixationWidthNumeric";
-            this.FixationWidthNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FixationWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.FixationWidthNumeric.TabIndex = 59;
             this.FixationWidthNumeric.Value = new decimal(new int[] {
             9,
@@ -647,22 +692,24 @@ namespace BrmsGeneratorResearcher
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(275, 263);
+            this.label17.Location = new System.Drawing.Point(412, 405);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(117, 15);
+            this.label17.Size = new System.Drawing.Size(149, 20);
             this.label17.TabIndex = 58;
             this.label17.Text = "Fixation Width (mm)";
             // 
             // StimulusHeightNumeric
             // 
-            this.StimulusHeightNumeric.Location = new System.Drawing.Point(441, 239);
+            this.StimulusHeightNumeric.Location = new System.Drawing.Point(662, 368);
+            this.StimulusHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StimulusHeightNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusHeightNumeric.Name = "StimulusHeightNumeric";
-            this.StimulusHeightNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusHeightNumeric.TabIndex = 57;
             this.StimulusHeightNumeric.Value = new decimal(new int[] {
             65,
@@ -673,23 +720,25 @@ namespace BrmsGeneratorResearcher
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(273, 240);
+            this.label11.Location = new System.Drawing.Point(410, 369);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 15);
+            this.label11.Size = new System.Drawing.Size(161, 20);
             this.label11.TabIndex = 56;
             this.label11.Text = "Stimulus Height (mm)";
             // 
             // StimulusWidthNumeric
             // 
             this.StimulusWidthNumeric.DecimalPlaces = 1;
-            this.StimulusWidthNumeric.Location = new System.Drawing.Point(441, 216);
+            this.StimulusWidthNumeric.Location = new System.Drawing.Point(662, 332);
+            this.StimulusWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StimulusWidthNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.StimulusWidthNumeric.Name = "StimulusWidthNumeric";
-            this.StimulusWidthNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusWidthNumeric.TabIndex = 55;
             this.StimulusWidthNumeric.Value = new decimal(new int[] {
             65,
@@ -700,23 +749,25 @@ namespace BrmsGeneratorResearcher
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(275, 217);
+            this.label13.Location = new System.Drawing.Point(412, 334);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(122, 15);
+            this.label13.Size = new System.Drawing.Size(155, 20);
             this.label13.TabIndex = 54;
             this.label13.Text = "Stimulus Width (mm)";
             // 
             // StimulusOpacityNumeric
             // 
             this.StimulusOpacityNumeric.DecimalPlaces = 2;
-            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(185, 265);
+            this.StimulusOpacityNumeric.Location = new System.Drawing.Point(278, 408);
+            this.StimulusOpacityNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StimulusOpacityNumeric.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.StimulusOpacityNumeric.Name = "StimulusOpacityNumeric";
-            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(71, 20);
+            this.StimulusOpacityNumeric.Size = new System.Drawing.Size(106, 26);
             this.StimulusOpacityNumeric.TabIndex = 53;
             this.StimulusOpacityNumeric.Value = new decimal(new int[] {
             35,
@@ -727,18 +778,21 @@ namespace BrmsGeneratorResearcher
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(18, 265);
+            this.label16.Location = new System.Drawing.Point(27, 408);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(127, 15);
+            this.label16.Size = new System.Drawing.Size(164, 20);
             this.label16.TabIndex = 52;
             this.label16.Text = "Stimulus Opacity (0-1)";
             // 
             // TagsGroupBox
             // 
             this.TagsGroupBox.Controls.Add(this.TagsListView);
-            this.TagsGroupBox.Location = new System.Drawing.Point(530, 21);
+            this.TagsGroupBox.Location = new System.Drawing.Point(795, 32);
+            this.TagsGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TagsGroupBox.Name = "TagsGroupBox";
-            this.TagsGroupBox.Size = new System.Drawing.Size(221, 133);
+            this.TagsGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TagsGroupBox.Size = new System.Drawing.Size(332, 205);
             this.TagsGroupBox.TabIndex = 51;
             this.TagsGroupBox.TabStop = false;
             this.TagsGroupBox.Text = "Tags";
@@ -746,18 +800,20 @@ namespace BrmsGeneratorResearcher
             // TagsListView
             // 
             this.TagsListView.HideSelection = false;
-            this.TagsListView.Location = new System.Drawing.Point(9, 21);
+            this.TagsListView.Location = new System.Drawing.Point(14, 32);
+            this.TagsListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TagsListView.Name = "TagsListView";
-            this.TagsListView.Size = new System.Drawing.Size(206, 105);
+            this.TagsListView.Size = new System.Drawing.Size(307, 159);
             this.TagsListView.TabIndex = 7;
             this.TagsListView.UseCompatibleStateImageBehavior = false;
             this.TagsListView.View = System.Windows.Forms.View.List;
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(670, 339);
+            this.AddButton.Location = new System.Drawing.Point(1005, 522);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.Size = new System.Drawing.Size(112, 35);
             this.AddButton.TabIndex = 20;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -766,14 +822,15 @@ namespace BrmsGeneratorResearcher
             // FrameHeightNumeric
             // 
             this.FrameHeightNumeric.DecimalPlaces = 1;
-            this.FrameHeightNumeric.Location = new System.Drawing.Point(441, 192);
+            this.FrameHeightNumeric.Location = new System.Drawing.Point(662, 295);
+            this.FrameHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FrameHeightNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.FrameHeightNumeric.Name = "FrameHeightNumeric";
-            this.FrameHeightNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FrameHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.FrameHeightNumeric.TabIndex = 49;
             this.FrameHeightNumeric.Value = new decimal(new int[] {
             67,
@@ -784,23 +841,25 @@ namespace BrmsGeneratorResearcher
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(273, 194);
+            this.label15.Location = new System.Drawing.Point(410, 298);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(115, 15);
+            this.label15.Size = new System.Drawing.Size(146, 20);
             this.label15.TabIndex = 48;
             this.label15.Text = "Frame Height (mm)";
             // 
             // FrameWidthNumeric
             // 
             this.FrameWidthNumeric.DecimalPlaces = 1;
-            this.FrameWidthNumeric.Location = new System.Drawing.Point(441, 169);
+            this.FrameWidthNumeric.Location = new System.Drawing.Point(662, 260);
+            this.FrameWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FrameWidthNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.FrameWidthNumeric.Name = "FrameWidthNumeric";
-            this.FrameWidthNumeric.Size = new System.Drawing.Size(71, 20);
+            this.FrameWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.FrameWidthNumeric.TabIndex = 47;
             this.FrameWidthNumeric.Value = new decimal(new int[] {
             160,
@@ -811,18 +870,20 @@ namespace BrmsGeneratorResearcher
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(273, 169);
+            this.label14.Location = new System.Drawing.Point(410, 260);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(110, 15);
+            this.label14.Size = new System.Drawing.Size(140, 20);
             this.label14.TabIndex = 46;
             this.label14.Text = "Frame Width (mm)";
             // 
             // RectHeightNumeric
             // 
             this.RectHeightNumeric.DecimalPlaces = 1;
-            this.RectHeightNumeric.Location = new System.Drawing.Point(441, 146);
+            this.RectHeightNumeric.Location = new System.Drawing.Point(662, 225);
+            this.RectHeightNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RectHeightNumeric.Name = "RectHeightNumeric";
-            this.RectHeightNumeric.Size = new System.Drawing.Size(71, 20);
+            this.RectHeightNumeric.Size = new System.Drawing.Size(106, 26);
             this.RectHeightNumeric.TabIndex = 41;
             this.RectHeightNumeric.Value = new decimal(new int[] {
             65,
@@ -833,18 +894,20 @@ namespace BrmsGeneratorResearcher
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 146);
+            this.label1.Location = new System.Drawing.Point(410, 225);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 15);
+            this.label1.Size = new System.Drawing.Size(206, 20);
             this.label1.TabIndex = 40;
             this.label1.Text = "Rectangle Max Height (mm)";
             // 
             // RectWidthNumeric
             // 
             this.RectWidthNumeric.DecimalPlaces = 1;
-            this.RectWidthNumeric.Location = new System.Drawing.Point(441, 122);
+            this.RectWidthNumeric.Location = new System.Drawing.Point(662, 188);
+            this.RectWidthNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RectWidthNumeric.Name = "RectWidthNumeric";
-            this.RectWidthNumeric.Size = new System.Drawing.Size(71, 20);
+            this.RectWidthNumeric.Size = new System.Drawing.Size(106, 26);
             this.RectWidthNumeric.TabIndex = 39;
             this.RectWidthNumeric.Value = new decimal(new int[] {
             65,
@@ -855,23 +918,25 @@ namespace BrmsGeneratorResearcher
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(273, 124);
+            this.label4.Location = new System.Drawing.Point(410, 191);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 15);
+            this.label4.Size = new System.Drawing.Size(200, 20);
             this.label4.TabIndex = 38;
             this.label4.Text = "Rectangle Max Width (mm)";
             // 
             // MondrianMaxOpacityNumeric
             // 
             this.MondrianMaxOpacityNumeric.DecimalPlaces = 2;
-            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(441, 287);
+            this.MondrianMaxOpacityNumeric.Location = new System.Drawing.Point(280, 444);
+            this.MondrianMaxOpacityNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MondrianMaxOpacityNumeric.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MondrianMaxOpacityNumeric.Name = "MondrianMaxOpacityNumeric";
-            this.MondrianMaxOpacityNumeric.Size = new System.Drawing.Size(71, 20);
+            this.MondrianMaxOpacityNumeric.Size = new System.Drawing.Size(106, 26);
             this.MondrianMaxOpacityNumeric.TabIndex = 33;
             this.MondrianMaxOpacityNumeric.Value = new decimal(new int[] {
             1,
@@ -882,31 +947,34 @@ namespace BrmsGeneratorResearcher
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(275, 287);
+            this.label8.Location = new System.Drawing.Point(30, 444);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 15);
+            this.label8.Size = new System.Drawing.Size(202, 20);
             this.label8.TabIndex = 32;
             this.label8.Text = "Mondrian Max Opacity (0-1)\r\n";
             // 
             // rectNumLabel
             // 
             this.rectNumLabel.AutoSize = true;
-            this.rectNumLabel.Location = new System.Drawing.Point(273, 103);
+            this.rectNumLabel.Location = new System.Drawing.Point(410, 158);
+            this.rectNumLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rectNumLabel.Name = "rectNumLabel";
-            this.rectNumLabel.Size = new System.Drawing.Size(173, 15);
+            this.rectNumLabel.Size = new System.Drawing.Size(224, 20);
             this.rectNumLabel.TabIndex = 27;
             this.rectNumLabel.Text = "Rectangle In Mondrian (count)";
             // 
             // RectangleNumeric
             // 
-            this.RectangleNumeric.Location = new System.Drawing.Point(441, 99);
+            this.RectangleNumeric.Location = new System.Drawing.Point(662, 152);
+            this.RectangleNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RectangleNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.RectangleNumeric.Name = "RectangleNumeric";
-            this.RectangleNumeric.Size = new System.Drawing.Size(71, 20);
+            this.RectangleNumeric.Size = new System.Drawing.Size(106, 26);
             this.RectangleNumeric.TabIndex = 26;
             this.RectangleNumeric.Value = new decimal(new int[] {
             500,
@@ -916,10 +984,11 @@ namespace BrmsGeneratorResearcher
             // 
             // HelpCsvTextBox
             // 
-            this.HelpCsvTextBox.Location = new System.Drawing.Point(91, 19);
+            this.HelpCsvTextBox.Location = new System.Drawing.Point(136, 29);
+            this.HelpCsvTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HelpCsvTextBox.Name = "HelpCsvTextBox";
             this.HelpCsvTextBox.ReadOnly = true;
-            this.HelpCsvTextBox.Size = new System.Drawing.Size(634, 20);
+            this.HelpCsvTextBox.Size = new System.Drawing.Size(949, 26);
             this.HelpCsvTextBox.TabIndex = 4;
             this.HelpCsvTextBox.TextChanged += new System.EventHandler(this.HelpCsvTextBox_TextChanged);
             this.HelpCsvTextBox.DoubleClick += new System.EventHandler(this.HelpCsvTextBox_DoubleClick);
@@ -929,18 +998,21 @@ namespace BrmsGeneratorResearcher
             this.StimulusGroup.Controls.Add(this.HelpCsvButton);
             this.StimulusGroup.Controls.Add(this.HelpCsvLabel);
             this.StimulusGroup.Controls.Add(this.HelpCsvTextBox);
-            this.StimulusGroup.Location = new System.Drawing.Point(12, 12);
+            this.StimulusGroup.Location = new System.Drawing.Point(18, 18);
+            this.StimulusGroup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StimulusGroup.Name = "StimulusGroup";
-            this.StimulusGroup.Size = new System.Drawing.Size(758, 56);
+            this.StimulusGroup.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StimulusGroup.Size = new System.Drawing.Size(1137, 86);
             this.StimulusGroup.TabIndex = 1;
             this.StimulusGroup.TabStop = false;
             this.StimulusGroup.Text = "Basic";
             // 
             // HelpCsvButton
             // 
-            this.HelpCsvButton.Location = new System.Drawing.Point(729, 18);
+            this.HelpCsvButton.Location = new System.Drawing.Point(1094, 28);
+            this.HelpCsvButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HelpCsvButton.Name = "HelpCsvButton";
-            this.HelpCsvButton.Size = new System.Drawing.Size(24, 20);
+            this.HelpCsvButton.Size = new System.Drawing.Size(36, 31);
             this.HelpCsvButton.TabIndex = 6;
             this.HelpCsvButton.Text = "...";
             this.HelpCsvButton.UseVisualStyleBackColor = true;
@@ -949,17 +1021,19 @@ namespace BrmsGeneratorResearcher
             // HelpCsvLabel
             // 
             this.HelpCsvLabel.AutoSize = true;
-            this.HelpCsvLabel.Location = new System.Drawing.Point(13, 23);
+            this.HelpCsvLabel.Location = new System.Drawing.Point(20, 35);
+            this.HelpCsvLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HelpCsvLabel.Name = "HelpCsvLabel";
-            this.HelpCsvLabel.Size = new System.Drawing.Size(82, 15);
+            this.HelpCsvLabel.Size = new System.Drawing.Size(108, 20);
             this.HelpCsvLabel.TabIndex = 5;
             this.HelpCsvLabel.Text = "Help CSV File";
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(929, 448);
+            this.SaveButton.Location = new System.Drawing.Point(1394, 689);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(112, 35);
             this.SaveButton.TabIndex = 6;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -974,18 +1048,29 @@ namespace BrmsGeneratorResearcher
             this.openFileDialogImages.Filter = "IMAGE files (*.jpg)|*.jpg";
             this.openFileDialogImages.Multiselect = true;
             // 
+            // ChoicesResetButton
+            // 
+            this.ChoicesResetButton.Location = new System.Drawing.Point(390, 479);
+            this.ChoicesResetButton.Name = "ChoicesResetButton";
+            this.ChoicesResetButton.Size = new System.Drawing.Size(94, 29);
+            this.ChoicesResetButton.TabIndex = 78;
+            this.ChoicesResetButton.Text = "Reset";
+            this.ChoicesResetButton.UseVisualStyleBackColor = true;
+            this.ChoicesResetButton.Click += new System.EventHandler(this.ChoicesResetButton_Click);
+            // 
             // BrmsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1016, 474);
+            this.ClientSize = new System.Drawing.Size(1524, 729);
             this.Controls.Add(this.ParamsGroupBox);
             this.Controls.Add(this.AllBRMSGroupBox);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.StimulusGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BrmsForm";
             this.Text = "bRMS";
             this.AllBRMSGroupBox.ResumeLayout(false);
@@ -1099,5 +1184,6 @@ namespace BrmsGeneratorResearcher
         private CheckBox doubleTagCheckBox;
         private GroupBox secondTagsGroupBox;
         private ListView secondTagsListView;
+        private Button ChoicesResetButton;
     }
 }

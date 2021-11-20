@@ -49,6 +49,7 @@ namespace BrmsGeneratorResearcher.Models
         public decimal rectangle_height;
 
         public List<string> choices;
+        public List<string> tags;
         public List<string> tags1;
         public List<string> tags2;
 
