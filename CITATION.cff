@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata from this file.
+type: software
+title: bRMS Generator Researcher
+abstract: >-
+  Windows desktop application that generates breaking repeated masking
+  suppression (bRMS) experiments for Green Lab at the Hebrew University of
+  Jerusalem. It writes a JSON experiment file for a separate bRMS runner.
+authors:
+  - family-names: Weisler
+    given-names: Nadav
+    orcid: "https://orcid.org/0009-0001-2729-5422"
+    affiliation: >-
+      Shalvata Mental Health Center; Data Research Center for Mental Health
+      and Rehabilitation, Clalit; Psychology Department, Hebrew University
+      of Jerusalem
+version: 1.2.1
+date-released: "2026-09-27"
+license: MIT
+repository-code: "https://github.com/nadavWeisler/BrmsGeneratorResearcher"
+url: "https://github.com/nadavWeisler/BrmsGeneratorResearcher"
+keywords:
+  - bRMS
+  - breaking repeated masking suppression
+  - consciousness
+  - experiment generator
+  - psychology
