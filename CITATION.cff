@@ -19,6 +19,7 @@ date-released: "2026-09-27"
 license: MIT
 repository-code: "https://github.com/nadavWeisler/BrmsGeneratorResearcher"
 url: "https://github.com/nadavWeisler/BrmsGeneratorResearcher"
+doi: 10.5281/zenodo.22990043
 keywords:
   - bRMS
   - breaking repeated masking suppression
