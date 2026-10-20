@@ -19,5 +19,12 @@
     "consciousness",
     "experiment generator",
     "psychology"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/nadavWeisler/BrmsGeneratorResearcher",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
   ]
 }
